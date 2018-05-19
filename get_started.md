@@ -1,3 +1,16 @@
+---
+# Page settings
+layout: default
+keywords:
+comments: false
+
+# Hero section
+title: Getting Started
+description: Getting Started With Unit Testing
+
+# Micro navigation
+micro_nav: true
+---
 # Getting Started With Skill Testing
 It's easy to unit-test your Alexa skill with Bespoken.
 

@@ -1,3 +1,16 @@
+---
+# Page settings
+layout: default
+keywords:
+comments: false
+
+# Hero section
+title: Unit-Testing Use-Cases
+description: Guide to Common Unit-Testing Use-Cases
+
+# Micro navigation
+micro_nav: true
+---
 # Common Use-Cases And How To Handle Them
 * [Testing State With Dynamo](#testing-with-dynamo)
 * [Testing The Address API](#testing-with-the-address-api)

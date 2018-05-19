@@ -1,17 +1,19 @@
 # Theme settings
 doks:
     baseurl:
-    color_theme: yellow
+    color_theme: blue
     header:
         logo:
             text: Bespoken Documentation
-            image:
+            image: /assets/images/BespokenLogo-small.png
         nav:
-            - item_name: Item 1
+            - item_name: CLI and Proxy
               item_url: '#'
-            - item_name: Item 2
+            - item_name: Unit Testing
               item_url: '#'
-            - item_name: Item 3
+            - item_name: End-To-End Testing
+              item_url: '#'
+            - item_name: Continuous Testing
               item_url: '#'
     footer:
         content:
@@ -20,11 +22,9 @@ doks:
                 image:
             copyright: Copyright &copy; 2017. - Project name <br>All rights reserved.
         social_list:
-            - network_name: facebook
-              profile_url: '#'
             - network_name: twitter
-              profile_url: '#'
-            - network_name: instagram
+              profile_url: 'https://twitter.com/bespokenio'
+            - network_name: facebook
               profile_url: '#'
             - network_name: youtube
               profile_url: '#'
