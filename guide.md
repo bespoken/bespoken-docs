@@ -5,7 +5,7 @@ keywords:
 comments: false
 
 # Hero section
-title: Skill Testing Markup
+title: Skill Testing Markup Language
 description: Complete Guide to Skill Testing ML
 
 # Micro navigation
