@@ -9,7 +9,14 @@ description: All the Bespoken Documentation
 
 # Grid navigation
 grid_navigation:
-    - title: Bespoken Unit Testing
+    - title: CLI & Proxy
+      url: '/guide'
+      links:
+      - name: 'Installation'
+        url: '/get_started'
+      - name: 'Getting Started'
+        url: '/get_started'
+    - title: Unit Testing
       excerpt: Overview
       url: '/guide'
       links:
@@ -19,8 +26,12 @@ grid_navigation:
           url: '/guide'
         - name: 'Use Cases'
           url: '/use_cases'
-    - title: Grid navigation
-      excerpt: Section description
-      cta: Read more
-      url: '#'
+    - title: End-to-end Testing
+      excerpt: Overview
+      url: '/guide'
+      links:
+        - name: 'Getting Started'
+          url: '/get_started'
+        - name: 'Guide'
+          url: '/guide'
 ---

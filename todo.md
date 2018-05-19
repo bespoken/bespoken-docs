@@ -1,3 +1,4 @@
+- [ ] Add other sections on main page
 - [ ] Add landing pages for each section
 - [ ] Add header for each section - with links to other Sections
 - [ ] Add logo
