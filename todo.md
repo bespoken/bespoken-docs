@@ -1,0 +1,7 @@
+- [ ] Add landing pages for each section
+- [ ] Add header for each section - with links to other Sections
+- [ ] Add logo
+- [ ] Better colors
+- [ ] Add icons for each section
+- [ ] Bring in bst docs
+- [ ] Fix arrow behavior on main page
