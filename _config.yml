@@ -4,8 +4,7 @@ doks:
     color_theme: blue
     header:
         logo:
-            text: Bespoken Documentation
-            image: /assets/images/BespokenLogo-small.png
+            image: true
         nav:
             - item_name: CLI and Proxy
               item_url: '#'

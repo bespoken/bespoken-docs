@@ -12,6 +12,10 @@
 		padding: 0 0 (10.3125rem - 1.25rem) 0;
 	}
 
+	img {
+		height: calc(5.625rem - 1px);
+	}
+	
 	.btn {
 		margin-right: .9375rem;
 	}

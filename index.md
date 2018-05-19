@@ -5,7 +5,7 @@ keywords:
 
 # Hero section
 title: Bespoken Docs
-description: All the Bespoken Documentation
+description: The Bespoken Documentation
 
 # Grid navigation
 grid_navigation:
