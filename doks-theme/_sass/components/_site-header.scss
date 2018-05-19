@@ -20,6 +20,7 @@
 	font-weight: bold;
 	font-size: 2em;
 	line-height: 5.625rem;
+	padding-top: 1rem;
 
 	&:hover,
 	&:focus,
@@ -28,7 +29,7 @@
 	}
 
 	img {
-		height: calc(5.625rem - 1px);
+		height: 4rem;
 	}
 }
 

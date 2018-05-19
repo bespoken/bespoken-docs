@@ -11,9 +11,7 @@ description: Complete Guide to Skill Testing ML
 # Micro navigation
 micro_nav: true
 ---
-# Complete Skill Testing Guide
-
-## Overview
+# Overview
 The purpose of the Skill Testing Markup Language is to make it easy for anyone to test Alexa skills and voice apps.
 
 The syntax is based on YAML, and is meant to be easy to read and write. [Learn more about YAML syntax here](http://yaml.org/spec/1.2/spec.html#Preview).
@@ -28,7 +26,7 @@ Jest has been configured with a custom test runner, which:
 
 We consider this the best of all worlds - a full-featured general testing framework tailored to work specifically with skills.
 
-### Nota Bene
+## Nota Bene
 **KEEP IN MIND** the skill tester uses Virtual Alexa, which is an emulator. It is not the real Alexa. This has some benefits, such as:
 
 * Fast execution time
@@ -43,7 +41,7 @@ But there are also limitations. Those include:
 
 If you run into issues with testing specific utterances, always keep in mind you can set the exact intent and slot values with the intent and slot properties.
 
-## Configuration
+# Configuration
 Global configuration options for testing skills can be set in the file
 
 These options can include overriding Jest options, as well as setting skill testing specific ones.
@@ -94,25 +92,25 @@ The handler, interactionModel and trace options are specific to testing.
 
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
 
-## CLI Options
+# CLI Options
 When invoking `bst test`, the name of a specific test to run can be passed, like this:
 ```
 bst test test/MyIntent.test.yml
 ```
 
-## Test Structure
+# Tests
 The test syntax is based on YAML.
 
 When running `bst test`, it automatically searches for files with the following names:
 
-* **/test/\*\*/*.yml
-* **/*.test.yml
-* **/*.spec.yml
+* `**/test/\*\*/*.yml`
+* `**/*.test.yml`
+* `**/*.spec.yml`
 
 Any tests that match these patterns will be run.
 A recommended convention is to sort test files under a test dir.
 
-### Test Suites
+## Test Suites
 Each test file is a test suite. Test suites are made up of one or many tests.
 
 The tests represent discreet conversations with Alexa. Each test can have one or many interactions - here is a simple example:
@@ -150,7 +148,7 @@ The tests represent sequence of conversations with the skill.
 
 They can use specific requests (such as LaunchRequest or SessionEndedRequest), or they can simply be an utterance.
 
-### Test Configuration
+## Test Configuration
 The test configuration can override elements set in the global skill testing configuration.
 
 It can also set test-suite specific items such as:
@@ -161,7 +159,7 @@ It can also set test-suite specific items such as:
 * dynamo: Should be set to "mock" to use the mock dynamo component - [more info here](./use-cases#testing-with-dynamo).
 * userId: Sets the userId to be used in the generated requests
 
-### Test Structure
+## Test Structure
 The start of a test is marked with three dashes on a line - `---`.
 
 It can be followed by an optional test description, which looks like this:
@@ -190,7 +188,7 @@ each assertion is in turn evaluated in order when a response is received.
 
 If any assertion fails for a test, the test stops processing, and information about the failed assertion is provided.
 
-### Assertions
+## Assertions
 An assertion follows one of two simple syntaxes:  
 `[JSONPath Property]: [Expected Value]`   
 or  
@@ -232,7 +230,7 @@ The expected value can be:
 * A regular expression - should be denoted with slashes (/this .* that/)
 * `undefined` - special value indicating not defined
 
-#### JSONPath Properties
+### JSONPath Properties
 JSONPath is an incredibly expressive way to get values from a JSON object.
 
 You can play around with [how it works here](http://jsonpath.com/).
@@ -260,7 +258,7 @@ An array example:
 
 `directives[0].type == "AudioPlayer.Play"`
 
-#### Shorthand Properties
+### Shorthand Properties
 For certain commonly accessed elements, we offer short-hand properties for referring to them. These are:
 
 * prompt - Grabs either the text or ssml from `response.outputSpeech`, whichever one is set
@@ -286,7 +284,7 @@ If it follows a ":", it must be in the form of /my regular expression/ like this
 Regular expression flags are also supported with this syntax, such as /case insensitive/i.
 They are [described here in more detail](https://javascript.info/regexp-introduction#flags).
 
-#### Collection Values
+### Collection Values
 It is also possible to specify multiple valid values for a property.
 
 That is done with a collection of expected values, such as this:
@@ -300,7 +298,7 @@ That is done with a collection of expected values, such as this:
 
 When a collection is used like this, if any of the values matches, the assertion will be considered a success.
 
-### Intent and Slot properties
+## Intent and Slot properties
 Though it is convenient to use the utterance syntax, some times it may not work correctly.
 
 It also is useful to be explicit at times about which intents and slots are desired.
@@ -318,7 +316,7 @@ This interaction will send an IntentRequest with the intent name SomeIntent and 
 
 Easy, right? The utterance is ignored, but can be useful a form of description.
 
-### Request Expressions
+## Request Expressions
 Request expressions allow for setting values explicitly on the request to handler more complex cases.
 
 For example, to set a request attribute explicity in a certain way, just write:
@@ -336,7 +334,7 @@ Note that all request expressions MUST start with request, and when they are set
 request.request.locale: en-US
 ```
 
-### Goto And Exit
+## Goto And Exit
 One advanced feature is support for `goto` and `exit`.
 
 Goto comes at the end of an assertion - if the assertion is true, the test will "jump" to the utterance named.
@@ -369,7 +367,7 @@ The test will end when it reaches the `exit` statement at the end (no further in
 
 Using `goto` and `exit`, more complex tests can be built.
 
-## Further Reading
+# Further Reading
 Take a look at:
 * Our [use cases](use_cases)
 * Our [best practices](best_practices)

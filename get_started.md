@@ -11,7 +11,6 @@ description: Getting Started With Unit Testing
 # Micro navigation
 micro_nav: true
 ---
-# Getting Started With Skill Testing
 It's easy to unit-test your Alexa skill with Bespoken.
 
 <img src="/assets/images/BST-Test-Run.gif" width="800" alt="Test Run Animated" />
@@ -50,7 +49,7 @@ configuration:
   - response.card.content: "/.*/"
 ```
 
-## Setup
+# Setup
 To get started, you need to install Bespoken Tools.
 
 If you haven't already, follow these steps:
@@ -84,7 +83,7 @@ BST: v2.0.0  Node: v8.11.1
   **(Output truncated)**
 ```
 
-## Run Your Tests
+# Run Your Tests
 If you are starting with one of the Alexa sample projects, just go ahead and enter:
 ```
 bst test
@@ -92,7 +91,7 @@ bst test
 
 That's all there is to it!
 
-## Understanding The Output
+# Understanding The Output
 
 <img src="/assets/images/BST-Test-Output.png" width="800" alt="Test Output"/>
 
@@ -112,7 +111,7 @@ The summary at the bottom tells us about the success of the tests, as well as ba
 To see more detailed code coverage info, we can go to `coverage/lcov-report/index.html`.
 This provides detailed information about the code coverage for our tests.
 
-## Going Deeper
+# Going Deeper
 To add more tests, read our guide on the [Skill Testing Markup Language syntax here](guide.md).
 
 Learn about [common use-cases here](./docs/use_cases.md), such as:

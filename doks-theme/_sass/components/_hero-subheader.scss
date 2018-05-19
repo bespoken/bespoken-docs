@@ -15,7 +15,7 @@
 	img {
 		height: calc(5.625rem - 1px);
 	}
-	
+
 	.btn {
 		margin-right: .9375rem;
 	}
@@ -26,10 +26,10 @@
 	}
 
 	.site-header + & {
-		padding: 0 0 (4.6875rem - 1.25rem) 0;
+		padding: 0 0 0 0;
 
 		@media (min-width: $screen-sm-min) {
-			padding: 15rem 0 (10.3125rem - 1.25rem) 0;
+			padding: 7rem 0 0 0;
 		}
 	}
 }
