@@ -4,7 +4,7 @@ layout: homepage
 keywords:
 
 # Hero section
-title: Bespoken Documentation
+title: Bespoken Docs
 description: All the Bespoken Documentation
 
 # Grid navigation
