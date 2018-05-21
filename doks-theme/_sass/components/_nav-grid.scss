@@ -27,19 +27,17 @@
 	@media (min-width: $screen-sm-min) {
 		margin-bottom: 1.875rem;
 	}
+}
 
+.nav-grid__btn {
 	&:hover,
 	&:active,
 	&:focus {
-		border-color: $color-dark-blue;
+		font-weight: bold;
+	}
 
-		.nav-grid__btn {
-			border-color: $color-dark-blue;
-
-			.icon {
-				@include translate(.625rem, 0);
-			}
-		}
+	a {
+		border-bottom: 0px;
 	}
 }
 

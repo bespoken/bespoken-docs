@@ -1,8 +1,10 @@
+- [X] Add logo
+- [X] Fix arrow behavior on main page
+- [ ] Bring in bst docs
+- [ ] Add API section
 - [ ] Add other sections on main page
-- [ ] Add landing pages for each section
-- [ ] Add header for each section - with links to other Sections
-- [ ] Add logo
+- [ ] Add landing pages for each section?
+- [ ] Add header for each page - with links to other pages in the section
 - [ ] Better colors
 - [ ] Add icons for each section
-- [ ] Bring in bst docs
-- [ ] Fix arrow behavior on main page
+- [ ] Make menus on topnav dropdown
