@@ -1,10 +1,13 @@
 - [X] Add logo
 - [X] Fix arrow behavior on main page
 - [ ] Bring in bst docs
+- [ ] Add facebook and youtube links
 - [ ] Add API section
+- [ ] Make whole navblock clickable
 - [ ] Add other sections on main page
 - [ ] Add landing pages for each section?
 - [ ] Add header for each page - with links to other pages in the section
 - [ ] Better colors
 - [ ] Add icons for each section
 - [ ] Make menus on topnav dropdown
+- [ ] how to do redirects from current site

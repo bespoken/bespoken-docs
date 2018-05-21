@@ -12,20 +12,20 @@ grid_navigation:
     - title: CLI & Proxy
       url: '/guide'
       links:
-      - name: 'Installation'
-        url: '/get_started'
       - name: 'Getting Started'
-        url: '/get_started'
+        url: '/cli/get-started'
+      - name: 'Commands'
+        url: '/cli/commands'
     - title: Unit Testing
       excerpt: Overview
       url: '/guide'
       links:
         - name: 'Getting Started'
-          url: '/get_started'
+          url: '/unit-testing/get-started'
         - name: 'Guide'
-          url: '/guide'
+          url: '/unit-testing/guide'
         - name: 'Use Cases'
-          url: '/use_cases'
+          url: '/unit-testing/use-cases'
     - title: End-to-end Testing
       excerpt: Overview
       url: '/guide'
