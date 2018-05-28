@@ -70,7 +70,7 @@
 									{% for item in page.grid_navigation %}
 										<div class="nav-grid__item col-sm-6 col-lg-3" style="margin-right: 20px">
 											<div class="nav-grid__content" data-mh>
-												<h2 class="nav-grid__title">{{ item.title }}</h2>
+													<a href="{{ item.url }}"><h2 class="nav-grid__title">{{ item.title }}</h2></a>
 											</div><!-- /.nav-grid__content -->
 
 												{% for link in item.links %}
