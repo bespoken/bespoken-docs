@@ -68,11 +68,11 @@
 							<div class="nav-grid nav-grid--out">
 								<div class="row">
 									{% for item in page.grid_navigation %}
-										<div class="nav-grid__item col-sm-6 col-lg-3" style="margin-right: 20px">
-											<div class="nav-grid__content" data-mh>
-													<a href="{{ item.url }}"><h2 class="nav-grid__title">{{ item.title }}</h2></a>
-											</div><!-- /.nav-grid__content -->
-
+										<div class="col-sm-6 col-lg-3">
+											<div class="nav-grid__item" >		
+												<div class="nav-grid__content" data-mh>
+														<a href="{{ item.url }}"><h2 class="nav-grid__title">{{ item.title }}</h2></a>
+												</div><!-- /.nav-grid__content -->
 												{% for link in item.links %}
 													<p class="nav-grid__btn">
 														<a href="{{ link.url }}">
@@ -80,9 +80,9 @@
 															<span style="margin-left: 10px">{{ link.name }}</span>
 														</a>
 													</p>
-												{% endfor %}
-
-										</div><!-- /.col -->
+												{% endfor %}	
+											</div><!-- /.col -->
+										</div>
 									{% endfor %}
 								</div><!-- /.row -->
 							</div><!-- /.nav-grid -->

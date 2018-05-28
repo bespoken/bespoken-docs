@@ -13,7 +13,7 @@ doks:
             - item_name: End-To-End Testing
               item_url: '/end-to-end/getting-started'
             - item_name: Continuous Testing
-              item_url: ''
+              item_url: 'https://bespoken.io/blog/test-monitor-alexa-skills-bespoken/'
     footer:
         content:
             logo:
@@ -24,9 +24,9 @@ doks:
             - network_name: twitter
               profile_url: 'https://twitter.com/bespokenio'
             - network_name: facebook
-              profile_url: '#'
+              profile_url: 'https://www.facebook.com/bespokenio/'
             - network_name: youtube
-              profile_url: '#'
+              profile_url: 'https://www.youtube.com/channel/UCxdXZsWFiTk5VuKVGSU2amA'
     google_analytics:
         tracking_code: # Add your Google Analytics tracking code to activate Google Analytics
     comments:
