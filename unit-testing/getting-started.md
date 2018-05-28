@@ -5,8 +5,7 @@ keywords:
 comments: false
 
 # Hero section
-title: Getting Started
-description: Getting Started With Unit Testing
+title: Getting Started With Unit Testing
 
 # Micro navigation
 micro_nav: true
@@ -112,9 +111,9 @@ To see more detailed code coverage info, we can go to `coverage/lcov-report/inde
 This provides detailed information about the code coverage for our tests.
 
 # Going Deeper
-To add more tests, read our guide on the [Skill Testing Markup Language syntax here](guide.md).
+To add more tests, read our guide on the [Skill Testing Markup Language syntax here](../guide).
 
-Learn about [common use-cases here](./docs/use_cases.md), such as:
+Learn about [common use-cases here](../use-cases), such as:
 
 * State Management With Dynamo
 * Testing The Address API
