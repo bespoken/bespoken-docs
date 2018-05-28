@@ -7,13 +7,13 @@ doks:
             image: true
         nav:
             - item_name: CLI and Proxy
-              item_url: '#'
+              item_url: '/cli/getting-started'
             - item_name: Unit Testing
-              item_url: '#'
+              item_url: '/unit-testing/getting-started'
             - item_name: End-To-End Testing
-              item_url: '#'
+              item_url: '/end-to-end/getting-started'
             - item_name: Continuous Testing
-              item_url: '#'
+              item_url: ''
     footer:
         content:
             logo:

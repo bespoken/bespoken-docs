@@ -5,8 +5,7 @@ keywords:
 comments: false
 
 # Hero section
-title: Bespoken CLI Getting Started
-description: Getting Started With The Bespoken CLI
+title: Getting Started With The Bespoken CLI
 
 # Micro navigation
 micro_nav: true
@@ -34,11 +33,11 @@ $ bst
 
 You will then be able to use our commands, described below: 
  
-* [Proxy](commands#proxy) Proxies the Alexa service to your laptop - develop and debug with the real Alexa
-* [Utter](commands#utter) Emulate utterances coming from Alexa, without Alexa. Magic!
-* [Intend](commands#intend) Emulate intents coming from Alexa
-* [Launch](commands#intend) Emulate launch requests coming from Alexa
-* [Speak](commands#speak) Sends utterances directly to the real Alexa
+* [Proxy](../commands#proxy) Proxies the Alexa service to your laptop - develop and debug with the real Alexa
+* [Utter](../commands#utter) Emulate utterances coming from Alexa, without Alexa. Magic!
+* [Intend](../commands#intend) Emulate intents coming from Alexa
+* [Launch](../commands#intend) Emulate launch requests coming from Alexa
+* [Speak](../commands#speak) Sends utterances directly to the real Alexa
 
 ## Updating
 

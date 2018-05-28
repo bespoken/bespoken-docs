@@ -45,7 +45,7 @@ To set the address to be returned from the Address API via mock, just enter a co
 ```
 configuration:
   address:
-    streetAddress1: 1600 Pennsylvania Avenue, NW
+    addressLine1: 1600 Pennsylvania Avenue, NW
     city: Washington
     countryCode: US
     postalCode: 20816

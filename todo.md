@@ -3,6 +3,7 @@
 - [ ] Bring in bst docs
 - [ ] Add facebook and youtube links
 - [ ] Add API section
+- [ ] Add favicons
 - [ ] Make whole navblock clickable
 - [ ] Add other sections on main page
 - [ ] Add landing pages for each section?
@@ -11,3 +12,4 @@
 - [ ] Add icons for each section
 - [ ] Make menus on topnav dropdown
 - [ ] how to do redirects from current site
+- [ ] cleanup footer
