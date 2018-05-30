@@ -9,6 +9,7 @@
 - [ ] Add header for each page - with links to other pages in the section
 - [ ] Better colors
 - [ ] cleanup footer
+- [ ] Add little excerpts
 
 V2
 - [ ] Add landing pages for each section?
