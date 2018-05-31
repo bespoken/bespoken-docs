@@ -17,9 +17,9 @@ doks:
     footer:
         content:
             logo:
-                text: Bespoken Docs
+                text: Bespoken Documentation
                 image:
-            copyright: Copyright &copy; 2017. - Project name <br>All rights reserved.
+            copyright: Copyright &copy; 2018. - Bespoken <br>All rights reserved.
         social_list:
             - network_name: twitter
               profile_url: 'https://twitter.com/bespokenio'
