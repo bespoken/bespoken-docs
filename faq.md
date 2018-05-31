@@ -14,6 +14,22 @@ The tests do the following:
 ## Why do the end-to-end tests some times have the wrong response from the skill? For example, it thinks the word "car" is "card".
 In that last step, the speech-to-text conversion, there are errors as it does not always transcribe the answer correctly. We have tried to optimize this as much as possible, but it does still happen. We generally recommend using a wildcard to deal with this, (replace "and" with *) but if you send me particular cases I can make specific recommendations.
 
+## Enabling for other regions
+### UK
+To ensure that the account is actually enabled for the UK, you need to:
+
+1) Go to amazon.co.uk
+2) Select "Your Account" -> "Manage Your Content and Devices"
+3) Select the the "Preferences" tab
+4) Select "Country/Region settings" and select UK
+
+You should then be able to access the UK skill store and enable the skill for the UK.
+
+This also needs to be the account with which the virtual device was setup. You can verify this by clicking on the devices tab (under manage your content and devices) and you should see "Bespoken's Virtual Device" listed there.
+
+### Best Practices
+Setup a dedicated account for each region in which you want to test, and for each region, setup a user in the Dashboard with a dedicated token.
+
 ## Would it be possible to interrupt Alexa mid-response via the test scripts?
 This is not possible today unfortunately. 
 

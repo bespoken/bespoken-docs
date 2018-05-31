@@ -12,7 +12,7 @@ micro_nav: true
 ---
 It's easy to unit-test your Alexa skill with Bespoken.
 
-<img src="/assets/images/BST-Test-Run.gif" width="800" alt="Test Run Animated" />
+<img src="/assets/images/BST-Test-Run2.gif" width="800" alt="Test Run Animated" />
 
 Here's a sample from the tests being run:
 
@@ -64,12 +64,12 @@ For Windows, run Node Environment
 Once on the command-line, type:
 
 ```
-npm install bespoken-tools -g
+npm install bespoken-tools@alpha -g
 ```
 
 If that fails with a permission warning, you can simply run:
 ```
-sudo npm install bespoken-tools -g
+sudo npm install bespoken-tools@alpha -g
 ```
 
 To confirm that it is installed, type: `bst` on the command-prompt. You should see something like this:
@@ -110,7 +110,7 @@ The summary at the bottom tells us about the success of the tests, as well as ba
 To see more detailed code coverage info, we can go to `coverage/lcov-report/index.html`.
 This provides detailed information about the code coverage for our tests.
 
-# Going Deeper
+# Further Reading and Examples
 To add more tests, read our guide on the [Skill Testing Markup Language syntax here](../guide).
 
 Learn about [common use-cases here](../use-cases), such as:
@@ -118,3 +118,7 @@ Learn about [common use-cases here](../use-cases), such as:
 * State Management With Dynamo
 * Testing The Address API
 * Working With Dialogs
+
+And take a look at the following skills with test examples already configured:
+* [Get Facts](https://github.com/ig-perez/skill-sample-nodejs-fact)
+* [Get Facts - With Continuous Integration and Code Coverage](https://github.com/ig-perez/skill-sample-nodejs-fact/tree/ContinuousIntegration)
