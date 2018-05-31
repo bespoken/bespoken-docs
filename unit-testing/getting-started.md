@@ -12,7 +12,7 @@ micro_nav: true
 ---
 It's easy to unit-test your Alexa skill with Bespoken.
 
-<img src="/assets/images/BST-Test-Run2.gif" width="800" alt="Test Run Animated" />
+<img src="/assets/images/BST-Test-Run.gif" width="800" alt="Test Run Animated" />
 
 Here's a sample from the tests being run:
 
