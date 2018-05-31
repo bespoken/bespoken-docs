@@ -70,7 +70,7 @@ The default Jest settings are as follows:
 
 [Learn what these do here](https://facebook.github.io/jest/docs/en/configuration.html).
 
-An example `bst.json` file:
+An example `skill-testing.json` file:
 ```
 {
     "handler": "src/index.handler",
@@ -93,9 +93,14 @@ The handler, interactionModel and trace options are specific to testing.
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
 
 # CLI Options
-When invoking `bst test`, the name of a specific test to run can be passed, like this:
+When invoking `bst test`, the name of a specific test or regex can be used, like this:
 ```
 bst test test/MyIntent.test.yml
+```
+
+Or this:
+```
+bst test MyIntent
 ```
 
 # Tests
@@ -366,6 +371,54 @@ If the outputSpeech does not start with "Get New Fact", the other assertions wil
 The test will end when it reaches the `exit` statement at the end (no further interactions will be processed).
 
 Using `goto` and `exit`, more complex tests can be built.
+
+# Test Execution
+## Test Environment
+Whenever tests are run, the environment variable UNIT_TEST is automatically set.
+
+This can be used to craft unit tests that run more predictably, like this:
+```
+sessionAttributes.guessNumber = Math.floor(Math.random() * 100);
+
+// For testing purposes, force a number to be picked if the UNIT_TEST environment variable is set
+if (process.env.UNIT_TEST) {
+  sessionAttributes.guessNumber = 50;
+}
+```
+
+## Test Sequence
+Tests are run in the order they appear in the file.
+
+When there are multiple test files, [Jest](https://facebook.github.io/jest/) will run them in parallel, each in their own process.
+
+This allows test suites to run much faster. When any particular test fails, the other tests will continue to process.
+
+## Code Coverage
+Whenever Jest runs, it produces code coverage information - it is seen on the console.
+
+An HTML report is also viewable under `<PROJECT_DIR>/coverage/lcov-report/index.html`.
+
+## Continuous Integration
+To see how a project works with a total CI setup, [checkout this project](https://github.com/ig-perez/skill-sample-nodejs-fact/tree/ContinuousIntegration).
+
+It is configured with Travis and Codecov. Here is the `.travis.yml` configuration file included with the project:
+```
+language: node_js
+node_js:
+  - "8"
+cache:
+  directories:
+  - lambda/custom/node_modules
+install:
+  - npm install bespoken-tools@alpha -g
+  - npm install codecov -g
+  - cd lambda/custom && npm install && cd ../..
+script:
+ - bst test
+ - codecov
+```
+
+To set it up for your own projects, you will need to enable them with [Travis](https://travis-ci.org) and [Codecov](https://codecov.io) (or whatever CI and coverage tools you prefer). Visit their websites for in-depth instructions on how to do this.
 
 # Further Reading
 Take a look at:
