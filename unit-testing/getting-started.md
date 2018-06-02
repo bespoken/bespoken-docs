@@ -57,19 +57,19 @@ If you haven't already, follow these steps:
 [Instructions here](https://www.npmjs.com/get-npm) if you have not already installed npm.
 
 **Open A Command Prompt**  
-For Mac, run Applications -> Terminal
-For Windows, run Node Environment
+For Mac, run Applications -> Terminal  
+For Windows, select Run -> cmd
 
 **Install Bespoken Tools**  
 Once on the command-line, type:
 
 ```
-npm install bespoken-tools@alpha -g
+npm install bespoken-tools@beta -g
 ```
 
 If that fails with a permission warning, you can simply run:
 ```
-sudo npm install bespoken-tools@alpha -g
+sudo npm install bespoken-tools@beta -g
 ```
 
 To confirm that it is installed, type: `bst` on the command-prompt. You should see something like this:
