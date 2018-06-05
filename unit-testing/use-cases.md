@@ -54,13 +54,15 @@ configuration:
 
 That will return a full address when the Alexa Address API is called.
 
-To emulate just the countryOrPostalCode permission, enter an address with just those values:
+To emulate just the countryAndPostalCode permission, enter an address with just those values:
 ```
 configuration:
   address:
     countryCode: US
     postalCode: 20816
 ```
+
+This will return the country and postal code when that is request - **NOTE** it will return a 403 if the full address is requested. The other address fields must be provided to emulate the user providing the full permission.
 
 If no address information is provided, the Address API will return a 403 - which indicates no permission was received from the user.
 
