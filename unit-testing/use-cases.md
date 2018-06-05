@@ -62,7 +62,7 @@ configuration:
     postalCode: 20816
 ```
 
-This will return the country and postal code when that is request - **NOTE** it will return a 403 if the full address is requested. The other address fields must be provided to emulate the user providing the full permission.
+This will return the country and postal code when requested - **NOTE** it will return a 403 if the full address is requested. The other address fields must be provided to emulate the user providing the full permission.
 
 If no address information is provided, the Address API will return a 403 - which indicates no permission was received from the user.
 
