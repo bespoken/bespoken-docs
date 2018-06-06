@@ -393,6 +393,25 @@ When there are multiple test files, [Jest](https://facebook.github.io/jest/) wil
 
 This allows test suites to run much faster. When any particular test fails, the other tests will continue to process.
 
+## Filtering Tests
+Label tests "test.only" or "test.skip" to either only run a particular test, or to skip it. Example:
+```
+---
+- test.only: "Goes to successfully"
+- LaunchRequest:
+  - response.outputSpeech.ssml == "Here's your fact:*" goto Get New Fact
+  - response.reprompt == undefined
+  - response.card.content =~ /.*/
+  - exit
+```
+
+If multiple tests are labeled only within a suite, all the ones will be labeled only.
+
+Use these flags together with the test pattern matching when calling `bst test <pattern>` to narrow the tests that should be run.
+
+## Viewing Request/Response Payloads
+Set the `trace` flag in the skill-testing.json file and the full request and response JSON payloads will be printed to the console when the skill-tester is run.
+
 ## Code Coverage
 Whenever Jest runs, it produces code coverage information - it is seen on the console.
 
