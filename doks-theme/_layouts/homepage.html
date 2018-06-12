@@ -79,12 +79,12 @@
 													<div class="nav-grid__btn " >
 														{% if link.links %}
 	
-															<p class="accordion-button" data-target="{{ link.name }}">
+															<p class="accordion-button nav-grid__btn_text" data-target="{{ link.name }}">
 																<i class="icon icon--arrow-down"></i><span style="margin-left: 10px" >{{ link.name }}</span>
 															</p>
-															<div id="{{ link.name }}" class="accordion nav-grid__sublink">
+															<div id="{{ link.name }}" class="accordion">
 															{% for sublink in link.links %}
-																<p>
+																<p class="nav-grid__sublink">
 																	<a href="{{ sublink.url }}">
 																		<i class="icon icon--arrow-right"></i>
 																		<span style="margin-left: 10px">{{ sublink.name }}</span>
@@ -93,7 +93,7 @@
 															{% endfor %}
 															</div>
 														{% else %}
-															<a href="{{ link.url }}">
+															<a href="{{ link.url }}" class="nav-grid__btn_text">
 																<i class="icon icon--arrow-right"></i>
 																<span style="margin-left: 10px">{{ link.name }}</span>
 															</a>

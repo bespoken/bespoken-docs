@@ -30,13 +30,15 @@
 	}
 }
 
-.nav-grid__btn {
+.nav-grid__btn_text {
 	&:hover,
 	&:active,
 	&:focus {
 		font-weight: bold;
 	}
 
+	border-bottom: 0px;
+		
 	a {
 		border-bottom: 0px;
 	}
@@ -50,10 +52,22 @@
 	color: $font-color-alternative2;
 	font-weight: 500;
 	font-family: $font-family-secondary;
-	margin-bottom: .9375rem;
+	margin-bottom: 0rem;
 	padding: 1rem 1.875rem 0 1rem;
 	text-transform: uppercase;
 	transition: background-color .2s, border .2s;
+}
+
+.nav-grid__sublink {
+	&:hover,
+	&:active,
+	&:focus {
+		font-weight: bold;
+	}
+
+	a {
+		border-bottom: 0px;
+	}
 }
 
 /* ----- Content ----- */
