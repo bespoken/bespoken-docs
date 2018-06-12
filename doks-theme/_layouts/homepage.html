@@ -75,12 +75,29 @@
 														<p class="nav-grid__description">{{ item.description }}</p>
 												</div><!-- /.nav-grid__content -->
 												{% for link in item.links %}
-													<p class="nav-grid__btn">
-														<a href="{{ link.url }}">
-															<i class="icon icon--arrow-right"></i>
-															<span style="margin-left: 10px">{{ link.name }}</span>
-														</a>
-													</p>
+													<div class="nav-grid__btn " >
+														{% if link.links %}
+	
+															<p class="accordion-button" data-target="{{ link.name }}">
+																<i class="icon icon--arrow-down"></i><span style="margin-left: 10px" >{{ link.name }}</span>
+															</p>
+															<div id="{{ link.name }}" class="accordion nav-grid__sublink">
+															{% for sublink in link.links %}
+																<p>
+																	<a href="{{ sublink.url }}">
+																		<i class="icon icon--arrow-right"></i>
+																		<span style="margin-left: 10px">{{ sublink.name }}</span>
+																	</a>
+																</p>
+															{% endfor %}
+															</div>
+														{% else %}
+															<a href="{{ link.url }}">
+																<i class="icon icon--arrow-right"></i>
+																<span style="margin-left: 10px">{{ link.name }}</span>
+															</a>
+														{% endif %}			
+													</div>
 												{% endfor %}	
 											</div><!-- /.col -->
 										</div>
