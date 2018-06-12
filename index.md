@@ -17,6 +17,14 @@ grid_navigation:
         url: '/cli/getting-started'
       - name: 'Commands'
         url: '/cli/commands'
+      - name: 'Tutorials'
+        links:
+          - name: Node.js & Lambda
+            url: http://docs.bespoken.io/en/latest/tutorials/tutorial_lambda_nodejs/
+          - name: Local Java Server
+            url: http://docs.bespoken.io/en/latest/tutorials/tutorial_local_server_java/
+          - name: Python & Flask Ask
+            url: http://docs.bespoken.io/en/latest/tutorials/tutorial_flask_ask_python/
       - name: 'API'
         url: 'http://docs.bespoken.io/en/latest/api/'
     - title: Unit Testing
@@ -29,12 +37,6 @@ grid_navigation:
           url: '/unit-testing/guide'
         - name: 'Use Cases'
           url: '/unit-testing/use-cases'
-        - name: 'Tutorials'
-          links:
-            - name: Tutorial 1
-              url: "https://bespoken.io/tutorial-1"
-            - name: Tutorial 2
-              url: "https://bespoken.io/tutorial-2"
         - name: 'API'
           url: 'https://github.com/bespoken/virtual-alexa'
     - title: End-to-end Testing
