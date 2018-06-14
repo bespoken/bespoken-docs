@@ -83,11 +83,13 @@ An example `skill-testing.json` file:
 }
 ```
 
-The handler, interactionModel and trace options are specific to testing.
+Below the unit-testing configuration options and what they do are listed:
 
 * handler - The path to the handler (and function name) to run the test
+* intentSchema - If using "old-style" configuration files, the path to the intent schema
 * interactionModel - The path to the interaction model to use for the test
 * locale - The locale to be used
+* sampleUtterances - If using the "old-style" configuration files, the path to the sampleUtterances
 * trace - Causes request and response JSON payloads from the skill to be printed to the console
 
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
