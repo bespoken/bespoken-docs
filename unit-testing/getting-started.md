@@ -128,3 +128,11 @@ And take a look at the following skills with test examples already configured:
 [Github](https://github.com/ig-perez/skill-sample-node-device-address-api)
 [Travis](https://travis-ci.org/ig-perez/skill-sample-node-device-address-api)
 [Codecov](https://codecov.io/gh/ig-perez/skill-sample-node-device-address-api/)
+* High Low Game
+[Github](https://github.com/ig-perez/skill-sample-nodejs-highlowgame)
+[Travis](https://travis-ci.org/ig-perez/skill-sample-nodejs-highlowgame)
+[Codecov](https://codecov.io/gh/ig-perez/skill-sample-nodejs-highlowgame)
+* AudioPlayer Example
+[Github](https://github.com/ig-perez/skill-sample-nodejs-audio-player)
+[Travis](https://travis-ci.org/ig-perez/skill-sample-nodejs-audio-player)
+[Codecov](https://codecov.io/gh/ig-perez/skill-sample-nodejs-audio-player/)
