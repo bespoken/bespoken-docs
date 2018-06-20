@@ -42,7 +42,7 @@ But there are also limitations. Those include:
 If you run into issues with testing specific utterances, always keep in mind you can set the exact intent and slot values with the intent and slot properties.
 
 # Configuration
-Global configuration options for testing skills can be set in the file
+Global configuration options for testing skills can be set in the file.
 
 These options can include overriding Jest options, as well as setting skill testing specific ones.
 
@@ -85,12 +85,13 @@ An example `skill-testing.json` file:
 
 Below the unit-testing configuration options and what they do are listed:
 
+* [filter](#filtering-requestresponse-payloads) - The (optional) path to a class that can be used to override value on the request and response
 * handler - The path to the handler (and function name) to run the test
 * intentSchema - If using "old-style" configuration files, the path to the intent schema
 * interactionModel - The path to the interaction model to use for the test
 * locale - The locale to be used
 * sampleUtterances - If using the "old-style" configuration files, the path to the sampleUtterances
-* trace - Causes request and response JSON payloads from the skill to be printed to the console
+* [trace](#viewing-requestresponse-payloads) - Causes request and response JSON payloads from the skill to be printed to the console
 
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
 
@@ -395,7 +396,7 @@ When there are multiple test files, [Jest](https://facebook.github.io/jest/) wil
 
 This allows test suites to run much faster. When any particular test fails, the other tests will continue to process.
 
-## Filtering Tests
+## Skipping Tests
 Label tests "test.only" or "test.skip" to either only run a particular test, or to skip it. Example:
 ```
 ---
@@ -413,6 +414,34 @@ Use these flags together with the test pattern matching when calling `bst test <
 
 ## Viewing Request/Response Payloads
 Set the `trace` flag in the skill-testing.json file and the full request and response JSON payloads will be printed to the console when the skill-tester is run.
+
+## Filtering Request/Response Payloads
+By specifying the "filter" property, it is possible to intercept the request before it is sent to the skill,
+as well as the response before the assertions are run against it.
+
+The module will be loaded from the path where the tester is being run, and should be referenced that way. For example:  
+If `bst test` is being run at `/Users/bst-user/project`  
+And the filter file is `/Users/bst-user/project/test/myFilterModule`    
+Then the filter should be set to `filter: test/myfilterModule`  
+
+The filter module should be a simple JS object with two functions:
+* onRequest(test, request)
+* onResponse(test, response)
+
+An example filter is here:
+```
+module.exports = {
+    onRequest: (test, request) => {
+        request.requestFiltered = true;
+    },
+
+    onResponse: (test, response) => {
+        response.responseFiltered = true;
+    }
+}
+```
+
+The filter is a very useful catch-all for handling tricky test cases that are not supported by the YAML test syntax.
 
 ## Code Coverage
 Whenever Jest runs, it produces code coverage information - it is seen on the console.
