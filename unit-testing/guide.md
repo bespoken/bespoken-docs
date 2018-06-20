@@ -5,8 +5,8 @@ keywords:
 comments: false
 
 # Hero section
-title: Skill Testing Markup Language
-description: Complete Guide to Skill Testing ML
+title: Bespoken Unit-Testing Guide
+description: Complete Guide to Unit-Testing with Bespoken
 
 # Micro navigation
 micro_nav: true
