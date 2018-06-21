@@ -327,6 +327,14 @@ To do that, set a test like so:
       SlotB: ValueB
 ```
 
+Or, similar synax but without the dedicated "YAML object" for slots:
+```
+- "Some utterance"
+  - intent: SomeIntent
+    SlotA: ValueA
+    SlotB: ValueB
+```
+
 This interaction will send an IntentRequest with the intent name SomeIntent and slots SlotA and SlotB set to ValueA and ValueB respectively.
 
 Easy, right? The utterance is ignored, but can be useful a form of description.
