@@ -269,8 +269,14 @@ An array example:
 ### Shorthand Properties
 For certain commonly accessed elements, we offer short-hand properties for referring to them. These are:
 
+* cardContent - Corresponds to `response.card.content`
+* cardImageURL - Corresponds to `response.card.image.largeImageUrl`
+* cardTitle - Corresponds to `response.card.title`
 * prompt - Grabs either the text or ssml from `response.outputSpeech`, whichever one is set
-* reprompt - Grabs either the text or ssml from `response.reprompt.outputSpeech`, which one is set
+* reprompt - Grabs either the text or ssml from `response.reprompt.outputSpeech`, whichever one is set
+* sessionEnded - Corresponds to `response.shouldEndSession`
+
+These elements are intended to work across platforms and test types.
 
 Example:
 
@@ -281,7 +287,8 @@ Example:
 ```
 
 The `prompt` property is also used by the Dialog Interface. [More information on that here](./use_cases#testing-with-the-dialog-interface).
-#### Regular Expression Values
+
+### Regular Expression Values
 The expected value can be a regular expression.
 
 If it follows a ":", it must be in the form of /my regular expression/ like this:

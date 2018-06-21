@@ -33,7 +33,7 @@ grid_navigation:
       links:
         - name: 'Getting Started'
           url: '/unit-testing/getting-started'
-        - name: 'Test Scripts Guide'
+        - name: 'In-Depth Guide'
           url: '/unit-testing/guide'
         - name: 'Use Cases'
           url: '/unit-testing/use-cases'
@@ -45,7 +45,7 @@ grid_navigation:
       links:
         - name: 'Getting Started'
           url: '/end-to-end/getting-started'
-        - name: 'Test Scripts Guide'
+        - name: 'In-Depth Guide'
           url: '/end-to-end/guide'
         - name: 'Example Project'
           url: 'https://github.com/bespoken/virtual-device-example'
