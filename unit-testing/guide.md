@@ -161,10 +161,10 @@ The test configuration can override elements set in the global skill testing con
 
 It can also set test-suite specific items such as:
 
-* address: Should be set with address attributes to emulate results from the Address API - [more info here](./use-cases#testing-with-the-address-api).
+* address: Should be set with address attributes to emulate results from the Address API - [more info here](../use-cases#testing-with-the-address-api).
 * applicationId: Sets the applicationId to be used in the generated requests
 * deviceId: Sets the deviceId to be used in the generated requests
-* dynamo: Should be set to "mock" to use the mock dynamo component - [more info here](./use-cases#testing-with-dynamo).
+* dynamo: Should be set to "mock" to use the mock dynamo component - [more info here](../use-cases#testing-with-dynamo).
 * userId: Sets the userId to be used in the generated requests
 
 ## Test Structure
@@ -286,7 +286,7 @@ Example:
   - prompt: "Here's your fact"
 ```
 
-The `prompt` property is also used by the Dialog Interface. [More information on that here](./use-cases#testing-with-the-dialog-interface).
+The `prompt` property is also used by the Dialog Interface. [More information on that here](../use-cases#testing-with-the-dialog-interface).
 
 ### Regular Expression Values
 The expected value can be a regular expression.
