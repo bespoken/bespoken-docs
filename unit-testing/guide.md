@@ -161,10 +161,10 @@ The test configuration can override elements set in the global skill testing con
 
 It can also set test-suite specific items such as:
 
-* address: Should be set with address attributes to emulate results from the Address API - [more info here](../use-cases#testing-with-the-address-api).
+* [address](../use-cases#testing-with-the-address-api): Should be set with address attributes to emulate results from the Address API
 * applicationId: Sets the applicationId to be used in the generated requests
 * deviceId: Sets the deviceId to be used in the generated requests
-* dynamo: Should be set to "mock" to use the mock dynamo component - [more info here](../use-cases#testing-with-dynamo).
+* [dynamo](../use-cases#testing-with-dynamo): Should be set to "mock" to use the mock dynamo component
 * userId: Sets the userId to be used in the generated requests
 
 ## Test Structure
