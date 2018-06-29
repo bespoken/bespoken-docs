@@ -286,7 +286,7 @@ Example:
   - prompt: "Here's your fact"
 ```
 
-The `prompt` property is also used by the Dialog Interface. [More information on that here](./use_cases#testing-with-the-dialog-interface).
+The `prompt` property is also used by the Dialog Interface. [More information on that here](./use-cases#testing-with-the-dialog-interface).
 
 ### Regular Expression Values
 The expected value can be a regular expression.

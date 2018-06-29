@@ -28,7 +28,7 @@ config:
 "what is on my list": "you have the following items on your list *"
 ```
 
-To see a complex example in action, [check out this project](https://gitub.com/bespoken/virtual-device-example).
+To see a complex example in action, [check out this project](https://github.com/bespoken/virtual-device-example).
 
 # Important Links
  * [Setup A Virtual Device](../setup)
