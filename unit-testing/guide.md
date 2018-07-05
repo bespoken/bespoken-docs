@@ -6,7 +6,7 @@ comments: false
 
 # Hero section
 title: Bespoken Unit-Testing Guide
-description: Complete Guide to Unit-Testing with Bespoken
+description: Complete Guide to Unit-Testing for Alexa
 
 # Micro navigation
 micro_nav: true
@@ -21,7 +21,7 @@ Jest is an excellent testing tool, that combines unit tests, code coverage, easy
 [Learn more here](https://facebook.github.io/jest/).
 
 Jest has been configured with a custom test runner, which:
-* Works with YAML files, fitting the structure described here
+* Works with YAML files, fitting the structure described in this document
 * Runs using our [Virtual Alexa component](https://github.com/bespoken/virtual-alexa) to generate JSON requests and emulate Alexa behavior
 
 We consider this the best of all worlds - a full-featured general testing framework tailored to work specifically with skills.

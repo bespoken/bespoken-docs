@@ -6,7 +6,7 @@ comments: false
 
 # Hero section
 title: End-to-end Testing Guide
-description: Complete Guide to End-to-end Testing
+description: Complete Guide to End-to-end Testing for Alexa
 
 # Micro navigation
 micro_nav: true
@@ -21,8 +21,8 @@ Jest is an excellent testing tool, that combines unit tests, code coverage, easy
 [Learn more here](https://facebook.github.io/jest/).
 
 Jest has been configured with a custom test runner, which:
-* Works with YAML files, fitting the structure described here
-* Runs using our [Virtual Alexa component](https://github.com/bespoken/virtual-alexa) to generate JSON requests and emulate Alexa behavior
+* Works with YAML files, fitting the structure described in this document
+* Runs using our [Virtual Device component](https://github.com/bespoken/virtual-device-sdk) to interact directly with Alexa and/or Google assistant
 
 We use the same basic format for unit-testing and end-to-end testing, but there are differences in how the tests should be written. For information on unit-testing, [read here](../../unit-testing/guide).
 
