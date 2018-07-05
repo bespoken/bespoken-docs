@@ -5,15 +5,26 @@ keywords:
 comments: false
 
 # Hero section
-title: Virtual Device Test Scripts
-description: Complete Guide to Virtual Device Test Scripts
+title: End-to-end Testing Guide
+description: Complete Guide to End-to-end Testing
 
 # Micro navigation
 micro_nav: true
 ---
-# Background
-The Virtual Device Test Scripts are meant to make it easy for anyone to write automated tests for Alexa (and Google Assistant, soon).
+# Overview
+Bespoken End-to-end Test Scripts make it easy for anyone to write automated tests for Alexa and Google Assistant.
 
+The syntax is based on YAML, and is meant to be easy to read and write. [Learn more about YAML syntax here](http://yaml.org/spec/1.2/spec.html#Preview).
+
+The tests are actually run with specialized version of Jest.
+Jest is an excellent testing tool, that combines unit tests, code coverage, easy-to-use mocks and other nice features in one place.
+[Learn more here](https://facebook.github.io/jest/).
+
+Jest has been configured with a custom test runner, which:
+* Works with YAML files, fitting the structure described here
+* Runs using our [Virtual Alexa component](https://github.com/bespoken/virtual-alexa) to generate JSON requests and emulate Alexa behavior
+
+We use the same basic format for unit-testing and end-to-end testing, but there are differences in how the tests should be written. For information on unit-testing, [read here](../../unit-testing/guide).
 
 # Installation
 ## Prerequisites
@@ -21,50 +32,99 @@ The Virtual Device Test Scripts are meant to make it easy for anyone to write au
 
 ## Install
 ```bash
-npm install virtual-device-sdk -g
+npm install bespoken-tools@beta -g
 ```
 
 To test to see if it is installed correctly, then try typing:
 ```bash
-bvd
+bst
 ```
 
 You should see output like this:
 ```
-Bespoken Virtual Device test runner installed!
+jpk-mbp:alexa-skill jpk$ bst
+BST: v2.0.0  Node: v8.11.1
+
+
+  Usage: bst [options] [command]
+  **(Output truncated)**
 ```
 That means it was installed successfully!
 
+## Virtual Device Setup
+First, you need to setup a virtual device, which allows for interaction via text and API with Alexa and Google Assistant. See [here for instructions](../setup).  
+
 # Configuration
-## Virtual Device Token
-First, you need to get a token. See [here for instructions](setup).  
+Global configuration options for testing skills can be set in the `bst.json` file, which is typically kept at the root level of your project.
 
-## Environment Variables
-Create a file ".env" where you run the scripts.
+These options can include overriding Jest options, as well as setting skill testing specific ones.
 
-This is where you will keep the token.
-
-By default, the token will be stored as:
+The default Jest settings are as follows:
 ```
-VIRTUAL_DEVICE_TOKEN=<MY_TOKEN_VALUE>
+{
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+        "**/*.js",
+        "!**/coverage/**",
+        "!**/node_modules/**",
+        "!**/vendor/**"
+    ],
+    "coverageDirectory": "./coverage/",
+    "moduleFileExtensions": [
+        "ts",
+        "js",
+        "yml"
+    ],
+    "silent": false,
+    "testMatch": ["**/test/*.yml", "**/tests/*.yml", "**/*.e2e.yml", "**/*.spec.yml", "**/*.test.yml"],
+    "verbose": true
+}
 ```
 
-If the tests use more than one token, they will be selected based on the locality appended at the end:
+[Learn what these do here](https://facebook.github.io/jest/docs/en/configuration.html).
+
+An example `bst.json` file for end-to-end tests:
 ```
-VIRTUAL_DEVICE_TOKEN_DE_DE=<DE_DE_TOKEN_VALUE>
-VIRTUAL_DEVICE_TOKEN_EN_GB=<EN_GB_TOKEN_VALUE>
-VIRTUAL_DEVICE_TOKEN_EN_US=<EN_US_TOKEN_VALUE>
+{
+    "findReplace": {
+        "INVOCATION_NAME": "my skill"
+    }
+    "homophones": {
+        "lettuce": ["let us"],
+        "figs": ["fix", "vicks"]
+    },
+    "invoker": "VirtualDeviceInvoker",
+    "locales": "de-DE, en-US",
+    "virtualDeviceToken": "<TOKEN>"
+}
 ```
 
-## Find/Replace Values
-Additionally, find/replace values can be specified in the .env file.
+Below the end-to-end testing configuration options and what they do are listed:
+
+* [filter](#filtering-response-payloads) - The (optional) path to a class that can be used to override value on the request and response
+* [findReplace](#findreplace) - Values that will be replaced in the scripts before execution
+* [homophones](#homophones) - Values that will be replaced in actual responses from the virtual device
+* locales - The locale or locales to be used - a comma-delimited list
+* [trace](#viewing-response-payloads) - Causes request and response JSON payloads from the skill to be printed to the console
+
+To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
+
+## Find/Replace
+Find/replace values are helpful for parameterizing parts of the test.
+
+For example, if the invocation name of the skill being tested will change from one run to the next, it can be set as a find/replace value like so:
+
 
 They will look like this:
 ```
-replace.INVOCATION_NAME=invoke me
+{
+    "findReplace": {
+        "INVOCATION_NAME": "my skill"
+    }
+}
 ```
 
-This will cause any instances of the value INVOCATION_NAME to be replaced by Invoke Me in the test scripts.
+This will cause any instances of the value INVOCATION_NAME to be replaced by `my skill` in the test scripts.
 
 So a script that looks like this:
 ```yaml
@@ -73,134 +133,322 @@ So a script that looks like this:
 
 Will be turned into this:
 ```yaml
-"open invoke me and say hello": "*"
+"open my skill and say hello": "*"
 ```
 
 This is a useful feature for tests that are run against multiple instances of the same skill, where there are slight variations in the input or output.
 
+## Homophones
+Our end-to-end tests use speech recognition for turning the output speech coming back from Alexa into text.
 
-# Test File Structure
-Tests go into files with a suffix ".yml". One or many tests can be contained in each test.
+This process is imperfect - to compensate for this, homophones can be specified for errors that occur when a reply from Alexa is misunderstood.
 
-## Test-Specific Configuration
-The test file can optionally have a config section, which contains setup data about the test. It looks like this:  
-```yaml
-config:
-  voiceID: <The Polly Voice ID to use for TTS>
-  locale: <en-US, en-GB, de-DE, etc.>
+For example, if Alexa says:
+`address sent to your white car`
+
+The Bespoken Virtual Device may transcribe it as:
+`address sent to your wife car`
+
+(FYI, for Alexa, the definitive response can be found at the Alexa user console, under [settings -> history](https://alexa.amazon.com/spa/index.html#settings/dialogs)).
+
+This misunderstanding will lead to a test like this failing incorrectly:
+```
+- send address for in n out burger to my car: address sent to your white car
 ```
 
-This is a place to put things that vary between sets of tests - such as the voice to use for Speech-To-Text or the locale.
-
-The list of available voices is [found here](https://docs.aws.amazon.com/polly/latest/dg/voicelist.html).
-
-## Test Sequences
-Each set of lines represents a sequence of tests, which represent a conversation with Alexa.
-As long as the tests are part of one sequence, the skill will stay in-session.
-
-A blank line represents a new sequence (and therefore, a new session). Here is an example test file:
-```yaml
-config:
-  voiceID: Matthew
-  locale: en-US
-  
-# Sequence 01. Test scenario: launch and play music
-"open test player": "say play to listen to some music"
-"play":
-  streamURL: "https://stream.com/music.mp3"
-
-# Sequence 02. Test scenario: straight to play intent
-tell test player to play:
-  streamURL: "https://stream.com/music.mp3"
+To avoid this, just define a homophone in the configuration file like so:
+```
+{
+    "homophones": {
+        "white": ["wife"]
+    }
+}
 ```
 
-This test file has two test sequences, with two tests in the first sequence, and one test in the second sequence.
-
-## Comments
-Comments can be inserted in tests by putting a `#` at the start of the line, as seen in the example above.
-
-# Test Syntax
-A test contains an input and an expected output.
-
-The input is on the left-hand side, and the expected output is on the right-hand side.
-
-The expected output can be:
-* A simple string test
-* A list
-* An object test
-
-## String comparisons
-A string comparison compares the actual to the expected output. It has the following rules:  
-1\) It is a "contains" test - that is, if the actual result contains the expected, that is a pass.
-  
-So, a test like this:   
-```yaml
-"hi": "hello"
+# CLI Options
+When invoking `bst test`, the name of a specific test or regex can be used, like this:
+```
+bst test test/MyIntent.test.yml
 ```
 
-Will pass when the actual result is "hello there".  
-It will not pass if the result is "hell".
-
-2\) It supports wildcards with a *
-A test like this:
-```yaml
-"hi": "hello * welcome back"
+Or this:
 ```
-Will pass when the actual result is "hello john welcome back" or "hello frank welcome back".  
-It will not pass if the result is "hellowelcome back".
-
-## List comparisons
-A list comparison is a set of string tests, but allows for multiple valid responses. 
-
-A list is specified on a newline, with a two-space indent, and starts with "-".
-
-This is useful for skills that vary their response to the same input. For example:
-```yaml
-"hi":
-  - hi there
-  - welcome
-  - howdy
+bst test MyIntent
 ```
 
-If our skill alternates between responding to hi with "hi there", "welcome", and "howdy",
-this will ensure that it will pass no matter what is returned.  
+# Tests
+The test syntax is based on YAML.
 
-Wildcards and partial matches are supported with lists, same as with string tests.
+When running `bst test`, it automatically searches for files with the following names:
 
-## Object comparisons
-An object comparisons allows for testing more than just the transcript. Here is a sample:
-```yaml
-"hi":
-  transcript: hi there
-  streamURL: https://mystream.com/stream.mp3
-  card:
-    imageURL: The image URL
-    mainTitle: The main title
-    subTitle: The sub title
-    textField: The text field
-    type: The type of the card
+* `**/test/\*\*/*.yml`
+* `**/*.e2e.yml`
+* `**/*.spec.yml`
+* `**/*.test.yml`
+
+Any tests that match these patterns will be run.
+A recommended convention is to sort test files under a test dir, and to label end-to-end tests as `IntentName.e2e.yml`, where each test file contains tests for a specific intent.
+
+## Test Suites
+Each test file is a test suite. Test suites are made up of one or many tests.
+
+The tests represent discreet conversations with your voice app. Each test can have one or many interactions - here is a simple example:
 ```
-The values for the card are based on what AVS returns, so they vary in their names from the Alexa Custom Skills JSON. 
-Their values are fairly simple to map between skills and AVS though.
+---
+configuration:
+  locales: en-US
 
-Additionally, the imageURL always returns the large image URL.
+---
+- test: open, no further interaction
+- open get fact: 
+  - prompt: here's your fact
+  - cardContent: /.*/
+  - cardTitle: Space Facts
 
-# Running Tests
-Once you have created your tests, you can run a particular file by entering:
-```bash
-bvd my-test-file.yml
+---
+- test: open, no further interaction
+- open get fact: 
+  - prompt: here's your fact
+  - cardContent: /.*/
+  - cardTitle: Space Facts
+- help: just say get fact to get a fact
+- stop: goodbye
 ```
 
-To run a directory containing many tests, provide the directory path instead:
-```bash
-bvd test-directory
+The test suite above contains two tests. Additionally, at the top it has a configuration element.
+
+The configuration provides settings that work across the test - [it is described below](#test-configuration).
+
+The tests represent sequence of conversations with the skill.
+
+They can use specific requests (such as LaunchRequest or SessionEndedRequest), or they can simply be an utterance.
+
+## Test Structure
+The start of a test is marked with three dashes on a line - `---`.
+
+It can be followed by an optional test description, which looks like this:
+```
+- test: Description of my test
 ```
 
-That command will run all yml files that are contained within that directory.
+This description, if provided, must be the first line in the test.
 
-# Best Practices
-We recommend:
-* Organizing sets of test files by locale - so one top-level directory per locale (en-US, de-DE, etc.)
-* Organizing test files by intent - so each intent has its own set of tests
-* Commenting tests to explain what they do
-* Putting tests under some sort of version control (whether it be Github or Dropbox)
+The test is then made up of a series of interactions and assertions.
+
+Each interaction is prefixed with a "-" which indicates a YAML colletion.
+
+After each interaction, comes a series of expressions. Typically, these are assertions about the test.
+But they can be:
+
+* [Assertions](#assertions): The life-blood of tests - statements about the expected output
+* [Request Expressions](#request-expressions): Allow for setting values on the request - helpful for testing more complex cases
+* [Intent and Slot Properties](#intent-and-slot-properties): Allow for specifically setting the intents and slots. Bypasses mapping the utterance to the intent and slot.
+
+For each interaction, there can be many assertions and request expressions.
+There is not a limit on how much can be tested!
+
+When tests are run, each interaction is processed in order. Within it,
+each assertion is in turn evaluated in order when a response is received.
+
+If any assertion fails for a test, the test stops processing, and information about the failed assertion is provided.
+
+## Assertions
+An assertion follows one of two simple syntaxes:  
+`[JSONPath Property]: [Expected Value]`   
+or  
+`[JSONPath Property] [Operator] [Expected Value]`
+
+The second syntax provides use more than just equality operators.
+
+The operators are:
+
+* == Partial equals - for example, the expected value "partial sentence" will match "this is a partial sentence"
+* =~ Regular expression match
+* != Not equal to
+* \>  Greater than
+* \>= Greater than or equal
+* <  Less than
+* <= Less than or equal
+
+Additionally, the `:` operator is the same as == or =~, depending on whether the expected value is a regular expression.
+
+We use JSONPath to get values from the response, such as:
+`transcript`
+
+This will return the value: "My SSML Value" from the following JSON response:
+```
+{
+    "transcript": "My SSML value",
+    "card": {
+        "content": "Card Content",
+        "title": "Card Title",
+    }
+}
+```
+
+Note that the response output from the Virtual Device is much more limited than what your actual skill returns.
+This is a limitation of what is provided by Alexa Voice Service/Google Assistant.
+
+To test the actual JSON response from your skill, we recommend writing unit-tests - they use the same structure as our end-to-end test but can be run locally and have access to the full skill payload. [More info here](../../unit-testing/guide).
+
+The expected value can be:
+
+* A string - quoted or unquoted
+* A number
+* `true` or `false`
+* A regular expression - should be denoted with slashes (/this .* that/)
+* `undefined` - special value indicating not defined
+
+### JSONPath Properties
+JSONPath is an incredibly expressive way to get values from a JSON object.
+
+You can play around with [how it works here](http://jsonpath.com/).
+
+Besides handling basic properties, it can also navigate arrays and apply conditions.
+
+### Shorthand Properties
+For certain commonly accessed elements, we offer short-hand properties for referring to them. These are:
+
+* cardContent - Corresponds to `card.textField`
+* cardImageURL - Corresponds to `card.imageURL`
+* cardTitle - Corresponds to `card.title`
+* prompt - An alias for the `transcript` element from the JSON payload
+
+These elements are intended to work across platforms and test types.
+
+Example:
+
+```
+- test: open fact skill
+- open fact skill:
+  - prompt: Here's your fact
+```
+
+### Regular Expression Values
+The expected value can be a regular expression.
+
+If it follows a ":", it must be in the form of /my regular expression/ like this:
+```
+- prompt: /hello, .*, welcome/i
+```
+
+Regular expression flags are also supported with this syntax, such as /case insensitive/i.
+They are [described here in more detail](https://javascript.info/regexp-introduction#flags).
+
+### Collection Values
+It is also possible to specify multiple valid values for a property.
+
+That is done with a collection of expected values, such as this:
+```
+- open howdy
+  - prompt:
+    - Hi there
+    - Howdy
+    - How are you?
+```
+
+When a collection is used like this, if any of the values matches, the assertion will be considered a success.
+
+## Goto And Exit
+One advanced feature is support for `goto` and `exit`.
+
+Goto comes at the end of an assertion - if the assertion is true, the test will "jump" to the utterance named.
+Unlike regular assertions, ones that end in "goto" will not be deemed a failure if the comparison part of the assertion is not true.
+
+For example:
+```
+---
+- test: Goes to successfully
+- open my skill:
+  - prompt == "Here's your fact" goto Get New Fact
+  - cardContent == /.*/
+  - exit
+- Help:
+  - response.outputSpeech.ssml == "Here's your fact:*"
+  - response.reprompt == undefined
+  - response.card.content =~ /.*/
+- Get New Fact:
+  - response.outputSpeech.ssml == "ABC"
+  - response.reprompt == undefined
+  - response.card.content =~ /.*/
+```
+
+In this case, if the outputSpeech starts with "Here's your fact",
+the test will jump to the last interaction and say "Get New Fact".
+
+If the outputSpeech does not start with "Get New Fact", the other assertions will be evaluated.
+The test will end when it reaches the `exit` statement at the end (no further interactions will be processed).
+
+Using `goto` and `exit`, more complex tests can be built.
+
+# Test Execution
+## Test Sequence
+Tests are run in the order they appear in the file.
+
+End-to-end tests are not run in parallel, unlike unit tests. This is because of limitations in how the virtual devices work.
+
+## Skipping Tests
+Label tests "test.only" or "test.skip" to either only run a particular test, or to skip it. Example:
+```
+---
+- test.only: open the skill
+- open my skill: hello
+```
+
+If multiple tests are labeled only within a suite, all the ones will be labeled only.
+
+Use these flags together with the test pattern matching when calling `bst test <pattern>` to narrow the tests that should be run.
+
+## Viewing Response Payloads
+Set the `trace` flag in the bst.json file and the full request and response JSON payloads will be printed to the console when the tests are run.
+
+## Filtering Response Payloads
+By specifying the "filter" property, it is possible to intercept the response before the assertions are run against it.
+
+The module will be loaded from the path where the tester is being run, and should be referenced that way. For example:  
+If `bst test` is being run at `/Users/bst-user/project`  
+And the filter file is `/Users/bst-user/project/test/myFilterModule`    
+Then the filter should be set to `filter: test/myfilterModule`  
+
+The filter module should be a simple JS object with one function:
+* onResponse(test, response)
+
+An example filter is here:
+```
+module.exports = {
+    onResponse: (test, response) => {
+        response.responseFiltered = true;
+    }
+}
+```
+
+The filter is a very useful catch-all for handling tricky test cases that are not supported by the YAML test syntax.
+
+## Continuous Integration
+To see how a project works with a total CI setup, [checkout this project](https://github.com/ig-perez/skill-sample-nodejs-fact/tree/ContinuousIntegration).
+
+It is configured with Travis and Codecov. Here is the `.travis.yml` configuration file included with the project:
+```
+language: node_js
+node_js:
+  - "8"
+cache:
+  directories:
+  - lambda/custom/node_modules
+install:
+  - npm install bespoken-tools@beta -g
+  - npm install codecov -g
+  - cd lambda/custom && npm install && cd ../..
+script:
+ - bst test
+ - codecov
+```
+
+To set it up for your own projects, you will need to enable them with [Travis](https://travis-ci.org) and [Codecov](https://codecov.io) (or whatever CI and coverage tools you prefer). Visit their websites for in-depth instructions on how to do this.
+
+# Further Reading
+Take a look at:
+* Our [getting started guide](../getting-started)
+* Our [example project](https://github.com/bespoken/virtual-device-example)
+
+And don't hesitate to reach out via [Gitter](https://gitter.im/bespoken/bst).

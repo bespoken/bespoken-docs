@@ -12,7 +12,7 @@ description: Complete Guide to Unit-Testing with Bespoken
 micro_nav: true
 ---
 # Overview
-The purpose of the Skill Testing Markup Language is to make it easy for anyone to test Alexa skills and voice apps.
+The purpose of Bespoken Unit Testing is to make it easy for anyone to test Alexa skills and voice apps.
 
 The syntax is based on YAML, and is meant to be easy to read and write. [Learn more about YAML syntax here](http://yaml.org/spec/1.2/spec.html#Preview).
 
@@ -42,7 +42,7 @@ But there are also limitations. Those include:
 If you run into issues with testing specific utterances, always keep in mind you can set the exact intent and slot values with the intent and slot properties.
 
 # Configuration
-Global configuration options for testing skills can be set in the file.
+Global configuration options for testing skills can be set in the `bst.json` file, which is typically kept at the root level of your project.
 
 These options can include overriding Jest options, as well as setting skill testing specific ones.
 
@@ -63,18 +63,18 @@ The default Jest settings are as follows:
         "yml"
     ],
     "silent": false,
-    "testMatch: ["**/test/*.yml", "**/tests/*.yml", "**/*.test.yml", "**/*.spec.yml"],
+    "testMatch": ["**/test/*.yml", "**/tests/*.yml", "**/*.e2e.yml", "**/*.spec.yml", "**/*.test.yml"],
     "verbose": true
 }
 ```
 
 [Learn what these do here](https://facebook.github.io/jest/docs/en/configuration.html).
 
-An example `skill-testing.json` file:
+An example `bst.json` file:
 ```
 {
     "handler": "src/index.handler",
-    "locale": "de-DE",
+    "locales": "de-DE",
     "interactionModel": "models/de-DE.json",
     "trace": true,
     "jest": {
@@ -83,13 +83,13 @@ An example `skill-testing.json` file:
 }
 ```
 
-Below the unit-testing configuration options and what they do are listed:
+Below the unit testing configuration options and what they do are listed:
 
 * [filter](#filtering-requestresponse-payloads) - The (optional) path to a class that can be used to override value on the request and response
 * handler - The path to the handler (and function name) to run the test
 * intentSchema - If using "old-style" configuration files, the path to the intent schema
 * interactionModel - The path to the interaction model to use for the test
-* locale - The locale to be used
+* locales - The locale or locales to be used - a comma-delimited list
 * sampleUtterances - If using the "old-style" configuration files, the path to the sampleUtterances
 * [trace](#viewing-requestresponse-payloads) - Causes request and response JSON payloads from the skill to be printed to the console
 
@@ -112,8 +112,9 @@ The test syntax is based on YAML.
 When running `bst test`, it automatically searches for files with the following names:
 
 * `**/test/\*\*/*.yml`
-* `**/*.test.yml`
+* `**/*.e2e.yml`
 * `**/*.spec.yml`
+* `**/*.test.yml`
 
 Any tests that match these patterns will be run.
 A recommended convention is to sort test files under a test dir.
@@ -125,27 +126,24 @@ The tests represent discreet conversations with Alexa. Each test can have one or
 ```
 ---
 configuration:
-  locale: en-US
----
-- test: "Sequence 01. Test scenario: launch request, no further interaction."
-- LaunchRequest: # LaunchRequest is not an utterance but a request type and "reserved" word
-  - response.outputSpeech.ssml: "Here's your fact"
-  - response.card.type: "Simple"
-  - response.card.title: "Space Facts"
-  - response.card.content: "/.*/" # Regular expression indicating any text will match
+  locales: en-US
 
 ---
-- test: "Sequence 02. Test scenario: GetNewFactIntent with different utterances."
-- "ask space facts to tell me a space fact":
-  - response.outputSpeech.ssml: "/here's your fact.*/i"
-  - response.card.type: "Simple"
-  - response.card.title: "Space Facts"
-  - response.card.content: "/.*/"
-- "tell space facts to give me fact":
-  - response.outputSpeech.ssml: "/here's your fact.*/i"
-  - response.card.type: "Simple"
-  - response.card.title: "Space Facts"
-  - response.card.content: "/.*/"
+- test: Launch and get a fact
+- LaunchRequest: # LaunchRequest sends a LaunchRequest
+  - response.outputSpeech.ssml: Here's your fact
+  - response.card.type: Simple
+  - response.card.title: Space Facts
+  - response.card.content: /.*/ # Regular expression indicating any text will match for card content
+
+---
+- test: Get help then get a fact
+- HelpIntent: say get fact to get a fact
+- GetFactIntent:
+  - response.outputSpeech.ssml: here's your fact
+  - response.card.type: Simple
+  - response.card.title: Space Facts
+  - response.card.content: "*" # Plain asterisk can also be used to match any text
 ```
 
 The test suite above contains two tests. Additionally, at the top it has a configuration element.
@@ -232,7 +230,7 @@ This will return the value: "My SSML Value" from the following JSON response:
 
 The expected value can be:
 
-* A string - quote or unquoted
+* A string - quoted or unquoted
 * A number
 * `true` or `false`
 * A regular expression - should be denoted with slashes (/this .* that/)
@@ -304,7 +302,7 @@ It is also possible to specify multiple valid values for a property.
 
 That is done with a collection of expected values, such as this:
 ```
-"open howdy"
+LaunchRequest:
   - response.outputSpeech.ssml:
     - Hi there
     - Howdy
@@ -428,7 +426,7 @@ If multiple tests are labeled only within a suite, all the ones will be labeled 
 Use these flags together with the test pattern matching when calling `bst test <pattern>` to narrow the tests that should be run.
 
 ## Viewing Request/Response Payloads
-Set the `trace` flag in the skill-testing.json file and the full request and response JSON payloads will be printed to the console when the skill-tester is run.
+Set the `trace` flag in the bst.json file and the full request and response JSON payloads will be printed to the console when the tests are run.
 
 ## Filtering Request/Response Payloads
 By specifying the "filter" property, it is possible to intercept the request before it is sent to the skill,
