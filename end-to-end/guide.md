@@ -424,28 +424,6 @@ module.exports = {
 
 The filter is a very useful catch-all for handling tricky test cases that are not supported by the YAML test syntax.
 
-## Continuous Integration
-To see how a project works with a total CI setup, [checkout this project](https://github.com/ig-perez/skill-sample-nodejs-fact/tree/ContinuousIntegration).
-
-It is configured with Travis and Codecov. Here is the `.travis.yml` configuration file included with the project:
-```
-language: node_js
-node_js:
-  - "8"
-cache:
-  directories:
-  - lambda/custom/node_modules
-install:
-  - npm install bespoken-tools@beta -g
-  - npm install codecov -g
-  - cd lambda/custom && npm install && cd ../..
-script:
- - bst test
- - codecov
-```
-
-To set it up for your own projects, you will need to enable them with [Travis](https://travis-ci.org) and [Codecov](https://codecov.io) (or whatever CI and coverage tools you prefer). Visit their websites for in-depth instructions on how to do this.
-
 # Further Reading
 Take a look at:
 * Our [getting started guide](../getting-started)
