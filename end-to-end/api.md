@@ -187,21 +187,21 @@ Receives multiple messages and expected phrases in an object array. The goal of 
 	```javascript
 	{
 	    "results": [
-		    {
-		       "streamURL": "string",
-		       "sessionTimeout": 0,
-		       "transcriptAudioURL": "string",
-		       "message": "string",
-		       "transcript": "string",
-		       "card": {
-		           "subTitle": "string",
-		           "mainTitle": "string",
-		           "textField": "string",
-		           "type": "string",
-		           "imageURL": "string"
-			       }
-		      }
-	   ]
+          {
+              "streamURL": "string",
+              "sessionTimeout": 0,
+              "transcriptAudioURL": "string",
+              "message": "string",
+              "transcript": "string",
+              "card": {
+                  "subTitle": "string",
+                  "mainTitle": "string",
+                  "textField": "string",
+                  "type": "string",
+                  "imageURL": "string"
+              }
+          }
+	    ]
 	}
 	```
  
