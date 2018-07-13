@@ -5,7 +5,7 @@ keywords:
 comments: false
 
 # Hero section
-title: Getting Started With End-to-end Testing for Alexa
+title: Getting Started With End-to-end Testing
 
 # Micro navigation
 micro_nav: true

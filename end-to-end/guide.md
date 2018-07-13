@@ -6,7 +6,7 @@ comments: false
 
 # Hero section
 title: End-to-end Testing Guide
-description: Complete Guide to End-to-end Testing for Alexa
+description: Complete Guide to End-to-end Testing
 
 # Micro navigation
 micro_nav: true
