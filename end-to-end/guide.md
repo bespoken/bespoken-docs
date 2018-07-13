@@ -22,7 +22,7 @@ Jest is an excellent testing tool, that combines unit tests, code coverage, easy
 
 Jest has been configured with a custom test runner, which:
 * Works with YAML files, fitting the structure described in this document
-* Runs using our [Virtual Device component](https://github.com/bespoken/virtual-device-sdk) to interact directly with Alexa and/or Google assistant
+* Runs using our [Virtual Device SDK](https://github.com/bespoken/virtual-device-sdk) to interact directly with Alexa and/or Google assistant
 
 We use the same basic format for unit-testing and end-to-end testing, but there are differences in how the tests should be written. For information on unit-testing, [read here](../../unit-testing/guide).
 
