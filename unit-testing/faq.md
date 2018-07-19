@@ -86,7 +86,7 @@ This is our recommendation:
 
 Here's an example:
 <p align="center">
-  <img src="../assets/images/folderStructure.png" />
+  <img src="../assets/images/folderStructure.PNG" />
 </p>
 
 ### **Where should I indicate the locale for the script?**
