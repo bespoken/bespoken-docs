@@ -20,49 +20,42 @@ In computer science, test coverage is a measure used to describe the degree to w
 
 ![Sample of Code Coverage output][Codecov-Output]
 
-### **How do I start doing unit testing for my voice apps?**
-Start by creating simple test scripts based on our YAML syntax, these are the steps you need to follow in order to create and run your first test script:
-1. Install Bespoken Tools by running `npm install bespoken-tools@beta -g` on your command line.
-2. Create the main testing folder. We recommend to name it `test`; it should be under the root of your skill's directory.
-3. Create a folder named `unit` under `test\`, this folder will store your unit test script files.
-4. Add the test configuration file `testing.json`. This file should be located under your `test\unit` directory. It might look like this:
-    ```JSON
-    {
-        "handler": "../../src/index.js",
-        "locale": "de-DE",
-        "trace": true,
-        "jest": {
-            "silent": true
-        }
-    }
-    ```
-    The most important parameter is the handler where you indicate Bespoken's Skill Tester where the source code of your skill is. These parameters can be overwritten on each test script file under their configuration section.
-5. Add your test scripts. We recommend to use next convention when naming your test script files:
-     * If you have only one test script: `index.test.yml`
-     * If you want to create more than one test script: `functionalityName.test.yml`. 
-     
-     The yml extension indicates this is a YAML file, which is the syntax we use to create test scripts; `test` means that is a unit test script file. A test script looks like this:
-    ```YAML
-    ---
-    configuration: # You can define your locales or mocks here
-      locale: en-US
+## **How to run the unit tests**
+To get started, you need to install the Bespoken CLI, please follow next steps:
+1) Install the CLI by running `npm install bespoken-tools -g` on your command line.
+2) Open a command-line window and change directory to the `<PROJECT_FOLDER>/test`
+3) Run the tests - just enter `bst test`. The output should look like this:
+```console
+$ bst test
+BST: v2.0.10  Node: v8.0.0
+PASS test\unit\index.test.yml
+  en-US
+    Launch request, no further interaction.
+      √ LaunchRequest
+    GetNewFactIntent direct call
+      √ GetNewFactIntent
+      
+----------|----------|----------|----------|----------|-------------------|
+File      |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+----------|----------|----------|----------|----------|-------------------|
+All files |    92.31 |      100 |      100 |    92.31 |                   |
+ index.js |    92.31 |      100 |      100 |    92.31 |       120,123,125 |
+----------|----------|----------|----------|----------|-------------------|
+Test Suites: 1 passed, 1 total
+Tests:       8 passed, 8 total
+Snapshots:   0 total
+Time:        3.405s
+Ran all test suites.
+```
+4) Take a look at the code coverage - at `<PROJECT_FOLDER>/test/coverage/lcov-report/index.html`. It shows what code is, and what is NOT, being executed by the tests. It's a very helpful guide to how effective your unit tests are. You can read more about [how the code coverage works here](https://github.com/dwyl/learn-istanbul).
+5) Add some more tests! As you build upon this sample project, you can add more tests and use these tools to continue to ensure everything is working perfectly.
 
-    --- # Three dashes start a new YAML document
-    - test: One complete interaction. # Some metadata about this test sequence
-    - LaunchRequest: how many persons are playing today?
-    - one: please tell us your name
-    - jordi:
-      - prompt: your product is Fitbit * Guess the price
-      - response.card.title: Fitbit Charge 2 HR
-      - response.card.image.largeImageUrl: "https://url/file.jpg"
-      - response.card.text: A wristband worn health tracker
-    - 240: You said 240 , the actual price was 149 dollars
-    - stop
-    ```
-    A typical YAML sentence is composed of 2 parts separated by a colon; in the left part we have the intent name we want to test; in the right part we have the expected result. You can also access any element on the JSON response object like the session attributes.
-6. To execute the scripts go to the folder containing your `testing.json` file and run `bst test`. That will find and run all the unit test scripts under the `test\unit` folder.
-
-For more information about skill unit testing please read **[here](https://read.bespoken.io/unit-testing/getting-started/)**.
+### How to learn more
+Take a look [here](https://read.bespoken.io/unit-testing/getting-started/) for more info on unit-testing. 
+If you need assistance reach us on any of these channels:
+* [Email](mailto:contact@bespoken.io)
+* [Twitter](https://twitter.com/bespokenio)
+* [Gitter](https://gitter.im/bespoken/bst) 
 
 ### **What are continuous integration (CI) and automated unit testing?**
 >*Continuous Integration (CI) is the process of automating the build and testing of code every time a team member commits changes to version control ... Sam Guckenheimer (Microsoft)*
