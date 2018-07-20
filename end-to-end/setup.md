@@ -17,7 +17,7 @@ We'll create a trial Virtual Device for you, the only thing we need you to do is
 
 There a couple steps for the setup - but don't worry - you will only have to do it once. And if you run into any issues, just [ping us here](https://gitter.im/bespoken/bst). We'll get it sorted out quickly!
 
-# Creating A Virtual Device 
+# Creating A Virtual Device
 ## Virtual Devices for Alexa
 1. The way to get a token is through [Bespoken Dashboard](https://apps.bespoken.io/dashboard). Sign up for free or login; you will see a screen like this:
 ![Bespoken Dashboard](../assets/dashboard.png "Bespoken Dashboard")
@@ -38,13 +38,13 @@ To create a virtual device for Google, use this link:
 Once you have gone through the authentication process, the token that identifies your virtual device will be presented on the screen. Use this token in the subsequent steps.
 
 # Using the Device In Your Scripts
-Now you can use the virtual device with your test script. Place it in the skill-testing.json file of your project like so:
+Now you can use the virtual device with your test script. Place it in the testing.json file of your project like so:
 ```
 {
     "virtualDeviceToken": "MY_TOKEN"
 }
 ```
 
-See how we do it [here](https://github.com/bespoken/virtual-device-example/blob/master/skill-testing.json). 
+See how we do it [here](https://github.com/bespoken/virtual-device-example/blob/master/testing.json). 
 
 And that is all you need in the setup process, now you can continue with the creation of your test scripts, or using Virtual Device programmatically.
