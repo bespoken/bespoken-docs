@@ -1,3 +1,15 @@
+---
+# Page settings
+layout: default
+keywords:
+comments: false
+
+# Hero section
+title: FAQ for Unit-Testing
+
+# Micro navigation
+micro_nav: true
+---
 # **FAQs for Unit-Testing**
 Here you can find common questions on regards unit testing for voice apps.
 
@@ -11,19 +23,19 @@ In traditional computer programming, unit testing is a software testing method b
 For more information about testing voice apps, please read **[here](https://developer.amazon.com/blogs/alexa/post/e2f3d18c-13ca-4796-bc83-e8a196f20e57/building-engaging-alexa-skills-why-testing-and-automation-matter)**.
 
 ### **Which tools does Bespoken offer to do unit testing for voice apps?**
-We have created a tool called **Virtual Alexa**, which simulates the Alexa Voice Service and creates JSON objects that are sent to your skill. This tool can be used to do unit testing programmatically and run the test suites with a unit testing framework (for example Mocha and Chai). But we also offer an *easier way* to perform unit testing by writing simple test scripts based on **YAML** syntax and running them with our **Skill Tester** tool. These scripts are executed *locally* using our Virtual Alexa simulator. Skill tester also displays the **code coverage** you reach based on your test scripts. To get started with Unit Test Scripts please **[read here](https://read.bespoken.io/unit-testing/getting-started)**.
+We have created a tool called **Virtual Alexa**, which simulates the Alexa Voice Service and creates JSON objects that are sent to your skill. This tool can be used to do unit testing programmatically and run the test suites with a unit testing framework (for example Mocha and Chai). But we also offer an *easier way* to perform unit testing by writing simple test scripts based on **YAML** syntax and running them with our **CLI**. These scripts are executed *locally* using the Virtual Alexa simulator. Each test suite execution displays the **code coverage** you reach based on your test scripts. To get started with Unit Test Scripts please **[read here](https://read.bespoken.io/unit-testing/getting-started)**.
 
 ### **What is code coverage?**
 In computer science, test coverage is a measure used to describe the degree to which the source code of a program is executed when a particular test suite runs. A program with high test coverage, measured as a percentage, has had more of its source code executed during testing, which suggests it has a lower chance of containing undetected software bugs compared to a program with low test coverage.
 
-*Bespoken Skill Tester for unit testing comes with Code Coverage out of the box*, you don't need to do anything to enable it, just check the results after executing your test scripts. Here you have a sample output. "% Lines" indicate the total number of lines that have been covered by the test script we are running.
+*Bespoken Unit-Testing comes with Code Coverage out of the box*, you don't need to do anything to enable it, just check the results after executing your test scripts. Here you have a sample output. "% Lines" indicate the total number of lines that have been covered by the test script we are running.
 
 ![Sample of Code Coverage output][Codecov-Output]
 
 ## **How to run the unit tests**
 To get started, you need to install the Bespoken CLI, please follow next steps:
-1) Install the CLI by running `npm install bespoken-tools -g` on your command line.
-2) Open a command-line window and change directory to the `<PROJECT_FOLDER>/test`
+1) Install the CLI by running `npm install -g bespoken-tools` on your command line.
+2) Open a command-line window and change directory to `<PROJECT_FOLDER>/test`
 3) Run the tests - just enter `bst test`. The output should look like this:
 ```console
 $ bst test
@@ -151,8 +163,6 @@ Into this:
 ```
 Check the full code of this project and test script **[here](https://github.com/ig-perez/skill-sample-nodejs-petmatch)**.
 
-### **TBD :: How to unit test multi-locale skills?**
-*Lorem ipsum dolor sit amet, id munere tacimates nam. No per velit meliore recteque, sit ne esse iracundia. Ut solet appareat honestatis ius, pri at dicat splendide moderatius. Liber legere ullamcorper usu te, vel dolores adversarium delicatissimi id, ex nam novum pertinacia definiebas. Per ei aeque accusam reprehendunt, vix et erat consulatu, phaedrum quaestio vel id.*
 
 <!-- Images references -->
 [CI]: ../assets/images/CI.png "Continuous Integration Flow"

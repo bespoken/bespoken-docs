@@ -39,6 +39,8 @@ grid_navigation:
           url: '/unit-testing/use-cases'
         - name: 'API'
           url: 'https://github.com/bespoken/virtual-alexa'
+        - name: 'FAQ'
+          url: '/unit-testing/faq'
     - title: End-to-end Testing
       url: '/end-to-end/getting-started'
       description: 'Automatic end-to-end testing with the real Alexa'
