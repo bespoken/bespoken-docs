@@ -55,7 +55,7 @@ That means it was installed successfully!
 First, you need to setup a virtual device, which allows for interaction via text and API with Alexa and Google Assistant. See [here for instructions](../setup).  
 
 # Configuration
-Global configuration options for testing skills can be set in the `bst.json` file, which is typically kept at the root level of your project.
+Global configuration options for testing skills can be set in the `skill-testing.json` file, which is typically kept at the root level of your project.
 
 These options can include overriding Jest options, as well as setting skill testing specific ones.
 
@@ -83,7 +83,7 @@ The default Jest settings are as follows:
 
 [Learn what these do here](https://facebook.github.io/jest/docs/en/configuration.html).
 
-An example `bst.json` file for end-to-end tests:
+An example `skill-testing.json` file for end-to-end tests:
 ```
 {
     "findReplace": {
@@ -200,14 +200,14 @@ configuration:
 
 ---
 - test: open, no further interaction
-- open get fact: 
+- open get fact:
   - prompt: here's your fact
   - cardContent: /.*/
   - cardTitle: Space Facts
 
 ---
 - test: open, no further interaction
-- open get fact: 
+- open get fact:
   - prompt: here's your fact
   - cardContent: /.*/
   - cardTitle: Space Facts
@@ -400,7 +400,7 @@ If multiple tests are labeled only within a suite, all the ones will be labeled 
 Use these flags together with the test pattern matching when calling `bst test <pattern>` to narrow the tests that should be run.
 
 ## Viewing Response Payloads
-Set the `trace` flag in the bst.json file and the full request and response JSON payloads will be printed to the console when the tests are run.
+Set the `trace` flag in the skill-testing.json file and the full request and response JSON payloads will be printed to the console when the tests are run.
 
 ## Filtering Response Payloads
 By specifying the "filter" property, it is possible to intercept the response before the assertions are run against it.
