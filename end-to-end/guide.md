@@ -109,6 +109,20 @@ Below the end-to-end testing configuration options and what they do are listed:
 
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
 
+Values in the configuration file can be overridden by setting an environment variable using dot-notation. For example, to override the INVOCATION_NAME value above, use this statement:
+```
+export findReplace.INVOCATION_NAME=my new skill
+```
+
+This will be as if the configuration file was set like so:
+```
+{
+    "findReplace": {
+        "INVOCATION_NAME": "my new skill"
+    }
+}
+```
+
 ## Find/Replace
 Find/replace values are helpful for parameterizing parts of the test.
 
