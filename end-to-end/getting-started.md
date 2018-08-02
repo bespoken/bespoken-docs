@@ -32,8 +32,8 @@ We use Virtual Devices to do it. A virtual device works like a physical device, 
 
 To see a complex example in action, [check out this project](https://github.com/bespoken/virtual-device-example/tree/SkillTesterScripts).
 
-# Important Links
+# Next Steps
  * [Setup A Virtual Device](../setup)
- * [Guide To Test Scripts](../guide)
+ * [Complete Guide To Test Scripts](../guide)
  * [Example Project](https://github.com/bespoken/virtual-device-example/tree/SkillTesterScripts)
  * [API](../api) 
