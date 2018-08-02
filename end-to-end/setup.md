@@ -38,7 +38,7 @@ To create a virtual device for Google, use this link:
 Once you have gone through the authentication process, the token that identifies your virtual device will be presented on the screen. Use this token in the subsequent steps.
 
 # Using the Device In Your Scripts
-Now you can use the virtual device with your test script. Place it in the skill-testing.json file of your project like so:
+Now you can use the virtual device with your test script. Place it in the testing.json file of your project like so:
 ```
 {
     "virtualDeviceToken": "MY_TOKEN"

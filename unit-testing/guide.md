@@ -42,7 +42,7 @@ But there are also limitations. Those include:
 If you run into issues with testing specific utterances, always keep in mind you can set the exact intent and slot values with the intent and slot properties.
 
 # Configuration
-Global configuration options for testing skills can be set in the `skill-testing.json` file, which is typically kept at the root level of your project.
+Global configuration options for testing skills can be set in the `testing.json` file, which is typically kept at the root level of your project.
 
 These options can include overriding Jest options, as well as setting skill testing specific ones.
 
@@ -70,7 +70,7 @@ The default Jest settings are as follows:
 
 [Learn what these do here](https://facebook.github.io/jest/docs/en/configuration.html).
 
-An example `skill-testing.json` file:
+An example `testing.json` file:
 ```
 {
     "handler": "src/index.handler",
@@ -426,7 +426,7 @@ If multiple tests are labeled only within a suite, all the ones will be labeled 
 Use these flags together with the test pattern matching when calling `bst test <pattern>` to narrow the tests that should be run.
 
 ## Viewing Request/Response Payloads
-Set the `trace` flag in the skill-testing.json file and the full request and response JSON payloads will be printed to the console when the tests are run.
+Set the `trace` flag in the testing.json file and the full request and response JSON payloads will be printed to the console when the tests are run.
 
 ## Filtering Request/Response Payloads
 By specifying the "filter" property, it is possible to intercept the request before it is sent to the skill,
