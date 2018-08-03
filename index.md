@@ -53,6 +53,8 @@ grid_navigation:
           url: 'https://github.com/bespoken/virtual-device-example'
         - name: 'API'
           url: '/end-to-end/api'
+        - name: 'FAQ'
+          url: '/end-to-end/faq'
     - title: Continuous Testing
       description: 'Keep testing and monitoring once your skill is live'
       url: 'https://bespoken.io/blog/test-monitor-alexa-skills-bespoken/'

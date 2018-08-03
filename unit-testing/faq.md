@@ -95,7 +95,7 @@ Here's an example:
 </p>
 
 ### **Where should I indicate the locale for the script?**
-That depends, if you write all your test scripts for one locale only (en-US for example) it's better to define it in your testing.json configuration file:
+That depends, if you write all your test scripts for one locale only (en-US for example) it's better to define it in your `testing.json` configuration file:
 ```JSON
 {
   "handler": "../../lambda/custom/index.js",
@@ -107,14 +107,16 @@ That depends, if you write all your test scripts for one locale only (en-US for 
   }
 }
 ```
-If you have multiple test script files for different locales, then it is better to define the locale in the configuration section of each test script file:
-```YAML
----
-configuration:
-  locale: en-US
-  dynamo: mock
-  userId: 000000
-```
+If your skill supports multiple locales you have 2 options:
+- Use our localization feature to write one single test script and then add the reponses of each locale in the localization files. Check this [__project sample__](https://github.com/ig-perez/multi-locale-facts-sample-skill/tree/master/test/unit) to get started.
+- Create a different test script per each locale and define the locale in the configuration section of each test script file:
+  ```YAML
+  ---
+  configuration:
+    locale: en-US
+    dynamo: mock
+    userId: 000000
+  ```
 ### **How to invoke an intent with slots?**
 If you want to execute an intent with slots in just one line, use our succinct syntax. For example:
 ```YAML
@@ -138,7 +140,7 @@ To improve the readibility of your scripts you can use these values in your unit
 * __sessionEnded__: Equivalent to `response.shouldEndSession`
 
 ### **My skill use the Device Address API/DynamoDB how can I do unit testing without hitting the cloud?**
-We have created mockups for that, there is no need for you to do any local setup to use them. **[Check this](https://read.bespoken.io/unit-testing/use-cases)** to know how to use them.
+We have created mockups for that, there is no need for you to do any local setup to use them. **[Read here](https://read.bespoken.io/unit-testing/use-cases)** to know how to use them.
 
 ### **Can I use utterances instead of intent names in my scripts?**
 Yes, you can, but as we are emulating Alexa turning utterances into intents might not be 100% accurate in some cases. To avoid this we recommend setting the exact intent and slot values with the intent and slot properties. For example, you can turn this:
