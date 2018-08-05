@@ -459,7 +459,8 @@ The filter is a very useful catch-all for handling tricky test cases that are no
 ## Code Coverage
 Whenever Jest runs, it produces code coverage information - it is seen on the console.
 
-An HTML report is also viewable under `<PROJECT_DIR>/coverage/lcov-report/index.html`.
+An HTML report is also viewable under `<TESING_CONFIG_DIR>/coverage/lcov-report/index.html`.
+TESTING_CONFIG_DIR is the directory where your `testing.json` file is located.
 
 ## Continuous Integration
 To see how a project works with a total CI setup, [checkout this project](https://github.com/ig-perez/skill-sample-nodejs-fact/tree/ContinuousIntegration).

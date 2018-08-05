@@ -108,6 +108,7 @@ Based on this, we can either fix our test or fix the code.
 The summary at the bottom tells us about the success of the tests, as well as basic code coverage info.
 
 To see more detailed code coverage info, we can go to `coverage/lcov-report/index.html`.
+The coverage directory will be located in the same directory where your `testing.json` file is located.
 This provides detailed information about the code coverage for our tests.
 
 # Further Reading and Examples
