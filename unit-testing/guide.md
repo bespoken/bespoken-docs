@@ -89,7 +89,7 @@ Below the unit testing configuration options and what they do are listed:
 * handler - The path to the handler (and function name) to run the test
 * intentSchema - If using "old-style" configuration files, the path to the intent schema
 * interactionModel - The path to the interaction model to use for the test
-* locales - The locale or locales to be used - a comma-delimited list
+* [locales](#locales) - The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale.
 * sampleUtterances - If using the "old-style" configuration files, the path to the sampleUtterances
 * [trace](#viewing-requestresponse-payloads) - Causes request and response JSON payloads from the skill to be printed to the console
 
@@ -118,6 +118,41 @@ When running `bst test`, it automatically searches for files with the following 
 
 Any tests that match these patterns will be run.
 A recommended convention is to sort test files under a test dir.
+
+## Localization
+Localization is a built-in feature of Bespoken unit-testing.
+
+To leverage it, add a directory `locales` where your tests are located. Inside it add files for each language and/or locale, like so:
+```
+test
+  index.test.yml
+  locales
+    en.yml # Core english phrases
+    en-GB.yml # Overrides for english phrases in Great Britain locale
+    de.yml # Core german phrases
+```
+The files themselves look like this:
+```
+heresIsAFact: Here's your fact
+cardTitle: Space Facts
+helpPrompt: You can say tell me a space fact, or, you can say exit... What can I help you with?
+helpReprompt: What can I help you with?
+stopPrompt: Goodbye!
+cancelPrompt: Goodbye!
+fallbackPrompt: The Space Facts skill can't help you with that.  It can help you discover facts about space if you say tell me a space fact. What can I help you with?
+fallbackReprompt: What can I help you with?
+```
+
+When utterances, slot values and assertions are being resolved, tokens from the left-hand side are automatically replaced with values on the right-hand side. For example, take this simple test:
+```
+---
+- test: Launch request, no further interaction.
+- LaunchRequest: heresIsAFact
+```
+
+In this scenario, when the test is run for the en-US locale, the output speech will be compared to "Here's your fact", the value that heresIsAFact resolves to in our locale file.
+
+To see a complete example, [check out this project](https://github.com/ig-perez/skill-sample-nodejs-fact/tree/MultiLocalesScripts/test/unit).
 
 ## Test Suites
 Each test file is a test suite. Test suites are made up of one or many tests.
@@ -408,6 +443,11 @@ Tests are run in the order they appear in the file.
 When there are multiple test files, [Jest](https://facebook.github.io/jest/) will run them in parallel, each in their own process.
 
 This allows test suites to run much faster. When any particular test fails, the other tests will continue to process.
+
+## Locales
+For each locale defined in either the testing.json file or in the test suite itself, the tests will be run in their entirety.
+
+That means if three locales are defined, the entire test suite will be run three times.
 
 ## Skipping Tests
 Label tests "test.only" or "test.skip" to either only run a particular test, or to skip it. Example:
