@@ -93,8 +93,9 @@ An example `testing.json` file for end-to-end tests:
         "lettuce": ["let us"],
         "figs": ["fix", "vicks"]
     },
-    "invoker": "VirtualDeviceInvoker",
     "locales": "de-DE, en-US",
+    "platform": "alexa",
+    "type": "e2e",
     "virtualDeviceToken": "<TOKEN>"
 }
 ```
@@ -105,6 +106,8 @@ Below the end-to-end testing configuration options and what they do are listed:
 * [findReplace](#findreplace) - Values that will be replaced in the scripts before execution
 * [homophones](#homophones) - Values that will be replaced in actual responses from the virtual device
 * locales - The locale or locales to be used - a comma-delimited list
+* platform - The platform that is being tested - can be either `alexa` or `google` - defaults to `alexa`
+* type - The type of test being run - can be either `unit` or `e2e` - defaults to `unit`
 * [trace](#viewing-response-payloads) - Causes request and response JSON payloads from the skill to be printed to the console
 
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
