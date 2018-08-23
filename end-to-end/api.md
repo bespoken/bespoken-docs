@@ -12,7 +12,16 @@ description: Virtual Device API Documentation
 micro_nav: true
 ---
 # Overview
-We provide APIs for Node.js and HTTP
+We provide APIs to interact with our virtual devices programmatically. These APIs can be accessed via Node.js or HTTP.
+
+They are easy to work with, and require simply sending a payload of what you want to "say" to Alexa or Google, such as:  
+```
+virtualDevice.message("ask my skill what is the weather", (result) => {
+    console.log(result.transcript); // Prints out the reply from Alexa - e.g., "the weather is nice"
+});
+```
+
+It is as easy as that! For more information on how our end-to-end testing work, [read here](../getting-started).
 
 # Node.js API
 ## Installation
@@ -29,9 +38,9 @@ const vdSDK = require("virtual-device-sdk");
 const locale = "en-US";
 const voiceId = "Joey"
 const virtualDevice = new vdSDK.VirtualDevice("<PUT_YOUR_TOKEN_HERE>", locale, voiceId);
-virtualDevice.message(message).then((result) => {
+virtualDevice.message("open my skill").then((result) => {
     console.log("Reply Transcript: " + result.transcript);
-    console.log("Reply Audio: " + result.transcript_audio_url);
+    console.log("Reply Card Title: " + result.card.mainTitle);
 });
 ```
 
@@ -73,31 +82,31 @@ https://virtual-device.bespoken.io
   /process
 
 * **Method:**
-  
-  `GET` 
-  
+
+  `GET`
+
 *  **URL Params**
 
    **Required:**
- 
+
    `message=[string]`: the message that we want to send to Alexa
-   
+
    `user_id=[string]`: "validation token" obtained from Bespoken Dashboard (http://apps.bespoken.io/dashboard)
-   
-   
+
+
    **Optional:**
- 
+
    `language_code=[string]`: one of Alexa's supported locales (e.g. en-US, de-DE, etc.). Default value: "en-US". Taken from https://developer.amazon.com/docs/custom-skills/develop-skills-in-multiple-languages.html#h2-code-changes
-   
+
    `voice_id=[string]`: one of Amazon Polly's supported voices (e.g. Joey, Vicki, Hans, etc.). Default value: "Joey". MUST correspond with the language_code. Taken from: https://docs.aws.amazon.com/polly/latest/dg/voicelist.html
 
 	`phrases=[string]`: a word or phrase used as a hint so that the speech recognition is more likely to recognize them as part of the alexa response. You can use this multiple times in the query string to send more than one.
 
 * **Success Response:**
-  
+
 
   * **Code:** 200 <br />
-    **Content:** 
+    **Content:**
 	```json
 	 {
             "streamURL": "string",
@@ -114,8 +123,8 @@ https://virtual-device.bespoken.io
             }
         }
 	```
-   
- 
+
+
 * **Error Response:**
 
   * **Code:** 400 BAD REQUEST <br />
@@ -129,17 +138,17 @@ https://virtual-device.bespoken.io
 
   * **Code:** 500 INTERNAL SERVER ERROR <br />
     **Content:** `{error: 'error message in case of an exception'}`
- 
+
 
 * **Sample Call:**
 ```
-curl "http://virtual-device.bespoken.io/process?message="what time is it"&user_id=<your user id>&voice_id=Joey&language_code=en-US" ; 
+curl "http://virtual-device.bespoken.io/process?message="what time is it"&user_id=<your user id>&voice_id=Joey&language_code=en-US" ;
 ```
 
 * **Notes:**
 
-  * Not sending the language_code or voice_id will default **both** to en-US and Joey. 
-  
+  * Not sending the language_code or voice_id will default **both** to en-US and Joey.
+
 
 ## **Batch process** Endpoint
 
@@ -150,25 +159,25 @@ Receives multiple messages and expected phrases in an object array. The goal of 
   /batch_process
 
 * **Method:**
-  
- `POST` 
-  
+
+ `POST`
+
 *  **URL Params**
 
    **Required:**
- 
+
       `user_id=[string]`: "validation token" obtained from Bespoken Dashboard (http://apps.bespoken.io/dashboard)
 
    **Optional:**
- 
+
    `language_code=[string]`: one of Alexa's supported locales (e.g. en-US, de-DE, etc.). Default value: "en-US". Taken from https://developer.amazon.com/docs/custom-skills/develop-skills-in-multiple-languages.html#h2-code-changes
-   
+
    `voice_id=[string]`: one of Amazon Polly's supported voices (e.g. Joey, Vicki, Hans, etc.). Default value: "Joey". MUST correspond with the language_code. Taken from: https://docs.aws.amazon.com/polly/latest/dg/voicelist.html
 
 * **Data Params**
 
    **Required:**
- 
+
     `messages=[array]`: object array where each object's "text" field is a required property that represents the message sent to Alexa and each "phrases" property is an optional array of strings representing words or phrases used as hint for the speech recognition library to recognize them better.
 
     ```json
@@ -180,10 +189,10 @@ Receives multiple messages and expected phrases in an object array. The goal of 
     ```
 
 * **Success Response:**
-  
+
 
   * **Code:** 200 <br />
-    **Content:** 
+    **Content:**
 	```javascript
 	{
 	    "results": [
@@ -204,7 +213,7 @@ Receives multiple messages and expected phrases in an object array. The goal of 
 	    ]
 	}
 	```
- 
+
 * **Error Response:**
 	* **Code:** 400 BAD REQUEST <br />
     **Content:** `"Invalid message"`
@@ -226,7 +235,7 @@ Receives multiple messages and expected phrases in an object array. The goal of 
     {  
         "messages": [
             {"text":"open guess the price", "phrases":["how many persons"]},
-            {"text":"one"} 
+            {"text":"one"}
         ]
     },  
     function(data, status){  
@@ -236,4 +245,4 @@ Receives multiple messages and expected phrases in an object array. The goal of 
 
 * **Notes:**
 
-  * Not sending the language_code or voice_id will default **both** to en-US and Joey. 
+  * Not sending the language_code or voice_id will default **both** to en-US and Joey.

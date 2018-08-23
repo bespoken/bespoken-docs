@@ -19,7 +19,7 @@ We use Virtual Devices to do it. A virtual device works like a physical device, 
 - configuration:
   locales: en-US
   voiceId: Joey
-  
+
 ---
 - test: launch request, no further interaction
 - open bring: welcome to bring
@@ -30,10 +30,25 @@ We use Virtual Devices to do it. A virtual device works like a physical device, 
 - what is on my list: you have the following items on your list
 ```
 
+How does it work? Look at this line:
+```
+- open bring: welcome to bring
+```
+
+What happens is:
+* We turn `open bring` into audio using text-to-speech from [Amazon Polly](https://aws.amazon.com/polly/)
+* We send the speech audio to Alexa or Google Assistant
+* Alexa or Google Assistant invokes the skill or action named (in this case, the grocery-list skill Bring)
+* The skill/action provides a reply - a combination of audio (the vocal response from Alexa/Google) and metadata (for card information)
+* We turn the response back into text using speech-to-text
+* We compare it to the expected output, "welcome to bring" in this case
+
+So there is a lot going on under the covers, but the tests themselves are very easy to write and maintain - in fact, we believe it's as easy to type the tests as it is to manually say them. And once they have been written, you have an automated test suite, that can be run at any time and incorporated into other automated processes (such as continuous integration/continuous delivery).
+
 To see a complex example in action, [check out this project](https://github.com/bespoken/virtual-device-example/tree/SkillTesterScripts).
 
 # Next Steps
  * [Setup A Virtual Device](../setup)
  * [Complete Guide To Test Scripts](../guide)
  * [Example Project](https://github.com/bespoken/virtual-device-example/tree/SkillTesterScripts)
- * [API](../api) 
+ * [API](../api)
