@@ -30,7 +30,7 @@ We use Virtual Devices to do it. A virtual device works like a physical device, 
 - what is on my list: you have the following items on your list
 ```
 
-How does it work? Look at this line:
+How does it work? Take a look at this line:
 ```
 - open bring: welcome to bring
 ```
@@ -43,7 +43,7 @@ What happens is:
 * We turn the response back into text using speech-to-text
 * We compare it to the expected output, "welcome to bring" in this case
 
-So there is a lot going on under the covers, but the tests themselves are very easy to write and maintain - in fact, we believe it's as easy to type the tests as it is to manually say them. And once they have been written, you have an automated test suite, that can be run at any time and incorporated into other automated processes (such as continuous integration/continuous delivery).
+There is a lot going on under the covers, but the tests themselves are very easy to write and maintain - in fact, we believe it's as easy to type the tests as it is to manually say them. And once they have been written, you have an automated test suite, that can be run at any time and incorporated into other automated processes (such as continuous integration/continuous delivery).
 
 To see a complex example in action, [check out this project](https://github.com/bespoken/virtual-device-example/tree/SkillTesterScripts).
 
