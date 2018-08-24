@@ -29,7 +29,7 @@ It is as easy as that! For more information on how our end-to-end testing work, 
     ```bash
     npm install virtual-device-sdk --save
     ```
-2. Get your token: Follow the instructions [here](/docs/setup.md).
+2. Get your token: Follow the instructions [here](../setup.md).
 
 ## Sending a Message
 Here is a simple example in Javascript:
