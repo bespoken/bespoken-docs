@@ -143,7 +143,7 @@ https://virtual-device.bespoken.io
 
 * **Sample Call:**
 ```
-curl "http://virtual-device.bespoken.io/process?message="what time is it"&user_id=<your user id>&voice_id=Joey&language_code=en-US" ;
+curl "https://virtual-device.bespoken.io/process?message="what time is it"&user_id=<your user id>&voice_id=Joey&language_code=en-US" ;
 ```
 
 * **Notes:**
