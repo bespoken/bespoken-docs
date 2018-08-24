@@ -85,7 +85,7 @@ An example `testing.json` file:
 
 Below the unit testing configuration options and what they do are listed:
 
-* [filter](#filtering-requestresponse-payloads) - The (optional) path to a class that can be used to override value on the request and response
+* [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
 * handler - The path to the handler (and function name) to run the test
 * intentSchema - If using "old-style" configuration files, the path to the intent schema
 * interactionModel - The path to the interaction model to use for the test
