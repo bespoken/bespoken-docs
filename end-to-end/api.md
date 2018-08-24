@@ -29,7 +29,7 @@ It is as easy as that! For more information on how our end-to-end testing work, 
     ```bash
     npm install virtual-device-sdk --save
     ```
-2. Get your token: Follow the instructions [here](../setup.md).
+2. Get your token: Follow the instructions [here](../setup).
 
 ## Sending a Message
 Here is a simple example in Javascript:
@@ -70,7 +70,7 @@ export interface ICard {
 The VirtualDevice service can also be called directly via HTTP.
 
 To use it, first get your token:  
-Follow the instructions [here](../setup.md).
+Follow the instructions [here](../setup).
 
 The Base URL is:  
 https://virtual-device.bespoken.io
