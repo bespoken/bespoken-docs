@@ -33,9 +33,9 @@ In computer science, test coverage is a measure used to describe the degree to w
 ![Sample of Code Coverage output][Codecov-Output]
 
 ## **How to run the unit tests**
-To get started, you need to install the Bespoken CLI, please follow next steps:
-1) Install the CLI by running `npm install -g bespoken-tools` on your command line.
-2) Open a command-line window and change directory to `<PROJECT_FOLDER>/test`
+To get started, you need to install the Bespoken CLI, please follow next steps:  
+1) Install the CLI by running `npm install -g bespoken-tools` on your command line.  
+2) Open a command-line window and change directory to `<PROJECT_FOLDER>/test`  
 3) Run the tests - just enter `bst test`. The output should look like this:
 ```console
 $ bst test
@@ -46,7 +46,7 @@ PASS test\unit\index.test.yml
       √ LaunchRequest
     GetNewFactIntent direct call
       √ GetNewFactIntent
-      
+
 ----------|----------|----------|----------|----------|-------------------|
 File      |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
 ----------|----------|----------|----------|----------|-------------------|
@@ -59,15 +59,16 @@ Snapshots:   0 total
 Time:        3.405s
 Ran all test suites.
 ```
-4) Take a look at the code coverage - at `<PROJECT_FOLDER>/test/coverage/lcov-report/index.html`. It shows what code is, and what is NOT, being executed by the tests. It's a very helpful guide to how effective your unit tests are. You can read more about [how the code coverage works here](https://github.com/dwyl/learn-istanbul).
+4) Take a look at the code coverage - at `<PROJECT_FOLDER>/test/coverage/lcov-report/index.html`.  
+It shows what code is, and what is NOT, being executed by the tests. It's a very helpful guide to how effective your unit tests are. You can read more about [how the code coverage works here](https://github.com/dwyl/learn-istanbul).  
 5) Add some more tests! As you build upon this sample project, you can add more tests and use these tools to continue to ensure everything is working perfectly.
 
 ### How to learn more
-Take a look [here](https://read.bespoken.io/unit-testing/getting-started/) for more info on unit-testing. 
+Take a look [here](https://read.bespoken.io/unit-testing/getting-started/) for more info on unit-testing.
 If you need assistance reach us on any of these channels:
 * [Email](mailto:contact@bespoken.io)
 * [Twitter](https://twitter.com/bespokenio)
-* [Gitter](https://gitter.im/bespoken/bst) 
+* [Gitter](https://gitter.im/bespoken/bst)
 
 ### **What are continuous integration (CI) and automated unit testing?**
 >*Continuous Integration (CI) is the process of automating the build and testing of code every time a team member commits changes to version control ... Sam Guckenheimer (Microsoft)*
@@ -80,11 +81,11 @@ Check this **[sample project](https://github.com/ig-perez/skill-sample-nodejs-fa
 
 ### **Besides Alexa, can I use Bespoken to unit test Google Actions?**
 We are currently working to release our support of Google Actions unit testing. Please stay tuned since it will be available soon.
- 
+
 ## **Working with test scripts**
 
 ### **How should I organize my folder structure to store my test script files?**
-This is our recommendation: 
+This is our recommendation:
 * Create a `test` folder under the root of your voice app project. This folder will contain your test script files.
 * To store your unit test script files and the `testing.json` configuration file create a `unit` folder under your `test` directory.
 
