@@ -69,7 +69,8 @@ export interface ICard {
 # HTTP API
 The VirtualDevice service can also be called directly via HTTP.
 
-To use it, first get your token: Follow the instructions [here](/docs/setup.md).
+To use it, first get your token:  
+Follow the instructions [here](../setup.md).
 
 The Base URL is:  
 https://virtual-device.bespoken.io
