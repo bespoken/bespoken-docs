@@ -468,18 +468,22 @@ Use these flags together with the test pattern matching when calling `bst test <
 ## Viewing Request/Response Payloads
 Set the `trace` flag in the testing.json file and the full request and response JSON payloads will be printed to the console when the tests are run.
 
-## Filtering Request/Response Payloads
-By specifying the "filter" property, it is possible to intercept the request before it is sent to the skill,
-as well as the response before the assertions are run against it.
+## Filtering during test
+By specifying the "filter" property, it is possible to intercept and even change the properties of the tests along their execution.
+For example you can intercept the request before it is sent to the skill, as well as the response before the assertions are run against it.
 
 The module will be loaded from the path where the tester is being run, and should be referenced that way. For example:  
 If `bst test` is being run at `/Users/bst-user/project`  
-And the filter file is `/Users/bst-user/project/test/myFilterModule`    
-Then the filter should be set to `filter: test/myfilterModule`  
+And the filter file is `/Users/bst-user/project/test/myFilterModule`  
+Then the filter should be set to `filter: test/myfilterModule`
 
-The filter module should be a simple JS object with two functions:
+The filter module should be a simple JS object with all or some of this functions:
+* onTestSuiteStart(testSuite, context)
+* onTestStart(test)
 * onRequest(test, request)
 * onResponse(test, response)
+* onTestEnd(test, testResults)
+* onTestSuiteEnd(testResults)
 
 An example filter is here:
 ```
@@ -494,12 +498,12 @@ module.exports = {
 }
 ```
 
-The filter is a very useful catch-all for handling tricky test cases that are not supported by the YAML test syntax.
+The filter is a very useful catch-all for handling tricky test cases that are not supported by the YAML test syntax or if you want to fine tune some aspects of the tests.
 
 ## Code Coverage
 Whenever Jest runs, it produces code coverage information - it is seen on the console.
 
-An HTML report is also viewable under `<TESING_CONFIG_DIR>/coverage/lcov-report/index.html`.
+An HTML report is also viewable under `<TESTING_CONFIG_DIR>/coverage/lcov-report/index.html`.
 TESTING_CONFIG_DIR is the directory where your `testing.json` file is located.
 
 ## Continuous Integration
