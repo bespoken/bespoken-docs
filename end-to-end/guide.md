@@ -102,7 +102,7 @@ An example `testing.json` file for end-to-end tests:
 
 Below the end-to-end testing configuration options and what they do are listed:
 
-* [filter](#filtering-response-payloads) - The (optional) path to a class that can be used to override value on the request and response
+* [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
 * [findReplace](#findreplace) - Values that will be replaced in the scripts before execution
 * [homophones](#homophones) - Values that will be replaced in actual responses from the virtual device
 * locales - The locale or locales to be used - a comma-delimited list
