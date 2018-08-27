@@ -90,9 +90,8 @@ This is our recommendation:
 * To store your unit test script files and the `testing.json` configuration file create a `unit` folder under your `test` directory.
 
 Here's an example:
-<p align="center">
-  <img src="../assets/images/folderStructure.PNG" />
-</p>
+
+![Folder Structure Recommendation][folderStructure]
 
 ## **Where should I indicate the locale for the script?**
 That depends, if you write all your test scripts for one locale only (en-US for example) it's better to define it in your `testing.json` configuration file:
@@ -171,3 +170,4 @@ Check the full code of this project and test script **[here](https://github.com/
 <!-- Images references -->
 [CI]: /assets/images/CI.png "Continuous Integration Flow"
 [Codecov-Output]: /assets/images/BST-Test-Summary.png "Continuous Integration Flow"
+[folderStructure]: /assets/images/folderStructure.PNG "Folder structure sample"
