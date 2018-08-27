@@ -169,5 +169,5 @@ Check the full code of this project and test script **[here](https://github.com/
 
 
 <!-- Images references -->
-[CI]: ../assets/images/CI.png "Continuous Integration Flow"
-[Codecov-Output]: ../assets/images/BST-Test-Summary.png "Continuous Integration Flow"
+[CI]: /assets/images/CI.png "Continuous Integration Flow"
+[Codecov-Output]: /assets/images/BST-Test-Summary.png "Continuous Integration Flow"

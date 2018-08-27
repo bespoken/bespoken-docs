@@ -304,4 +304,4 @@ It is also possible to specify multiple valid values for a property. That is don
 ```
 
 <!-- Images references -->
-[AlexaHistory]: assets/alexaHistory.png "Showing Alexa voice interactions history"
+[AlexaHistory]: ../assets/alexaHistory.png "Showing Alexa voice interactions history"
