@@ -39,6 +39,8 @@ grid_navigation:
           url: '/unit-testing/use-cases'
         - name: 'API'
           url: 'https://github.com/bespoken/virtual-alexa'
+        - name: 'FAQ'
+          url: '/unit-testing/faq'
     - title: End-to-end Testing
       url: '/end-to-end/getting-started'
       description: 'Automatic end-to-end testing with the real Alexa'
@@ -51,6 +53,8 @@ grid_navigation:
           url: 'https://github.com/bespoken/virtual-device-example'
         - name: 'API'
           url: '/end-to-end/api'
+        - name: 'FAQ'
+          url: '/end-to-end/faq'
     - title: Continuous Testing
       description: 'Keep testing and monitoring once your skill is live'
       url: 'https://bespoken.io/blog/test-monitor-alexa-skills-bespoken/'
