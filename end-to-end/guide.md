@@ -429,7 +429,7 @@ And the filter file is `/Users/bst-user/project/test/myFilterModule`
 Then the filter should be set to `filter: test/myfilterModule`  
 
 The filter module should be a simple JS object with all or some of this functions:
-* onTestSuiteStart(testSuite, context)
+* onTestSuiteStart(testSuite)
 * onTestStart(test)
 * onResponse(test, response)
 * onTestEnd(test, testResults)
