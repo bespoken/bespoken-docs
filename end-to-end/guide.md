@@ -141,7 +141,6 @@ You can get the complete list of parameters you can use by running:
 bst test --help
 ```
 
-
 ## Find/Replace
 Find/replace values are helpful for parameterizing parts of the test.
 
