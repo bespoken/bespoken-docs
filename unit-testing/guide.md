@@ -92,6 +92,7 @@ Below the unit testing configuration options and what they do are listed:
 * [locales](#locales) - The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale.
 * sampleUtterances - If using the "old-style" configuration files, the path to the sampleUtterances
 * [trace](#viewing-requestresponse-payloads) - Causes request and response JSON payloads from the skill to be printed to the console
+* [include and exclude](#including-or-excluding-tests-using-tags) - Runs or Skip the tests having the particular indicated tags
 
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
 
@@ -514,6 +515,39 @@ module.exports = {
 ```
 
 The filter is a very useful catch-all for handling tricky test cases that are not supported by the YAML test syntax or if you want to fine tune some aspects of the tests.
+
+## Including or excluding tests using tags
+
+By specifying tags in particular tests you can then run only the tests you want. Let's say you have tests specific to the first time a user use your skill, we are going to apply the tag "FirstUse" to them:
+
+```
+---
+- test: open the skill
+- tags: FirstUse
+- open my skill: hello
+```
+
+If you want to run all the tests that have that particular tag, you can edit testing.json to indicate that those are the ones to run by adding the "include" property:
+
+```
+{
+    "include": ["FirstUse"],
+}
+```
+
+You can also use the exclude property to prevent some tests from being run, suppose we marked some broken tests with the tag broken, the following configuration will prevent those tests marked from being run:
+
+```
+{
+    "exclude": ["broken"],
+}
+```
+
+Remember you can also use the override properties when executing the bst test command and also combine include and exclude together. This command will run all the tests that have either FirstUse or ReturningUser tags but exclude the ones that are also marked as broken
+
+```
+bst test --include FirstUse,ReturningUser --exclude broken
+```
 
 ## Code Coverage
 Whenever Jest runs, it produces code coverage information - it is seen on the console.
