@@ -95,6 +95,21 @@ Below the unit testing configuration options and what they do are listed:
 
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
 
+## Overwriting configuration parameters
+
+If you want to run the tests with one or more parameters changed you can overwrite parameters directly from the run file. This will even replace existing parameters set on the testing.json file. For example if you want to replace the platform
+
+```
+bst test --platform google
+```
+
+You can get the complete list of parameters you can use by running:
+
+```
+bst test --help
+```
+
+
 # CLI Options
 When invoking `bst test`, the name of a specific test or regex can be used, like this:
 ```

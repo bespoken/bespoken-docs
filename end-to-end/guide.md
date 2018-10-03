@@ -126,6 +126,21 @@ This will be as if the configuration file was set like so:
 }
 ```
 
+## Overwriting configuration parameters
+
+If you want to run the tests with one or more parameters changed you can overwrite parameters directly from the run file. This will even replace existing parameters set on the testing.json file. For example if you want to replace the platform
+
+```
+bst test --platform google
+```
+
+You can get the complete list of parameters you can use by running:
+
+```
+bst test --help
+```
+
+
 ## Find/Replace
 Find/replace values are helpful for parameterizing parts of the test.
 
