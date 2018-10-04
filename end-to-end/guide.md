@@ -105,11 +105,11 @@ Below the end-to-end testing configuration options and what they do are listed:
 * [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
 * [findReplace](#findreplace) - Values that will be replaced in the scripts before execution
 * [homophones](#homophones) - Values that will be replaced in actual responses from the virtual device
+* [include and exclude](#including-or-excluding-tests-using-tags) - Runs or Skip the tests having the particular indicated tags
 * locales - The locale or locales to be used - a comma-delimited list
 * platform - The platform that is being tested - can be either `alexa` or `google` - defaults to `alexa`
 * type - The type of test being run - can be either `unit` or `e2e` - defaults to `unit`
 * [trace](#viewing-response-payloads) - Causes request and response JSON payloads from the skill to be printed to the console
-* [include and exclude](#including-or-excluding-tests-using-tags) - Runs or Skip the tests having the particular indicated tags
 
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
 
@@ -463,14 +463,16 @@ The filter is a very useful catch-all for handling tricky test cases that are no
 
 ## Including or excluding tests using tags
 
-By specifying tags in particular tests you can then run only the tests you want. Let's say you have tests specific to the first time a user use your skill, we are going to apply the tag "FirstUse" to them:
+By specifying tags in particular tests you can then run only the tests you want. Let's say you have tests specific to the first time a user uses your skill, we are going to apply the tag "FirstUse" to them:
 
 ```
 ---
 - test: open the skill
-- tags: FirstUse
+- tags: FirstUse,Alexa
 - open my skill: hello
 ```
+
+Note that multiple tags can be applied to a test, as a comma-delimited list.
 
 If you want to run all the tests that have that particular tag, you can edit testing.json to indicate that those are the ones to run by adding the "include" property:
 
