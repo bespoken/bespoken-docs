@@ -569,7 +569,7 @@ cache:
   directories:
   - lambda/custom/node_modules
 install:
-  - npm install bespoken-tools@beta -g
+  - npm install bespoken-tools -g
   - npm install codecov -g
   - cd lambda/custom && npm install && cd ../..
 script:

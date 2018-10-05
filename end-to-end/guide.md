@@ -32,7 +32,7 @@ We use the same basic format for unit-testing and end-to-end testing, but there 
 
 ## Install
 ```bash
-npm install bespoken-tools@beta -g
+npm install bespoken-tools -g
 ```
 
 To test to see if it is installed correctly, then try typing:

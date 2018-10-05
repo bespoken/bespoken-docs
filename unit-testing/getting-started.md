@@ -64,12 +64,12 @@ For Windows, select Run -> cmd
 Once on the command-line, type:
 
 ```
-npm install bespoken-tools@beta -g
+npm install bespoken-tools -g
 ```
 
 If that fails with a permission warning, you can simply run:
 ```
-sudo npm install bespoken-tools@beta -g
+sudo npm install bespoken-tools -g
 ```
 
 To confirm that it is installed, type: `bst` on the command-prompt. You should see something like this:
