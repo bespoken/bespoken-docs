@@ -87,7 +87,7 @@ Below the unit testing configuration options and what they do are listed:
 
 * [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
 * handler - The path to the handler (and function name) to run the test
-* [include and exclude](#including-or-excluding-tests-using-tags) - Runs or Skip the tests having the particular indicated tags
+* [include and exclude](#including-or-excluding-tests-using-tags) - Runs or Skip the tests having the particular specified tags
 * intentSchema - If using "old-style" configuration files, the path to the intent schema
 * interactionModel - The path to the interaction model to use for the test
 * [locales](#locales) - The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale.
@@ -523,7 +523,7 @@ By specifying tags in particular tests you can then run only the tests you want.
 ```
 ---
 - test: open the skill
-- tags: FirstUse,Alexa
+- tags: FirstUse, Alexa
 - open my skill: hello
 ```
 
