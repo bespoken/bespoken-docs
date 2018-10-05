@@ -105,6 +105,7 @@ Below the end-to-end testing configuration options and what they do are listed:
 * [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
 * [findReplace](#findreplace) - Values that will be replaced in the scripts before execution
 * [homophones](#homophones) - Values that will be replaced in actual responses from the virtual device
+* [include and exclude](#including-or-excluding-tests-using-tags) - Runs or Skip the tests having the particular specified tags
 * locales - The locale or locales to be used - a comma-delimited list
 * platform - The platform that is being tested - can be either `alexa` or `google` - defaults to `alexa`
 * type - The type of test being run - can be either `unit` or `e2e` - defaults to `unit`
@@ -124,6 +125,20 @@ This will be as if the configuration file was set like so:
         "INVOCATION_NAME": "my new skill"
     }
 }
+```
+
+## Overwriting configuration parameters
+
+If you want to run the tests with one or more parameters changed you can overwrite parameters directly from the run file. This will even replace existing parameters set on the testing.json file. For example if you want to replace the platform
+
+```
+bst test --platform google
+```
+
+You can get the complete list of parameters you can use by running:
+
+```
+bst test --help
 ```
 
 ## Find/Replace
@@ -445,6 +460,41 @@ module.exports = {
 ```
 
 The filter is a very useful catch-all for handling tricky test cases that are not supported by the YAML test syntax or if you want to fine tune some aspects of the tests.
+
+## Including or excluding tests using tags
+
+By specifying tags in particular tests you can then run only the tests you want. Let's say you have tests specific to the first time a user uses your skill, we are going to apply the tag "FirstUse" to them:
+
+```
+---
+- test: open the skill
+- tags: FirstUse, Alexa
+- open my skill: hello
+```
+
+Note that multiple tags can be applied to a test, as a comma-delimited list.
+
+If you want to run all the tests that have that particular tag, you can edit testing.json to indicate that those are the ones to run by adding the "include" property:
+
+```
+{
+    "include": ["FirstUse"],
+}
+```
+
+You can also use the exclude property to prevent some tests from being run, suppose we marked some broken tests with the tag broken, the following configuration will prevent those tests marked from being run:
+
+```
+{
+    "exclude": ["broken"],
+}
+```
+
+Remember you can also use the override properties when executing the bst test command and also combine include and exclude together. This command will run all the tests that have either FirstUse or ReturningUser tags but exclude the ones that are also marked as broken
+
+```
+bst test --include FirstUse,ReturningUser --exclude broken
+```
 
 # Further Reading
 Take a look at:
