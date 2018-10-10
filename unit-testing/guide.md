@@ -85,6 +85,10 @@ An example `testing.json` file:
 
 Below the unit testing configuration options and what they do are listed:
 
+* accessToken - Sets the access token in the generated request payload
+* [address](../use-cases#testing-with-the-address-api) - Sets the address to be returned by the address API
+* deviceId - Sets the deviceId to be used in the generated requests
+* [dynamo](../use-cases#testing-with-dynamo) - : Should be set to "mock" to use the mock dynamo component
 * [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
 * handler - The path to the handler (and function name) to run the test
 * [include and exclude](#including-or-excluding-tests-using-tags) - Runs or Skip the tests having the particular specified tags
@@ -93,6 +97,7 @@ Below the unit testing configuration options and what they do are listed:
 * [locales](#locales) - The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale.
 * sampleUtterances - If using the "old-style" configuration files, the path to the sampleUtterances
 * [trace](#viewing-requestresponse-payloads) - Causes request and response JSON payloads from the skill to be printed to the console
+* userId - Sets the userId in the request payload
 
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
 
@@ -210,6 +215,7 @@ The test configuration can override elements set in the global skill testing con
 
 It can also set test-suite specific items such as:
 
+* accessToken: Sets the access token in the generated requests
 * [address](../use-cases#testing-with-the-address-api): Should be set with address attributes to emulate results from the Address API
 * applicationId: Sets the applicationId to be used in the generated requests
 * deviceId: Sets the deviceId to be used in the generated requests
