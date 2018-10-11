@@ -20,11 +20,11 @@ We support node version `4.x.x` and above.  For help installing, see [How To Ins
 
 Next, install the Bespoken command line tool (bst):
 ```
-$ npm install bespoken-tools@beta -g
+$ npm install bespoken-tools -g
 ```
 __Note:__ If you are on MacOS and the command fails, it is probably because you need to run it with sudo, like this:
 ```
-$ sudo npm install bespoken-tools@beta -g
+$ sudo npm install bespoken-tools -g
 ```
 Verify the installation by typing:
 ```
@@ -43,5 +43,5 @@ You will then be able to use our commands, described below:
 
 To update bst:
 ```
-$ npm update bespoken-tools@beta -g
+$ npm update bespoken-tools -g
 ```
