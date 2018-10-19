@@ -33,10 +33,10 @@ grid_navigation:
       links:
         - name: 'Getting Started'
           url: '/unit-testing/getting-started'
-        - name: 'In-Depth Guide'
+        - name: 'In-Depth Guide - Alexa skill'
           url: '/unit-testing/guide'
-        - name: 'Google Action Guide'
-          url: '/unit-testing/google-actions'
+        - name: 'In-Depth Guide - Google Actions'
+          url: '/unit-testing/guide-google'
         - name: 'Use Cases'
           url: '/unit-testing/use-cases'
         - name: 'API'

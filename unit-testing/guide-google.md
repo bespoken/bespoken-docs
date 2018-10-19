@@ -12,8 +12,10 @@ description: Complete Guide to Unit-Testing for Google Actions
 micro_nav: true
 ---
 # Overview
-The purpose of Bespoken Unit Testing is to make it easy for anyone to test Alexa skills and voice apps.
+The purpose of Bespoken Unit Testing is to make it easy for anyone to test voice apps.
 This section is dedicated to the testing of Google Actions.
+
+Our approach to unit-testing allows for writing tests across Google and Alexa in a common format, but there is functionality unique to Google versus Alexa. This guide covers our functionality in general, as well as specific aspects for Google Actions.
 
 The syntax is based on YAML, and is meant to be easy to read and write. [Learn more about YAML syntax here](http://yaml.org/spec/1.2/spec.html#Preview).
 
@@ -138,7 +140,7 @@ Example:
 }
 ```
 
-# Another configuration parameters
+# Additional configuration parameters
 
 Below the unit testing configuration options and what they do are listed:
 
