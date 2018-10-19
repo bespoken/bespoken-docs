@@ -35,6 +35,8 @@ grid_navigation:
           url: '/unit-testing/getting-started'
         - name: 'In-Depth Guide'
           url: '/unit-testing/guide'
+        - name: 'Google Action Guide'
+          url: '/unit-testing/google-actions'
         - name: 'Use Cases'
           url: '/unit-testing/use-cases'
         - name: 'API'
