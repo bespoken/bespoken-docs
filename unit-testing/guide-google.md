@@ -239,10 +239,8 @@ configuration:
 --- # The --- indicates the start of a new test, which is a self-contained YAML document
 - test: "Launches successfully" # Optional info about the test
 - I want to hear about Google's History: Sure, here's a history fact.
-- "Using intent slot":
-  - intent: tell_fact
-  - slots:
-      category: history
+# Using intent slot
+- tell_fact category=history:
   - prompt == "Sure, here's a history fact"
 - I want to hear about Google's History: Sure, here's a history fact.
 - I want to hear about Google's History: Sure, here's a history fact.
@@ -253,10 +251,8 @@ configuration:
 --- # The --- indicates the start of a new test, which is a self-contained YAML document
 - test: "Launches successfully Again" # Optional info about the test
 - I want to hear about Google's History: Sure, here's a history fact.
-- "Using intent slot":
-  - intent: tell_fact
-  - slots:
-      category: history
+# Using intent slot
+- tell_fact category=history:
   - prompt == "Sure, here's a history fact"
 - I want to hear about Google's History: Sure, here's a history fact.
 - I want to hear about Google's History: Sure, here's a history fact.
