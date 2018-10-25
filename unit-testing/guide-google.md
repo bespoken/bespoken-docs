@@ -140,6 +140,19 @@ Example:
 }
 ```
 
+### URL configuration
+If you can not use the above configurations, you can also start your server manually and provide the google action URL, so that we direct
+all the requests there.
+
+Example:
+```
+{
+    "dialogFlowDirectory": "../FactsAboutGoogle",
+    "actionURL": "http://localhost:8080/google",
+    "platform": "google"
+}
+```
+
 # Additional configuration parameters
 
 Below the unit testing configuration options and what they do are listed:
