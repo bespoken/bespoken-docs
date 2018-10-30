@@ -1,4 +1,4 @@
----
+f---
 # Page settings
 layout: default
 keywords:
@@ -371,18 +371,14 @@ When a collection is used like this, if any of the values matches, the assertion
 ## Intent and Slot properties
 Though it is convenient to use the utterance syntax, some times it may not work correctly.
 
-It also is useful to be explicit at times about which intents and slots are desired.
+It also is useful to be explicit about which intents and slots are desired.
 
-To do that, set a test like so:
+To do that, set the first line of the test like so:
 ```
-- "Some utterance"
-  - intent: SomeIntent
-  - slots:
-      SlotA: ValueA
-      SlotB: ValueB
+- SomeIntent SlotA=ValueA SlotB=ValueB
 ```
 
-Or, similar synax but without the dedicated "YAML object" for slots:
+This is a shorthand for this more verbose syntax:
 ```
 - "Some utterance"
   - intent: SomeIntent
@@ -391,8 +387,6 @@ Or, similar synax but without the dedicated "YAML object" for slots:
 ```
 
 This interaction will send an IntentRequest with the intent name SomeIntent and slots SlotA and SlotB set to ValueA and ValueB respectively.
-
-Easy, right? The utterance is ignored, but can be useful a form of description.
 
 ## Request Expressions
 Request expressions allow for setting values explicitly on the request to handler more complex cases.

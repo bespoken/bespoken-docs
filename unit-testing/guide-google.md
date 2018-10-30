@@ -46,8 +46,8 @@ If you run into issues with testing specific utterances, always keep in mind you
 
 # Initial Setup
 
-In order to be able to simulate the turning of utterances into intents correctly we need your model, for Google export your [Dialog Flow Agent](https://dialogflow.com/docs/agents/export-import-restore)
-then unzip it. You need to keep this files up to date or you won't be able to correctly do your tests.
+In order to turn utterances into intents correctly we need your interaction model. For Google export your [Dialog Flow Agent](https://dialogflow.com/docs/agents/export-import-restore)
+then unzip it. You need to keep these files up to date or you won't be able to correctly run your tests.
 
 # Configuration
 Global configuration options for testing skills can be set in the `testing.json` file, which is typically kept at the root level of your project.
@@ -81,7 +81,7 @@ The default Jest settings are as follows:
 Below the unit testing configuration options and what they do are listed:
 
 * [actionURL](#url-configuration) - The complete url that is going to receive the requests (Required if you need to start your endpoint manually).
-* dialogFlowDirectory - The location of the unzipped folder gotten from [Dialog Flow Agent](https://dialogflow.com/docs/agents/export-import-restore), used to be able to interact with your Intents and Entities.
+* dialogFlowDirectory - The location of the unzipped folder retrieved from [Dialog Flow Agent](https://dialogflow.com/docs/agents/export-import-restore), used to be able to interact with your Intents and Entities.
 * [expressModule](#express-server-configuration) - The javascript file where express is started, it needs the express instance exported (Required if you use a express server for your endpoint).
 * [expressPort](#express-server-configuration) - The port in which express is serving  (Required if you use a express server for your endpoint).
 * [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
@@ -430,18 +430,14 @@ When a collection is used like this, if any of the values matches, the assertion
 ## Intent and Slot properties
 Though it is convenient to use the utterance syntax, some times it may not work correctly.
 
-It also is useful to be explicit at times about which intents and slots are desired.
+It also is useful to be explicit about which intents and slots are desired.
 
-To do that, set a test like so:
+To do that, set the first line of the test like so:
 ```
-- "Some utterance"
-  - intent: SomeIntent
-  - slots:
-      SlotA: ValueA
-      SlotB: ValueB
+- SomeIntent SlotA=ValueA SlotB=ValueB
 ```
 
-Or, similar synax but without the dedicated "YAML object" for slots:
+This is a shorthand for this more verbose syntax:
 ```
 - "Some utterance"
   - intent: SomeIntent
@@ -450,8 +446,6 @@ Or, similar synax but without the dedicated "YAML object" for slots:
 ```
 
 This interaction will send an IntentRequest with the intent name SomeIntent and slots SlotA and SlotB set to ValueA and ValueB respectively.
-
-Easy, right? The utterance is ignored, but can be useful a form of description.
 
 ## Request Expressions
 Request expressions allow for setting values explicitly on the request to handler more complex cases.
