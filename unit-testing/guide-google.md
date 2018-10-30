@@ -78,7 +78,21 @@ The default Jest settings are as follows:
 
 [Learn what these do here](https://facebook.github.io/jest/docs/en/configuration.html).
 
-## Testing.json configuration for google
+Below the unit testing configuration options and what they do are listed:
+
+* [actionURL](#url-configuration) - The complete url that is going to receive the requests (Required if you need to start your endpoint manually).
+* dialogFlowDirectory - The location of the unzipped folder gotten from [Dialog Flow Agent](https://dialogflow.com/docs/agents/export-import-restore), used to be able to interact with your Intents and Entities.
+* [expressModule](#express-server-configuration) - The javascript file where express is started, it needs the express instance exported (Required if you use a express server for your endpoint).
+* [expressPort](#express-server-configuration) - The port in which express is serving  (Required if you use a express server for your endpoint).
+* [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
+* handler - The path to the handler (and function name) to run the test
+* [include and exclude](#including-or-excluding-tests-using-tags) - Runs or Skip the tests having the particular specified tags
+* [locales](#locales) - The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale.
+* [trace](#viewing-requestresponse-payloads) - Causes request and response JSON payloads from the skill to be printed to the console
+
+To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
+
+# Configuration (Google-specific)
 In order to test Google Actions you need to set the platform parameter to "google"
 
 An example `testing.json` file:
@@ -152,18 +166,6 @@ Example:
     "platform": "google"
 }
 ```
-
-# Additional configuration parameters
-
-Below the unit testing configuration options and what they do are listed:
-
-* [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
-* handler - The path to the handler (and function name) to run the test
-* [include and exclude](#including-or-excluding-tests-using-tags) - Runs or Skip the tests having the particular specified tags
-* [locales](#locales) - The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale.
-* [trace](#viewing-requestresponse-payloads) - Causes request and response JSON payloads from the skill to be printed to the console
-
-To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
 
 ## Overwriting configuration parameters
 
