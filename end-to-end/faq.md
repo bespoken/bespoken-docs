@@ -41,8 +41,12 @@ An interaction is a group of utterances and expected responses that are executed
 
 As with Unit testing, the functional test scripts are based on our simple YAML syntax, which is very easy to understand, create and maintain.
 
-## **Which permissions do we ask Amazon to execute E2E testing?**
-When you get a token from Bespoken's Dashboard what actually happens behing scene is that we create a Virtual Device to interact with your skills. Virtual Device needs permissions to access your voice apps, but there is nothing to be worried about, we ask for just the necessary permissions: Alexa Voice Services and Alexa Account Connection. Both permissions are needed in order to run your test scripts agains your skills, as if you were talking to a real device. Remember, that you can remove access at any time by visiting your account at Amazon.
+## **What permissions are needed for End-to-end Testing?**
+When you get a token from Bespoken’s Dashboard, what actually happens behind the scenes is we create a Virtual Device to interact with your skills. Virtual Devices need permissions to access your voice apps.
+
+The specific permissions are to access Alexa Voice Services and Alexa Account Connection. This allows us to interact with your skills programmatically. 
+
+Remember, you can remove access at any time by visiting your Alexa account [online](https://alexa.amazon.com/spa/index.html#settings) or via the Alexa app.
 
 # **How to run E2E or Regression tests**
 To get started, you need to install the Bespoken CLI, please follow next steps:
