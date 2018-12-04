@@ -79,6 +79,18 @@ Tests:       7 passed, 7 total
 Snapshots:   0 total
 Time:        150.985s
 ```
+
+## Does Bespoken support the Amazon SMAPI Simulation API for testing?
+Yes, we do in our latest versions, now that the Simulation API supports multi-turn testing.
+
+To use this feature, set your test type to `simulation`. The feature support is still experimental - it relies on the [Alexa SMAPI to execute tests](https://developer.amazon.com/docs/smapi/skill-simulation-api.html). A few requirements to use this feature:  
+* The ASK CLI must be installed and configured on the machine where tests are run
+* The skillId of the skill being tested must be specified as part of the configuration
+* Testing must be enabled for the skill in the Alexa dev console
+* The skill must be in development stage
+
+Read more about it in our [full guide](../guide#smapi-configuration).
+
 ## How to learn more
 Take a look at this [__sample project__](https://github.com/bespoken/virtual-device-example) and use it as a base to start creating your own functional test scripts. For more info on End-to-end testing please read [__here__](https://read.bespoken.io/end-to-end/getting-started).
 If you need assistance reach us on any of these channels:
