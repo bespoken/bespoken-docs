@@ -25,17 +25,31 @@ There a couple steps for the setup - but don't worry - you will only have to do 
 2. Add a source for your skill, to do it just click on the big + icon below the llama, you will be asked to input the name for this source, for example, *"my awesome skill"*. Then click on the text saying **"Validate your new skill >>"**. You will see a window like this:
 ![A skill source inside Bespoken Dashboard](../assets/source.png "New source added")
 
-3. Click on the **"Get validation token"** link, you will see an Amazon window where you have to log in:
+3. Click on the **"Create Virtual Device"** link, you will see an Amazon window where you have to log in:
 ![Window to log in with Amazon](../assets/amazonLogin.png "Giving permissions to Virtual Device")
 
-4. After providing your credentials you will return to Bespoken dashboard and the **"Validation Token"** will be retrieved automatically:
+4. After providing your credentials you will return to Bespoken dashboard and the **"Virtual Device Token"** will be retrieved automatically:
 ![Skill source with token retrieved](../assets/sourceWithToken.png "Token is retrieved automatically")
 
-## Virtual Devices for Google
-To create a virtual device for Google, use this link:  
-[https://virtual-device.bespoken.io/link_account?platform=google](https://virtual-device.bespoken.io/link_account?platform=google)
+5. Click on the copy icon next to the name of your virtual device to copy it to the clipboard and you are set.
 
-Once you have gone through the authentication process, the token that identifies your virtual device will be presented on the screen. Use this token in the subsequent steps.
+## Virtual Devices for Google
+1. The way to get a token is through [Bespoken Dashboard](https://apps.bespoken.io/dashboard). Sign up for free or login; you will see a screen like this:
+![Bespoken Dashboard](../assets/dashboard.png "Bespoken Dashboard")
+
+2. Add a source for your action, to do it just click on the big + icon below the llama, you will be asked to input the name for this source, for example, *"my awesome action"*. Then click on the text saying **"Validate your new skill >>"**. You will see a window like this:
+![An action source inside Bespoken Dashboard](../assets/source.png "New source added")
+
+3. Ensure the type of your source is set to Google Action.
+![An action source with the correct type](../assets/sourceAction.png "Type action selected")
+
+4. Click on the **"Create Virtual Device"** link, after you login or select your account, you will see a Google window where you have to allow Bespoken to access to your Google Account:
+![Window to allow permissions in Google](../assets/googlePermissions.png "Giving permissions to Virtual Device")
+
+5. After allowing access to Bespoken you will return to Bespoken dashboard and the **"Virtual Device Token"** will be retrieved automatically:
+![Action source with token retrieved](../assets/sourceForGoogleWithToken.png "Token is retrieved automatically")
+
+6. Click on the copy icon next to the name of your virtual device to copy it to the clipboard and you are set.
 
 # Using the Device In Your Scripts
 Now you can use the virtual device with your test script. Place it in the testing.json file of your project like so:
