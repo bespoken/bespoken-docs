@@ -496,6 +496,53 @@ Remember you can also use the override properties when executing the bst test co
 bst test --include FirstUse,ReturningUser --exclude broken
 ```
 
+## Ignore properties on demand
+
+Different platforms have different properties and sometimes is not possible to validate the same exact properties when running the test using
+another platform. For these cases, you can ignore a list of properties from your tests.
+Here is an example of a testing.json that have some properties ignored:
+
+```
+{
+    "ignoreProperties": {
+        "google": {
+            "paths": "streamURL, display.array[0].url",
+            "type": "e2e"
+        },
+        "alexa": {
+            "paths": "streamURL"
+        },
+    },
+    "platform": "alexa",
+    "type": "e2e",
+    "virtualDeviceToken": "<TOKEN>"
+}
+```
+
+The "ignoreProperties" setting can receive setup for Google, Alexa or both. This setup must have a list of paths that are ignored and can also
+present optionally a type (e2e or unit). With this, you can run the same tests files by changing the platform without modifying the tests at all.
+
+If you need to fine tune this, you can overwrite the configuration at test level by adding the ignoreProperties setup as part of your configuration for that test.
+```
+---
+configuration:
+    locales: en-US
+    ignoreProperties:
+        google:
+            paths: display, debug.arrayProperty[0]
+            type: e2e
+        alexa
+            paths: display.template.content
+            type: e2e
+---
+- test: open, no further interaction
+- open get fact:
+    - prompt: here's your fact
+    - cardContent: /.*/
+    - cardTitle: Space Facts
+```
+
+
 # Further Reading
 Take a look at:
 * Our [getting started guide](../getting-started)
