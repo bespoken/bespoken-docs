@@ -551,6 +551,51 @@ Remember you can also use the override properties when executing the bst test co
 bst test --include FirstUse,ReturningUser --exclude broken
 ```
 
+## Ignore properties on demand
+
+Different platforms have different properties and sometimes is not possible to validate the same exact properties when running the test using
+another platform. For these cases, you can ignore a list of properties from your tests.
+Here is an example of a testing.json that have some properties ignored:
+
+```
+{
+    "ignoreProperties": {
+        "google": {
+            "paths": "display.array[0].url",
+            "type": "unit"
+        },
+        "alexa": {
+            "paths": "streamURL"
+        },
+    },
+    "platform": "alexa",
+    "type": "unit"
+}
+```
+
+The "ignoreProperties" setting can receive setup for Google, Alexa or both. This setup must have a list of paths that are ignored and can also
+present optionally a type (e2e or unit). With this, you can run the same tests files by changing the platform without modifying the tests at all.
+
+If you need to fine tune this, you can overwrite the configuration at test level by adding the ignoreProperties setup as part of your configuration for that test.
+```
+---
+configuration:
+    locales: en-US
+    ignoreProperties:
+        google:
+            paths: display, debug.arrayProperty[0]
+            type: unit
+        alexa
+            paths: display.template.content
+            type: unit
+---
+- test: open, no further interaction
+- open get fact:
+    - prompt: here's your fact
+    - cardContent: /.*/
+    - cardTitle: Space Facts
+```
+
 ## Code Coverage
 Whenever Jest runs, it produces code coverage information - it is seen on the console.
 
