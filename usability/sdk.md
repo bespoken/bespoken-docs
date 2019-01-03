@@ -63,4 +63,4 @@ request.intent.slots.<SLOT_NAME>.resolutions.resolutionsPerAuthority[0].values[0
 ```
 
 # Next Steps
-Reach out to Bespoken at support@bespoken.io with any questions.
+Reach out to Bespoken at [support@bespoken.io](support@bespoken.io) with any questions.
