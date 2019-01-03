@@ -10,7 +10,7 @@ title: Utterance Resolution SDK
 # Micro navigation
 micro_nav: true
 ---
-# Utterance Resolution SDK
+# Overview
 The Utterance Resolution SDK allows for testing skills with Bespoken's Usability Performance Tester.
 
 For basic testing, this SDK is not needed. It can be done simply by providing your interaction model.
