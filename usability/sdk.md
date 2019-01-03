@@ -1,3 +1,15 @@
+---
+# Page settings
+layout: default
+keywords:
+comments: false
+
+# Hero section
+title: Utterance Resolution SDK
+
+# Micro navigation
+micro_nav: true
+---
 # Utterance Resolution SDK
 The Utterance Resolution SDK allows for testing skills with Bespoken's Usability Performance Tester.
 
