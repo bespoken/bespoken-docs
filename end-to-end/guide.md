@@ -26,6 +26,8 @@ Jest has been configured with a custom test runner, which:
 
 We use the same basic format for unit-testing and end-to-end testing, but there are differences in how the tests should be written. For information on unit-testing, [read here](../../unit-testing/guide).
 
+ADDITIONALLY - we now support experimentally the SMAPI Simulation API. This can be enabled using the type of `simulation`.
+
 # Installation
 ## Prerequisites
 * [npm](https://www.npmjs.com/get-npm)
@@ -108,8 +110,11 @@ Below the end-to-end testing configuration options and what they do are listed:
 * [include and exclude](#including-or-excluding-tests-using-tags) - Runs or Skip the tests having the particular specified tags
 * locales - The locale or locales to be used - a comma-delimited list
 * platform - The platform that is being tested - can be either `alexa` or `google` - defaults to `alexa`
-* type - The type of test being run - can be either `unit` or `e2e` - defaults to `unit`
+* skillId - For tests of type `simulation`, the skillId must be specified
+* type - The type of test being run - can be `unit`, `simulation`, or `e2e` - defaults to `unit`
 * [trace](#viewing-response-payloads) - Causes request and response JSON payloads from the skill to be printed to the console
+* [virtualDeviceToken](../setup) - For end-to-end tests that use virtual devices, this must be specified. 
+[Get one here](../setup)
 
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
 
@@ -196,6 +201,17 @@ To avoid this, just define a homophone in the configuration file like so:
     }
 }
 ```
+
+## SMAPI Configuration
+For tests that are of type `simulation`, they are run using the SMAPI simulation feature. This relies on the [Alexa SMAPI to execute tests](https://developer.amazon.com/docs/smapi/skill-simulation-api.html). A few requirements to use this feature:  
+* The ASK CLI must be installed and configured on the machine where tests are run
+* The skillId of the skill being tested must be specified as part of the configuration
+* Testing must be enabled for the skill in the Alexa dev console
+* The skill must be in development stage
+
+These tests are similar to `e2e` tests in that they interact with the "real" skill. However, they do not actually "speak" to Alexa using text-to-speech but instead use text invocations.
+
+Simulation tests return the full skill payload from Alexa, similar to a unit-test.
 
 # CLI Options
 When invoking `bst test`, the name of a specific test or regex can be used, like this:
@@ -417,7 +433,7 @@ Using `goto` and `exit`, more complex tests can be built.
 ## Test Sequence
 Tests are run in the order they appear in the file.
 
-End-to-end tests are not run in parallel, unlike unit tests. This is because of limitations in how the virtual devices work.
+End-to-end tests are not run in parallel, unlike unit tests. This is because of limitations in how the virtual devices work. This is also true for tests that are run using SMAPI Simulations.
 
 ## Skipping Tests
 Label tests "test.only" or "test.skip" to either only run a particular test, or to skip it. Example:
