@@ -47,6 +47,7 @@ response.card.content = UtteranceResolution.encodeCustomResolution(
 	"Slot Name", // The name of the slot on the request
 	"Slot Value", // The value that Alexa heard for the slot
 	"Slot ID", // The ID of the slot value this was resolved to
+	"Resolution Type" // [OPTIONAL] - how the entity was resolved - defaults to ALEXA
 );
 ```
 
