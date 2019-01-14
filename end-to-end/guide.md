@@ -205,7 +205,7 @@ To avoid this, just define a homophone in the configuration file like so:
 ## SMAPI Configuration
 For tests that are of type `simulation`, they are run using the SMAPI simulation feature. This relies on the [Alexa SMAPI to execute tests](https://developer.amazon.com/docs/smapi/skill-simulation-api.html). A few requirements to use this feature:  
 * The ASK CLI must be installed and configured on the machine where tests are run
-* The skillId of the skill being tested must be specified as part of the configuration
+* The skillId and stage of the skill being tested must be specified as part of the configuration
 * Testing must be enabled for the skill in the Alexa dev console
 * The skill must be in development stage
 
