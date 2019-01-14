@@ -111,6 +111,7 @@ Below the end-to-end testing configuration options and what they do are listed:
 * locales - The locale or locales to be used - a comma-delimited list
 * platform - The platform that is being tested - can be either `alexa` or `google` - defaults to `alexa`
 * skillId - For tests of type `simulation`, the skillId must be specified
+* stage - For tests of type `simulation`, the stage must be specified - can be `development` or `live`
 * type - The type of test being run - can be `unit`, `simulation`, or `e2e` - defaults to `unit`
 * [trace](#viewing-response-payloads) - Causes request and response JSON payloads from the skill to be printed to the console
 * [virtualDeviceToken](../setup) - For end-to-end tests that use virtual devices, this must be specified. 
