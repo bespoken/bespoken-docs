@@ -207,11 +207,14 @@ For tests that are of type `simulation`, they are run using the SMAPI simulation
 * The ASK CLI must be installed and configured on the machine where tests are run
 * The skillId of the skill being tested must be specified as part of the configuration
 * Testing must be enabled for the skill in the Alexa dev console
-* The skill must be in development stage
 
 These tests are similar to `e2e` tests in that they interact with the "real" skill. However, they do not actually "speak" to Alexa using text-to-speech but instead use text invocations.
 
 Simulation tests return the full skill payload from Alexa, similar to a unit-test.
+
+**Limitations:**
+* SMAPI doesn't support digits, so all numbers should be sent as words.
+
 
 # CLI Options
 When invoking `bst test`, the name of a specific test or regex can be used, like this:
@@ -361,8 +364,7 @@ For certain commonly accessed elements, we offer short-hand properties for refer
 * cardImageURL - Corresponds to `card.imageURL`
 * cardTitle - Corresponds to `card.title`
 * prompt - An alias for the `transcript` element from the JSON payload
-
-These elements are intended to work across platforms and test types.
+* streamURL - (Alexa only) Corresponds to the `streamURL` element from JSON the payload
 
 Example:
 
@@ -371,6 +373,20 @@ Example:
 - open fact skill:
   - prompt: Here's your fact
 ```
+
+The full range of card properties can be accessed by using the card property except
+`card.type` which is an Alexa only property.
+
+Example:
+
+```
+- test: open fact skill
+- open fact skill:
+  - card.title: Fact skill
+```
+
+These elements are intended to work across platforms and test types. The ones that are available
+only for Alexa will be ignored during the tests if you are using a different platform.
 
 ### Regular Expression Values
 The expected value can be a regular expression.
