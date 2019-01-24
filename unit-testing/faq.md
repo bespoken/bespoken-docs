@@ -185,6 +185,8 @@ Add an element like this:
 
 Then select `Debug -> Start Debugging`. You also will likely need to set `collectCoverage` to false as explained in the next FAQ.
 
+Happy debugging!
+
 ## **Breakpoints are not working for me with unit-tests in Visual Studio**
 If you have configured debugging in Visual Studio and breakpoints are not working, set collectCoverage on the testing.json under the jest element to false.
 
@@ -196,6 +198,7 @@ It should look like this:
     ...
   }
 }
+```
 
 <!-- Images references -->
 [CI]: /assets/images/CI.png "Continuous Integration Flow"
