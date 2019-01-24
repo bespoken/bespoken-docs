@@ -31,7 +31,7 @@ In computer science, test coverage is a measure used to describe the degree to w
 
 ![Sample of Code Coverage output][Codecov-Output]
 
-# **How to run the unit tests**
+## **How to run the unit tests**
 To get started, you need to install the Bespoken CLI, please follow next steps:  
 1) Install the CLI by running `npm install -g bespoken-tools` on your command line.  
 2) Open a command-line window and change directory to `<PROJECT_FOLDER>/test`  
@@ -62,7 +62,7 @@ Ran all test suites.
 It shows what code is, and what is NOT, being executed by the tests. It's a very helpful guide to how effective your unit tests are. You can read more about [how the code coverage works here](https://github.com/dwyl/learn-istanbul).  
 5) Add some more tests! As you build upon this sample project, you can add more tests and use these tools to continue to ensure everything is working perfectly.
 
-## How to learn more
+## **How do I learn more?**
 Take a look [here](https://read.bespoken.io/unit-testing/getting-started/) for more info on unit-testing.
 If you need assistance reach us on any of these channels:
 * [Email](mailto:contact@bespoken.io)
@@ -79,12 +79,12 @@ The continuous integration service is responsible for bringing our source code, 
 
 Check this **[sample project](https://github.com/ig-perez/skill-sample-nodejs-fact/tree/ContinuousIntegration)**, it contains a `.travis.yml` file which is the configuration element to enable CI using Travis platform.
 
-## **Besides Alexa, can I use Bespoken to unit test Google Actions?**
+## **Can I use Bespoken to unit test Google Actions?**
 We are currently working to release our support of Google Actions unit testing. Please stay tuned since it will be available soon.
 
 # **Working with test scripts**
 
-## **How should I organize my folder structure to store my test script files?**
+## **How should I organize my test files?**
 This is our recommendation:
 * Create a `test` folder under the root of your voice app project. This folder will contain your test script files.
 * To store your unit test script files and the `testing.json` configuration file create a `unit` folder under your `test` directory.
@@ -118,7 +118,7 @@ configuration:
   userId: 000000
 ```
 
-## **How to invoke an intent with slots?**
+## **How do I invoke an intent with slots?**
 If you want to execute an intent with slots in just one line, use our succinct syntax. For example:
 ```
 ---
@@ -166,6 +166,36 @@ Into this:
 ```
 Check the full code of this project and test script **[here](https://github.com/ig-perez/skill-sample-nodejs-petmatch)**.
 
+## **How do I use the debugger with Bespoken unit-tests and Visual Studio?**
+Open the `launch.json` configuration in Visual Studio: `Debug -> Open Configurations`.
+
+Add an element like this:
+```
+"configurations": [
+  {
+      "type": "node",
+      "request": "launch",
+      "autoAttachChildProcesses": true,
+      "name": "UnitTest",
+      "program": "<PATH_TO_BESPOKEN_TOOLS_INSTALL>/bin/bst-test.js",
+      "args": [],
+  }
+]
+```
+
+Then select `Debug -> Start Debugging`. You also will likely need to set `collectCoverage` to false as explained in the next FAQ.
+
+## **Breakpoints are not working for me with unit-tests in Visual Studio**
+If you have configured debugging in Visual Studio and breakpoints are not working, set collectCoverage on the testing.json under the jest element to false.
+
+It should look like this:
+```
+{
+  "jest": {
+    "collectCoverage": false,
+    ...
+  }
+}
 
 <!-- Images references -->
 [CI]: /assets/images/CI.png "Continuous Integration Flow"
