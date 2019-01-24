@@ -207,11 +207,14 @@ For tests that are of type `simulation`, they are run using the SMAPI simulation
 * The ASK CLI must be installed and configured on the machine where tests are run
 * The skillId of the skill being tested must be specified as part of the configuration
 * Testing must be enabled for the skill in the Alexa dev console
-* The skill must be in development stage
 
 These tests are similar to `e2e` tests in that they interact with the "real" skill. However, they do not actually "speak" to Alexa using text-to-speech but instead use text invocations.
 
 Simulation tests return the full skill payload from Alexa, similar to a unit-test.
+
+**Limitations:**
+* SMAPI doesn't support digits, so all numbers should be sent as words.
+
 
 # CLI Options
 When invoking `bst test`, the name of a specific test or regex can be used, like this:
