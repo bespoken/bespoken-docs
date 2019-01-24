@@ -111,6 +111,7 @@ Below the end-to-end testing configuration options and what they do are listed:
 * locales - The locale or locales to be used - a comma-delimited list
 * platform - The platform that is being tested - can be either `alexa` or `google` - defaults to `alexa`
 * skillId - For tests of type `simulation`, the skillId must be specified
+* stage - For tests of type `simulation`, the stage must be specified - can be `development` or `live`
 * type - The type of test being run - can be `unit`, `simulation`, or `e2e` - defaults to `unit`
 * [trace](#viewing-response-payloads) - Causes request and response JSON payloads from the skill to be printed to the console
 * [virtualDeviceToken](../setup) - For end-to-end tests that use virtual devices, this must be specified. 
@@ -205,7 +206,7 @@ To avoid this, just define a homophone in the configuration file like so:
 ## SMAPI Configuration
 For tests that are of type `simulation`, they are run using the SMAPI simulation feature. This relies on the [Alexa SMAPI to execute tests](https://developer.amazon.com/docs/smapi/skill-simulation-api.html). A few requirements to use this feature:  
 * The ASK CLI must be installed and configured on the machine where tests are run
-* The skillId of the skill being tested must be specified as part of the configuration
+* The skillId and stage of the skill being tested must be specified as part of the configuration
 * Testing must be enabled for the skill in the Alexa dev console
 
 These tests are similar to `e2e` tests in that they interact with the "real" skill. However, they do not actually "speak" to Alexa using text-to-speech but instead use text invocations.
