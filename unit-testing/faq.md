@@ -21,8 +21,10 @@ In traditional computer programming, unit testing is a software testing method b
 
 For more information about testing voice apps, please read **[here](https://developer.amazon.com/blogs/alexa/post/e2f3d18c-13ca-4796-bc83-e8a196f20e57/building-engaging-alexa-skills-why-testing-and-automation-matter)**.
 
-## **Which tools does Bespoken offer to do unit testing for voice apps?**
-We have created a tool called **Virtual Alexa**, which simulates the Alexa Voice Service and creates JSON objects that are sent to your skill. This tool can be used to do unit testing programmatically and run the test suites with a unit testing framework (for example Mocha and Chai). But we also offer an *easier way* to perform unit testing by writing simple test scripts based on **YAML** syntax and running them with our **CLI**. These scripts are executed *locally* using the Virtual Alexa simulator. Each test suite execution displays the **code coverage** you reach based on your test scripts. To get started with Unit Test Scripts please **[read here](https://read.bespoken.io/unit-testing/getting-started)**.
+## **How do I unit-test with Bespoken?**
+We have created a component called **[Virtual Alexa](https://github.com/bespoken/virtual-alexa)**, which emulates the Alexa Voice Service and creates JSON objects that are sent to your skill. This library can be used to write unit tests programmatically using popular testing framework (such as Mocha and Jest). 
+
+But we also offer an *easier way* to perform unit testing by writing simple test scripts based on **YAML** syntax and running them with our **CLI**. These scripts are executed *locally* using the Virtual Alexa simulator. Each test suite execution displays the **code coverage** you reach based on your test scripts. To get started with Unit Test Scripts please **[read here](https://read.bespoken.io/unit-testing/getting-started)**.
 
 ## **What is code coverage?**
 In computer science, test coverage is a measure used to describe the degree to which the source code of a program is executed when a particular test suite runs. A program with high test coverage, measured as a percentage, has had more of its source code executed during testing, which suggests it has a lower chance of containing undetected software bugs compared to a program with low test coverage.
