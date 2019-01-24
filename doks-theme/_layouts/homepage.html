@@ -6,7 +6,6 @@
 	<body class="{{ site.doks.color_theme }}">
 		<div style="position: absolute; top: 0px;left: 0px;">
 			<img src="/assets/images/BespokenAtlas-Reduced.jpg" width="100%" style="opacity: 0.6" />
-			{% include site-footer.html %}
 		</div>
 		<div class="hero-subheader{% if page.grid_navigation %} hero-subheader--before-out{% endif %}">
 			<div class="container">
@@ -108,6 +107,7 @@
 						</div><!-- /.col -->
 					</div><!-- /.row -->
 				</div><!-- /.container -->
+				{% include site-footer.html %}
 			</div><!-- /.section -->
 		{% endif %}
 	</body>
