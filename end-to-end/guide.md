@@ -361,8 +361,7 @@ For certain commonly accessed elements, we offer short-hand properties for refer
 * cardImageURL - Corresponds to `card.imageURL`
 * cardTitle - Corresponds to `card.title`
 * prompt - An alias for the `transcript` element from the JSON payload
-
-These elements are intended to work across platforms and test types.
+* streamURL - (Alexa only) Corresponds to the `streamURL` element from JSON the payload
 
 Example:
 
@@ -371,6 +370,20 @@ Example:
 - open fact skill:
   - prompt: Here's your fact
 ```
+
+The full range of card properties can be accessed by using the card property except
+`card.type` which is an Alexa only property.
+
+Example:
+
+```
+- test: open fact skill
+- open fact skill:
+  - card.title: Fact skill
+```
+
+These elements are intended to work across platforms and test types. The ones that are available
+only for Alexa will be ignored during the tests if you are using a different platform.
 
 ### Regular Expression Values
 The expected value can be a regular expression.
