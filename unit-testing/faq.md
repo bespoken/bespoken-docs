@@ -21,8 +21,10 @@ In traditional computer programming, unit testing is a software testing method b
 
 For more information about testing voice apps, please read **[here](https://developer.amazon.com/blogs/alexa/post/e2f3d18c-13ca-4796-bc83-e8a196f20e57/building-engaging-alexa-skills-why-testing-and-automation-matter)**.
 
-## **Which tools does Bespoken offer to do unit testing for voice apps?**
-We have created a tool called **Virtual Alexa**, which simulates the Alexa Voice Service and creates JSON objects that are sent to your skill. This tool can be used to do unit testing programmatically and run the test suites with a unit testing framework (for example Mocha and Chai). But we also offer an *easier way* to perform unit testing by writing simple test scripts based on **YAML** syntax and running them with our **CLI**. These scripts are executed *locally* using the Virtual Alexa simulator. Each test suite execution displays the **code coverage** you reach based on your test scripts. To get started with Unit Test Scripts please **[read here](https://read.bespoken.io/unit-testing/getting-started)**.
+## **How do I unit-test with Bespoken?**
+We have created a component called **[Virtual Alexa](https://github.com/bespoken/virtual-alexa)**, which emulates the Alexa Voice Service and creates JSON objects that are sent to your skill. This library can be used to write unit tests programmatically using popular testing framework (such as Mocha and Jest). 
+
+But we also offer an *easier way* to perform unit testing by writing simple test scripts based on **YAML** syntax and running them with our **CLI**. These scripts are executed *locally* using the Virtual Alexa simulator. Each test suite execution displays the **code coverage** you reach based on your test scripts. To get started with Unit Test Scripts please **[read here](https://read.bespoken.io/unit-testing/getting-started)**.
 
 ## **What is code coverage?**
 In computer science, test coverage is a measure used to describe the degree to which the source code of a program is executed when a particular test suite runs. A program with high test coverage, measured as a percentage, has had more of its source code executed during testing, which suggests it has a lower chance of containing undetected software bugs compared to a program with low test coverage.
@@ -31,7 +33,7 @@ In computer science, test coverage is a measure used to describe the degree to w
 
 ![Sample of Code Coverage output][Codecov-Output]
 
-# **How to run the unit tests**
+## **How to run the unit tests**
 To get started, you need to install the Bespoken CLI, please follow next steps:  
 1) Install the CLI by running `npm install -g bespoken-tools` on your command line.  
 2) Open a command-line window and change directory to `<PROJECT_FOLDER>/test`  
@@ -62,7 +64,7 @@ Ran all test suites.
 It shows what code is, and what is NOT, being executed by the tests. It's a very helpful guide to how effective your unit tests are. You can read more about [how the code coverage works here](https://github.com/dwyl/learn-istanbul).  
 5) Add some more tests! As you build upon this sample project, you can add more tests and use these tools to continue to ensure everything is working perfectly.
 
-## How to learn more
+## **How do I learn more?**
 Take a look [here](https://read.bespoken.io/unit-testing/getting-started/) for more info on unit-testing.
 If you need assistance reach us on any of these channels:
 * [Email](mailto:contact@bespoken.io)
@@ -79,12 +81,12 @@ The continuous integration service is responsible for bringing our source code, 
 
 Check this **[sample project](https://github.com/ig-perez/skill-sample-nodejs-fact/tree/ContinuousIntegration)**, it contains a `.travis.yml` file which is the configuration element to enable CI using Travis platform.
 
-## **Besides Alexa, can I use Bespoken to unit test Google Actions?**
+## **Can I use Bespoken to unit test Google Actions?**
 We are currently working to release our support of Google Actions unit testing. Please stay tuned since it will be available soon.
 
 # **Working with test scripts**
 
-## **How should I organize my folder structure to store my test script files?**
+## **How should I organize my test files?**
 This is our recommendation:
 * Create a `test` folder under the root of your voice app project. This folder will contain your test script files.
 * To store your unit test script files and the `testing.json` configuration file create a `unit` folder under your `test` directory.
@@ -118,7 +120,7 @@ configuration:
   userId: 000000
 ```
 
-## **How to invoke an intent with slots?**
+## **How do I invoke an intent with slots?**
 If you want to execute an intent with slots in just one line, use our succinct syntax. For example:
 ```
 ---
@@ -166,6 +168,39 @@ Into this:
 ```
 Check the full code of this project and test script **[here](https://github.com/ig-perez/skill-sample-nodejs-petmatch)**.
 
+## **How do I use the debugger with Bespoken unit-tests and Visual Studio?**
+Open the `launch.json` configuration in Visual Studio: `Debug -> Open Configurations`.
+
+Add an element like this:
+```
+"configurations": [
+  {
+      "type": "node",
+      "request": "launch",
+      "autoAttachChildProcesses": true,
+      "name": "UnitTest",
+      "program": "<PATH_TO_BESPOKEN_TOOLS_INSTALL>/bin/bst-test.js",
+      "args": [],
+  }
+]
+```
+
+Then select `Debug -> Start Debugging`. You also will likely need to set `collectCoverage` to false as explained in the next FAQ.
+
+Happy debugging!
+
+## **Breakpoints are not working for me with unit-tests in Visual Studio**
+If you have configured debugging in Visual Studio and breakpoints are not working, set collectCoverage on the testing.json under the jest element to false.
+
+It should look like this:
+```
+{
+  "jest": {
+    "collectCoverage": false,
+    ...
+  }
+}
+```
 
 <!-- Images references -->
 [CI]: /assets/images/CI.png "Continuous Integration Flow"

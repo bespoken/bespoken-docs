@@ -54,7 +54,7 @@ Yes, it is possible. Our tools are language agnostic. For example, you can creat
 ## **Is it better to use the YAML syntax or the programmatic SDKs for testing?**
 Both are good choices. In the case of unit-testing, our YAML tests actually rely on [Virtual Alexa](https://github.com/bespoken/virtual-alexa) under the covers. In the case of end-to-end tests, similarly our YAML test scripts rely on our [Virtual Device SDK](https://github.com/bespoken/virtual-device-sdk). The big advantage of our YAML syntax is that it allows tests to be written in the same way no matter what type of test it is (unit or end-to-end), and what platform it works with (Google or Alexa). It also does not require programming skills. On the other hand, for many programmer using our programmatic APIs is easy and more what they are accustomed to - it also allows for writing tests that are more complex, such as ones that call external APIs to validate results. So the best approach takes into consideration the type of tests being written, as well as the skillset of the testing team.
 
-# **How to run E2E or Regression tests**
+## **How to do I run end-to-end tests?**
 To get started, you need to install the Bespoken CLI, please follow next steps:
 1) Install the CLI by running `npm install -g bespoken-tools` on your command line.
 2) Open a command-line window and change directory to the root of your `<PROJECT_FOLDER>`
@@ -86,7 +86,7 @@ Snapshots:   0 total
 Time:        150.985s
 ```
 
-## Does Bespoken support the Amazon SMAPI Simulation API for testing?
+## **Does Bespoken support the Amazon SMAPI Simulation API for testing?**
 Yes, we do in our latest versions, now that the Simulation API supports multi-turn testing.
 
 To use this feature, set your test type to `simulation`. The feature support is still experimental - it relies on the [Alexa SMAPI to execute tests](https://developer.amazon.com/docs/smapi/skill-simulation-api.html). A few requirements to use this feature:  
@@ -97,7 +97,7 @@ To use this feature, set your test type to `simulation`. The feature support is 
 
 Read more about it in our [full guide](../guide#smapi-configuration).
 
-## How to learn more
+## **How do I learn more?**
 Take a look at this [__sample project__](https://github.com/bespoken/virtual-device-example) and use it as a base to start creating your own functional test scripts. For more info on End-to-end testing please read [__here__](https://read.bespoken.io/end-to-end/getting-started).
 If you need assistance reach us on any of these channels:
 * [Email](mailto:contact@bespoken.io)
@@ -121,7 +121,7 @@ Then create and execute your scripts as usual.
 
 # **Working with test scripts**
 
-## <a name="anchorToFolderStructure"></a>**How should I organize my folder structure to store my test script files?**
+## <a name="anchorToFolderStructure"></a>**How should I organize my test files?**
 That depends, if you are testing your voice app and it supports just one locale you can have a folder structure like this:
 
 ```
@@ -183,7 +183,7 @@ And this is how a `testing.json` file looks like for a multi-locale test project
 ```
 
 
-## **How can I troubleshoot when working with functional test scripts for Alexa skills?**
+## **How do I troubleshoot end-to-end tests for Alexa?**
 We recommend taking into account the following:
 - Set the trace option to __true__ in the `testing.json` file to see the response coming from Alexa/Google.
 
@@ -207,10 +207,10 @@ We recommend taking into account the following:
 If you need assistance, please talk to us through the chat widget at the lower right-hand corner of our [Dashboard](https://apps.bespoken.io/dashboard/) or [Website](https://bespoken.io/).
 
 
-## **My skill supports multiple locales, how can I create functional tests for it?**
+## **My skill supports multiple locales, how do I create functional tests for it?**
 First thing is to generate one Bespoken Virtual Device token per each locale you want to test. Then organize your test folder as [shown previously](#anchorToFolderStructure) and add your tokens to your test script files or `testing.json` file.
 
-## **I have a different invocation name for the locales my skill supports, how can I configure Bespoken Testing Tools?**
+## **How do I handle different invocation names for different environments?**
 In case you have different invocation names for your skill you can define them all in the `testing.json` file as you were defining variables. Then use those variables in your test script. We will do the find/replace when executing the test scripts.
 
 This is how to define them:
@@ -250,7 +250,7 @@ configuration:
 - stop: auf wierdesehen
 ```
 
-## **What are homophones and how can I use them to improve my script's execution results?**
+## **The response from my skill is not what I expected. What should I do?**
 Our end-to-end tests use speech recognition for turning the output speech coming back from Alexa into text. This process is imperfect - to compensate for this, homophones can be specified for errors that occur when a reply from Alexa is misunderstood. For example, if Alexa says: `address sent to your white car`; the Bespoken Virtual Device may transcribe it as: `address sent to your wife car`
 
 (FYI, for Alexa, the definitive response can be found at the Alexa user console, under settings -> history).
