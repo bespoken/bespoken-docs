@@ -2,83 +2,6 @@
 <html>
 	<head>
 		{% include site-head.html %}
-
-        <style>
-
-            /*Global styles*/
-            input[type=search] {
-                padding:3px; border:1px solid #ccc;
-                -webkit-border-radius: 3px;
-                border-radius: 3px;
-            }
-            input[type=search]:focus {
-                border-color:#333;
-            }
-
-            /*Algolia DocSearch components style*/
-                /* Main dropdown wrapper */
-                .algolia-autocomplete .ds-dropdown-menu {
-                    width: 500px;
-                }
-
-                /* Main category (eg. Getting Started) */
-                .algolia-autocomplete .algolia-docsearch-suggestion--category-header {
-                    color: #ff6633;
-                    /*border: 1px solid gray;*/
-                }
-
-                /* Category (eg. Downloads) */
-                .algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column {
-                    color: #ff9933;
-                }
-
-                /* Title (eg. Bootstrap CDN) */
-                .algolia-autocomplete .algolia-docsearch-suggestion--title {
-                    /*font-weight: bold;*/
-                    color: black;
-                }
-
-                /* Description description (eg. Bootstrap currently works...) */
-                .algolia-autocomplete .algolia-docsearch-suggestion--text {
-                    font-size: 0.8rem;
-                    color: gray;
-                }
-
-                /* Highlighted text */
-                .algolia-autocomplete .algolia-docsearch-suggestion--highlight {
-                    color: #009999;
-                }
-
-            /*Styles for Algolia DocSearch UI within Bespoken Docs*/
-            #docsHeader {
-                display: flex;
-                flex-direction: row;
-                width: 85%;
-                margin: 0 auto;
-            }
-
-            #docsPageTitle{
-                width: 73%;
-            }
-
-            #searchBox {
-                background-color: rgba(255,255,255,0.4);
-                width: 27%;
-
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-                #search-icon {
-                    padding: 7px;
-                    font-size: 90%;
-                }
-
-                #algolia-search-box {
-                    font-family: "Roboto Mono", sans-serif;
-                }
-        </style>
 	</head>
 	<body class="{{ site.doks.color_theme }}">
 		<div style="background-image:url(/assets/images/BespokenAtlas-Reduced.jpg); background-repeat: no-repeat; background-size: contain; background-position: center" >
@@ -134,8 +57,8 @@
 						{% endif %}
 					</div><!-- /.row -->
 				</div><!-- /.container -->
-                <div id="searchBox">
-                    <i class="fas fa-search" id="search-icon"></i>
+                <div id="searchBox-main">
+                    <i class="fas fa-search" id="search-icon-main"></i>
                     <input type="search" id="algolia-search-box" name="q" aria-label="Search through site content">
                 </div>
 			</div><!-- /.hero-subheader -->
@@ -192,18 +115,7 @@
 		</div>
 		{% include site-footer.html %}
 
-		<!--Adding Algolia DocSearch-->
-		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-		<script type="text/javascript"> docsearch({
-            apiKey: '36d68ce99344a644d0bc7667b5ee4003',
-            indexName: 'bespoken',
-            inputSelector: '#algolia-search-box',
-            debug: false, // Set debug to true if you want to inspect the dropdown
-            algoliaOptions: {
-                hitsPerPage: 5
-            }
-        });
-		</script>
+        {% include algolia.html %}
 
 	</body>
 </html>
