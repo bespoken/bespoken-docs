@@ -5,8 +5,8 @@
 	</head>
 	<body class="{{ site.doks.color_theme }}">
 		<div style="background-image:url(/assets/images/BespokenAtlas-Reduced.jpg); background-repeat: no-repeat; background-size: contain; background-position: center" >
-			<div class="hero-subheader{% if page.grid_navigation %} hero-subheader--before-out{% endif %}" style="background-color: transparent">
-				<div class="container">
+			<div id="docsHeader" class="hero-subheader{% if page.grid_navigation %} hero-subheader--before-out{% endif %}" style="background-color: transparent">
+                <div id="docsPageTitle" class="container">
 					<div class="row">
 						<div class="col-md-7">
 							<div class="align-container" data-mh>
@@ -57,6 +57,10 @@
 						{% endif %}
 					</div><!-- /.row -->
 				</div><!-- /.container -->
+                <div id="searchBox-main">
+                    <i class="fas fa-search" id="search-icon-main"></i>
+                    <input type="search" id="algolia-search-box" name="q" aria-label="Search through site content">
+                </div>
 			</div><!-- /.hero-subheader -->
 			{% if page.grid_navigation %}
 				<div class="section section--darker-theme-color-bg" style="background-color: transparent">
@@ -110,5 +114,8 @@
 			{% endif %}
 		</div>
 		{% include site-footer.html %}
+
+        {% include algolia.html %}
+
 	</body>
 </html>
