@@ -21,23 +21,16 @@
 						</a><!-- /.site-header__logo -->
 					{% endif %}
 					{% if site.doks.header.nav %}
-                        <div id="menu-search-container">
-                            <ul class="site-header__nav hidden-xs">
-                                {% for item in site.doks.header.nav %}
-                                    <li><a href="{% if jekyll.environment == 'production' %}{{ site.doks.baseurl }}{% endif %}{{ item.item_url }}">{{ item.item_name }}</a></li>
-                                {% endfor %}
-                            </ul><!-- /.site-header__nav -->
-                            <button class="offcanvas-toggle visible-xs">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </button><!-- /.offcanvas-toggle -->
-
-                            <div id="searchBox-content">
-                                <i class="fas fa-search" id="search-icon-content"></i>
-                                <input type="search" id="algolia-search-box" name="q" aria-label="Search through site content">
-                            </div>
-                        </div>
+						<ul class="site-header__nav hidden-xs">
+							{% for item in site.doks.header.nav %}
+								<li><a href="{% if jekyll.environment == 'production' %}{{ site.doks.baseurl }}{% endif %}{{ item.item_url }}">{{ item.item_name }}</a></li>
+							{% endfor %}
+						</ul><!-- /.site-header__nav -->
+						<button class="offcanvas-toggle visible-xs">
+							<span></span>
+							<span></span>
+							<span></span>
+						</button><!-- /.offcanvas-toggle -->
 					{% endif %}
 				</div><!-- /.col -->
 			</div><!-- /.row -->
