@@ -33,36 +33,16 @@ In computer science, test coverage is a measure used to describe the degree to w
 
 ![Sample of Code Coverage output][Codecov-Output]
 
-## **How to run the unit tests**
-To get started, you need to install the Bespoken CLI, please follow next steps:  
-1) Install the CLI by running `npm install -g bespoken-tools` on your command line.  
-2) Open a command-line window and change directory to `<PROJECT_FOLDER>/test`  
-3) Run the tests - just enter `bst test`. The output should look like this:
-```console
-$ bst test
-BST: v2.0.10  Node: v8.0.0
-PASS test\unit\index.test.yml
-  en-US
-    Launch request, no further interaction.
-      √ LaunchRequest
-    GetNewFactIntent direct call
-      √ GetNewFactIntent
+The code coverage by default is written to `./test_output/coverage/lcov-report/index.html` relative to where your tests are run (by default, should be the root of your project).
 
-----------|----------|----------|----------|----------|-------------------|
-File      |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
-----------|----------|----------|----------|----------|-------------------|
-All files |    92.31 |      100 |      100 |    92.31 |                   |
- index.js |    92.31 |      100 |      100 |    92.31 |       120,123,125 |
-----------|----------|----------|----------|----------|-------------------|
-Test Suites: 1 passed, 1 total
-Tests:       8 passed, 8 total
-Snapshots:   0 total
-Time:        3.405s
-Ran all test suites.
-```
-4) Take a look at the code coverage - at `<PROJECT_FOLDER>/test/coverage/lcov-report/index.html`.  
-It shows what code is, and what is NOT, being executed by the tests. It's a very helpful guide to how effective your unit tests are. You can read more about [how the code coverage works here](https://github.com/dwyl/learn-istanbul).  
-5) Add some more tests! As you build upon this sample project, you can add more tests and use these tools to continue to ensure everything is working perfectly.
+## **How I get my results as an HTML report?**
+The results of your tests are automatically formatted into a nice HTML report, courtesy of jest-stare.
+
+It is viewable under `./test_output/results/index.html`.
+
+It provides a nice summary of the results of your tests, with charts. You can also drill down into the detailed test results.
+
+To read more about jest-stare, [click here](https://github.com/dkelosky/jest-stare#readme).
 
 ## **How do I learn more?**
 Take a look [here](https://read.bespoken.io/unit-testing/getting-started/) for more info on unit-testing.

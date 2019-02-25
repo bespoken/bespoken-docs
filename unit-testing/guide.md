@@ -56,7 +56,7 @@ The default Jest settings are as follows:
         "!**/node_modules/**",
         "!**/vendor/**"
     ],
-    "coverageDirectory": "./coverage/",
+    "coverageDirectory": "./test_output/coverage/",
     "moduleFileExtensions": [
         "ts",
         "js",
@@ -91,6 +91,7 @@ Below the unit testing configuration options and what they do are listed:
 * [dynamo](../use-cases#testing-with-dynamo) - : Should be set to "mock" to use the mock dynamo component
 * [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
 * handler - The path to the handler (and function name) to run the test
+* html - Generate a pretty HTML report of test results -  defaults to `true`
 * [include and exclude](#including-or-excluding-tests-using-tags) - Runs or Skip the tests having the particular specified tags
 * intentSchema - If using "old-style" configuration files, the path to the intent schema
 * interactionModel - The path to the interaction model to use for the test
@@ -599,8 +600,17 @@ configuration:
 ## Code Coverage
 Whenever Jest runs, it produces code coverage information - it is seen on the console.
 
-An HTML report is also viewable under `<TESTING_CONFIG_DIR>/coverage/lcov-report/index.html`.
+An HTML report is also viewable under `./test_output/coverage/lcov-report/index.html`.
 TESTING_CONFIG_DIR is the directory where your `testing.json` file is located.
+
+## HTML Reporting
+The results of your tests are automatically formatted into a nice HTML report, courtesy of jest-stare.
+
+It is viewable under `./test_output/results/index.html`.
+
+It provides a nice summary of the results of your tests, with charts. You can also drill down into the detailed test results.
+
+To read more about jest-stare, [click here](https://github.com/dkelosky/jest-stare#readme).
 
 ## Continuous Integration
 To see how a project works with a total CI setup, [checkout this project](https://github.com/ig-perez/skill-sample-nodejs-fact/tree/ContinuousIntegration).
