@@ -121,7 +121,7 @@ Learn about [common use-cases here](../use-cases), such as:
 * Working With Dialogs
 
 And take a look at the following skills with test examples already configured:
-* Get Facts (from Amazon Alexa team)
+* Get Facts
 [Github](https://github.com/alexa/skill-sample-nodejs-fact)
 [Travis](https://travis-ci.org/ig-perez/skill-sample-nodejs-fact)
 [Codecov](https://codecov.io/gh/ig-perez/skill-sample-nodejs-fact)
@@ -133,13 +133,13 @@ And take a look at the following skills with test examples already configured:
 [Github](https://github.com/ig-perez/skill-sample-nodejs-highlowgame)
 [Travis](https://travis-ci.org/ig-perez/skill-sample-nodejs-highlowgame)
 [Codecov](https://codecov.io/gh/ig-perez/skill-sample-nodejs-highlowgame)
-* AudioPlayer Example (from Amazon Alexa team)
+* AudioPlayer Example
 [Github](https://github.com/alexa/skill-sample-nodejs-audio-player)
 [Travis](https://travis-ci.org/ig-perez/skill-sample-nodejs-audio-player)
 [Codecov](https://codecov.io/gh/ig-perez/skill-sample-nodejs-audio-player/)
 * Dialog Manager Example
 [Github](https://github.com/bespoken-samples/skill-sample-nodejs-petmatch)
-* Unit And E2E Tests In A Single Project (from Amazon Alexa Team)
+* College Finder (Unit + E2E)
 [Github](https://github.com/alexa/skill-sample-nodejs-college-finder)
 [Travis](https://travis-ci.org/alexa/skill-sample-nodejs-college-finder)
 
