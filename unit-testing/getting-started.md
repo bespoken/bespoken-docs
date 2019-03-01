@@ -122,7 +122,7 @@ Learn about [common use-cases here](../use-cases), such as:
 
 And take a look at the following skills with test examples already configured:
 * Get Facts
-[Github](https://github.com/ig-perez/skill-sample-nodejs-fact)
+[Github](https://github.com/alexa/skill-sample-nodejs-fact)
 [Travis](https://travis-ci.org/ig-perez/skill-sample-nodejs-fact)
 [Codecov](https://codecov.io/gh/ig-perez/skill-sample-nodejs-fact)
 * Address API Example
@@ -134,6 +134,12 @@ And take a look at the following skills with test examples already configured:
 [Travis](https://travis-ci.org/ig-perez/skill-sample-nodejs-highlowgame)
 [Codecov](https://codecov.io/gh/ig-perez/skill-sample-nodejs-highlowgame)
 * AudioPlayer Example
-[Github](https://github.com/ig-perez/skill-sample-nodejs-audio-player)
+[Github](https://github.com/alexa/skill-sample-nodejs-audio-player)
 [Travis](https://travis-ci.org/ig-perez/skill-sample-nodejs-audio-player)
 [Codecov](https://codecov.io/gh/ig-perez/skill-sample-nodejs-audio-player/)
+* Dialog Manager Example
+[Github](https://github.com/bespoken-samples/skill-sample-nodejs-petmatch)
+* College Finder (Unit + E2E)
+[Github](https://github.com/alexa/skill-sample-nodejs-college-finder)
+[Travis](https://travis-ci.org/alexa/skill-sample-nodejs-college-finder)
+

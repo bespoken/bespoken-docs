@@ -67,11 +67,11 @@ The default Jest settings are as follows:
     "collectCoverage": true,
     "collectCoverageFrom": [
         "**/*.js",
-        "!**/coverage/**",
         "!**/node_modules/**",
+        "!**/test_output/**",
         "!**/vendor/**"
     ],
-    "coverageDirectory": "./coverage/",
+    "coverageDirectory": "./test_output/coverage/",
     "moduleFileExtensions": [
         "ts",
         "js",
@@ -107,6 +107,7 @@ Below the end-to-end testing configuration options and what they do are listed:
 * [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
 * [findReplace](#findreplace) - Values that will be replaced in the scripts before execution
 * [homophones](#homophones) - Values that will be replaced in actual responses from the virtual device
+* html - Generate a pretty HTML report of test results - defaults to `true`
 * [include and exclude](#including-or-excluding-tests-using-tags) - Runs or Skip the tests having the particular specified tags
 * locales - The locale or locales to be used - a comma-delimited list
 * platform - The platform that is being tested - can be either `alexa` or `google` - defaults to `alexa`
@@ -575,6 +576,14 @@ configuration:
     - cardTitle: Space Facts
 ```
 
+## HTML Reporting
+The results of your tests are automatically formatted into a nice HTML report, courtesy of jest-stare.
+
+It is viewable under `./test_output/results/index.html`.
+
+It provides a nice summary of the results of your tests, with charts. You can also drill down into the detailed test results.
+
+To read more about jest-stare, [click here](https://github.com/dkelosky/jest-stare#readme).
 
 # Further Reading
 Take a look at:
