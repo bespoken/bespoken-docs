@@ -86,7 +86,7 @@ Below the unit testing configuration options and what they do are listed:
 * [expressPort](#express-server-configuration) - The port in which express is serving  (Required if you use a express server for your endpoint).
 * [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
 * handler - The path to the handler (and function name) to run the test
-* html - Generate a pretty HTML report of test results -  defaults to `true`
+* html - Generate a pretty HTML report of test results - defaults to `true`
 * [include and exclude](#including-or-excluding-tests-using-tags) - Runs or Skip the tests having the particular specified tags
 * [locales](#locales) - The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale.
 * [trace](#viewing-requestresponse-payloads) - Causes request and response JSON payloads from the skill to be printed to the console

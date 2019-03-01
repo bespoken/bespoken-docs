@@ -91,7 +91,7 @@ Below the unit testing configuration options and what they do are listed:
 * [dynamo](../use-cases#testing-with-dynamo) - : Should be set to "mock" to use the mock dynamo component
 * [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
 * handler - The path to the handler (and function name) to run the test
-* html - Generate a pretty HTML report of test results -  defaults to `true`
+* html - Generate a pretty HTML report of test results - defaults to `true`
 * [include and exclude](#including-or-excluding-tests-using-tags) - Runs or Skip the tests having the particular specified tags
 * intentSchema - If using "old-style" configuration files, the path to the intent schema
 * interactionModel - The path to the interaction model to use for the test
