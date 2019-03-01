@@ -50,5 +50,5 @@ To see a complex example in action, [check out this project](https://github.com/
 # Next Steps
  * [Setup A Virtual Device](../setup)
  * [Complete Guide To Test Scripts](../guide)
- * [Example Project](https://github.com/bespoken/virtual-device-example/tree/SkillTesterScripts)
+ * [Example Project](https://github.com/bespoken-samples/virtual-device-example)
  * [API](../api)

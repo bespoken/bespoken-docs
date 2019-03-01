@@ -14,7 +14,6 @@ micro_nav: true
 # Common Use-Cases And How To Handle Them
 * [Testing State With Dynamo](#testing-with-dynamo)
 * [Testing The Address API](#testing-with-the-address-api)
-* [Testing Dialog-Based Skills](#testing-with-the-dialog-interface)
 
 ## Testing With Dynamo
 Dynamo can be tricky to test with locally, because there is lots of setup to be done to work with Dynamo locally on your laptop.
@@ -66,13 +65,3 @@ This will return the country and postal code when requested - **NOTE** it will r
 
 If no address information is provided, the Address API will return a 403 - which indicates no permission was received from the user.
 
-## Testing With The Dialog Interface
-Tests can be written that use the Dialog Interface, and Dialog Delegate in particular, in the same way as normal tests.
-
-The only difference - the response from the Dialog Manager internal to Virtual Alexa comes as `prompt`, like so:
-```
-"Open A Dialog":
-  - prompt: "Dialog is opened"
-```
-
-Easy, right?
