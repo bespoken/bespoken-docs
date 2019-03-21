@@ -104,12 +104,15 @@ An example `testing.json` file for end-to-end tests:
 
 Below the end-to-end testing configuration options and what they do are listed:
 
+* [asyncE2EWaitInterval] - Set an interval in milliseconds to wait before querying for new results, when batchEnabled is set to false - defaults to 5000
+* [batchEnabled] - Indicates if we wait for the complete set of utterances in a test to finish or if we query for the results multiple times - defaults to true
 * [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
 * [findReplace](#findreplace) - Values that will be replaced in the scripts before execution
 * [homophones](#homophones) - Values that will be replaced in actual responses from the virtual device
 * html - Generate a pretty HTML report of test results - defaults to `true`
 * [include and exclude](#including-or-excluding-tests-using-tags) - Runs or Skip the tests having the particular specified tags
 * locales - The locale or locales to be used - a comma-delimited list
+* [maxAsyncE2EResponseWaitTime] - Set an interval in milliseconds to wait before stop looking for new results, when batchEnabled is set to false - defaults to 15000
 * platform - The platform that is being tested - can be either `alexa` or `google` - defaults to `alexa`
 * skillId - For tests of type `simulation`, the skillId must be specified
 * stage - For tests of type `simulation`, the stage must be specified - can be `development` or `live`
@@ -117,6 +120,7 @@ Below the end-to-end testing configuration options and what they do are listed:
 * [trace](#viewing-response-payloads) - Causes request and response JSON payloads from the skill to be printed to the console
 * [virtualDeviceToken](../setup) - For end-to-end tests that use virtual devices, this must be specified. 
 [Get one here](../setup)
+
 
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
 
@@ -415,43 +419,17 @@ That is done with a collection of expected values, such as this:
 
 When a collection is used like this, if any of the values matches, the assertion will be considered a success.
 
-## Goto And Exit
-One advanced feature is support for `goto` and `exit`.
-
-Goto comes at the end of an assertion - if the assertion is true, the test will "jump" to the utterance named.
-Unlike regular assertions, ones that end in "goto" will not be deemed a failure if the comparison part of the assertion is not true.
-
-For example:
-```
----
-- test: Goes to successfully
-- open my skill:
-  - prompt == "Here's your fact" goto Get New Fact
-  - cardContent == /.*/
-  - exit
-- Help:
-  - response.outputSpeech.ssml == "Here's your fact:*"
-  - response.reprompt == undefined
-  - response.card.content =~ /.*/
-- Get New Fact:
-  - response.outputSpeech.ssml == "ABC"
-  - response.reprompt == undefined
-  - response.card.content =~ /.*/
-```
-
-In this case, if the outputSpeech starts with "Here's your fact",
-the test will jump to the last interaction and say "Get New Fact".
-
-If the outputSpeech does not start with "Get New Fact", the other assertions will be evaluated.
-The test will end when it reaches the `exit` statement at the end (no further interactions will be processed).
-
-Using `goto` and `exit`, more complex tests can be built.
-
 # Test Execution
 ## Test Sequence
 Tests are run in the order they appear in the file.
 
 End-to-end tests are not run in parallel, unlike unit tests. This is because of limitations in how the virtual devices work. This is also true for tests that are run using SMAPI Simulations.
+
+## Batch or Sequential Tests
+Tests are run by default in batch. This means that all the utterances are sent to be processed and once they are we return the complete result.
+Setting the "batchEnabled" property to false change this behavior, the utterances will be sent to be processed, and we will run multiple queries to get the results.
+
+The end result will be the same using either of the modes.
 
 ## Skipping Tests
 Label tests "test.only" or "test.skip" to either only run a particular test, or to skip it. Example:
