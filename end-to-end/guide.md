@@ -104,15 +104,15 @@ An example `testing.json` file for end-to-end tests:
 
 Below the end-to-end testing configuration options and what they do are listed:
 
-* [asyncE2EWaitInterval] - Set an interval in milliseconds to wait before querying for new results, when batchEnabled is set to false - defaults to 5000
-* [batchEnabled] - Indicates if we wait for the complete set of utterances in a test to finish or if we query for the results multiple times - defaults to true
+* [asyncE2EWaitInterval](#batch-or-sequential-tests) - Set an interval in milliseconds to wait before querying for new results, when batchEnabled is set to false - defaults to 5000
+* [batchEnabled](#batch-or-sequential-tests) - Indicates if we wait for the complete set of utterances in a test to finish or if we query for the results multiple times - defaults to true
 * [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
 * [findReplace](#findreplace) - Values that will be replaced in the scripts before execution
 * [homophones](#homophones) - Values that will be replaced in actual responses from the virtual device
 * html - Generate a pretty HTML report of test results - defaults to `true`
 * [include and exclude](#including-or-excluding-tests-using-tags) - Runs or Skip the tests having the particular specified tags
 * locales - The locale or locales to be used - a comma-delimited list
-* [maxAsyncE2EResponseWaitTime] - Set an interval in milliseconds to wait before stop looking for new results, when batchEnabled is set to false - defaults to 15000
+* [maxAsyncE2EResponseWaitTime](#batch-or-sequential-tests) - Set an interval in milliseconds to wait before stop looking for new results, when batchEnabled is set to false - defaults to 15000
 * platform - The platform that is being tested - can be either `alexa` or `google` - defaults to `alexa`
 * skillId - For tests of type `simulation`, the skillId must be specified
 * stage - For tests of type `simulation`, the stage must be specified - can be `development` or `live`
