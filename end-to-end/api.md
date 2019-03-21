@@ -217,6 +217,17 @@ Receives multiple messages and expected phrases in an object array. The goal of 
 	}
 	```
 
+* **Success Response (async mode):**
+
+
+  * **Code:** 200 <br />
+    **Content:**
+	```javascript
+	{
+	    "conversation_id": "string",
+	}
+	```
+
 * **Error Response:**
 	* **Code:** 400 BAD REQUEST <br />
     **Content:** `"Invalid message"`
