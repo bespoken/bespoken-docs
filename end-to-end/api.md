@@ -175,7 +175,7 @@ Receives multiple messages and expected phrases in an object array. The goal of 
 
    `voice_id=[string]`: one of Amazon Polly's supported voices (e.g. Joey, Vicki, Hans, etc.). Default value: "Joey". MUST correspond with the language_code. Taken from: https://docs.aws.amazon.com/polly/latest/dg/voicelist.html
 
-   `async=[boolean]`: process the messages in the background, results can be obtained in the conversation endpoint. Default value: "false".
+   `async_mode=[boolean]`: process the messages in the background, results can be obtained in the conversation endpoint. Default value: "false".
 
 * **Data Params**
 
