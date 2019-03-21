@@ -175,6 +175,8 @@ Receives multiple messages and expected phrases in an object array. The goal of 
 
    `voice_id=[string]`: one of Amazon Polly's supported voices (e.g. Joey, Vicki, Hans, etc.). Default value: "Joey". MUST correspond with the language_code. Taken from: https://docs.aws.amazon.com/polly/latest/dg/voicelist.html
 
+   `async=[boolean]`: process the messages in the background, results can be obtained in the conversation endpoint. Default value: "false".
+
 * **Data Params**
 
    **Required:**
@@ -247,3 +249,78 @@ Receives multiple messages and expected phrases in an object array. The goal of 
 * **Notes:**
 
   * Not sending the language_code or voice_id will default **both** to en-US and Joey.
+
+
+## **Conversation** Endpoint
+
+Obtains the processed results from a batch process sent in async mode
+
+* **URL**
+
+  /conversation
+
+* **Method:**
+
+ `POST`
+
+*  **URL Params**
+
+   **Required:**
+
+      `uuid=[string]`: the id of the conversation, returned by the Batch process when async mode param is set to true
+
+* **Success Response:**
+
+
+  * **Code:** 200 <br />
+    **Content:**
+	```javascript
+	{
+	    "results": [
+          {
+              "streamURL": "string",
+              "sessionTimeout": 0,
+              "transcriptAudioURL": "string",
+              "message": "string",
+              "transcript": "string",
+              "card": {
+                  "subTitle": "string",
+                  "mainTitle": "string",
+                  "textField": "string",
+                  "type": "string",
+                  "imageURL": "string"
+              }
+          }
+	    ]
+	}
+	```
+
+* **Error Response:**
+  * **Code:** 500 INTERNAL SERVER ERROR <br />
+    **Content:** `{error: 'error message in case of an exception'}`
+
+* **Sample Call:**
+
+    ```javascript
+    const userId = <your user id>;
+    const voiceId = "Joey";
+    const languageCode = "en-US":
+
+    $.post(`https://virtual-device.bespoken.io/batch_process?user_id=${userId}&voice_id=${voiceId}&language_code=${languageCode}&async=true`,
+    {
+        "messages": [
+            {"text":"open guess the price", "phrases":["how many persons"]},
+            {"text":"one"}
+        ]
+    },
+    function(data, status){
+        console.log("Got conversation id: " + data.conversation_id);
+
+        // Logic implementation to wait for a number of seconds
+
+        $.post(`https://virtual-device.bespoken.io/conversation?uuid={uuid},
+        function(convData, convStatus){
+            console.log("Got: " + convData.results.length + " responses!");
+        });
+    });
+    ```
