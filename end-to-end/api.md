@@ -272,7 +272,7 @@ Obtains the processed results from a batch process sent in async mode
 
 * **Method:**
 
- `POST`
+ `GET`
 
 *  **URL Params**
 
@@ -307,8 +307,15 @@ Obtains the processed results from a batch process sent in async mode
 	```
 
 * **Error Response:**
+  * **Code:** 400 Bad Request <br />
+    **Content:** `{error: 'Required parameter uuid is missing'}`
+
+  * **Code:** 404 Not Found <br />
+    **Content:** `{error: 'The uuid provided doesn\'t match a process'}`
+
   * **Code:** 500 INTERNAL SERVER ERROR <br />
     **Content:** `{error: 'error message in case of an exception'}`
+
 
 * **Sample Call:**
 
