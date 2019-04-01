@@ -101,7 +101,14 @@ https://virtual-device.bespoken.io
 
    `voice_id=[string]`: one of Amazon Polly's supported voices (e.g. Joey, Vicki, Hans, etc.). Default value: "Joey". MUST correspond with the language_code. Taken from: https://docs.aws.amazon.com/polly/latest/dg/voicelist.html
 
-	`phrases=[string]`: a word or phrase used as a hint so that the speech recognition is more likely to recognize them as part of the alexa response. You can use this multiple times in the query string to send more than one.
+   `phrases=[string]`: a word or phrase used as a hint so that the speech recognition is more likely to recognize them as part of the alexa response. You can use this multiple times in the query string to send more than one.
+
+   `debug=[boolean]`: return additional information like process duration, transcript duration and raw response. Default value: "false"
+
+   `new_conversation=[boolean]`: open a new session, only for google virtual devices.
+    Default value: "false"
+
+   `stt=[string]`: speech to text service to use, supported services are google and witai. Default value: "google"
 
 * **Success Response:**
 
@@ -176,6 +183,10 @@ Receives multiple messages and expected phrases in an object array. The goal of 
    `voice_id=[string]`: one of Amazon Polly's supported voices (e.g. Joey, Vicki, Hans, etc.). Default value: "Joey". MUST correspond with the language_code. Taken from: https://docs.aws.amazon.com/polly/latest/dg/voicelist.html
 
    `async_mode=[boolean]`: process the messages in the background, results can be obtained in the conversation endpoint. Default value: "false".
+
+   `debug=[boolean]`: return additional information like process duration, transcript duration and raw response. Default value: "false"
+
+   `stt=[string]`: speech to text service to use, supported services are google and witai. Default value: "google"
 
 * **Data Params**
 
