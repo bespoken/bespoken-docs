@@ -144,6 +144,9 @@ https://virtual-device.bespoken.io
   * **Code:** 400 BAD REQUEST <br />
     **Content:** `"Invalid user_id"`
 
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{error: 'stt is invalid, it could be google or witai'}`
+
   * **Code:** 500 INTERNAL SERVER ERROR <br />
     **Content:** `{error: 'error message in case of an exception'}`
 
@@ -245,6 +248,9 @@ Receives multiple messages and expected phrases in an object array. The goal of 
 
   * **Code:** 400 BAD REQUEST <br />
     **Content:** `"Invalid user_id"`
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{error: 'stt is invalid, it could be google or witai'}`
 
   * **Code:** 500 INTERNAL SERVER ERROR <br />
     **Content:** `{error: 'error message in case of an exception'}`
