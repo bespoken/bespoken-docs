@@ -104,9 +104,9 @@ An example `testing.json` file for end-to-end tests:
 
 Below the end-to-end testing configuration options and what they do are listed:
 
-* [asyncMode](#batch-or-sequential-tests) - When batchEnabled is set to true, indicates if we wait for all the results (false) or retrieve them asynchronously (true) - defaults to false.
+* [asyncMode](#batch-or-sequential-tests) - Only works when batchEnabled is true, if asyncMode is false we wait for all the results, if it is true we retrieve them asynchronously - defaults to false.
 * [asyncE2EWaitInterval](#batch-or-sequential-tests) - Set an interval in milliseconds to wait before querying for new results, when batchEnabled is set to false - defaults to 5000
-* [batchEnabled](#batch-or-sequential-tests) - Indicates if we sent the complete set of utterances to the virtual device server in a test or if we sent them one by one - defaults to true
+* [batchEnabled](#batch-or-sequential-tests) - If it is true we sent the complete set of utterances to the virtual device server in a test, if it is false we sent them one by one - defaults to true
 * [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
 * [findReplace](#findreplace) - Values that will be replaced in the scripts before execution
 * [homophones](#homophones) - Values that will be replaced in actual responses from the virtual device
