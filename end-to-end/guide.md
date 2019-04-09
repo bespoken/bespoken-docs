@@ -104,8 +104,9 @@ An example `testing.json` file for end-to-end tests:
 
 Below the end-to-end testing configuration options and what they do are listed:
 
+* [asyncMode](#batch-or-sequential-tests) - Only works when batchEnabled is true, if asyncMode is false we wait for all the results, if it is true we retrieve them asynchronously - defaults to false.
 * [asyncE2EWaitInterval](#batch-or-sequential-tests) - Set an interval in milliseconds to wait before querying for new results, when batchEnabled is set to false - defaults to 5000
-* [batchEnabled](#batch-or-sequential-tests) - Indicates if we wait for the complete set of utterances in a test to finish or if we query for the results multiple times - defaults to true
+* [batchEnabled](#batch-or-sequential-tests) - If it is true we sent the complete set of utterances to the virtual device server in a test, if it is false we sent them one by one - defaults to true
 * [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
 * [findReplace](#findreplace) - Values that will be replaced in the scripts before execution
 * [homophones](#homophones) - Values that will be replaced in actual responses from the virtual device
@@ -426,10 +427,45 @@ Tests are run in the order they appear in the file.
 End-to-end tests are not run in parallel, unlike unit tests. This is because of limitations in how the virtual devices work. This is also true for tests that are run using SMAPI Simulations.
 
 ## Batch or Sequential Tests
-Tests are run by default in batch. This means that all the utterances are sent to be processed and once they are we return the complete result.
-Setting the "batchEnabled" property to false change this behavior, the utterances will be sent to be processed, and we will run multiple queries to get the results.
+Tests are run by default in batch. This means that all the utterances are sent to be processed. How we retrieve them depends on the "asyncMode" flag:
+  - If it is set to false (default behavior) then we wait until all utterances are processed and once they are we return the complete result.
+  - If it is set to true, the utterances will be sent to be processed, and we will run multiple queries to get the results.
 
-The end result will be the same using either of the modes.
+Setting the "batchEnabled" property to false change this behavior, the utterances will be sent one by one to be processed, waiting each time for the results.
+
+The result will be the same using any of the modes, but when sending the batch mode to false, there's the possibility that for large tests the session is lost due the extra delay added between utterances calls.
+
+## Goto And Exit
+One advanced feature is support for `goto` and `exit`. This feature is only available if "batchEnabled" is set to false.
+
+Goto comes at the end of an assertion - if the assertion is true, the test will "jump" to the utterance named.
+Unlike regular assertions, ones that end in "goto" will not be deemed a failure if the comparison part of the assertion is not true.
+
+For example:
+```
+---
+- test: Goes to successfully
+- open my skill:
+  - prompt == "Here's your fact" goto Get New Fact
+  - cardContent == /.*/
+  - exit
+- Help:
+  - response.outputSpeech.ssml == "Here's your fact:*"
+  - response.reprompt == undefined
+  - response.card.content =~ /.*/
+- Get New Fact:
+  - response.outputSpeech.ssml == "ABC"
+  - response.reprompt == undefined
+  - response.card.content =~ /.*/
+```
+
+In this case, if the outputSpeech starts with "Here's your fact",
+the test will jump to the last interaction and say "Get New Fact".
+
+If the outputSpeech does not start with "Get New Fact", the other assertions will be evaluated.
+The test will end when it reaches the `exit` statement at the end (no further interactions will be processed).
+
+Using `goto` and `exit`, more complex tests can be built.
 
 ## Skipping Tests
 Label tests "test.only" or "test.skip" to either only run a particular test, or to skip it. Example:
