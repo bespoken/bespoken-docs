@@ -191,16 +191,22 @@ Receives multiple messages and expected phrases in an object array. The goal of 
 
    `stt=[string]`: speech to text service to use, supported services are google and witai. Default value: "google"
 
+   `location_lat=[float]`: only for google, latitude coordinate from the location of the request
+
+   `location_long=[float]`: only for google, longitude coordinate from the location of the request
+
+   `conversation_id=[string]`: only from async_mode, set the conversation id
+
 * **Data Params**
 
    **Required:**
 
-    `messages=[array]`: object array where each object's "text" field is a required property that represents the message sent to Alexa and each "phrases" property is an optional array of strings representing words or phrases used as hint for the speech recognition library to recognize them better.
+    `messages=[array]`: object array where each object represent a message sent to the device. It could be text or audio. To send text, set the "text" field with the message, "phrases" property is an optional array of strings representing words or phrases used as hint for the speech recognition library to recognize them better. To send audio, set the "audio" field with the base64 representation of the audio, is also mandatory the "format" field of the audio, currently we support the formats supported by ffmpeg, for "raw" or "pcm" formats "frame_rate", "channels" and "sample_width" could be set, if not Default values will be used "frame_rate": 16000, "channels": 1, "sample_width": 2
 
     ```json
     {
       "messages": [
-        {"text":"string", "phrases":["string"]}
+        {"text":"string", "phrases":["string"], "audio":["string"], "format":["string"], "frame_rate":["int"], "channels":["int"], "sample_width":["int"]}
       ]
     }
     ```
@@ -251,6 +257,15 @@ Receives multiple messages and expected phrases in an object array. The goal of 
 
   * **Code:** 400 BAD REQUEST <br />
     **Content:** `{error: 'stt is invalid, it could be google or witai'}`
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{error: 'Invalid format in message'}`
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{error: 'Invalid encoded audio in message'}`
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{error: 'Error processing audio'}`
 
   * **Code:** 500 INTERNAL SERVER ERROR <br />
     **Content:** `{error: 'error message in case of an exception'}`
