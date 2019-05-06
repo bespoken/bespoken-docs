@@ -32,7 +32,12 @@ Fill in the configuration:
 
 ![Image showing how to configure a run configuration][Create-Run-Config2]
 
-Make sure the JavaScript File is set to the `bst-proxy.js` file within the `node_modules` folder created when installing the dependencies.
+Start by finding where bespoken-tools are installed on your machine. To do this, follow these steps:
+* Open a command-line prompt.
+* Enter ``npm list -g bespoken-tools``. This is the path to your ``NODE_DIRECTORY`` - we will use this in the next step.
+
+![Setting a breakpoint][Create-Run-Config8]
+* The path for the "JavaScript file" should be: ``NODE_DIRECTORY/node_modules/bespoken-tools/bin/bst-proxy.js``
 
 If you want to debug an Alexa skill, set the application parameters with `lambda` followed by the filename of the Lambda entry-point, in this example, `lambda index.js --verbose`
 
@@ -45,9 +50,7 @@ Select 'OK' to save the configuration.
 ## **Seeing It In Action**
 Let's see how this works, for that, we are going to locally run the sample project mentioned at the beginning of this tutorial.
 
-To run the skill locally we are going to use Bespoken proxy. If you have not installed our tools yet do it now by running `npm install -g bespoken-tools` from your command line.
-
-Once done, let's set a breakpoint in the code by clicking on the blank space next to the line 97, just below the declaration of the `GetOnePlayer` function, which will be triggered when we say to the skill that we are going to play with one player only.
+Set a breakpoint in the code by clicking on the blank space next to the line 97, just below the declaration of the `GetOnePlayer` function, which will be triggered when we say to the skill that we are going to play with one player only.
 
 ![Setting a breakpoint][Create-Run-Config4]
 
@@ -82,3 +85,4 @@ We hope this helps accelerate how you develop and debug your code. Please do not
 [Create-Run-Config5]: /assets/images/Tutorials-webstormDebug-5.png "Opening a terminal in Webstorm"
 [Create-Run-Config6]: /assets/images/Tutorials-webstormDebug-6.png "Launching the skill locally with Bespoken"
 [Create-Run-Config7]: /assets/images/Tutorials-webstormDebug-7.png "Debugging window in WebStorm"
+[Create-Run-Config8]: /assets/images/Tutorials-webstormDebug-8.png "Finding bst-proxy"
