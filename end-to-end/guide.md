@@ -295,7 +295,7 @@ The test is then made up of a series of interactions and assertions.
 
 Each interaction is prefixed with a "-" which indicates a YAML colletion.
 
-After each interaction, comes a series of expressions. Typically, these are assertions about the test.
+The first part of each interaction is an [utterance](#utteracne), after it comes a series of expressions. Typically, these are assertions about the test.
 But they can be:
 
 * [Assertions](#assertions): The life-blood of tests - statements about the expected output
@@ -309,6 +309,19 @@ When tests are run, each interaction is processed in order. Within it,
 each assertion is in turn evaluated in order when a response is received.
 
 If any assertion fails for a test, the test stops processing, and information about the failed assertion is provided.
+
+## Uttarance 
+Is the first part of the interaction, it can be plain text or Speech Synthesis Markup Language
+
+Plain text:
+```
+- this is a plain text: 
+```
+
+Speech Synthesis Markup Language example, more details [here](#SSML):
+```
+- <speak>this is SSML</speak>: 
+```
 
 ## Assertions
 An assertion follows one of two simple syntaxes:  
@@ -419,6 +432,39 @@ That is done with a collection of expected values, such as this:
 ```
 
 When a collection is used like this, if any of the values matches, the assertion will be considered a success.
+
+## SSML
+
+To create a more natural speech for your tests we can use Speech Synthesis Markup Language(SSML). With SSML tags, you can customize and control aspects of speech such as pronunciation, volume, and speech rate. 
+
+To use SSML add the tag speak into your utterance.
+
+ ```
+<speak>Hello using SSML</speak>
+```
+
+Example:
+ ```
+<speak>
+    Here are <say-as interpret-as="characters">SSML</say-as> samples.
+    I can pause <break time="3" />.
+    I can speak in cardinals. Your position is <say-as interpret-as="cardinal">10</say-as> in line.
+    Or I can speak in ordinals. You are <say-as interpret-as="ordinal">10</say-as> in line.
+    Or I can even speak in digits. Your position in line is <say-as interpret-as="digits">10</say-as>.
+    I can also substitute phrases, like the <sub alias="World Wide Web Consortium">W3C</sub>.
+    Finally, I can speak a paragraph with two sentences.
+    <p><s>This is sentence one.</s><s>This is sentence two.</s></p>
+</speak>
+```
+say-as: Lets you indicate information about the type of text construct that is contained within the element. It also helps specify the level of detail for rendering the contained text.
+break: An empty element that controls pausing or other prosodic boundaries between words.
+sub: Indicate that the text in the alias attribute value replaces the contained text for pronunciation.
+s, p: Sentence and paragraph elements.
+
+For details on how to use the ssml tags for Amazon Polly go to [link](https://developer.amazon.com/docs/custom-skills/speech-synthesis-markup-language-ssml-reference.html#ssml-supported) and for Google Text-to-Speech go to [link](https://cloud.google.com/text-to-speech/docs/ssml#support-for-ssml-elements).
+
+If you want to create utterances valid for both providers use only common tags: break, emphasis, p, prosody, s, say-as, sub.
+
 
 # Test Execution
 ## Test Sequence
