@@ -20,11 +20,11 @@ grid_navigation:
       - name: 'Tutorials'
         links:
           - name: Node.js & Lambda
-            url: '/cli/tutorials/tutorial_lambda_nodejs'
+            url: '/tutorials/tutorial_lambda_nodejs'
           - name: Local Java Server
-            url: '/cli/tutorials/tutorial_local_server_java'
+            url: '/tutorials/tutorial_local_server_java'
           - name: Python & Flask Ask
-            url: '/cli/tutorials/tutorial_flask_ask_python'
+            url: '/tutorials/tutorial_flask_ask_python'
       - name: 'API'
         url: 'http://docs.bespoken.io/en/latest/api/'
     - title: Unit Testing
