@@ -1,3 +1,16 @@
+---
+# Page settings
+layout: default
+keywords:
+comments: false
+
+# Hero section
+title: Debugging voice apps locally With Webstorm and Bespoken
+
+# Micro navigation
+micro_nav: true
+---
+
 This tutorial shows you how to get started developing for Alexa with Java and Maven.  
 
 ## Prerequisites
