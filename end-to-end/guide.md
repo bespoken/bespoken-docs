@@ -295,7 +295,7 @@ The test is then made up of a series of interactions and assertions.
 
 Each interaction is prefixed with a "-" which indicates a YAML colletion.
 
-The first part of each interaction is an [utterance](#utteracne), after it comes a series of expressions. Typically, these are assertions about the test.
+The first part of each interaction is an [utterance](#Utterance), after it comes a series of expressions. Typically, these are assertions about the test.
 But they can be:
 
 * [Assertions](#assertions): The life-blood of tests - statements about the expected output
@@ -310,7 +310,7 @@ each assertion is in turn evaluated in order when a response is received.
 
 If any assertion fails for a test, the test stops processing, and information about the failed assertion is provided.
 
-## Uttarance 
+## Utterance 
 Is the first part of the interaction, it can be plain text or Speech Synthesis Markup Language
 
 Plain text:
@@ -461,7 +461,7 @@ break: An empty element that controls pausing or other prosodic boundaries betwe
 sub: Indicate that the text in the alias attribute value replaces the contained text for pronunciation.
 s, p: Sentence and paragraph elements.
 
-For details on how to use the ssml tags for Amazon Polly go to [link](https://developer.amazon.com/docs/custom-skills/speech-synthesis-markup-language-ssml-reference.html#ssml-supported) and for Google Text-to-Speech go to [link](https://cloud.google.com/text-to-speech/docs/ssml#support-for-ssml-elements).
+For details on how to use the ssml tags for Amazon Polly go to [Amazon SSML Reference](https://developer.amazon.com/docs/custom-skills/speech-synthesis-markup-language-ssml-reference.html#ssml-supported) and for Google Text-to-Speech go to [Google SSML Reference](https://cloud.google.com/text-to-speech/docs/ssml#support-for-ssml-elements).
 
 If you want to create utterances valid for both providers use only common tags: break, emphasis, p, prosody, s, say-as, sub.
 
