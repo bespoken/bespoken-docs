@@ -25,6 +25,8 @@ grid_navigation:
             url: '/tutorials/tutorial-local-server-java'
           - name: Python & Flask Ask
             url: '/tutorials/tutorial-flask-ask-python'
+          - name: Webstorm debugging
+            url: '/tutorials/debugging-locally'
       - name: 'API'
         url: 'http://docs.bespoken.io/en/latest/api/'
     - title: Unit Testing
