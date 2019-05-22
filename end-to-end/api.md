@@ -66,6 +66,65 @@ export interface ICard {
     type: string;
 }
 ```
+
+## Adding homophones
+
+Our end-to-end tests use speech recognition for turning the output speech coming back from the virtual device into text.
+
+This process is imperfect - to compensate for this, homophones can be specified for errors that occur when a reply from the virtual device is misunderstood.
+
+Before sending your message call the "addHomophones" method to indicate what are the ones you expect
+
+```javascript
+const virtualDevice = new vdSDK.VirtualDevice("<PUT_YOUR_TOKEN_HERE>", locale, voiceId);
+
+virtualDevice.addHomophones("white", ["wife", "while"]);
+
+virtualDevice.message("open my skill").then((result) => {
+    console.log("Reply Transcript: " + result.transcript);
+    console.log("Reply Card Title: " + result.card.mainTitle);
+});
+```
+
+## Sending messages in batch
+
+You can send multiple messages and expected phrases in an object array. The goal of this method is to handle a complete interaction with the virtual device. By sending all messages to the endpoint, it is able to sequence them faster, avoiding session timeouts.
+
+```javascript
+sdk.batchMessage(
+    [{text: "what is the weather"}, {text:  "what time is it"}, {text: "tell test player to play"}],
+).then((results) => {
+    console.log("Results: ", results);
+});
+```
+
+The result will be an array of objects as defined in the (Result Payload Section)[#result-payload]
+
+
+## Processing the results asynchronously
+
+By default when you use batchMessage the promise will return a promise that will resolve once the complete interaction is finished. By setting the async mode
+in the constructor of the SDK instance you can change that behavior so that it returns a conversation id that can be used to retrieve
+the results progressively.
+
+```javascript
+const virtualDevice = new vdSDK.VirtualDevice("<PUT_YOUR_TOKEN_HERE>", locale, voiceId, undefined, true);
+
+sdk.batchMessage(
+    [{text: "what is the weather"}, {text:  "what time is it"}, {text: "tell test player to play"}],
+).then((result) => {
+    console.log("Conversation Id: ", result.conversation_id);
+
+    // logic to wait some time
+
+    return sdk.getConversationResults(result.conversation_id);
+}).then((results) => {
+    console.log("Results: ", results);
+});
+```
+
+As the results are processed the "getConversationResults" method will return them in subsequent calls to the method.
+
 # HTTP API
 The VirtualDevice service can also be called directly via HTTP.
 
