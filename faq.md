@@ -31,7 +31,7 @@ This also needs to be the account with which the virtual device was setup. You c
 Setup a dedicated account for each region in which you want to test, and for each region, setup a user in the Dashboard with a dedicated token.
 
 ## I have errors when testing in parallel with devices using the same account with Alexa
-Alexa AVS doesn't handle more than one request for the same account, if you need to do parallel tests, create the necessary virtual devices using different accounts at the setup
+Alexa AVS doesn't handle more than one request for the same account, if you need to do parallel tests, create the necessary virtual devices using different accounts at the setup.
 
 ## Would it be possible to interrupt Alexa mid-response via the test scripts?
 This is not possible today unfortunately. 

@@ -31,6 +31,17 @@ It is as easy as that! For more information on how our end-to-end testing work, 
     ```
 2. Get your token: Follow the instructions [here](../setup).
 
+## Constructor parameters
+ - token: Your virtual device token, check [here](../setup) how to obtain it
+ - locale: The locale you are using, defaults to en-US
+ - voiceID: The voice from Polly to use with the current locale, defaults to the default voice for the locale
+ - skipSTT: Skip speech to text for Google (Google can return text directly), defaults to false
+ - asyncMode: Retrieve the conversation sent in batch asynchronously, defaults to false
+ - stt: What speech to text to use (google or witai), defaults to google
+ - locationLat: Location Latitude used in Google Virtual Devices.
+ - locationLong: Location Longitude used in Google Virtual Devices.
+ - conversationId: Set a conversation id in advance for the batch process in async mode.
+
 ## Sending a Message
 Here is a simple example in Javascript:
 ```javascript
@@ -108,7 +119,12 @@ in the constructor of the SDK instance you can change that behavior so that it r
 the results progressively.
 
 ```javascript
-const virtualDevice = new vdSDK.VirtualDevice("<PUT_YOUR_TOKEN_HERE>", locale, voiceId, undefined, true);
+const locale = "en-US";
+const voiceId = "Joey";
+const skipSTT = false;
+const asyncMode = true;
+
+const virtualDevice = new vdSDK.VirtualDevice("<PUT_YOUR_TOKEN_HERE>", locale, voiceId, skipSTT, asyncMode);
 
 sdk.batchMessage(
     [{text: "what is the weather"}, {text:  "what time is it"}, {text: "tell test player to play"}],
