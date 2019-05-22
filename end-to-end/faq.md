@@ -56,9 +56,9 @@ Both are good choices. In the case of unit-testing, our YAML tests actually rely
 
 ## **How to do I run end-to-end tests?**
 To get started, you need to install the Bespoken CLI, please follow next steps:
-1) Install the CLI by running `npm install -g bespoken-tools` on your command line.
-2) Open a command-line window and change directory to the root of your `<PROJECT_FOLDER>`
-3) Run the tests - just enter `bst test`. The output should look like this:
+1. Install the CLI by running `npm install -g bespoken-tools` on your command line.
+2. Open a command-line window and change directory to the root of your `<PROJECT_FOLDER>`
+3. Run the tests - just enter `bst test`. The output should look like this:
 ```console
 $ bst test
 BST: v2.0.10  Node: v8.9.4
@@ -327,6 +327,9 @@ It is also possible to specify multiple valid values for a property. That is don
     - Howdy
     - How are you?
 ```
+
+## I have errors when testing in parallel with devices using the same account with Alexa
+Alexa AVS doesn't handle more than one request for the same account, if you need to do parallel tests, create the necessary virtual devices using different accounts at the setup.
 
 <!-- Images references -->
 [AlexaHistory]: ../assets/alexaHistory.png "Showing Alexa voice interactions history"
