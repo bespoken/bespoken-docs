@@ -109,7 +109,7 @@ sdk.batchMessage(
 });
 ```
 
-The result will be an array of objects as defined in the (Result Payload Section)[#result-payload]
+The result will be an array of objects as defined in the [Result Payload Section](#result-payload)
 
 
 ## Processing the results asynchronously
