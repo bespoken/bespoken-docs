@@ -501,6 +501,7 @@ The filter module should be a simple JS object with all or some of this function
 * onResponse(test, response)
 * onTestEnd(test, testResults)
 * onTestSuiteEnd(testResults)
+* resolve(variableName, testInteraction)
 
 An example filter is here:
 ```
@@ -516,6 +517,40 @@ module.exports = {
 ```
 
 The filter is a very useful catch-all for handling tricky test cases that are not supported by the YAML test syntax or if you want to fine tune some aspects of the tests.
+
+## Replacing values using filter
+If you need to modify certain assertions during the test run, based on the test utterances or external API's you can do it with
+the test [filter](#filtering-during-test) property implementing the `resolve` method.
+
+With it you can have a variable inside the YML file, for example:
+```yml
+- open my skill:
+  - prompt: Hi {name}, welcome to the skill. You have {points} points
+```
+
+Then inside the [filter](#filtering-during-test) you can set the resolve method to return:
+ - a string
+ - a number
+ - a promise resolving in a string or a number
+
+```
+module.exports = {
+    resolve: function(variable, interaction) {
+      // interaction allows seeing any information from the interaction
+      // and the parent test and testSuite you need
+
+      if (variable === "name") return "John";
+      if (variable === "points") {
+         let points;
+         // you can include here any logic you would need to modify "points", including external API's
+         return points;
+      }
+    }
+};
+
+```
+
+This replacement will be done after the response is gotten from the test but before evaluation of the assertion.
 
 ## Including or excluding tests using tags
 
