@@ -318,7 +318,7 @@ Plain text:
 - this is a plain text: 
 ```
 
-Speech Synthesis Markup Language example, more details [here](#SSML):
+Speech Synthesis Markup Language example, more details [here](#ssml):
 ```
 - <speak>this is SSML</speak>: 
 ```
