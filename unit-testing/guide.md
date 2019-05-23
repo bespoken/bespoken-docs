@@ -533,7 +533,7 @@ Then inside the [filter](#filtering-during-test) you can set the resolve method 
  - a number
  - a promise resolving in a string or a number
 
-```Javascript
+```
 module.exports = {
     resolve: function(variable, interaction) {
       // interaction allows seeing any information from the interaction
