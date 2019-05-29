@@ -51,6 +51,27 @@ There a couple steps for the setup - but don't worry - you will only have to do 
 
 6. Click on the copy icon next to the name of your virtual device to copy it to the clipboard and you are set.
 
+
+### Enable personal results for Google 
+
+If you get a response: "to let me read out that information turn on personal results in the google app home" instead a reponse from your actions, follow these additional steps:
+
+![Google app home](../assets/enable-personal-results.gif "enable personal results")
+1. Long press the “home” button on an Android device.
+
+2. Click on the compass icon.
+
+3. Click on your user's icon.
+
+4. Click on Settings.
+
+5. Click on the Assistant Tab.
+
+6. Scroll Down and you should see “virtual device” listed after your phone.
+
+7. Click on it and enable Personal Results.
+
+
 # Using the Device In Your Scripts
 Now you can use the virtual device with your test script. Place it in the testing.json file of your project like so:
 ```
