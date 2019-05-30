@@ -334,4 +334,7 @@ It is also possible to specify multiple valid values for a property. That is don
 Alexa AVS doesn't handle more than one request for the same account, if you need to do parallel tests, create the necessary virtual devices using different accounts at the setup.
 
 <!-- Images references -->
-[AlexaHistory]: ./assets/alexaHistory.png "Showing Alexa voice interactions history" 
+[AlexaHistory]: ./assets/alexaHistory.png "Showing Alexa voice interactions history"
+
+## If you get "to let me read out that information turn on personal results in the google app home" as response instead a response from your action
+Follow [these steps](/end-to-end/setup/#enable-personal-results-for-google).
