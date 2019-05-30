@@ -1,5 +1,5 @@
----
-# Page settings
+<!-- ---
+# NODE.JS & LAMBDA
 layout: default
 keywords:
 comments: false
@@ -9,7 +9,8 @@ title: Debugging voice apps locally With Webstorm and Bespoken
 
 # Micro navigation
 micro_nav: true
----
+--- -->
+# Debugging voice apps locally With Webstorm and Bespoken
 
 This tutorial shows you how to get started developing for Alexa Skills Kit using a Nodejs Lambda.  
 
@@ -17,7 +18,7 @@ This tutorial shows you how to get started developing for Alexa Skills Kit using
 
 * Bespoken command-line tools (bst)
     * `$ npm install bespoken-tools -g`
-    * [Installation Instructions](/../getting-started#Installation/)
+    * [Installation Instructions](../getting-started.html#Installation)
 * Amazon Developer Account
     * [Amazon Developer](https://developer.amazon.com/alexa)
 

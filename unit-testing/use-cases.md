@@ -1,5 +1,5 @@
----
-# Page settings
+<!-- ---
+# Unit-Testing Use-Cases
 layout: default
 keywords:
 comments: false
@@ -10,8 +10,11 @@ description: Guide to Common Unit-Testing Use-Cases
 
 # Micro navigation
 micro_nav: true
----
-# Common Use-Cases And How To Handle Them
+--- -->
+# Guide to Common Unit-Testing Use-Cases
+
+## Common Use-Cases And How To Handle Them
+
 * [Testing State With Dynamo](#testing-with-dynamo)
 * [Testing The Address API](#testing-with-the-address-api)
 

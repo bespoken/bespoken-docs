@@ -1,5 +1,5 @@
----
-# Page settings
+<!-- ---
+# Getting Started
 layout: default
 keywords:
 comments: false
@@ -9,7 +9,8 @@ title: Getting Started With Unit Testing for Alexa
 
 # Micro navigation
 micro_nav: true
----
+--- -->
+# Getting Started With Unit Testing for Alexa
 It's easy to unit-test your Alexa skill with Bespoken.
 
 <img src="/assets/images/BST-Test-Run.gif" width="800" alt="Test Run Animated" />
@@ -48,7 +49,7 @@ configuration:
   - response.outputSpeech: undefined
 ```
 
-# Setup
+## Setup
 To get started, you need to install Bespoken Tools.
 
 If you haven't already, follow these steps:
@@ -82,7 +83,7 @@ BST: v2.0.0  Node: v8.11.1
   **(Output truncated)**
 ```
 
-# Run Your Tests
+## Run Your Tests
 If you are starting with one of the Alexa sample projects, just go ahead and enter:
 ```
 bst test
@@ -90,7 +91,7 @@ bst test
 
 That's all there is to it!
 
-# Understanding The Output
+## Understanding The Output
 
 <img src="/assets/images/BST-Test-Output.png" width="800" alt="Test Output"/>
 
@@ -111,10 +112,10 @@ To see more detailed code coverage info, we can go to `coverage/lcov-report/inde
 The coverage directory will be located in the same directory where your `testing.json` file is located.
 This provides detailed information about the code coverage for our tests.
 
-# Further Reading and Examples
-To add more tests, read our guide on the [Skill Testing Markup Language syntax here](../guide).
+## Further Reading and Examples
+To add more tests, read our guide on the [Skill Testing Markup Language syntax here](./guide.html).
 
-Learn about [common use-cases here](../use-cases), such as:
+Learn about [common use-cases here](./use-cases.html), such as:
 
 * State Management With Dynamo
 * Testing The Address API

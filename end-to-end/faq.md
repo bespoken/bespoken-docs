@@ -1,5 +1,5 @@
----
-# Page settings
+<!-- ---
+# FAQ
 layout: default
 keywords:
 comments: false
@@ -10,6 +10,8 @@ title: FAQ for End-to-end Testing
 # Micro navigation
 micro_nav: true
 ---
+-->
+# FAQ for End-to-end Testing
 Here you can find common questions on regards End-to-end testing for voice apps.
 
 # **Getting started**
@@ -95,7 +97,7 @@ To use this feature, set your test type to `simulation`. The feature support is 
 * Testing must be enabled for the skill in the Alexa dev console
 * The skill must be in development stage
 
-Read more about it in our [full guide](../guide#smapi-configuration).
+Read more about it in our [full guide](./guide.html#smapi-configuration).
 
 ## **How do I learn more?**
 Take a look at this [__sample project__](https://github.com/bespoken/virtual-device-example) and use it as a base to start creating your own functional test scripts. For more info on End-to-end testing please read [__here__](https://read.bespoken.io/end-to-end/getting-started).
@@ -332,4 +334,4 @@ It is also possible to specify multiple valid values for a property. That is don
 Alexa AVS doesn't handle more than one request for the same account, if you need to do parallel tests, create the necessary virtual devices using different accounts at the setup.
 
 <!-- Images references -->
-[AlexaHistory]: ../assets/alexaHistory.png "Showing Alexa voice interactions history"
+[AlexaHistory]: ./assets/alexaHistory.png "Showing Alexa voice interactions history" 

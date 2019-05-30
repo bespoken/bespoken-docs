@@ -1,5 +1,5 @@
----
-# Page settings
+<!-- ---
+# FAQ
 layout: default
 keywords:
 comments: false
@@ -9,7 +9,8 @@ title: FAQ for Unit-Testing
 
 # Micro navigation
 micro_nav: true
----
+--- -->
+# FAQ for Unit-Testing
 Here you can find common questions on regards unit testing for voice apps.
 
 # **Getting started**

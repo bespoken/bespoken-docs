@@ -1,5 +1,5 @@
----
-# Page settings
+<!-- ---
+# WEBSTORM DEBUGGING
 layout: default
 keywords:
 comments: false
@@ -9,7 +9,8 @@ title: Debugging voice apps locally With Webstorm and Bespoken
 
 # Micro navigation
 micro_nav: true
----
+--- -->
+# Debugging voice apps locally With Webstorm and Bespoken
 This tutorial shows you how to get set up using Webstorm to debug your voice app code locally.
 
 Using this, you can run your Alexa Skill or Google Action directly on your machine, and step through the actual code to debug it with real requests and responses.

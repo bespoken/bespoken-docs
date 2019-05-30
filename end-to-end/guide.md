@@ -1,5 +1,5 @@
----
-# Page settings
+<!-- ---
+# In-depth Guide
 layout: default
 keywords:
 comments: false
@@ -10,8 +10,9 @@ description: Complete Guide to End-to-end Testing
 
 # Micro navigation
 micro_nav: true
----
-# Overview
+--- -->
+# Complete Guide to End-to-end Testing
+## Overview
 Bespoken End-to-end Test Scripts make it easy for anyone to write automated tests for Alexa and Google Assistant.
 
 The syntax is based on YAML, and is meant to be easy to read and write. [Learn more about YAML syntax here](http://yaml.org/spec/1.2/spec.html#Preview).
@@ -24,15 +25,15 @@ Jest has been configured with a custom test runner, which:
 * Works with YAML files, fitting the structure described in this document
 * Runs using our [Virtual Device SDK](https://github.com/bespoken/virtual-device-sdk) to interact directly with Alexa and/or Google assistant
 
-We use the same basic format for unit-testing and end-to-end testing, but there are differences in how the tests should be written. For information on unit-testing, [read here](../../unit-testing/guide).
+We use the same basic format for unit-testing and end-to-end testing, but there are differences in how the tests should be written. For information on unit-testing, [read here](../../unit-testing/guide.html).
 
 ADDITIONALLY - we now support experimentally the SMAPI Simulation API. This can be enabled using the type of `simulation`.
 
-# Installation
-## Prerequisites
+## Installation
+### Prerequisites
 * [npm](https://www.npmjs.com/get-npm)
 
-## Install
+### Install
 ```bash
 npm install bespoken-tools -g
 ```
@@ -53,10 +54,10 @@ BST: v2.0.0  Node: v8.11.1
 ```
 That means it was installed successfully!
 
-## Virtual Device Setup
-First, you need to setup a virtual device, which allows for interaction via text and API with Alexa and Google Assistant. See [here for instructions](../setup).  
+### Virtual Device Setup
+First, you need to setup a virtual device, which allows for interaction via text and API with Alexa and Google Assistant. See [here for instructions](./setup.html).  
 
-# Configuration
+## Configuration
 Global configuration options for testing skills can be set in the `testing.json` file, which is typically kept at the root level of your project.
 
 These options can include overriding Jest options, as well as setting skill testing specific ones.
@@ -108,7 +109,7 @@ Below the end-to-end testing configuration options and what they do are listed:
 * [asyncE2EWaitInterval](#batch-or-sequential-tests) - Set an interval in milliseconds to wait before querying for new results, when batchEnabled is set to false - defaults to 5000
 * [batchEnabled](#batch-or-sequential-tests) - If it is true we sent the complete set of utterances to the virtual device server in a test, if it is false we sent them one by one - defaults to true
 * [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
-* [findReplace](#findreplace) - Values that will be replaced in the scripts before execution
+* [findReplace](#find-replace) - Values that will be replaced in the scripts before execution
 * [homophones](#homophones) - Values that will be replaced in actual responses from the virtual device
 * html - Generate a pretty HTML report of test results - defaults to `true`
 * [include and exclude](#including-or-excluding-tests-using-tags) - Runs or Skip the tests having the particular specified tags
@@ -119,8 +120,8 @@ Below the end-to-end testing configuration options and what they do are listed:
 * stage - For tests of type `simulation`, the stage must be specified - can be `development` or `live`
 * type - The type of test being run - can be `unit`, `simulation`, or `e2e` - defaults to `unit`
 * [trace](#viewing-response-payloads) - Causes request and response JSON payloads from the skill to be printed to the console
-* [virtualDeviceToken](../setup) - For end-to-end tests that use virtual devices, this must be specified. 
-[Get one here](../setup)
+* [virtualDeviceToken](./setup.html) - For end-to-end tests that use virtual devices, this must be specified. 
+[Get one here](./setup.html)
 
 
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
@@ -139,7 +140,7 @@ This will be as if the configuration file was set like so:
 }
 ```
 
-## Overwriting configuration parameters
+### Overwriting configuration parameters
 
 If you want to run the tests with one or more parameters changed you can overwrite parameters directly from the run file. This will even replace existing parameters set on the testing.json file. For example if you want to replace the platform
 
@@ -153,7 +154,7 @@ You can get the complete list of parameters you can use by running:
 bst test --help
 ```
 
-## Find/Replace
+### Find/Replace
 Find/replace values are helpful for parameterizing parts of the test.
 
 For example, if the invocation name of the skill being tested will change from one run to the next, it can be set as a find/replace value like so:
@@ -182,7 +183,7 @@ Will be turned into this:
 
 This is a useful feature for tests that are run against multiple instances of the same skill, where there are slight variations in the input or output.
 
-## Homophones
+### Homophones
 Our end-to-end tests use speech recognition for turning the output speech coming back from Alexa into text.
 
 This process is imperfect - to compensate for this, homophones can be specified for errors that occur when a reply from Alexa is misunderstood.
@@ -209,7 +210,7 @@ To avoid this, just define a homophone in the configuration file like so:
 }
 ```
 
-## SMAPI Configuration
+### SMAPI Configuration
 For tests that are of type `simulation`, they are run using the SMAPI simulation feature. This relies on the [Alexa SMAPI to execute tests](https://developer.amazon.com/docs/smapi/skill-simulation-api.html). A few requirements to use this feature:  
 * The ASK CLI must be installed and configured on the machine where tests are run
 * The skillId and stage of the skill being tested must be specified as part of the configuration
@@ -223,7 +224,7 @@ Simulation tests return the full skill payload from Alexa, similar to a unit-tes
 * SMAPI doesn't support digits, so all numbers should be sent as words.
 
 
-# CLI Options
+## CLI Options
 When invoking `bst test`, the name of a specific test or regex can be used, like this:
 ```
 bst test test/MyIntent.test.yml
@@ -234,7 +235,7 @@ Or this:
 bst test MyIntent
 ```
 
-# Tests
+## Tests
 The test syntax is based on YAML.
 
 When running `bst test`, it automatically searches for files with the following names:
@@ -247,7 +248,7 @@ When running `bst test`, it automatically searches for files with the following 
 Any tests that match these patterns will be run.
 A recommended convention is to sort test files under a test dir, and to label end-to-end tests as `IntentName.e2e.yml`, where each test file contains tests for a specific intent.
 
-## Test Suites
+### Test Suites
 Each test file is a test suite. Test suites are made up of one or many tests.
 
 The tests represent discreet conversations with your voice app. Each test can have one or many interactions - here is a simple example:
@@ -281,7 +282,7 @@ The tests represent sequence of conversations with the skill.
 
 They can use specific requests (such as LaunchRequest or SessionEndedRequest), or they can simply be an utterance.
 
-## Test Structure
+### Test Structure
 The start of a test is marked with three dashes on a line - `---`.
 
 It can be followed by an optional test description, which looks like this:
@@ -295,7 +296,7 @@ The test is then made up of a series of interactions and assertions.
 
 Each interaction is prefixed with a "-" which indicates a YAML colletion.
 
-The first part of each interaction is an [utterance](#Utterance), after it comes a series of expressions. Typically, these are assertions about the test.
+The first part of each interaction is an [utterance](#utterance), after it comes a series of expressions. Typically, these are assertions about the test.
 But they can be:
 
 * [Assertions](#assertions): The life-blood of tests - statements about the expected output
@@ -310,7 +311,7 @@ each assertion is in turn evaluated in order when a response is received.
 
 If any assertion fails for a test, the test stops processing, and information about the failed assertion is provided.
 
-## Utterance 
+### Utterance 
 Is the first part of the interaction, it can be plain text or Speech Synthesis Markup Language
 
 Plain text:
@@ -323,7 +324,7 @@ Speech Synthesis Markup Language example, more details [here](#ssml):
 - <speak>this is SSML</speak>: 
 ```
 
-## Assertions
+### Assertions
 An assertion follows one of two simple syntaxes:  
 `[JSONPath Property]: [Expected Value]`   
 or  
@@ -360,7 +361,7 @@ This will return the value: "My SSML Value" from the following JSON response:
 Note that the response output from the Virtual Device is much more limited than what your actual skill returns.
 This is a limitation of what is provided by Alexa Voice Service/Google Assistant.
 
-To test the actual JSON response from your skill, we recommend writing unit-tests - they use the same structure as our end-to-end test but can be run locally and have access to the full skill payload. [More info here](../../unit-testing/guide).
+To test the actual JSON response from your skill, we recommend writing unit-tests - they use the same structure as our end-to-end test but can be run locally and have access to the full skill payload. [More info here](../unit-testing/guide.html).
 
 The expected value can be:
 
@@ -370,14 +371,14 @@ The expected value can be:
 * A regular expression - should be denoted with slashes (/this .* that/)
 * `undefined` - special value indicating not defined
 
-### JSONPath Properties
+#### JSONPath Properties
 JSONPath is an incredibly expressive way to get values from a JSON object.
 
 You can play around with [how it works here](http://jsonpath.com/).
 
 Besides handling basic properties, it can also navigate arrays and apply conditions.
 
-### Shorthand Properties
+#### Shorthand Properties
 For certain commonly accessed elements, we offer short-hand properties for referring to them. These are:
 
 * cardContent - Corresponds to `card.textField`
@@ -408,7 +409,7 @@ Example:
 These elements are intended to work across platforms and test types. The ones that are available
 only for Alexa will be ignored during the tests if you are using a different platform.
 
-### Regular Expression Values
+#### Regular Expression Values
 The expected value can be a regular expression.
 
 If it follows a ":", it must be in the form of /my regular expression/ like this:
@@ -419,7 +420,7 @@ If it follows a ":", it must be in the form of /my regular expression/ like this
 Regular expression flags are also supported with this syntax, such as /case insensitive/i.
 They are [described here in more detail](https://javascript.info/regexp-introduction#flags).
 
-### Collection Values
+#### Collection Values
 It is also possible to specify multiple valid values for a property.
 
 That is done with a collection of expected values, such as this:
@@ -433,7 +434,7 @@ That is done with a collection of expected values, such as this:
 
 When a collection is used like this, if any of the values matches, the assertion will be considered a success.
 
-## SSML
+### SSML
 
 To create a more natural speech for your tests we can use Speech Synthesis Markup Language(SSML). With SSML tags, you can customize and control aspects of speech such as pronunciation, volume, and speech rate. 
 
@@ -466,13 +467,13 @@ For details on how to use the ssml tags for Amazon Polly go to [Amazon SSML Refe
 If you want to create utterances valid for both providers use only common tags: break, emphasis, p, prosody, s, say-as, sub.
 
 
-# Test Execution
-## Test Sequence
+## Test Execution
+### Test Sequence
 Tests are run in the order they appear in the file.
 
 End-to-end tests are not run in parallel, unlike unit tests. This is because of limitations in how the virtual devices work. This is also true for tests that are run using SMAPI Simulations.
 
-## Batch or Sequential Tests
+### Batch or Sequential Tests
 Tests are run by default in batch. This means that all the utterances are sent to be processed. How we retrieve them depends on the "asyncMode" flag:
   - If it is set to false (default behavior) then we wait until all utterances are processed and once they are we return the complete result.
   - If it is set to true, the utterances will be sent to be processed, and we will run multiple queries to get the results.
@@ -481,7 +482,7 @@ Setting the "batchEnabled" property to false change this behavior, the utterance
 
 The result will be the same using any of the modes, but when sending the batch mode to false, there's the possibility that for large tests the session is lost due the extra delay added between utterances calls.
 
-## Goto And Exit
+### Goto And Exit
 One advanced feature is support for `goto` and `exit`. This feature is only available if "batchEnabled" is set to false.
 
 Goto comes at the end of an assertion - if the assertion is true, the test will "jump" to the utterance named.
@@ -513,7 +514,7 @@ The test will end when it reaches the `exit` statement at the end (no further in
 
 Using `goto` and `exit`, more complex tests can be built.
 
-## Skipping Tests
+### Skipping Tests
 Label tests "test.only" or "test.skip" to either only run a particular test, or to skip it. Example:
 ```
 ---
@@ -525,10 +526,10 @@ If multiple tests are labeled only within a suite, all the ones will be labeled 
 
 Use these flags together with the test pattern matching when calling `bst test <pattern>` to narrow the tests that should be run.
 
-## Viewing Response Payloads
+### Viewing Response Payloads
 Set the `trace` flag in the testing.json file and the full request and response JSON payloads will be printed to the console when the tests are run.
 
-## Filtering during test
+### Filtering during test
 By specifying the "filter" property, it is possible to intercept and even change the properties of the tests along their execution.
 For example you can intercept the response before the assertions are run against it.
 
@@ -556,7 +557,7 @@ module.exports = {
 
 The filter is a very useful catch-all for handling tricky test cases that are not supported by the YAML test syntax or if you want to fine tune some aspects of the tests.
 
-## Replacing values using filter
+### Replacing values using filter
 If you need to modify certain assertions during the test run, based on the test utterances or external API's you can do it with
 the test [filter](#filtering-during-test) property implementing the `resolve` method.
 
@@ -591,7 +592,7 @@ module.exports = {
 This replacement will be done after the response is gotten from the test but before evaluation of the assertion. By default we send all the interactions
 in batch in the test, if you need for this replacement to be done after each utterance ensure that [sequential mode](#batch-or-sequential-tests) is enabled
 
-## Including or excluding tests using tags
+### Including or excluding tests using tags
 
 By specifying tags in particular tests you can then run only the tests you want. Let's say you have tests specific to the first time a user uses your skill, we are going to apply the tag "FirstUse" to them:
 
@@ -626,7 +627,7 @@ Remember you can also use the override properties when executing the bst test co
 bst test --include FirstUse,ReturningUser --exclude broken
 ```
 
-## Ignore properties on demand
+### Ignore properties on demand
 
 Different platforms have different properties and sometimes is not possible to validate the same exact properties when running the test using
 another platform. For these cases, you can ignore a list of properties from your tests.
@@ -672,7 +673,7 @@ configuration:
     - cardTitle: Space Facts
 ```
 
-## HTML Reporting
+### HTML Reporting
 The results of your tests are automatically formatted into a nice HTML report, courtesy of jest-stare.
 
 It is viewable under `./test_output/results/index.html`.
@@ -681,9 +682,9 @@ It provides a nice summary of the results of your tests, with charts. You can al
 
 To read more about jest-stare, [click here](https://github.com/dkelosky/jest-stare#readme).
 
-# Further Reading
+## Further Reading
 Take a look at:
-* Our [getting started guide](../getting-started)
+* Our [getting started guide](./getting-started.html)
 * Our [example project](https://github.com/bespoken/virtual-device-example)
 
 And don't hesitate to reach out via [Gitter](https://gitter.im/bespoken/bst).
