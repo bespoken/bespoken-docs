@@ -338,4 +338,4 @@ Alexa AVS doesn't handle more than one request for the same account, if you need
 [AlexaHistory]: ./assets/alexaHistory.png "Showing Alexa voice interactions history"
 
 ## If you get "to let me read out that information turn on personal results in the google app home" as response instead a response from your action
-Follow [these steps](/end-to-end/setup/#enable-personal-results-for-google).
+Follow [these steps](./setup.html#enable-personal-results-for-google).

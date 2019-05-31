@@ -56,7 +56,7 @@ There a couple steps for the setup - but don't worry - you will only have to do 
 
 If you get a response: "to let me read out that information turn on personal results in the google app home" instead a reponse from your actions, follow these additional steps:
 
-![Google app home](../assets/enable-personal-results.gif "enable personal results")
+![Google app home](./assets/enable-personal-results.gif "enable personal results")
 1. Long press the “home” button on an Android device.
 
 2. Click on the compass icon.
