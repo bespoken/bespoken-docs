@@ -333,6 +333,7 @@ It is also possible to specify multiple valid values for a property. That is don
 ## I have errors when testing in parallel with devices using the same account with Alexa
 Alexa AVS doesn't handle more than one request for the same account, if you need to do parallel tests, create the necessary virtual devices using different accounts at the setup.
 
+
 <!-- Images references -->
 [AlexaHistory]: ./assets/alexaHistory.png "Showing Alexa voice interactions history"
 
