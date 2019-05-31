@@ -127,12 +127,12 @@ Then create and execute your scripts as usual.
 ## <a name="anchorToFolderStructure"></a>**How should I organize my test files?**
 That depends, if you are testing your voice app and it supports just one locale you can have a folder structure like this:
 
-::: tip folder
+```
 └───My Skill E2E testing
         functionalityName.e2e.yml
         otherFunctionalityName.e2e.yml
         testing.json
-:::
+```
 
 For this case, we recommend the locale and Virtual Device Token is defined on your `testing.json` file.
 

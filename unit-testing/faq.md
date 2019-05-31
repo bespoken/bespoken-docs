@@ -93,7 +93,7 @@ If your skill supports multiple locales you have 2 options:
 - Use our localization feature to write one single test script and then add the reponses of each locale in the localization files. Check this [__project sample__](https://github.com/ig-perez/multi-locale-facts-sample-skill/tree/master/test/unit) to get started.
 - Create a different test script per each locale and define the locale in the configuration section of each test script file:
 
-```
+```yml
 ---
 configuration:
   locale: en-US
@@ -103,7 +103,7 @@ configuration:
 
 ## **How do I invoke an intent with slots?**
 If you want to execute an intent with slots in just one line, use our succinct syntax. For example:
-```
+```yml
 ---
 - test: The size and pet slot values are provided on open
 - PetMatchIntent size=small pet=dog:
@@ -128,7 +128,7 @@ We have created mockups for that, there is no need for you to do any local setup
 
 ## **Can I use utterances instead of intent names in my scripts?**
 Yes, you can, but as we are emulating Alexa turning utterances into intents might not be 100% accurate in some cases. To avoid this we recommend setting the exact intent and slot values with the intent and slot properties. For example, you can turn this:
-```
+```yml
 ---
 - test: The size and pet slot values are provided on open
 - tell pet match i want a small dog:
@@ -138,7 +138,7 @@ Yes, you can, but as we are emulating Alexa turning utterances into intents migh
 - stop: Bye
 ```
 Into this:
-```
+```yml
 ---
 - test: The size and pet slot values are provided on open
 - PetMatchIntent size=small pet=dog:
@@ -153,7 +153,7 @@ Check the full code of this project and test script **[here](https://github.com/
 Open the `launch.json` configuration in Visual Studio: `Debug -> Open Configurations`.
 
 Add an element like this:
-```
+```json
 "configurations": [
   {
       "type": "node",
@@ -174,7 +174,7 @@ Happy debugging!
 If you have configured debugging in Visual Studio and breakpoints are not working, set collectCoverage on the testing.json under the jest element to false.
 
 It should look like this:
-```
+```json
 {
   "jest": {
     "collectCoverage": false,
