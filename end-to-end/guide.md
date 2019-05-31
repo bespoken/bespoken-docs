@@ -44,7 +44,7 @@ bst
 ```
 
 You should see output like this:
-```
+```bash
 jpk-mbp:alexa-skill jpk$ bst
 BST: v2.0.0  Node: v8.11.1
 
@@ -63,7 +63,7 @@ Global configuration options for testing skills can be set in the `testing.json`
 These options can include overriding Jest options, as well as setting skill testing specific ones.
 
 The default Jest settings are as follows:
-```
+```json
 {
     "collectCoverage": true,
     "collectCoverageFrom": [
@@ -87,7 +87,7 @@ The default Jest settings are as follows:
 [Learn what these do here](https://facebook.github.io/jest/docs/en/configuration.html).
 
 An example `testing.json` file for end-to-end tests:
-```
+```json
 {
     "findReplace": {
         "INVOCATION_NAME": "my skill"
@@ -127,12 +127,12 @@ Below the end-to-end testing configuration options and what they do are listed:
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
 
 Values in the configuration file can be overridden by setting an environment variable using dot-notation. For example, to override the INVOCATION_NAME value above, use this statement:
-```
+```js
 export findReplace.INVOCATION_NAME=my new skill
 ```
 
 This will be as if the configuration file was set like so:
-```
+```json
 {
     "findReplace": {
         "INVOCATION_NAME": "my new skill"
@@ -144,13 +144,13 @@ This will be as if the configuration file was set like so:
 
 If you want to run the tests with one or more parameters changed you can overwrite parameters directly from the run file. This will even replace existing parameters set on the testing.json file. For example if you want to replace the platform
 
-```
+```bash
 bst test --platform google
 ```
 
 You can get the complete list of parameters you can use by running:
 
-```
+```bash
 bst test --help
 ```
 
@@ -161,7 +161,7 @@ For example, if the invocation name of the skill being tested will change from o
 
 
 They will look like this:
-```
+```json
 {
     "findReplace": {
         "INVOCATION_NAME": "my skill"
@@ -202,7 +202,7 @@ This misunderstanding will lead to a test like this failing incorrectly:
 ```
 
 To avoid this, just define a homophone in the configuration file like so:
-```
+```json
 {
     "homophones": {
         "white": ["wife"]
@@ -226,12 +226,12 @@ Simulation tests return the full skill payload from Alexa, similar to a unit-tes
 
 ## CLI Options
 When invoking `bst test`, the name of a specific test or regex can be used, like this:
-```
+```bash
 bst test test/MyIntent.test.yml
 ```
 
 Or this:
-```
+```bash
 bst test MyIntent
 ```
 
@@ -252,7 +252,7 @@ A recommended convention is to sort test files under a test dir, and to label en
 Each test file is a test suite. Test suites are made up of one or many tests.
 
 The tests represent discreet conversations with your voice app. Each test can have one or many interactions - here is a simple example:
-```
+```yml
 ---
 configuration:
   locales: en-US
@@ -286,7 +286,7 @@ They can use specific requests (such as LaunchRequest or SessionEndedRequest), o
 The start of a test is marked with three dashes on a line - `---`.
 
 It can be followed by an optional test description, which looks like this:
-```
+```yml
 - test: Description of my test
 ```
 
@@ -320,7 +320,7 @@ Plain text:
 ```
 
 Speech Synthesis Markup Language example, more details [here](#ssml):
-```
+```xml
 - <speak>this is SSML</speak>: 
 ```
 
@@ -348,7 +348,7 @@ We use JSONPath to get values from the response, such as:
 `transcript`
 
 This will return the value: "My SSML Value" from the following JSON response:
-```
+```json
 {
     "transcript": "My SSML value",
     "card": {
@@ -389,7 +389,7 @@ For certain commonly accessed elements, we offer short-hand properties for refer
 
 Example:
 
-```
+```yml
 - test: open fact skill
 - open fact skill:
   - prompt: Here's your fact
@@ -400,7 +400,7 @@ The full range of card properties can be accessed by using the card property exc
 
 Example:
 
-```
+```yml
 - test: open fact skill
 - open fact skill:
   - card.title: Fact skill
@@ -413,7 +413,7 @@ only for Alexa will be ignored during the tests if you are using a different pla
 The expected value can be a regular expression.
 
 If it follows a ":", it must be in the form of /my regular expression/ like this:
-```
+```yml
 - prompt: /hello, .*, welcome/i
 ```
 
@@ -424,7 +424,7 @@ They are [described here in more detail](https://javascript.info/regexp-introduc
 It is also possible to specify multiple valid values for a property.
 
 That is done with a collection of expected values, such as this:
-```
+```yml
 - open howdy
   - prompt:
     - Hi there
@@ -440,12 +440,12 @@ To create a more natural speech for your tests we can use Speech Synthesis Marku
 
 To use SSML add the tag speak into your utterance.
 
- ```
+ ```html
 <speak>Hello using SSML</speak>
 ```
 
 Example:
- ```
+ ```html
 <speak>
     Here are <say-as interpret-as="characters">SSML</say-as> samples.
     I can pause <break time="3" />.
@@ -489,7 +489,7 @@ Goto comes at the end of an assertion - if the assertion is true, the test will 
 Unlike regular assertions, ones that end in "goto" will not be deemed a failure if the comparison part of the assertion is not true.
 
 For example:
-```
+```yml
 ---
 - test: Goes to successfully
 - open my skill:
@@ -516,7 +516,7 @@ Using `goto` and `exit`, more complex tests can be built.
 
 ### Skipping Tests
 Label tests "test.only" or "test.skip" to either only run a particular test, or to skip it. Example:
-```
+```yml
 ---
 - test.only: open the skill
 - open my skill: hello
@@ -547,7 +547,7 @@ The filter module should be a simple JS object with all or some of this function
 * resolve(variable, interaction)
 
 An example filter is here:
-```
+```js
 module.exports = {
     onResponse: (test, response) => {
         response.responseFiltered = true;
@@ -572,7 +572,7 @@ Then inside the [filter](#filtering-during-test) you can set the resolve method 
  - a number
  - a promise resolving in a string or a number
 
-```
+```js
 module.exports = {
     resolve: function(variable, interaction) {
       // interaction allows seeing any information from the interaction
@@ -596,7 +596,7 @@ in batch in the test, if you need for this replacement to be done after each utt
 
 By specifying tags in particular tests you can then run only the tests you want. Let's say you have tests specific to the first time a user uses your skill, we are going to apply the tag "FirstUse" to them:
 
-```
+```yml
 ---
 - test: open the skill
 - tags: FirstUse, Alexa
@@ -607,7 +607,7 @@ Note that multiple tags can be applied to a test, as a comma-delimited list.
 
 If you want to run all the tests that have that particular tag, you can edit testing.json to indicate that those are the ones to run by adding the "include" property:
 
-```
+```json
 {
     "include": ["FirstUse"],
 }
@@ -615,7 +615,7 @@ If you want to run all the tests that have that particular tag, you can edit tes
 
 You can also use the exclude property to prevent some tests from being run, suppose we marked some broken tests with the tag broken, the following configuration will prevent those tests marked from being run:
 
-```
+```json
 {
     "exclude": ["broken"],
 }
@@ -623,7 +623,7 @@ You can also use the exclude property to prevent some tests from being run, supp
 
 Remember you can also use the override properties when executing the bst test command and also combine include and exclude together. This command will run all the tests that have either FirstUse or ReturningUser tags but exclude the ones that are also marked as broken
 
-```
+```bash
 bst test --include FirstUse,ReturningUser --exclude broken
 ```
 
@@ -633,7 +633,7 @@ Different platforms have different properties and sometimes is not possible to v
 another platform. For these cases, you can ignore a list of properties from your tests.
 Here is an example of a testing.json that have some properties ignored:
 
-```
+```json
 {
     "ignoreProperties": {
         "google": {
@@ -654,7 +654,7 @@ The "ignoreProperties" setting can receive setup for Google, Alexa or both. This
 present optionally a type (e2e or unit). With this, you can run the same tests files by changing the platform without modifying the tests at all.
 
 If you need to fine tune this, you can overwrite the configuration at test level by adding the ignoreProperties setup as part of your configuration for that test.
-```
+```yml
 ---
 configuration:
     locales: en-US

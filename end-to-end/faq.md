@@ -17,8 +17,9 @@ Here you can find common questions on regards End-to-end testing for voice apps.
 # **Getting started**
 
 ## **What is End-to-end (E2E) testing and why do I need it?**
+::: tip What is End-to-end (E2E) testing and why do I need it?
 >_End-to-end testing involves ensuring that the integrated components of an application function as expected. The entire application is tested in a real-world scenario such as communicating with the database, network, hardware and other applications ... Techopedia_
-
+:::
 Talking specifically about voice apps. End-to-end tests focus on testing:
 * The voice app as a whole (from Alexa/Google through infrastructure to voice app).
 * The utterance resolution aka the speech recognition.
@@ -61,7 +62,7 @@ To get started, you need to install the Bespoken CLI, please follow next steps:
 1. Install the CLI by running `npm install -g bespoken-tools` on your command line.
 2. Open a command-line window and change directory to the root of your `<PROJECT_FOLDER>`
 3. Run the tests - just enter `bst test`. The output should look like this:
-```console
+```bash
 $ bst test
 BST: v2.0.10  Node: v8.9.4
 
@@ -126,12 +127,12 @@ Then create and execute your scripts as usual.
 ## <a name="anchorToFolderStructure"></a>**How should I organize my test files?**
 That depends, if you are testing your voice app and it supports just one locale you can have a folder structure like this:
 
-```
+::: tip folder
 └───My Skill E2E testing
         functionalityName.e2e.yml
         otherFunctionalityName.e2e.yml
         testing.json
-```
+:::
 
 For this case, we recommend the locale and Virtual Device Token is defined on your `testing.json` file.
 

@@ -17,7 +17,7 @@ It's easy to unit-test your Alexa skill with Bespoken.
 
 Here's a sample from the tests being run:
 
-```
+```yml
 ---
 configuration:
   locale: en-US
@@ -64,17 +64,17 @@ For Windows, select Run -> cmd
 **Install Bespoken Tools**  
 Once on the command-line, type:
 
-```
+```bash
 npm install bespoken-tools -g
 ```
 
 If that fails with a permission warning, you can simply run:
-```
+```bash
 sudo npm install bespoken-tools -g
 ```
 
 To confirm that it is installed, type: `bst` on the command-prompt. You should see something like this:
-```
+```bash
 jpk-mbp:skill-testing-ml jpk$ bst
 BST: v2.0.0  Node: v8.11.1
 
@@ -85,7 +85,7 @@ BST: v2.0.0  Node: v8.11.1
 
 ## Run Your Tests
 If you are starting with one of the Alexa sample projects, just go ahead and enter:
-```
+```bash
 bst test
 ```
 

@@ -16,7 +16,7 @@ micro_nav: true
 We provide APIs to interact with our virtual devices programmatically. These APIs can be accessed via Node.js or HTTP.
 
 They are easy to work with, and require simply sending a payload of what you want to "say" to Alexa or Google, such as:  
-```
+```js
 virtualDevice.message("ask my skill what is the weather", (result) => {
     console.log(result.transcript); // Prints out the reply from Alexa - e.g., "the weather is nice"
 });
@@ -58,7 +58,7 @@ virtualDevice.message("open my skill").then((result) => {
 
 ### Result Payload
 Here is the full result payload:
-```
+```js
 export interface IVirtualDeviceResult {
     card: ICard | null;
     debug?: {
@@ -228,7 +228,7 @@ https://virtual-device.bespoken.io
 
 
 * **Sample Call:**
-```
+```bash
 curl "https://virtual-device.bespoken.io/process?message="what time is it"&user_id=<your user id>&voice_id=Joey&language_code=en-US" ;
 ```
 

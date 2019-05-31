@@ -91,13 +91,13 @@ Alternatively, you can create this URL via the `proxy urlgen` command.
 
 You first need to modify it to the path that your server is listening on, in this case it is `/hello`.
 
-```
+```bash
 https://your-proxy.bespoken.link/hello
 ```
 
 Copy and paste this URL as your endpoint:
 
-![Alexa Skill Configuration](/assets/images/bst-java-server-tutorial-configuration.png "Alexa Skill Configuration")
+![Alexa Skill Configuration](./../../assets/images/bst-java-server-tutorial-configuration.png "Alexa Skill Configuration")
 
 Also make sure you select "HTTPS" and account linking to "NO".
 
@@ -110,7 +110,7 @@ Go to the service simulator, and type: "hello" and hit "Ask \<Your Skill Name>".
 
 You should get a valid JSON in reply:
 
-![Test your Skill](/assets/images/bst-java-server-tutorial-test.png "Test your Skill")
+![Test your Skill](./../../assets/images/bst-java-server-tutorial-test.png "Test your Skill")
 
 ## Next Steps
 You can now start adding functionality to your skill. To learn more about coding Alexa Skills, see the official [documentation](https://github.com/amzn/alexa-skills-kit-java)

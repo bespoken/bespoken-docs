@@ -46,7 +46,7 @@ For Nodejs Lambdas, bst proxy command, in addition to setting up the proxy, will
 
 This will start the helloWorld lambda:
 
-```
+```bash
 $ bst proxy lambda index.js
 ```
 

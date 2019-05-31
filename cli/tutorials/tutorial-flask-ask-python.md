@@ -29,18 +29,18 @@ This tutorial shows you how to get started developing with bst for Alexa Skills 
 We will use the tidepooler sample John [provides](https://github.com/johnwheeler/flask-ask/tree/master/samples/tidepooler) in the Flask-Ask repo..
 
 Clone the repo:
-```
+```bash
 $ git clone https://github.com/johnwheeler/flask-ask.git
 ```
 And jump to the root of the tidepooler sample:
 
-```
+```bash
 $ cd flask-ask/samples/tidepooler/
 ```
 
 and start the local server for the skill:
 
-```
+```bash
 $ python tidepooler.py
 ```
 
@@ -50,7 +50,7 @@ The tidepooler skill is now running on your local machine, listening on port 500
 
 Open a new terminal and start the bst proxy:
 
-```
+```bash
 $ bst proxy http 5000
 ```
 
@@ -98,13 +98,13 @@ On the SSL Certificate page, select the middle radio button "My development endp
 
 Now that you have the python server running, bst proxy running and your skill configured, it is time to test.  In the Service Simulator on the Test tab, try typing in some of the following phrases:
 
-```
+```bash
 get high tide
 ```
-```
+```bash
 when is the next highest water for virginia beach
 ```
-```
+```bash
 what cities are supported
 ```
 
@@ -120,7 +120,7 @@ __Please Note:__  As mentioned in the [documentation](https://alexatutorial.com/
 
 Restart your python skill server and from a new terminal (make sure bst proxy is still running) at the root of the project run:
 
-```
+```bash
 $ bst speak -i speech_assets/IntentSchema.json -s speech_assets/SampleUtterances.txt get high tide
 ```
 
@@ -128,6 +128,6 @@ You should see the request and then the response back from tidepooler.py.
 
 You can even test with slots by including your slot value in brackets, for example:
 
-```
+```bash
 $ bst speak -i speech_assets/IntentSchema.json -s speech_assets/SampleUtterances.txt when is the next highest water for {virginia beach}
 ```

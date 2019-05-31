@@ -16,7 +16,7 @@ Bespoken makes it easy to do end-to-end testing for voice apps.
 
 We use Virtual Devices to do it. A virtual device works like a physical device, such as Amazon Echo, but can be interacted with via our [simple test scripting syntax](./guide.html) (as well as programmatically [via our API](./api.html)).
 
-```
+```yml
 - configuration:
   locales: en-US
   voiceId: Joey
@@ -32,7 +32,7 @@ We use Virtual Devices to do it. A virtual device works like a physical device, 
 ```
 
 How does it work? Take a look at this line:
-```
+```yml
 - open bring: welcome to bring
 ```
 

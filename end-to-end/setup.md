@@ -74,7 +74,7 @@ If you get a response: "to let me read out that information turn on personal res
 
 ## Using the Device In Your Scripts
 Now you can use the virtual device with your test script. Place it in the testing.json file of your project like so:
-```
+``` js
 {
     "virtualDeviceToken": "MY_TOKEN"
 }
