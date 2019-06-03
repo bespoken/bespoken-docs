@@ -1,5 +1,5 @@
 module.exports = {
-    title: "Bespoken",
+    title: "Bespoken Documentation",
     descripcion: "this is a great job",
     themeConfig: {
         logo: "/assets/images/BespokenLogo-small.png",
