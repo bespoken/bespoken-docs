@@ -4,7 +4,7 @@ heroText: "Bespoken"
 heroImage: /assets/images/BespokenAtlas-Reduced.jpg
 actionText: Get Started →
 actionLink: cli/getting-started.html
-description: Learn how to test and monitor your Alexa Skills nd Google Actions
+description: Learn how to test and monitor your Alexa Skills And Google Actions
 features:
 - title: CLI & Proxy
   details: Develop and debug locally with ease.

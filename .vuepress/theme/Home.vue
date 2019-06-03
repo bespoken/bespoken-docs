@@ -81,6 +81,7 @@ export default {
 
     h1 {
       font-size: 3rem;
+      font-family: khand;
     }
 
     h1, .description, .action {
