@@ -79,11 +79,11 @@ We hope this helps accelerate how you develop and debug your code. Please do not
 
 
 <!-- Images references -->
-[Create-Run-Config]: /assets/images/Tutorials-webstormDebug-1.png "Creating a run configuration"
-[Create-Run-Config2]: /assets/images/Tutorials-webstormDebug-2.png "Setting up a run configuration"
-[Create-Run-Config3]: /assets/images/Tutorials-webstormDebug-3.png "Start debugging by clicking this icon"
-[Create-Run-Config4]: /assets/images/Tutorials-webstormDebug-4.png "Setting up a breakpoint"
-[Create-Run-Config5]: /assets/images/Tutorials-webstormDebug-5.png "Opening a terminal in Webstorm"
-[Create-Run-Config6]: /assets/images/Tutorials-webstormDebug-6.png "Launching the skill locally with Bespoken"
-[Create-Run-Config7]: /assets/images/Tutorials-webstormDebug-7.png "Debugging window in WebStorm"
-[Create-Run-Config8]: /assets/images/Tutorials-webstormDebug-8.png "Finding bst-proxy"
+[Create-Run-Config]: ./../../assets/images/Tutorials-webstormDebug-1.png "Creating a run configuration"
+[Create-Run-Config2]: ./../../assets/images/Tutorials-webstormDebug-2.png "Setting up a run configuration"
+[Create-Run-Config3]: ./../../assets/images/Tutorials-webstormDebug-3.png "Start debugging by clicking this icon"
+[Create-Run-Config4]: ./../../assets/images/Tutorials-webstormDebug-4.png "Setting up a breakpoint"
+[Create-Run-Config5]: ./../../assets/images/Tutorials-webstormDebug-5.png "Opening a terminal in Webstorm"
+[Create-Run-Config6]: ./../../assets/images/Tutorials-webstormDebug-6.png "Launching the skill locally with Bespoken"
+[Create-Run-Config7]: ./../../assets/images/Tutorials-webstormDebug-7.png "Debugging window in WebStorm"
+[Create-Run-Config8]: ./../../assets/images/Tutorials-webstormDebug-8.png "Finding bst-proxy"

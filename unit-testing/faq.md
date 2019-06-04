@@ -184,6 +184,6 @@ It should look like this:
 ```
 
 <!-- Images references -->
-[CI]: /assets/images/CI.png "Continuous Integration Flow"
-[Codecov-Output]: /assets/images/BST-Test-Summary.png "Continuous Integration Flow"
-[folderStructure]: /assets/images/folderStructure.PNG "Folder structure sample"
+[CI]: ./../assets/images/CI.png "Continuous Integration Flow"
+[Codecov-Output]: ./../assets/images/BST-Test-Summary.png "Continuous Integration Flow"
+[folderStructure]: ./../assets/images/folderStructure.png "Folder structure sample"
