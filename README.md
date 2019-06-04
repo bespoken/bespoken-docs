@@ -1,6 +1,6 @@
 ---
 home: true
-heroText: "Bespoken"
+heroText: "Bespoken Docs"
 heroImage: /assets/images/BespokenAtlas-Reduced.jpg
 actionText: Get Started →
 actionLink: cli/getting-started.html
@@ -18,6 +18,6 @@ features:
 - title: Continuous Testing
   details: Keep testing and monitoring once your skill is live.
   link: https://bespoken.io/blog/monitor-alexa-skills-or-google-actions/
-footer: Bespoken Documentation | Copyright © 2018-Bespoken | All rights reserved.
+footer: Bespoken Documentation | Copyright © year-Bespoken | All rights reserved.
 
 ---

@@ -4,34 +4,27 @@
       <img v-if="data.heroImage" :src="$withBase(data.heroImage)" alt="hero">
 
       <h1>{{ data.heroText || $title || 'Hello' }}</h1>
-
-      <p class="description">{{ data.tagline || $description || 'Welcome to your VuePress site' }}</p>
-
-      <p class="action" v-if="data.actionText && data.actionLink">
-        <NavLink class="action-button" :item="actionLink"/>
-      </p>
-    </div>
-
-    <div class="features" v-if="data.features && data.features.length">
-      <div class="feature" v-for="(feature, index) in data.features" :key="index">
-        <a
-          :href="feature.link"
-          class="nav-link external"
-          :target="isExternal(feature.link)? '_blank' :null "
-          :rel="'noopener noreferrer'"
-        >
-          <h2>{{ feature.title }}</h2>
-          <p>
-            {{ feature.details }}
-            <OutboundLink v-if="isExternal(feature.link)"/>
-          </p>
-        </a>
+      <div class="features" v-if="data.features && data.features.length">
+        <div class="feature" v-for="(feature, index) in data.features" :key="index">
+          <a
+            :href="feature.link"
+            class="nav-link external"
+            :target="isExternal(feature.link)? '_blank' :null "
+            :rel="'noopener noreferrer'"
+          >
+            <h2>{{ feature.title }}</h2>
+            <p>
+              {{ feature.details }}
+              <OutboundLink v-if="isExternal(feature.link)"/>
+            </p>
+          </a>
+        </div>
       </div>
     </div>
 
     <Content custom/>
 
-    <div class="footer" v-if="data.footer">{{ data.footer }}</div>
+    <div class="footer" v-if="data.footer">{{ getAtualYear(data.footer) }}</div>
   </div>
 </template>
 
@@ -56,7 +49,12 @@ export default {
   methods: {
     isMailto,
     isTel,
-    isExternal
+    isExternal,
+    getAtualYear: footer => {
+      const year = new Date();
+      const newFooter = footer.replace("year", year.getFullYear());
+      return newFooter;
+    }
   }
 };
 </script>
@@ -76,7 +74,7 @@ export default {
       max-width: 100%;
       max-height: 280px;
       display: block;
-      margin: 3rem auto 1.5rem;
+      margin: 0rem auto 1.5rem;
     }
 
     h1 {
@@ -117,7 +115,6 @@ export default {
     padding: 1.2rem 0;
     margin-top: 2.5rem;
     display: flex;
-    flex-wrap: wrap;
     align-items: flex-start;
     align-content: stretch;
     justify-content: space-between;

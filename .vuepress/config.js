@@ -1,8 +1,11 @@
 module.exports = {
-    title: "Bespoken Documentation",
+    title: "Bespoken Docs",
     descripcion: "this is a great job",
     themeConfig: {
         logo: "/assets/images/BespokenLogo-small.png",
+        head: [
+            ['link', { rel: 'icon', href: '/favicon.ico' }]
+        ],
         nav: [
             { text: "CLI AND PROXY", link: "/cli/getting-started" },
             { text: "UNIT TESTING", link: "/unit-testing/getting-started" },
