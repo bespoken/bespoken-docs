@@ -1,5 +1,5 @@
----
-# Page settings
+<!-- ---
+# Commands
 layout: default
 keywords:
 comments: false
@@ -10,17 +10,18 @@ description: Complete Guide to Bespoken CLI Commands
 
 # Micro navigation
 micro_nav: true
----
-# Proxy
+--- -->
+# Complete Guide to Bespoken CLI Commands
+ ## Proxy
 
-## Overview
+# Overview
 The proxy command allows you to interact with a local service running on your machine via an Alexa device.  Using it, you can make changes to code running on your machine and immediately make them available via an Echo or the Alexa simulator.
 
 The proxy tool works either directly with Node/JavaScript lambda code - **proxy lambda**.  Or it can proxy any http service using **proxy http**.  
 
 The two commands are described below, as well as the urlgen helper command.
 
-## bst proxy lambda
+### bst proxy lambda
 
 **Overview**  
 
@@ -44,9 +45,9 @@ Example:
 $ bst proxy lambda index.js
 ```
 
-You can learn more here at our [Node.js Tutorial](/tutorials/tutorial-lambda-nodejs):
+You can learn more here at our [Node.js Tutorial](../tutorials/tutorial-lambda-nodejs.html):
 
-## bst proxy http
+### bst proxy http
 
 **Overview**  
 
@@ -54,7 +55,7 @@ Proxy http allows you to interact with a local service running on your machine (
 
 **Usage**  
 
-The proxy http command takes one command, the <PORT> that your local Alexa service is listening on.  All traffic coming from Alexa will be forwarded to it.
+The proxy http command takes one command, the `<PORT>` that your local Alexa service is listening on.  All traffic coming from Alexa will be forwarded to it.
 
 Syntax:
 ```bash
@@ -66,7 +67,7 @@ Example:
 $ bst proxy http 9999
 ```
 
-You can learn more here at our [Java Tutorial](/tutorials/tutorial-local-server-java)
+You can learn more here at our [Java Tutorial](../tutorials/tutorial-local-server-java.html)
 
 **Options**
 
@@ -78,7 +79,7 @@ $ bst proxy http 9999 --verbose
 ```
 
 
-## bst proxy function
+### bst proxy function
 
 **Overview**
 
@@ -98,7 +99,7 @@ Example:
 $ bst proxy function index.js myFunction
 ```
 
-# Utter
+## Utter
 The utter command takes an utterance ("play next song") and turns into a JSON payload, imitating as if it was coming from Alexa itself.
 
 It works in a manner very similar to the Alexa simulator available via the Alexa developer console.  
@@ -110,15 +111,15 @@ That is, we look for the Interaction Model files inside a folder called models o
 
 You can specify an alternative location via options to the command-line.
 
-## Uttering
+### Uttering
 
 To invoke the utter command, simply type:
-```
+```bash
 $ bst utter <UTTERANCE>
 ```
 
 For example:
-```
+```bash
 $ bst utter Hello World
 ```
 
@@ -131,11 +132,11 @@ By default, the system will:
 * Use the service currently running via the `bst proxy` command
 
 If no service is currently running via bst proxy, and HTTP endpoint can be specified with the `--url` option:
-```
+```bash
 $ bst utter Hello World --url https://my.skill.com/skill/path
 ```
 
-## Interaction Model Format and Location
+### Interaction Model Format and Location
 If your Interaction Model is not stored under ./models, or you have multiple locales, you can use an option to specify another location.
 
 By default, we look for:
@@ -143,7 +144,7 @@ By default, we look for:
 * `./models/en-US.json`
 
 "Example With Alternative Locale:"
-```
+```bash
 $ bst utter Hello World -m models/en-UK.json
 ```
 
@@ -151,31 +152,31 @@ These files are JSON, and typically defined by the ASK CLI tool from Amazon.
 
 An example of these file can be found [here](https://github.com/alexa/skill-sample-nodejs-fact/blob/en-US/models/en-US.json).
 
-## Working With Slots
+### Working With Slots
 
 Slot handling is automatic - we check for defined slots and samples and extract them. To send an utterance that uses slots, just write it as you would say it.
 
 For example, if the sample utterance was defined as:
-```
+```js
 HelloWorld Hello world, my name is {Name}
 ```
 
 Then the utter command would be:
-```
+```js
 $ bst utter Hello World, my name is John
 ```
 
 The value `John` will then be automatically placed in the Name slot for the utterance on the request.
 
-# Launch
+## Launch
 The launch command sends a launch request to your service as if it was coming from alexa itself.
 
 To start using it, you will need to support the "LaunchRequest" event on your handler for the received Intents in your service.
 
-## Usage
+### Usage
 
 To invoke the launch command, simply type:
-```
+```bash
 $ bst launch
 ```
 
@@ -183,17 +184,17 @@ The launch command will return the full request and response of the interaction 
 
 By default, the system will use the service currently running via the `bst proxy` command
 
-## Working without using the proxy
+### Working without using the proxy
 
 If no service is currently running via bst proxy, an HTTP endpoint can be specified with the `--url` option:
-```
+```bash
 $ bst launch --url https://my.skill.com/skill/path
 ```
 
 
-# Intend 
+## Intend 
 
-## Overview
+### Overview
 
 The intend command generates intent requests for your service as if they were coming from Alexa itself.
 
@@ -206,15 +207,15 @@ That is, we look for the Interaction Model files inside a folder called models o
 
 You can specify an alternative location via options to the command-line.
 
-## Intending
+### Intending
 
 To invoke the intend command, simply type:
-```
+``` bash
 $ bst intend <INTENT_NAME> [SlotName=SlotValue...]
 ```
 
 For example:
-```
+```bash
 $ bst intend HelloIntent SlotA=SlotValue
 ```
 
@@ -227,11 +228,11 @@ By default, the system will:
 * Use the service currently running via the `bst proxy` command
 
 If no service is currently running via bst proxy, and HTTP endpoint can be specified with the `--url` option:
-```
+```bash
 $ bst intend HelloIntent --url https://my.skill.com/skill/path
 ```
 
-## Interaction Model Format and Location
+### Interaction Model Format and Location
 If your Interaction Model is not stored under ./models, or you have multiple locales, you can use an option to specify another location.
 
 By default, we look for:
@@ -240,7 +241,7 @@ By default, we look for:
 
 "Example With Alternative Locale:"
 
-```
+```bash
 $ bst intend HelloIntent -m models/en-UK.json
 ```
 
@@ -248,27 +249,27 @@ These files are JSON, and typically defined by the ASK CLI tool from Amazon.
 
 An example of these file can be found [here](https://github.com/alexa/skill-sample-nodejs-fact/blob/en-US/models/en-US.json).
 
-# Speak
+## Speak
 
 The speak command communicates to a virtual device to test your skills with text as if they were voice commands.
 
 It allows you to test your skill without using a physical device and it will return the generated audio response converted to text as well as the card data and possible audio streams that could have been returned.
 
-## Speaking
+### Speaking
 
 To invoke the speak command, simply type:
-```
+```bash
 $ bst speak <UTTERANCE>
 ```
 
 For example:
-```
+```bash
 $ bst speak Tell My Skill hello
 ```
 
 On the first run the command will provide the instructions to obtain a token. You will see an output like this:
 
-```
+```bash
 BST: v1.0.8  Node: v7.10.1
 
 You need a token for this option to work, get it here:
@@ -283,12 +284,12 @@ Then try again with:
 
 
 Provide the token generated by following the instructions on the provided link.
-```
+```bash
 	bst speak --token <ProvidedToken> Tell My Skill hello
 ```
 
 Now you will get the expected response
-```
+```bash
 	Transcript:
 	Hello from My Skill.
 ```

@@ -1,5 +1,5 @@
----
-# Page settings
+<!-- ---
+# Getting Started
 layout: default
 keywords:
 comments: false
@@ -9,14 +9,15 @@ title: Getting Started With Unit Testing for Alexa
 
 # Micro navigation
 micro_nav: true
----
+--- -->
+# Getting Started With Unit Testing for Alexa
 It's easy to unit-test your Alexa skill with Bespoken.
 
-<img src="/assets/images/BST-Test-Run.gif" width="800" alt="Test Run Animated" />
+<img src="./../assets/images/BST-Test-Run.gif" width="800" alt="Test Run Animated" />
 
 Here's a sample from the tests being run:
 
-```
+```yml
 ---
 configuration:
   locale: en-US
@@ -48,7 +49,7 @@ configuration:
   - response.outputSpeech: undefined
 ```
 
-# Setup
+## Setup
 To get started, you need to install Bespoken Tools.
 
 If you haven't already, follow these steps:
@@ -63,17 +64,17 @@ For Windows, select Run -> cmd
 **Install Bespoken Tools**  
 Once on the command-line, type:
 
-```
+```bash
 npm install bespoken-tools -g
 ```
 
 If that fails with a permission warning, you can simply run:
-```
+```bash
 sudo npm install bespoken-tools -g
 ```
 
 To confirm that it is installed, type: `bst` on the command-prompt. You should see something like this:
-```
+```bash
 jpk-mbp:skill-testing-ml jpk$ bst
 BST: v2.0.0  Node: v8.11.1
 
@@ -82,17 +83,17 @@ BST: v2.0.0  Node: v8.11.1
   **(Output truncated)**
 ```
 
-# Run Your Tests
+## Run Your Tests
 If you are starting with one of the Alexa sample projects, just go ahead and enter:
-```
+```bash
 bst test
 ```
 
 That's all there is to it!
 
-# Understanding The Output
+## Understanding The Output
 
-<img src="/assets/images/BST-Test-Output.png" width="800" alt="Test Output"/>
+<img src="./../assets/images/BST-Test-Output.png" width="800" alt="Test Output"/>
 
 The top of the output is the result of each test.
 Underneath each test is the sequence of interactions.
@@ -100,7 +101,7 @@ Underneath each test is the sequence of interactions.
 If any failed, they are marked with an X.
 
 Below this list of tests, we see detailed output for any test that failed:
-<img src="/assets/images/BST-Test-Failure.png" width="800" alt="Test Failure"/>
+<img src="./../assets/images/BST-Test-Failure.png" width="800" alt="Test Failure"/>
 
 This tells the exact interaction that failed, as well as why it failed.
 Based on this, we can either fix our test or fix the code.
@@ -111,10 +112,10 @@ To see more detailed code coverage info, we can go to `coverage/lcov-report/inde
 The coverage directory will be located in the same directory where your `testing.json` file is located.
 This provides detailed information about the code coverage for our tests.
 
-# Further Reading and Examples
-To add more tests, read our guide on the [Skill Testing Markup Language syntax here](../guide).
+## Further Reading and Examples
+To add more tests, read our guide on the [Skill Testing Markup Language syntax here](./guide.html).
 
-Learn about [common use-cases here](../use-cases), such as:
+Learn about [common use-cases here](./use-cases.html), such as:
 
 * State Management With Dynamo
 * Testing The Address API

@@ -3,3 +3,6 @@
 documentation
 _site
 .idea
+node_modules
+build
+dist

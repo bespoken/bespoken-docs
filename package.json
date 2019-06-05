@@ -1,0 +1,29 @@
+{
+  "name": "bespoken-docs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "vuepress dev",
+    "build": "vuepress build",
+    "docs:build": "vuepress build docs",
+    "eject": "vuepress eject theme"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bespoken/bespoken-docs.git"
+  },
+  "keywords": [
+    "[]"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bespoken/bespoken-docs/issues"
+  },
+  "homepage": "https://github.com/bespoken/bespoken-docs#readme",
+  "dependencies": {
+    "vuepress": "^0.14.11"
+  }
+}

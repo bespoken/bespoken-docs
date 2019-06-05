@@ -1,5 +1,5 @@
----
-# Page settings
+<!-- ---
+# Getting Started
 layout: default
 keywords:
 comments: false
@@ -9,13 +9,14 @@ title: Getting Started With End-to-end Testing
 
 # Micro navigation
 micro_nav: true
----
-# Overview
+--- -->
+# Getting Started With End-to-end Testing
+## Overview
 Bespoken makes it easy to do end-to-end testing for voice apps.
 
-We use Virtual Devices to do it. A virtual device works like a physical device, such as Amazon Echo, but can be interacted with via our [simple test scripting syntax](../guide) (as well as programmatically [via our API](../api)).
+We use Virtual Devices to do it. A virtual device works like a physical device, such as Amazon Echo, but can be interacted with via our [simple test scripting syntax](./guide.html) (as well as programmatically [via our API](./api.html)).
 
-```
+```yml
 - configuration:
   locales: en-US
   voiceId: Joey
@@ -31,7 +32,7 @@ We use Virtual Devices to do it. A virtual device works like a physical device, 
 ```
 
 How does it work? Take a look at this line:
-```
+```yml
 - open bring: welcome to bring
 ```
 
@@ -47,8 +48,8 @@ There is a lot going on under the covers, but the tests themselves are very easy
 
 To see a complex example in action, [check out this project](https://github.com/bespoken/virtual-device-example/tree/SkillTesterScripts).
 
-# Next Steps
- * [Setup A Virtual Device](../setup)
- * [Complete Guide To Test Scripts](../guide)
+## Next Steps
+ * [Setup A Virtual Device](setup.html)
+ * [Complete Guide To Test Scripts](guide.html)
  * [Example Project](https://github.com/bespoken-samples/virtual-device-example)
- * [API](../api)
+ * [API](api.html)

@@ -1,5 +1,5 @@
----
-# Page settings
+<!-- ---
+# In-Depth Guide Alexa
 layout: default
 keywords:
 comments: false
@@ -10,8 +10,9 @@ description: Complete Guide to Unit-Testing for Alexa
 
 # Micro navigation
 micro_nav: true
----
-# Overview
+--- -->
+# Complete Guide to Unit-Testing for Alexa
+## Overview
 The purpose of Bespoken Unit Testing is to make it easy for anyone to test Alexa skills and voice apps.
 
 The syntax is based on YAML, and is meant to be easy to read and write. [Learn more about YAML syntax here](http://yaml.org/spec/1.2/spec.html#Preview).
@@ -26,7 +27,7 @@ Jest has been configured with a custom test runner, which:
 
 We consider this the best of all worlds - a full-featured general testing framework tailored to work specifically with skills.
 
-## Nota Bene
+### Nota Bene
 **KEEP IN MIND** the skill tester uses Virtual Alexa, which is an emulator. It is not the real Alexa. This has some benefits, such as:
 
 * Fast execution time
@@ -41,13 +42,13 @@ But there are also limitations. Those include:
 
 If you run into issues with testing specific utterances, always keep in mind you can set the exact intent and slot values with the intent and slot properties.
 
-# Configuration
+## Configuration
 Global configuration options for testing skills can be set in the `testing.json` file, which is typically kept at the root level of your project.
 
 These options can include overriding Jest options, as well as setting skill testing specific ones.
 
 The default Jest settings are as follows:
-```
+```json
 {
     "collectCoverage": true,
     "collectCoverageFrom": [
@@ -71,7 +72,7 @@ The default Jest settings are as follows:
 [Learn what these do here](https://facebook.github.io/jest/docs/en/configuration.html).
 
 An example `testing.json` file:
-```
+```json
 {
     "handler": "src/index.handler",
     "locales": "de-DE",
@@ -86,9 +87,9 @@ An example `testing.json` file:
 Below the unit testing configuration options and what they do are listed:
 
 * accessToken - Sets the access token in the generated request payload
-* [address](../use-cases#testing-with-the-address-api) - Sets the address to be returned by the address API
+* [address](./use-cases.html#testing-with-the-address-api) - Sets the address to be returned by the address API
 * deviceId - Sets the deviceId to be used in the generated requests
-* [dynamo](../use-cases#testing-with-dynamo) - : Should be set to "mock" to use the mock dynamo component
+* [dynamo](./use-cases.html#testing-with-dynamo) - : Should be set to "mock" to use the mock dynamo component
 * [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
 * handler - The path to the handler (and function name) to run the test
 * html - Generate a pretty HTML report of test results - defaults to `true`
@@ -102,33 +103,33 @@ Below the unit testing configuration options and what they do are listed:
 
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
 
-## Overwriting configuration parameters
+### Overwriting configuration parameters
 
 If you want to run the tests with one or more parameters changed you can overwrite parameters directly from the run file. This will even replace existing parameters set on the testing.json file. For example if you want to replace the platform
 
-```
+```bash
 bst test --platform google
 ```
 
 You can get the complete list of parameters you can use by running:
 
-```
+```bash
 bst test --help
 ```
 
 
-# CLI Options
+## CLI Options
 When invoking `bst test`, the name of a specific test or regex can be used, like this:
-```
+```bash
 bst test test/MyIntent.test.yml
 ```
 
 Or this:
-```
+```bash
 bst test MyIntent
 ```
 
-# Tests
+## Tests
 The test syntax is based on YAML.
 
 When running `bst test`, it automatically searches for files with the following names:
@@ -141,11 +142,11 @@ When running `bst test`, it automatically searches for files with the following 
 Any tests that match these patterns will be run.
 A recommended convention is to sort test files under a test dir.
 
-## Localization
+### Localization
 Localization is a built-in feature of Bespoken unit-testing.
 
 To leverage it, add a directory `locales` where your tests are located. Inside it add files for each language and/or locale, like so:
-```
+```bash
 test
   index.test.yml
   locales
@@ -166,7 +167,7 @@ fallbackReprompt: What can I help you with?
 ```
 
 When utterances, slot values and assertions are being resolved, tokens from the left-hand side are automatically replaced with values on the right-hand side. For example, take this simple test:
-```
+```yml
 ---
 - test: Launch request, no further interaction.
 - LaunchRequest: heresIsAFact
@@ -176,11 +177,11 @@ In this scenario, when the test is run for the en-US locale, the output speech w
 
 To see a complete example, [check out this project](https://github.com/ig-perez/skill-sample-nodejs-fact/tree/MultiLocalesScripts/test/unit).
 
-## Test Suites
+### Test Suites
 Each test file is a test suite. Test suites are made up of one or many tests.
 
 The tests represent discreet conversations with Alexa. Each test can have one or many interactions - here is a simple example:
-```
+```yml
 ---
 configuration:
   locales: en-US
@@ -211,23 +212,23 @@ The tests represent sequence of conversations with the skill.
 
 They can use specific requests (such as LaunchRequest or SessionEndedRequest), or they can simply be an utterance.
 
-## Test Configuration
+### Test Configuration
 The test configuration can override elements set in the global skill testing configuration.
 
 It can also set test-suite specific items such as:
 
 * accessToken: Sets the access token in the generated requests
-* [address](../use-cases#testing-with-the-address-api): Should be set with address attributes to emulate results from the Address API
+* [address](./use-cases.html#testing-with-the-address-api): Should be set with address attributes to emulate results from the Address API
 * applicationId: Sets the applicationId to be used in the generated requests
 * deviceId: Sets the deviceId to be used in the generated requests
-* [dynamo](../use-cases#testing-with-dynamo): Should be set to "mock" to use the mock dynamo component
+* [dynamo](./use-cases.html#testing-with-dynamo): Should be set to "mock" to use the mock dynamo component
 * userId: Sets the userId to be used in the generated requests
 
-## Test Structure
+### Test Structure
 The start of a test is marked with three dashes on a line - `---`.
 
 It can be followed by an optional test description, which looks like this:
-```
+```yml
 - test: "Description of my test"
 ```
 
@@ -276,7 +277,7 @@ We use JSONPath to get values from the response, such as:
 `response.outputSpeech.ssml`
 
 This will return the value: "My SSML Value" from the following JSON response:
-```
+```json
 {
     "response": {
         "outputSpeech": {
@@ -294,7 +295,7 @@ The expected value can be:
 * A regular expression - should be denoted with slashes (/this .* that/)
 * `undefined` - special value indicating not defined
 
-### JSONPath Properties
+#### JSONPath Properties
 JSONPath is an incredibly expressive way to get values from a JSON object.
 
 You can play around with [how it works here](http://jsonpath.com/).
@@ -302,7 +303,7 @@ You can play around with [how it works here](http://jsonpath.com/).
 Besides handling basic properties, it can also navigate arrays and apply conditions.
 
 An array example:
-```
+```json
 {
      "directives": [
       {
@@ -322,7 +323,7 @@ An array example:
 
 `directives[0].type == "AudioPlayer.Play"`
 
-### Shorthand Properties
+#### Shorthand Properties
 For certain commonly accessed elements, we offer short-hand properties for referring to them. These are:
 
 * cardContent - Corresponds to `response.card.content`
@@ -336,30 +337,30 @@ These elements are intended to work across platforms and test types.
 
 Example:
 
-```
+```yml
 - test: "My Fact Skill"
 - LaunchRequest:
   - prompt: "Here's your fact"
 ```
 
-The `prompt` property is also used by the Dialog Interface. [More information on that here](../use-cases#testing-with-the-dialog-interface).
+The `prompt` property is also used by the Dialog Interface. [More information on that here](./use-cases.html#testing-with-the-dialog-interface).
 
-### Regular Expression Values
+#### Regular Expression Values
 The expected value can be a regular expression.
 
 If it follows a ":", it must be in the form of /my regular expression/ like this:
-```
+```yml
 - response.outputSpeech.ssml: /hello, .*, welcome/i
 ```
 
 Regular expression flags are also supported with this syntax, such as /case insensitive/i.
 They are [described here in more detail](https://javascript.info/regexp-introduction#flags).
 
-### Collection Values
+#### Collection Values
 It is also possible to specify multiple valid values for a property.
 
 That is done with a collection of expected values, such as this:
-```
+```yml
 LaunchRequest:
   - response.outputSpeech.ssml:
     - Hi there
@@ -375,12 +376,12 @@ Though it is convenient to use the utterance syntax, some times it may not work 
 It also is useful to be explicit about which intents and slots are desired.
 
 To do that, set the first line of the test like so:
-```
+```yml
 - SomeIntent SlotA=ValueA SlotB=ValueB
 ```
 
 This is a shorthand for this more verbose syntax:
-```
+```yml
 - "Some utterance"
   - intent: SomeIntent
     SlotA: ValueA
@@ -407,14 +408,14 @@ Note that all request expressions MUST start with request, and when they are set
 request.request.locale: en-US
 ```
 
-## Goto And Exit
+### Goto And Exit
 One advanced feature is support for `goto` and `exit`.
 
 Goto comes at the end of an assertion - if the assertion is true, the test will "jump" to the utterance named.
 Unlike regular assertions, ones that end in "goto" will not be deemed a failure if the comparison part of the assertion is not true.
 
 For example:
-```
+```yml
 ---
 - test: "Goes to successfully"
 - LaunchRequest:
@@ -440,12 +441,12 @@ The test will end when it reaches the `exit` statement at the end (no further in
 
 Using `goto` and `exit`, more complex tests can be built.
 
-# Test Execution
-## Test Environment
+## Test Execution
+### Test Environment
 Whenever tests are run, the environment variable UNIT_TEST is automatically set.
 
 This can be used to craft unit tests that run more predictably, like this:
-```
+```js
 sessionAttributes.guessNumber = Math.floor(Math.random() * 100);
 
 // For testing purposes, force a number to be picked if the UNIT_TEST environment variable is set
@@ -454,7 +455,7 @@ if (process.env.UNIT_TEST) {
 }
 ```
 
-## Test Sequence
+### Test Sequence
 Tests are run in the order they appear in the file.
 
 When there are multiple test files, [Jest](https://facebook.github.io/jest/) will run them in parallel, each in their own process.
@@ -466,9 +467,9 @@ For each locale defined in either the testing.json file or in the test suite its
 
 That means if three locales are defined, the entire test suite will be run three times.
 
-## Skipping Tests
+### Skipping Tests
 Label tests "test.only" or "test.skip" to either only run a particular test, or to skip it. Example:
-```
+```yml
 ---
 - test.only: "Goes to successfully"
 - LaunchRequest:
@@ -504,7 +505,7 @@ The filter module should be a simple JS object with all or some of this function
 * resolve(variableName, testInteraction)
 
 An example filter is here:
-```
+```js
 module.exports = {
     onRequest: (test, request) => {
         request.requestFiltered = true;
@@ -518,7 +519,7 @@ module.exports = {
 
 The filter is a very useful catch-all for handling tricky test cases that are not supported by the YAML test syntax or if you want to fine tune some aspects of the tests.
 
-## Replacing values using filter
+### Replacing values using filter
 If you need to modify certain assertions during the test run, based on the test utterances or external API's you can do it with
 the test [filter](#filtering-during-test) property implementing the `resolve` method.
 
@@ -533,7 +534,7 @@ Then inside the [filter](#filtering-during-test) you can set the resolve method 
  - a number
  - a promise resolving in a string or a number
 
-```
+```js
 module.exports = {
     resolve: function(variable, interaction) {
       // interaction allows seeing any information from the interaction
@@ -552,11 +553,11 @@ module.exports = {
 
 This replacement will be done after the response is gotten from the test but before evaluation of the assertion.
 
-## Including or excluding tests using tags
+### Including or excluding tests using tags
 
 By specifying tags in particular tests you can then run only the tests you want. Let's say you have tests specific to the first time a user uses your skill, we are going to apply the tag "FirstUse" to them:
 
-```
+```yml
 ---
 - test: open the skill
 - tags: FirstUse, Alexa
@@ -567,7 +568,7 @@ Note that multiple tags can be applied to a test, as a comma-delimited list.
 
 If you want to run all the tests that have that particular tag, you can edit testing.json to indicate that those are the ones to run by adding the "include" property:
 
-```
+```json
 {
     "include": ["FirstUse"],
 }
@@ -575,7 +576,7 @@ If you want to run all the tests that have that particular tag, you can edit tes
 
 You can also use the exclude property to prevent some tests from being run, suppose we marked some broken tests with the tag broken, the following configuration will prevent those tests marked from being run:
 
-```
+```json
 {
     "exclude": ["broken"],
 }
@@ -583,17 +584,17 @@ You can also use the exclude property to prevent some tests from being run, supp
 
 Remember you can also use the override properties when executing the bst test command and also combine include and exclude together. This command will run all the tests that have either FirstUse or ReturningUser tags but exclude the ones that are also marked as broken
 
-```
+```bash
 bst test --include FirstUse,ReturningUser --exclude broken
 ```
 
-## Ignore properties on demand
+### Ignore properties on demand
 
 Different platforms have different properties and sometimes is not possible to validate the same exact properties when running the test using
 another platform. For these cases, you can ignore a list of properties from your tests.
 Here is an example of a testing.json that have some properties ignored:
 
-```
+```json
 {
     "ignoreProperties": {
         "google": {
@@ -613,7 +614,7 @@ The "ignoreProperties" setting can receive setup for Google, Alexa or both. This
 present optionally a type (e2e or unit). With this, you can run the same tests files by changing the platform without modifying the tests at all.
 
 If you need to fine tune this, you can overwrite the configuration at test level by adding the ignoreProperties setup as part of your configuration for that test.
-```
+```yml
 ---
 configuration:
     locales: en-US
@@ -632,13 +633,13 @@ configuration:
     - cardTitle: Space Facts
 ```
 
-## Code Coverage
+### Code Coverage
 Whenever Jest runs, it produces code coverage information - it is seen on the console.
 
 An HTML report is also viewable under `./test_output/coverage/lcov-report/index.html`.
 TESTING_CONFIG_DIR is the directory where your `testing.json` file is located.
 
-## HTML Reporting
+### HTML Reporting
 The results of your tests are automatically formatted into a nice HTML report, courtesy of jest-stare.
 
 It is viewable under `./test_output/results/index.html`.
@@ -647,11 +648,11 @@ It provides a nice summary of the results of your tests, with charts. You can al
 
 To read more about jest-stare, [click here](https://github.com/dkelosky/jest-stare#readme).
 
-## Continuous Integration
+### Continuous Integration
 To see how a project works with a total CI setup, [checkout this project](https://github.com/ig-perez/skill-sample-nodejs-fact/tree/ContinuousIntegration).
 
 It is configured with Travis and Codecov. Here is the `.travis.yml` configuration file included with the project:
-```
+```yml
 language: node_js
 node_js:
   - "8"
@@ -669,9 +670,9 @@ script:
 
 To set it up for your own projects, you will need to enable them with [Travis](https://travis-ci.org) and [Codecov](https://codecov.io) (or whatever CI and coverage tools you prefer). Visit their websites for in-depth instructions on how to do this.
 
-# Further Reading
+## Further Reading
 Take a look at:
-* Our [use cases](../use-cases)
-* Our [getting started guide](../getting-started)
+* Our [use cases](./use-cases.html)
+* Our [getting started guide](./getting-started.html)
 
 And don't hesitate to reach out via [Gitter](https://gitter.im/bespoken/bst).

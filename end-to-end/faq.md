@@ -1,5 +1,5 @@
----
-# Page settings
+<!-- ---
+# FAQ
 layout: default
 keywords:
 comments: false
@@ -10,13 +10,16 @@ title: FAQ for End-to-end Testing
 # Micro navigation
 micro_nav: true
 ---
+-->
+# FAQ for End-to-end Testing
 Here you can find common questions on regards End-to-end testing for voice apps.
 
 # **Getting started**
 
 ## **What is End-to-end (E2E) testing and why do I need it?**
+::: tip What is End-to-end (E2E) testing and why do I need it?
 >_End-to-end testing involves ensuring that the integrated components of an application function as expected. The entire application is tested in a real-world scenario such as communicating with the database, network, hardware and other applications ... Techopedia_
-
+:::
 Talking specifically about voice apps. End-to-end tests focus on testing:
 * The voice app as a whole (from Alexa/Google through infrastructure to voice app).
 * The utterance resolution aka the speech recognition.
@@ -59,7 +62,7 @@ To get started, you need to install the Bespoken CLI, please follow next steps:
 1. Install the CLI by running `npm install -g bespoken-tools` on your command line.
 2. Open a command-line window and change directory to the root of your `<PROJECT_FOLDER>`
 3. Run the tests - just enter `bst test`. The output should look like this:
-```console
+```bash
 $ bst test
 BST: v2.0.10  Node: v8.9.4
 
@@ -95,7 +98,7 @@ To use this feature, set your test type to `simulation`. The feature support is 
 * Testing must be enabled for the skill in the Alexa dev console
 * The skill must be in development stage
 
-Read more about it in our [full guide](../guide#smapi-configuration).
+Read more about it in our [full guide](./guide.html#smapi-configuration).
 
 ## **How do I learn more?**
 Take a look at this [__sample project__](https://github.com/bespoken/virtual-device-example) and use it as a base to start creating your own functional test scripts. For more info on End-to-end testing please read [__here__](https://read.bespoken.io/end-to-end/getting-started).
@@ -331,8 +334,9 @@ It is also possible to specify multiple valid values for a property. That is don
 ## I have errors when testing in parallel with devices using the same account with Alexa
 Alexa AVS doesn't handle more than one request for the same account, if you need to do parallel tests, create the necessary virtual devices using different accounts at the setup.
 
+
 <!-- Images references -->
-[AlexaHistory]: ../assets/alexaHistory.png "Showing Alexa voice interactions history"
+[AlexaHistory]: ./assets/alexaHistory.png "Showing Alexa voice interactions history"
 
 ## If you get "to let me read out that information turn on personal results in the google app home" as response instead a response from your action
-Follow [these steps](/end-to-end/setup/#enable-personal-results-for-google).
+Follow [these steps](./setup.html#enable-personal-results-for-google).

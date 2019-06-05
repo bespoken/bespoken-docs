@@ -1,5 +1,5 @@
----
-# Page settings
+<!-- ---
+# Unit-Testing Use-Cases
 layout: default
 keywords:
 comments: false
@@ -10,8 +10,11 @@ description: Guide to Common Unit-Testing Use-Cases
 
 # Micro navigation
 micro_nav: true
----
-# Common Use-Cases And How To Handle Them
+--- -->
+# Guide to Common Unit-Testing Use-Cases
+
+## Common Use-Cases And How To Handle Them
+
 * [Testing State With Dynamo](#testing-with-dynamo)
 * [Testing The Address API](#testing-with-the-address-api)
 
@@ -19,7 +22,7 @@ micro_nav: true
 Dynamo can be tricky to test with locally, because there is lots of setup to be done to work with Dynamo locally on your laptop.
 
 To bypass this, simple enable our mock dynamo in your testing configuration:
-```
+```yml
 configuration:
   dynamo: mock
   userId: MyUserID
@@ -41,7 +44,7 @@ More information on [how it works here](https://github.com/bespoken/virtual-alex
 The Address API can also be mocked, and specified to reply with a specific value.
 
 To set the address to be returned from the Address API via mock, just enter a configuration like so:
-```
+```yml
 configuration:
   address:
     addressLine1: 1600 Pennsylvania Avenue, NW
@@ -54,7 +57,7 @@ configuration:
 That will return a full address when the Alexa Address API is called.
 
 To emulate just the countryAndPostalCode permission, enter an address with just those values:
-```
+```yml
 configuration:
   address:
     countryCode: US

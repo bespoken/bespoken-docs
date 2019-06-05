@@ -1,5 +1,5 @@
----
-# Page settings
+<!-- ---
+# API
 layout: default
 keywords:
 comments: false
@@ -10,29 +10,30 @@ description: Virtual Device API Documentation
 
 # Micro navigation
 micro_nav: true
----
-# Overview
+--- -->
+# Virtual Device API Documentation
+## Overview
 We provide APIs to interact with our virtual devices programmatically. These APIs can be accessed via Node.js or HTTP.
 
 They are easy to work with, and require simply sending a payload of what you want to "say" to Alexa or Google, such as:  
-```
+```js
 virtualDevice.message("ask my skill what is the weather", (result) => {
     console.log(result.transcript); // Prints out the reply from Alexa - e.g., "the weather is nice"
 });
 ```
 
-It is as easy as that! For more information on how our end-to-end testing work, [read here](../getting-started).
+It is as easy as that! For more information on how our end-to-end testing work, [read here](getting-started.html).
 
-# Node.js API
-## Installation
+## Node.js API
+### Installation
 1. Add the Virtual Device SDK to your project:
     ```bash
     npm install virtual-device-sdk --save
     ```
-2. Get your token: Follow the instructions [here](../setup).
+2. Get your token: Follow the instructions [here](setup.html).
 
-## Constructor parameters
- - token: Your virtual device token, check [here](../setup) how to obtain it
+### Constructor parameters
+ - token: Your virtual device token, check [here](setup.html) how to obtain it
  - locale: The locale you are using, defaults to en-US
  - voiceID: The voice from Polly to use with the current locale, defaults to the default voice for the locale
  - skipSTT: Skip speech to text for Google (Google can return text directly), defaults to false
@@ -42,7 +43,7 @@ It is as easy as that! For more information on how our end-to-end testing work, 
  - locationLong: Location Longitude used in Google Virtual Devices.
  - conversationId: Set a conversation id in advance for the batch process in async mode.
 
-## Sending a Message
+### Sending a Message
 Here is a simple example in Javascript:
 ```javascript
 const vdSDK = require("virtual-device-sdk");
@@ -55,9 +56,9 @@ virtualDevice.message("open my skill").then((result) => {
 });
 ```
 
-## Result Payload
+### Result Payload
 Here is the full result payload:
-```
+```js
 export interface IVirtualDeviceResult {
     card: ICard | null;
     debug?: {
@@ -78,7 +79,7 @@ export interface ICard {
 }
 ```
 
-## Adding homophones
+### Adding homophones
 
 Our end-to-end tests use speech recognition for turning the output speech coming back from the virtual device into text.
 
@@ -97,7 +98,7 @@ virtualDevice.message("open my skill").then((result) => {
 });
 ```
 
-## Sending messages in batch
+### Sending messages in batch
 
 You can send multiple messages and expected phrases in an object array. The goal of this method is to handle a complete interaction with the virtual device. By sending all messages to the endpoint, it is able to sequence them faster, avoiding session timeouts.
 
@@ -112,7 +113,7 @@ sdk.batchMessage(
 The result will be an array of objects as defined in the [Result Payload Section](#result-payload)
 
 
-## Processing the results asynchronously
+### Processing the results asynchronously
 
 By default when you use batchMessage the promise will return a promise that will resolve once the complete interaction is finished. By setting the async mode
 in the constructor of the SDK instance you can change that behavior so that it returns a conversation id that can be used to retrieve
@@ -141,16 +142,16 @@ sdk.batchMessage(
 
 As the results are processed the "getConversationResults" method will return them in subsequent calls to the method.
 
-# HTTP API
+## HTTP API
 The VirtualDevice service can also be called directly via HTTP.
 
 To use it, first get your token:  
-Follow the instructions [here](../setup).
+Follow the instructions [here](./setup.html).
 
 The Base URL is:  
 https://virtual-device.bespoken.io
 
-## **Process** Endpoint
+### **Process** Endpoint
 
   Takes a single message and returns the AVS response in text form.
 * **URL**
@@ -227,7 +228,7 @@ https://virtual-device.bespoken.io
 
 
 * **Sample Call:**
-```
+```bash
 curl "https://virtual-device.bespoken.io/process?message="what time is it"&user_id=<your user id>&voice_id=Joey&language_code=en-US" ;
 ```
 
@@ -236,7 +237,7 @@ curl "https://virtual-device.bespoken.io/process?message="what time is it"&user_
   * Not sending the language_code or voice_id will default **both** to en-US and Joey.
 
 
-## **Batch process** Endpoint
+### **Batch process** Endpoint
 
 Receives multiple messages and expected phrases in an object array. The goal of this endpoint to handle a complete interaction with Alexa. By sending all messages to the endpoint, it is able to sequence them faster, avoiding session timeouts.
 
@@ -369,7 +370,7 @@ Receives multiple messages and expected phrases in an object array. The goal of 
   * Not sending the language_code or voice_id will default **both** to en-US and Joey.
 
 
-## **Conversation** Endpoint
+### **Conversation** Endpoint
 
 Obtains the processed results from a batch process sent in async mode
 
