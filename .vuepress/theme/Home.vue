@@ -1,9 +1,14 @@
 <template>
   <div class="home">
     <div class="hero">
-      <img v-if="data.heroImage" :src="$withBase(data.heroImage)" alt="hero">
-
       <h1>{{ data.heroText || $title || 'Hello' }}</h1>
+      <video
+        style="width: 50%;"
+        autoplay
+        loop
+        src="https://bespoken.io/wp-content/uploads/2019/05/unit_web.mp4"
+        type="video/mp4"
+      ></video>
       <div class="features" v-if="data.features && data.features.length">
         <div class="feature" v-for="(feature, index) in data.features" :key="index">
           <a
@@ -113,7 +118,6 @@ export default {
   .features {
     border-top: 1px solid $borderColor;
     padding: 1.2rem 0;
-    margin-top: 2.5rem;
     display: flex;
     align-items: flex-start;
     align-content: stretch;
