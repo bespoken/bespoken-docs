@@ -59,7 +59,7 @@ Now, let's start debugging by clicking in this icon, located at the top right me
 
 ![Icon to start debugging][Create-Run-Config3]
 
-When the debugger starts, it executes the Bespoken proxy with the parameters we defined when creating the run configuration, that means the skill is running locally. Now, let's interact with the skill from the command line, for that we are going to use the [launch](https://read.bespoken.io/cli/commands/#launch){:target="_blank"} and [utter](https://read.bespoken.io/cli/commands/#utter){:target="_blank"} commands.
+When the debugger starts, it executes the Bespoken proxy with the parameters we defined when creating the run configuration, that means the skill is running locally. Now, let's interact with the skill from the command line, for that we are going to use the [launch](https://read.bespoken.io/cli/commands.html#launch){:target="_blank"} and [utter](https://read.bespoken.io/cli/commands.html#utter){:target="_blank"} commands.
 
 First, we open a Terminal on Webstorm by clicking here:
 ![Opening a terminal in Webstorm][Create-Run-Config5]

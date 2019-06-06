@@ -3,6 +3,12 @@ module.exports = {
     descripcion: "this is a great job",
     themeConfig: {
         logo: "/assets/images/BespokenLogo-small.png",
+        plugins: {
+            'clean-urls': {
+                normalSuffix: '/',
+                indexSuffix: '/',
+            },
+        },
         head: [
             ['link', { rel: 'icon', href: '/favicon.ico' }]
         ],

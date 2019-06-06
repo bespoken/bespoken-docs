@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/bespoken/bespoken-docs#readme",
   "dependencies": {
-    "vuepress": "^0.14.11"
+    "vuepress": "^0.14.11",
+    "vuepress-plugin-clean-urls": "^1.0.3"
   }
 }
