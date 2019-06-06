@@ -324,25 +324,14 @@ Speech Synthesis Markup Language example, more details [here](#ssml):
 - <speak>this is SSML</speak>: 
 ```
 
-### Assertions
-An assertion follows one of two simple syntaxes:  
-`[JSONPath Property]: [Expected Value]`   
-or  
-`[JSONPath Property] [Operator] [Expected Value]`
-
-The second syntax provides use more than just equality operators.
+## Assertions
+ 
+ `[JSONPath Property] [Operator] [Expected Value]`
 
 The operators are:
 
-* == Partial equals - for example, the expected value "partial sentence" will match "this is a partial sentence"
-* =~ Regular expression match
+* : Partial equals or regular expression - for example, the expected value "partial sentence" will match "this is a partial sentence", the expected value /.*is.*/ will match "this sentence has is on it"
 * != Not equal to
-* \>  Greater than
-* \>= Greater than or equal
-* <  Less than
-* <= Less than or equal
-
-Additionally, the `:` operator is the same as == or =~, depending on whether the expected value is a regular expression.
 
 We use JSONPath to get values from the response, such as:
 `transcript`

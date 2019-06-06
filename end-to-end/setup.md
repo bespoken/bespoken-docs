@@ -57,6 +57,9 @@ There a couple steps for the setup - but don't worry - you will only have to do 
 If you get a response: "to let me read out that information turn on personal results in the google app home" instead a reponse from your actions, follow these additional steps:
 
 ![Google app home](./assets/enable-personal-results.gif "enable personal results")
+
+On Android Devices:
+
 1. Long press the “home” button on an Android device.
 
 2. Click on the compass icon.
@@ -71,6 +74,9 @@ If you get a response: "to let me read out that information turn on personal res
 
 7. Click on it and enable Personal Results.
 
+Additional information:
+
+For IOS devices you need to install the *Google Assistant* from the [app store](https://itunes.apple.com/us/app/google-assistant/id1220976145) and do the same steps starting from step 3.
 
 ## Using the Device In Your Scripts
 Now you can use the virtual device with your test script. Place it in the testing.json file of your project like so:
