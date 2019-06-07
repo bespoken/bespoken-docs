@@ -317,7 +317,7 @@ Speech Synthesis Markup Language example, more details [here](#ssml):
 ```
 
 ## Assertions
- 
+An assertion follows a simple syntax:
  `[JSONPath Property] [Operator] [Expected Value]`
 
 The operators are:
