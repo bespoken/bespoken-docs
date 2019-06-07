@@ -313,8 +313,6 @@ If any assertion fails for a test, the test stops processing, and information ab
 An assertion follows a simple syntax:
  `[JSONPath Property] [Operator] [Expected Value]`
 
-The second syntax provides use more than just equality operators.
-
 The operators are:
 
 * : Partial equals or regular expression - for example, the expected value "partial sentence" will match "this is a partial sentence", the expected value /.*is.*/ will match "this sentence has is on it"
