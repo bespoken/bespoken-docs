@@ -1,3 +1,7 @@
+---
+title: Getting Started
+permalink: /unit-testing/getting-started/
+---
 <!-- ---
 # Getting Started
 layout: default

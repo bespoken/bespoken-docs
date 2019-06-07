@@ -1,15 +1,8 @@
-<!-- ---
-# PYTHON & FLASK ASK
-layout: default
-keywords:
-comments: false
+---
+title: PYTHON & FLASK ASK
+permalink: /tutorials/tutorial-flask-ask-python/
+---
 
-# Hero section
-title: Debugging voice apps locally With Webstorm and Bespoken
-
-# Micro navigation
-micro_nav: true
---- -->
 # Debugging voice apps locally With Webstorm and Bespoken
 
 This tutorial shows you how to get started developing with bst for Alexa Skills Kit in Python using [Flask-Ask](https://alexatutorial.com/flask-ask/).

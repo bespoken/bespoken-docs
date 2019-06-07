@@ -1,16 +1,8 @@
-<!-- ---
-# FAQ
-layout: default
-keywords:
-comments: false
-
-# Hero section
-title: FAQ for End-to-end Testing
-
-# Micro navigation
-micro_nav: true
 ---
--->
+title: FAQ
+permalink: /end-to-end/faq/
+---
+
 # FAQ for End-to-end Testing
 Here you can find common questions on regards End-to-end testing for voice apps.
 

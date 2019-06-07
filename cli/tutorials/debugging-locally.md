@@ -1,15 +1,8 @@
-<!-- ---
-# WEBSTORM DEBUGGING
-layout: default
-keywords:
-comments: false
+---
+title: WEBSTORM DEBUGGING
+permalink: /tutorials/debugging-locally/
+---
 
-# Hero section
-title: Debugging voice apps locally With Webstorm and Bespoken
-
-# Micro navigation
-micro_nav: true
---- -->
 # Debugging voice apps locally With Webstorm and Bespoken
 This tutorial shows you how to get set up using Webstorm to debug your voice app code locally.
 

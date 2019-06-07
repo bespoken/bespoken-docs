@@ -1,16 +1,7 @@
-<!-- ---
-# API
-layout: default
-keywords:
-comments: false
-
-# Hero section
-title: Virtual Device API
-description: Virtual Device API Documentation
-
-# Micro navigation
-micro_nav: true
---- -->
+---
+title: API
+permalink: /end-to-end/api/
+---
 # Virtual Device API Documentation
 ## Overview
 We provide APIs to interact with our virtual devices programmatically. These APIs can be accessed via Node.js or HTTP.

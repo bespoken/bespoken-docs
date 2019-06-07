@@ -1,15 +1,8 @@
-<!-- ---
-# LOCAL JAVA SERVER
-layout: default
-keywords:
-comments: false
+---
+title: LOCAL JAVA SERVER
+permalink: /tutorials/tutorial-local-server-java/
+---
 
-# Hero section
-title: Debugging voice apps locally With Webstorm and Bespoken
-
-# Micro navigation
-micro_nav: true
---- -->
 # Debugging voice apps locally With Webstorm and Bespoken
 
 This tutorial shows you how to get started developing for Alexa with Java and Maven.  
