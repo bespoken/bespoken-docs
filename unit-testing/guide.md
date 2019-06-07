@@ -246,7 +246,7 @@ each assertion is in turn evaluated in order when a response is received.
 If any assertion fails for a test, the test stops processing, and information about the failed assertion is provided.
 
 ## Assertions
-An assertion follows a simple syntaxes:  
+An assertion follows a simple syntax:  
  `[JSONPath Property] [Operator] [Expected Value]`
 
 The operators are:
