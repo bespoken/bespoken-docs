@@ -19,5 +19,5 @@ features:
   details: Ensure your voice app never stops working.
   link: https://bespoken.io/blog/monitor-alexa-skills-or-google-actions/
 footer: Bespoken Documentation | Copyright © year-Bespoken | All rights reserved.
-
+permalink: /
 ---

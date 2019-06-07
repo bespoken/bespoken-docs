@@ -1,15 +1,8 @@
-<!-- ---
-# Setting Up
-layout: default
-keywords:
-comments: false
+---
+title: Setting Up
+permalink: /end-to-end/setup/
+---
 
-# Hero section
-title: Setting Up A Virtual Device
-
-# Micro navigation
-micro_nav: true
---- -->
 # Setting Up A Virtual Device
 ## Background
 In order to test your Alexa skills and Google Actions, you need to create a Virtual Device. What is a Virtual Device? It is like a physical Amazon Echo, but one that can be interacted with programmatically.

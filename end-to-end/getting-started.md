@@ -1,15 +1,8 @@
-<!-- ---
-# Getting Started
-layout: default
-keywords:
-comments: false
+---
+title: Getting Started
+permalink: /end-to-end/getting-started/
+---
 
-# Hero section
-title: Getting Started With End-to-end Testing
-
-# Micro navigation
-micro_nav: true
---- -->
 # Getting Started With End-to-end Testing
 ## Overview
 Bespoken makes it easy to do end-to-end testing for voice apps.

@@ -1,16 +1,8 @@
-<!-- ---
-# Commands
-layout: default
-keywords:
-comments: false
+---
+title: Commands
+permalink: /cli/commands/
+---
 
-# Hero section
-title: Bespoken CLI Commands
-description: Complete Guide to Bespoken CLI Commands
-
-# Micro navigation
-micro_nav: true
---- -->
 # Complete Guide to Bespoken CLI Commands
  ## Proxy
 

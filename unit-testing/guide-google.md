@@ -1,16 +1,8 @@
-<!-- ---
-# In-Depth Guide Google
-layout: default
-keywords:
-comments: false
+---
+title: In-Depth Guide Google
+permalink: /unit-testing/guide-google/
+---
 
-# Hero section
-title: Bespoken Unit-Testing Guide
-description: Complete Guide to Unit-Testing for Google Actions
-
-# Micro navigation
-micro_nav: true
---- -->
 # Complete Guide to Unit-Testing for Google Actions
 ## Overview
 The purpose of Bespoken Unit Testing is to make it easy for anyone to test voice apps.

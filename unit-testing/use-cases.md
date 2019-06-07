@@ -1,16 +1,8 @@
-<!-- ---
-# Unit-Testing Use-Cases
-layout: default
-keywords:
-comments: false
-
-# Hero section
+---
 title: Unit-Testing Use-Cases
-description: Guide to Common Unit-Testing Use-Cases
+permalink: /unit-testing/use-cases/
+---
 
-# Micro navigation
-micro_nav: true
---- -->
 # Guide to Common Unit-Testing Use-Cases
 
 ## Common Use-Cases And How To Handle Them

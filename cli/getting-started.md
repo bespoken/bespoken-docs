@@ -1,15 +1,7 @@
-<!-- ---
-# Getting Started
-layout: default
-keywords:
-comments: false
-
-# Hero section
-title: Getting Started With The Bespoken CLI
-
-# Micro navigation
-micro_nav: true
---- -->
+---
+title: Getting Started
+permalink: /cli/getting-started/
+---
 # Getting Started With The Bespoken CLI
 
 ## Installation

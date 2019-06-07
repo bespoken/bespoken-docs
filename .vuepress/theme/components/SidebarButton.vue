@@ -7,9 +7,8 @@
 </template>
 
 <style lang="stylus">
-@import './styles/config.styl'
-
 .sidebar-button
+  cursor pointer
   display none
   width 1.25rem
   height 1.25rem
@@ -17,7 +16,6 @@
   padding 0.6rem
   top 0.6rem
   left 1rem
-  cursor pointer
   .icon
     display block
     width 1.25rem

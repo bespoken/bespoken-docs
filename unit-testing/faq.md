@@ -1,15 +1,8 @@
-<!-- ---
-# FAQ
-layout: default
-keywords:
-comments: false
+---
+title: FAQ
+permalink: /unit-testing/faq/
+---
 
-# Hero section
-title: FAQ for Unit-Testing
-
-# Micro navigation
-micro_nav: true
---- -->
 # FAQ for Unit-Testing
 Here you can find common questions on regards unit testing for voice apps.
 
@@ -25,7 +18,7 @@ For more information about testing voice apps, please read **[here](https://deve
 ## **How do I unit-test with Bespoken?**
 We have created a component called **[Virtual Alexa](https://github.com/bespoken/virtual-alexa)**, which emulates the Alexa Voice Service and creates JSON objects that are sent to your skill. This library can be used to write unit tests programmatically using popular testing framework (such as Mocha and Jest). 
 
-But we also offer an *easier way* to perform unit testing by writing simple test scripts based on **YAML** syntax and running them with our **CLI**. These scripts are executed *locally* using the Virtual Alexa simulator. Each test suite execution displays the **code coverage** you reach based on your test scripts. To get started with Unit Test Scripts please **[read here](https://read.bespoken.io/unit-testing/getting-started)**.
+But we also offer an *easier way* to perform unit testing by writing simple test scripts based on **YAML** syntax and running them with our **CLI**. These scripts are executed *locally* using the Virtual Alexa simulator. Each test suite execution displays the **code coverage** you reach based on your test scripts. To get started with Unit Test Scripts please **[read here](https://read.bespoken.io/unit-testing/getting-started.html)**.
 
 ## **What is code coverage?**
 In computer science, test coverage is a measure used to describe the degree to which the source code of a program is executed when a particular test suite runs. A program with high test coverage, measured as a percentage, has had more of its source code executed during testing, which suggests it has a lower chance of containing undetected software bugs compared to a program with low test coverage.
@@ -46,7 +39,7 @@ It provides a nice summary of the results of your tests, with charts. You can al
 To read more about jest-stare, [click here](https://github.com/dkelosky/jest-stare#readme).
 
 ## **How do I learn more?**
-Take a look [here](https://read.bespoken.io/unit-testing/getting-started/) for more info on unit-testing.
+Take a look [here](https://read.bespoken.io/unit-testing/getting-started.html) for more info on unit-testing.
 If you need assistance reach us on any of these channels:
 * [Email](mailto:contact@bespoken.io)
 * [Twitter](https://twitter.com/bespokenio)
@@ -124,7 +117,7 @@ To improve the readibility of your scripts you can use these values in your unit
 * __sessionEnded__: Equivalent to `response.shouldEndSession`
 
 ## **My skill use the Device Address API/DynamoDB how can I do unit testing without hitting the cloud?**
-We have created mockups for that, there is no need for you to do any local setup to use them. **[Read here](https://read.bespoken.io/unit-testing/use-cases)** to know how to use them.
+We have created mockups for that, there is no need for you to do any local setup to use them. **[Read here](https://read.bespoken.io/unit-testing/use-cases.html)** to know how to use them.
 
 ## **Can I use utterances instead of intent names in my scripts?**
 Yes, you can, but as we are emulating Alexa turning utterances into intents might not be 100% accurate in some cases. To avoid this we recommend setting the exact intent and slot values with the intent and slot properties. For example, you can turn this:

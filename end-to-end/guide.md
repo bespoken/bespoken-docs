@@ -1,16 +1,8 @@
-<!-- ---
-# In-depth Guide
-layout: default
-keywords:
-comments: false
+---
+title: In-depth Guide
+permalink: /end-to-end/guide/
+---
 
-# Hero section
-title: End-to-end Testing Guide
-description: Complete Guide to End-to-end Testing
-
-# Micro navigation
-micro_nav: true
---- -->
 # Complete Guide to End-to-end Testing
 ## Overview
 Bespoken End-to-end Test Scripts make it easy for anyone to write automated tests for Alexa and Google Assistant.

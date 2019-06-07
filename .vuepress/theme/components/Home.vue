@@ -1,7 +1,6 @@
 <template>
-  <div class="home">
-    <div class="hero">
-      <h1>{{ data.heroText || $title || 'Hello' }}</h1>
+  <main class="home" aria-labelledby="main-title">
+    <header class="hero">
       <video
         style="width: 50%;"
         autoplay
@@ -9,33 +8,35 @@
         src="https://bespoken.io/wp-content/uploads/2019/05/unit_web.mp4"
         type="video/mp4"
       ></video>
-      <div class="features" v-if="data.features && data.features.length">
-        <div class="feature" v-for="(feature, index) in data.features" :key="index">
-          <a
-            :href="feature.link"
-            class="nav-link external"
-            :target="isExternal(feature.link)? '_blank' :null "
-            :rel="'noopener noreferrer'"
-          >
-            <h2>{{ feature.title }}</h2>
-            <p>
-              {{ feature.details }}
-              <OutboundLink v-if="isExternal(feature.link)"/>
-            </p>
-          </a>
-        </div>
+      <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || 'Hello' }}</h1>
+    </header>
+
+    <div class="features" v-if="data.features && data.features.length">
+      <div class="feature" v-for="(feature, index) in data.features" :key="index">
+        <a
+          :href="feature.link"
+          class="nav-link external"
+          :target="isExternal(feature.link)? '_blank' :null "
+          :rel="'noopener noreferrer'"
+        >
+          <h2>{{ feature.title }}</h2>
+          <p>
+            {{ feature.details }}
+            <OutboundLink v-if="isExternal(feature.link)"/>
+          </p>
+        </a>
       </div>
     </div>
 
-    <Content custom/>
+    <Content class="theme-default-content custom"/>
 
     <div class="footer" v-if="data.footer">{{ getAtualYear(data.footer) }}</div>
-  </div>
+  </main>
 </template>
 
 <script>
-import NavLink from "./NavLink.vue";
-import { isMailto, isTel, isExternal } from "./util";
+import NavLink from "@theme/components/NavLink.vue";
+import { isMailto, isTel, isExternal } from "../util";
 export default {
   components: { NavLink },
 
@@ -65,12 +66,11 @@ export default {
 </script>
 
 <style lang="stylus">
-@import './styles/config.styl';
-
 .home {
   padding: $navbarHeight 2rem 0;
   max-width: 960px;
   margin: 0px auto;
+  display: block;
 
   .hero {
     text-align: center;
@@ -79,7 +79,7 @@ export default {
       max-width: 100%;
       max-height: 280px;
       display: block;
-      margin: 0rem auto 1.5rem;
+      margin: 3rem auto 1.5rem;
     }
 
     h1 {
