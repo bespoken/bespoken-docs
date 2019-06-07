@@ -4,19 +4,19 @@ heroText: "Bespoken Docs"
 heroImage: /assets/images/BespokenAtlas-Reduced.jpg
 actionText: Get Started →
 actionLink: cli/getting-started.html
-description: Learn how to test and monitor your Alexa Skills And Google Actions
+description: Find the Bespoken Documentation here - Everything you need to know to get started with automated voice app testing and monitoring for Alexa skills and Google Actions.
 features:
 - title: CLI & Proxy
-  details: Develop and debug locally with ease.
+  details: Execute and debug your code locally for faster development.
   link: cli/getting-started.html
 - title: Unit Testing
-  details: Test skills locally with ease, without deployments.
+  details: Identify and quickly correct issues without deployments.
   link: unit-testing/getting-started.html
 - title: End-to-end Testing
-  details: Automatic end-to-end testing with the real Alexa.
+  details: Test the system as a whole, including ASR and NLU.
   link: end-to-end/getting-started.html
 - title: Continuous Testing
-  details: Keep testing and monitoring once your skill is live.
+  details: Ensure your voice app never stops working.
   link: https://bespoken.io/blog/monitor-alexa-skills-or-google-actions/
 footer: Bespoken Documentation | Copyright © year-Bespoken | All rights reserved.
 permalink: /
