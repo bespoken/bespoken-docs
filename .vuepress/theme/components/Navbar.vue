@@ -1,20 +1,26 @@
 <template>
   <header class="navbar">
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
-
-    <router-link :to="$localePath" class="home-link">
+    <a
+      :href="$site.themeConfig.bespokenUri"
+      class="nav-link external"
+      :target="null"
+      :rel="'noopener noreferrer'"
+    >
       <img
         class="logo"
         v-if="$site.themeConfig.logo"
         :src="$withBase($site.themeConfig.logo)"
         :alt="$siteTitle"
       >
+    </a>
+    <router-link :to="$localePath" class="home-link">
       <span
         ref="siteName"
         class="site-name"
         v-if="$siteTitle"
         :class="{ 'can-hide': $site.themeConfig.logo }"
-      ></span>
+      >DOCS</span>
     </router-link>
 
     <div
@@ -107,10 +113,12 @@ $navbar-horizontal-padding = 1.5rem;
   }
 
   .site-name {
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 600;
-    color: $textColor;
+    color: $accentColor;
     position: relative;
+    bottom: -9px;
+    left: -15px;
   }
 
   .links {

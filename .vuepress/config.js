@@ -2,6 +2,7 @@ module.exports = {
     title: "Bespoken Docs",
     descripcion: "this is a great job",
     themeConfig: {
+        bespokenUri: "https://bespoken.io/",
         logo: "/assets/images/BespokenLogo-small.png",
         head: [
             ['link', { rel: 'icon', href: '/favicon.ico' }]
