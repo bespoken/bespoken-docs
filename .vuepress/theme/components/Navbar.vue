@@ -112,6 +112,12 @@ $navbar-horizontal-padding = 1.5rem;
     vertical-align: top;
   }
 
+  img {
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
   .site-name {
     font-size: 1rem;
     font-weight: 600;
@@ -119,6 +125,11 @@ $navbar-horizontal-padding = 1.5rem;
     position: relative;
     bottom: -9px;
     left: -15px;
+
+    &:hover {
+      color: lightgreen;
+      opacity: 0.8;
+    }
   }
 
   .links {
