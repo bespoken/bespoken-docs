@@ -114,7 +114,7 @@ $navbar-horizontal-padding = 1.5rem;
 
   img {
     &:hover {
-      opacity: 0.5;
+      opacity: 0.8;
     }
   }
 
@@ -127,8 +127,7 @@ $navbar-horizontal-padding = 1.5rem;
     left: -15px;
 
     &:hover {
-      color: lightgreen;
-      opacity: 0.8;
+      opacity: 0.6;
     }
   }
 
