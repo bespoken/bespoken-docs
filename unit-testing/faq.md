@@ -56,7 +56,18 @@ The continuous integration service is responsible for bringing our source code, 
 Check this **[sample project](https://github.com/ig-perez/skill-sample-nodejs-fact/tree/ContinuousIntegration)**, it contains a `.travis.yml` file which is the configuration element to enable CI using Travis platform.
 
 ## **Can I use Bespoken to unit test Google Actions?**
-We are currently working to release our support of Google Actions unit testing. Please stay tuned since it will be available soon.
+Yes, certainly. Read our guide about unit-testing Google Actions [here](https://read.bespoken.io/unit-testing/guide-google/).
+
+## **Can I unit-test skills written in programming languages other than Javascript?**  
+Yes, you can. It does require having a server running locally on your laptop that our library can call, but otherwise it will "just work".
+
+Before the test is run, start the server to receive payloads. It will be listening on something like: `http://localhost:9000`.
+
+Set that URL in the `skillURL` configuration element in the testing.json file. This should be set instead of the `handler` element - the handler only works with Javascript lambdas/functions.
+
+After tests are run, shut the server down - we recommend doing this as part of a regular process. It can be added to one of our filters, for example - [read about filters here](https://read.bespoken.io/unit-testing/guide/#filtering-during-test).
+
+Finally, if you have request signature checking or timestamp filtering being performed on the requests, you will need to disable this.
 
 # **Working with test scripts**
 
@@ -143,6 +154,8 @@ Into this:
 Check the full code of this project and test script **[here](https://github.com/ig-perez/skill-sample-nodejs-petmatch)**.
 
 ## **How do I use the debugger with Bespoken unit-tests and Visual Studio?**
+Read about this in-depth in [our blog post here](https://bespoken.io/blog/debugging-alexa-skills-with-vs-code-and-bespoken-part-2/). Here is the short summary:
+
 Open the `launch.json` configuration in Visual Studio: `Debug -> Open Configurations`.
 
 Add an element like this:
