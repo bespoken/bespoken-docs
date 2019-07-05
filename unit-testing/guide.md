@@ -90,6 +90,7 @@ Below the unit testing configuration options and what they do are listed:
 * interactionModel - The path to the interaction model to use for the test
 * [locales](#locales) - The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale.
 * sampleUtterances - If using the "old-style" configuration files, the path to the sampleUtterances
+* skillURL - If not calling a javascript handler directly, the URL (usually local to call instead) - e.g., http://localhost:9000/skill
 * [trace](#viewing-requestresponse-payloads) - Causes request and response JSON payloads from the skill to be printed to the console
 * userId - Sets the userId in the request payload
 
