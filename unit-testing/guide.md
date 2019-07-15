@@ -82,6 +82,7 @@ Below the unit testing configuration options and what they do are listed:
 * [address](./use-cases.html#testing-with-the-address-api) - Sets the address to be returned by the address API
 * deviceId - Sets the deviceId to be used in the generated requests
 * [dynamo](./use-cases.html#testing-with-dynamo) - : Should be set to "mock" to use the mock dynamo component
+* description - The description of the set of tests
 * [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
 * handler - The path to the handler (and function name) to run the test
 * html - Generate a pretty HTML report of test results - defaults to `true`

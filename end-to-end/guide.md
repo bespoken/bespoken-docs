@@ -100,6 +100,7 @@ Below the end-to-end testing configuration options and what they do are listed:
 * [asyncMode](#batch-or-sequential-tests) - Only works when batchEnabled is true, if asyncMode is false we wait for all the results, if it is true we retrieve them asynchronously - defaults to false.
 * [asyncE2EWaitInterval](#batch-or-sequential-tests) - Set an interval in milliseconds to wait before querying for new results, when batchEnabled is set to false - defaults to 5000
 * [batchEnabled](#batch-or-sequential-tests) - If it is true we sent the complete set of utterances to the virtual device server in a test, if it is false we sent them one by one - defaults to true
+* description - The description of the set of tests
 * [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
 * [findReplace](#find-replace) - Values that will be replaced in the scripts before execution
 * [homophones](#homophones) - Values that will be replaced in actual responses from the virtual device
