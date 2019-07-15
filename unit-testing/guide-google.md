@@ -74,6 +74,7 @@ The default Jest settings are as follows:
 Below the unit testing configuration options and what they do are listed:
 
 * [actionURL](#url-configuration) - The complete url that is going to receive the requests (Required if you need to start your endpoint manually).
+* description - The description of the set of tests
 * dialogFlowDirectory - The location of the unzipped folder retrieved from [Dialog Flow Agent](https://dialogflow.com/docs/agents/export-import-restore), used to be able to interact with your Intents and Entities.
 * [expressModule](#express-server-configuration) - The javascript file where express is started, it needs the express instance exported (Required if you use a express server for your endpoint).
 * [expressPort](#express-server-configuration) - The port in which express is serving  (Required if you use a express server for your endpoint).
