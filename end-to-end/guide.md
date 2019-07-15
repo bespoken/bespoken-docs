@@ -112,6 +112,7 @@ Below the end-to-end testing configuration options and what they do are listed:
 * skillId - For tests of type `simulation`, the skillId must be specified
 * stage - For tests of type `simulation`, the stage must be specified - can be `development` or `live`
 * type - The type of test being run - can be `unit`, `simulation`, or `e2e` - defaults to `unit`
+* stopTestOnFailure: Stops the execution of an interaction if there is an assertion error - defaults to `false`
 * [trace](#viewing-response-payloads) - Causes request and response JSON payloads from the skill to be printed to the console
 * [virtualDeviceToken](./setup.html) - For end-to-end tests that use virtual devices, this must be specified. 
 [Get one here](./setup.html)
