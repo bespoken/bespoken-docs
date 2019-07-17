@@ -106,7 +106,7 @@ Below the end-to-end testing configuration options and what they do are listed:
 * [homophones](#homophones) - Values that will be replaced in actual responses from the virtual device
 * html - Generate a pretty HTML report of test results - defaults to `true`
 * [include and exclude](#including-or-excluding-tests-using-tags) - Runs or Skip the tests having the particular specified tags
-* locales - The locale or locales to be used - a comma-delimited list
+* [locales](#locales) - The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale.
 * [maxAsyncE2EResponseWaitTime](#batch-or-sequential-tests) - Set an interval in milliseconds to wait before stop looking for new results, when batchEnabled is set to false - defaults to 15000
 * platform - The platform that is being tested - can be either `alexa` or `google` - defaults to `alexa`
 * skillId - For tests of type `simulation`, the skillId must be specified
@@ -455,6 +455,11 @@ If you want to create utterances valid for both providers use only common tags: 
 Tests are run in the order they appear in the file.
 
 End-to-end tests are not run in parallel, unlike unit tests. This is because of limitations in how the virtual devices work. This is also true for tests that are run using SMAPI Simulations.
+
+## Locales
+For each locale defined in either the testing.json file or in the test suite itself, the tests will be run in their entirety.
+
+That means if three locales are defined, the entire test suite will be run three times.
 
 ### Batch or Sequential Tests
 Tests are run by default in batch. This means that all the utterances are sent to be processed. How we retrieve them depends on the "asyncMode" flag:
