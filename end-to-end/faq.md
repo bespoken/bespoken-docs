@@ -114,6 +114,9 @@ Yes, you can. Our Virtual Device Test Scripts can also be used to do E2E or Regr
 ```
 Then create and execute your scripts as usual.
 
+## **I want to do something that is not supported with the tools like adding a delay between responses or stopping after a test has failed**
+Use the filter functionalities to add any kind of behavior during tests (read [here](https://read.bespoken.io/end-to-end/guide/#filtering-during-test) for more information). Please, also refer to [the API documentation](https://bespoken.github.io/skill-testing-ml/api/Test.html) to understand how to use the `test` property. For instance, the `test` property can be used to know if the test has passed/failed, or if the test should be skipped.
+
 # **Working with test scripts**
 
 ## <a name="anchorToFolderStructure"></a>**How should I organize my test files?**
