@@ -33,6 +33,12 @@ You will then be able to use our commands, described below:
 * [Launch](commands.html#launch) Emulate launch requests coming from Alexa
 * [Speak](commands.html#speak) Sends utterances directly to the real Alexa
 
+
+You can also use:
+
+* --version, -v - Indicates the current BST and Node versions
+* --help, -h - Shows usage information
+
 ## Updating
 
 To update bst:
