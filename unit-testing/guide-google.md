@@ -79,6 +79,7 @@ Below the unit testing configuration options and what they do are listed:
 * [expressModule](#express-server-configuration) - The javascript file where express is started, it needs the express instance exported (Required if you use a express server for your endpoint).
 * [expressPort](#express-server-configuration) - The port in which express is serving  (Required if you use a express server for your endpoint).
 * [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
+* [findReplace](#find-replace) - Values that will be replaced in the scripts before execution
 * handler - The path to the handler (and function name) to run the test
 * html - Generate a pretty HTML report of test results - defaults to `true`
 * [include and exclude](#including-or-excluding-tests-using-tags) - Runs or Skip the tests having the particular specified tags
@@ -176,6 +177,34 @@ You can get the complete list of parameters you can use by running:
 bst test --help
 ```
 
+### Find/Replace
+Find/replace values are helpful for parameterizing parts of the test.
+
+For example, if the invocation name of the skill being tested will change from one run to the next, it can be set as a find/replace value like so:
+
+
+They will look like this:
+```json
+{
+    "findReplace": {
+        "INVOCATION_NAME": "my skill"
+    }
+}
+```
+
+This will cause any instances of the value INVOCATION_NAME to be replaced by `my skill` in the test scripts.
+
+So a script that looks like this:
+```yaml
+"open INVOCATION_NAME and say hello": "*"
+```
+
+Will be turned into this:
+```yaml
+"open my skill and say hello": "*"
+```
+
+This is a useful feature for tests that are run against multiple instances of the same skill, where there are slight variations in the input or output.
 
 ## CLI Options
 When invoking `bst test`, the name of a specific test or regex can be used, like this:

@@ -114,7 +114,7 @@ Below the end-to-end testing configuration options and what they do are listed:
 * type - The type of test being run - can be `unit`, `simulation`, or `e2e` - defaults to `unit`
 * stopTestOnFailure: Stops the execution of an interaction if there is an assertion error - defaults to `false`
 * [trace](#viewing-response-payloads) - Causes request and response JSON payloads from the skill to be printed to the console
-* [virtualDeviceToken](./setup.html) - For end-to-end tests that use virtual devices, this must be specified. 
+* [virtualDeviceToken](./setup.html) - For end-to-end tests that use virtual devices, this must be specified.
 [Get one here](./setup.html)
 
 
@@ -305,17 +305,17 @@ each assertion is in turn evaluated in order when a response is received.
 
 If any assertion fails for a test, the test stops processing, and information about the failed assertion is provided.
 
-### Utterance 
+### Utterance
 Is the first part of the interaction, it can be plain text or Speech Synthesis Markup Language
 
 Plain text:
 ```
-- this is a plain text: 
+- this is a plain text:
 ```
 
 Speech Synthesis Markup Language example, more details [here](#ssml):
 ```xml
-- <speak>this is SSML</speak>: 
+- <speak>this is SSML</speak>:
 ```
 
 ## Assertions
@@ -419,7 +419,7 @@ When a collection is used like this, if any of the values matches, the assertion
 
 ### SSML
 
-To create a more natural speech for your tests we can use Speech Synthesis Markup Language(SSML). With SSML tags, you can customize and control aspects of speech such as pronunciation, volume, and speech rate. 
+To create a more natural speech for your tests we can use Speech Synthesis Markup Language(SSML). With SSML tags, you can customize and control aspects of speech such as pronunciation, volume, and speech rate.
 
 To use SSML add the tag speak into your utterance.
 
