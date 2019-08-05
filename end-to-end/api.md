@@ -49,8 +49,8 @@ export interface IVirtualDeviceConfiguration {
  - locationLat: Location Latitude used in Google Virtual Devices.
  - locationLong: Location Longitude used in Google Virtual Devices.
  - conversationId: Set a conversation id in advance for the batch process in async mode.
- - screenMode: state of the screen used in Google Virtual Devices(playing or off), defaults to playing
- - projectId: dialog flow project id
+ - screenMode: State of the screen used in Google Virtual Devices(playing or off), defaults to playing
+ - projectId: Dialog Flow project id
 
 ### Sending a Message
 Here is a simple example in Javascript:
@@ -201,7 +201,7 @@ https://virtual-device.bespoken.io
 
    `stt=[string]`: speech to text service to use, supported services are google and witai. Default value: "google"
 
-   `project_id=[string]`: projec id of the dialog flow agent
+   `project_id=[string]`: project id of the Dialog Flow agent
 
 
 * **Success Response:**
@@ -291,7 +291,7 @@ Receives multiple messages and expected phrases in an object array. The goal of 
 
    `conversation_id=[string]`: only from async_mode, set the conversation id
 
-   `project_id=[string]`: projec id of the dialog flow agent
+   `project_id=[string]`: project id of the Dialog Flow agent
 
 * **Data Params**
 
