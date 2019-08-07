@@ -24,6 +24,22 @@ It is as easy as that! For more information on how our end-to-end testing work, 
 2. Get your token: Follow the instructions [here](setup.html).
 
 ### Constructor parameters
+
+```javascript
+export interface IVirtualDeviceConfiguration {
+    token: string;
+    locale?: string;
+    voiceID?: string;
+    skipSTT?: boolean;
+    asyncMode?: boolean;
+    stt?: string;
+    locationLat?: string;
+    locationLong?: string;
+    conversationId?: string;
+    screenMode?: string;
+    projectId?: string;
+}
+```
  - token: Your virtual device token, check [here](setup.html) how to obtain it
  - locale: The locale you are using, defaults to en-US
  - voiceID: The voice from Polly to use with the current locale, defaults to the default voice for the locale
@@ -33,14 +49,19 @@ It is as easy as that! For more information on how our end-to-end testing work, 
  - locationLat: Location Latitude used in Google Virtual Devices.
  - locationLong: Location Longitude used in Google Virtual Devices.
  - conversationId: Set a conversation id in advance for the batch process in async mode.
+ - screenMode: State of the screen used in Google Virtual Devices(playing or off), defaults to playing
+ - projectId: Dialog Flow project id
 
 ### Sending a Message
 Here is a simple example in Javascript:
 ```javascript
 const vdSDK = require("virtual-device-sdk");
-const locale = "en-US";
-const voiceId = "Joey"
-const virtualDevice = new vdSDK.VirtualDevice("<PUT_YOUR_TOKEN_HERE>", locale, voiceId);
+const configuration = {
+    token: "<PUT_YOUR_TOKEN_HERE>",
+    locale: "en-US",
+    voiceId: "Joey",
+}
+const virtualDevice = new vdSDK.VirtualDevice(configuration);
 virtualDevice.message("open my skill").then((result) => {
     console.log("Reply Transcript: " + result.transcript);
     console.log("Reply Card Title: " + result.card.mainTitle);
@@ -79,7 +100,7 @@ This process is imperfect - to compensate for this, homophones can be specified 
 Before sending your message call the "addHomophones" method to indicate what are the ones you expect
 
 ```javascript
-const virtualDevice = new vdSDK.VirtualDevice("<PUT_YOUR_TOKEN_HERE>", locale, voiceId);
+const virtualDevice = new vdSDK.VirtualDevice(configuration);
 
 virtualDevice.addHomophones("white", ["wife", "while"]);
 
@@ -111,12 +132,15 @@ in the constructor of the SDK instance you can change that behavior so that it r
 the results progressively.
 
 ```javascript
-const locale = "en-US";
-const voiceId = "Joey";
-const skipSTT = false;
-const asyncMode = true;
+const configuration = {
+    token: "<PUT_YOUR_TOKEN_HERE>",
+    locale: "en-US",
+    voiceId: "Joey",
+    skipSTT: false,
+    asyncMode: true,
+}
 
-const virtualDevice = new vdSDK.VirtualDevice("<PUT_YOUR_TOKEN_HERE>", locale, voiceId, skipSTT, asyncMode);
+const virtualDevice = new vdSDK.VirtualDevice(configuration);
 
 sdk.batchMessage(
     [{text: "what is the weather"}, {text:  "what time is it"}, {text: "tell test player to play"}],
@@ -176,6 +200,9 @@ https://virtual-device.bespoken.io
     Default value: "false"
 
    `stt=[string]`: speech to text service to use, supported services are google and witai. Default value: "google"
+
+   `project_id=[string]`: project id of the Dialog Flow agent
+
 
 * **Success Response:**
 
@@ -263,6 +290,8 @@ Receives multiple messages and expected phrases in an object array. The goal of 
    `location_long=[float]`: only for google, longitude coordinate from the location of the request
 
    `conversation_id=[string]`: only from async_mode, set the conversation id
+
+   `project_id=[string]`: project id of the Dialog Flow agent
 
 * **Data Params**
 
