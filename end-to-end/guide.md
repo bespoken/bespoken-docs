@@ -270,11 +270,23 @@ configuration:
 
 The test suite above contains two tests. Additionally, at the top it has a configuration element.
 
-The configuration provides settings that work across the test - [it is described below](#test-configuration).
+The configuration provides settings that work across the test - [it is described below](#test-suite-configuration).
 
 The tests represent sequence of conversations with the skill.
 
 They can use specific requests (such as LaunchRequest or SessionEndedRequest), or they can simply be an utterance.
+
+### Test Suite Configuration
+The test suite file can optionally have a configuration section, which contains setup data about the test. It looks like this:  
+```yaml
+configuration:
+  voiceId: <The Polly Voice ID to use for TTS>
+  locale: <en-US, en-GB, de-DE, etc.>
+```
+
+This is a place to put things that vary between sets of tests - such as the voice to use for Speech-To-Text or the locale.
+
+The list of available voices from Polly is [found here](https://docs.aws.amazon.com/polly/latest/dg/voicelist.html). We also support Google Text-To-Speech - options for Google TTS are [found here](https://cloud.google.com/text-to-speech/docs/voices).
 
 ### Test Structure
 The start of a test is marked with three dashes on a line - `---`.
