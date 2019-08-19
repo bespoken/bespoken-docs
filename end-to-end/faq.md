@@ -201,6 +201,30 @@ We recommend taking into account the following:
 
 If you need assistance, please talk to us through the chat widget at the lower right-hand corner of our [Dashboard](https://apps.bespoken.io/dashboard/) or [Website](https://bespoken.io/).
 
+## **My test interaction is not working, how can I troubleshoot the problem?**
+Perhaps you are trying to run a monitoring script (or just executing an end-to-end test) and you are getting an odd response like this one:
+![Showing monitoring odd result][MonitoringOddResult]
+What is going on here? Let's follow this workflow to troubleshoot the problem:
+![Workflow to troubleshoot test script issues][TroubleshootingWorkflow]
+1. **Check what the voice service understood:** First thing is to know if the voice service is understanding correctly what you said in your test script. In the image above our utterance is "ask my skill to tell me a joke". Let's see what did the voice service understood. As this is an Alexa skill you can check the interactions history page. For this, navigate to the Alexa dashboard page logging in with the same account you used when you created the Bespoken Virtual Device token used in your test script. Then go to "Settings - History" in the left menu.
+![Alexa interactions history][AlexaInteractionsHistory]
+
+2. **Verify what token you are using**: If you can't locate the associated interaction in the history page, that means you probably have logged in with a different account than the one used to create the Bespoken Virtual Device used in your test script, it is like you are sending the utterance to another echo device. Please use the Amazon account associated with the selected token in your test scripts.
+
+3. **Try another Polly voice**: If you are able to locate the utterance in the history of interactions and the voice service is wrongly understand it, then we have a speech recognition problem, and if the problem is located in the invocation name, that explains why the voice service can't determine which skill to launch responding "Sorry, I don't know that" instead of invoking your skill.
+![Invocation name speech recognition problem][InnvocationNameSRP]
+In the above image (not a real case), Alexa is wrongly understanding "my skill". Why is that? ... Well, we use Amazon Polly voices to transform the text utterance from your test script into speech, that is not perfect and sometimes the voice service might understand wrong. One way to troubleshoot this issue is going to the AWS Polly console and play around with the different available voices, listen how they pronounce your voice app's invocation name and select the one you think sounds best. By default, we use the "Joey" voice for en-US locale, which in general provides good results.
+
+4. **Use special characters in the invocation name**: Let's image the invocation name you have selected is ABE, but the voice service is interpreting as the short name for Abraham. To avoid this you can add special characters to it, for example, "A-B-E" or "A.B.E."
+
+5. **Choose another invocation name**: In case you have tried several things and the problem persists, we recommend to select another invocation name that provides better results.
+
+6. **Check your interaction model**: It might happen that the voice service is correctly invoking your voice app but a wrong intent is requested making the full interaction to fail. In this case, the problem might be located in your interaction model. If this is your case, please check if you have provided enough sample utterances and update it accordingly.
+
+7. **Check your voice app code**: In case the voice service is correctly recognizing the invocation name, and the appropriate intent is being hit, but even though you are getting an unexpected response it is probably that the problem resides in your voice app's backend. Please check your app's code. For this, we suggest using unit test scripts with a debugger to easily and quickly spot the issue. Read [here](https://read.bespoken.io/unit-testing/faq/#how-do-i-use-the-debugger-with-bespoken-unit-tests-and-visual-studio) to know how.
+
+If you need assistance, please talk to us through the chat widget at the lower right-hand corner of our [Dashboard](https://apps.bespoken.io/dashboard/) or [Website](https://bespoken.io/).
+
 
 ## **My skill supports multiple locales, how do I create functional tests for it?**
 First thing is to generate one Bespoken Virtual Device token per each locale you want to test. Then organize your test folder as [shown previously](#anchorToFolderStructure) and add your tokens to your test script files or `testing.json` file.
@@ -323,12 +347,15 @@ It is also possible to specify multiple valid values for a property. That is don
     - How are you?
 ```
 
-## I have errors when testing in parallel with devices using the same account with Alexa
+## **I have errors when testing in parallel with devices using the same account with Alexa**
 Alexa AVS doesn't handle more than one request for the same account, if you need to do parallel tests, create the necessary virtual devices using different accounts at the setup.
 
+## **If you get "to let me read out that information turn on personal results in the google app home" as response instead a response from your action**
+Follow [these steps](./setup.html#enable-personal-results-for-google).
 
 <!-- Images references -->
 [AlexaHistory]: ./assets/alexaHistory.png "Showing Alexa voice interactions history"
-
-## If you get "to let me read out that information turn on personal results in the google app home" as response instead a response from your action
-Follow [these steps](./setup.html#enable-personal-results-for-google).
+[MonitoringOddResult]: ./assets/TroubleshootingSRIWithInvocationName-1.png "Showing monitoring odd result"
+[TroubleshootingWorkflow]: ./assets/TroubleshootingSRIWithInvocationName-2.png "Workflow to detect speech recognition errors with the invocation name"
+[AlexaInteractionsHistory]: ./assets/TroubleshootingSRIWithInvocationName-3.png "Accessing history of interactions in Alexa"
+[InnvocationNameSRP]: ./assets/TroubleshootingSRIWithInvocationName-4.png "This is how an invocation name speech recognition issue looks like in Alexa"
