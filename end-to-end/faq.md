@@ -208,8 +208,10 @@ What is going on here? Let's follow this workflow to troubleshoot the problem:
 ![Workflow to troubleshoot test script issues][TroubleshootingWorkflow]
 1. **Check what the voice service understood:** First thing is to know if the voice service is understanding correctly what you said in your test script. In the image above our utterance is "ask my skill to tell me a joke". Let's see what did the voice service understood. As this is an Alexa skill you can check the interactions history page. For this, navigate to the Alexa dashboard page logging in with the same account you used when you created the Bespoken Virtual Device token used in your test script. Then go to "Settings - History" in the left menu.
 ![Alexa interactions history][AlexaInteractionsHistory]
+>Note:  Take into account that the Alexa page changes depending on the geography, for example, for the US go to alexa.amazon.com, for Germany go to alexa.amazon.de. 
 
-2. **Verify what token you are using**: If you can't locate the associated interaction in the history page, that means you probably have logged in with a different account than the one used to create the Bespoken Virtual Device used in your test script, it is like you are sending the utterance to another echo device. Please use the Amazon account associated with the selected token in your test scripts.
+2. **Verify what token you are using**: If you can't locate the associated interaction in the history page, that means you probably have logged in with a different account than the one used to create the Bespoken Virtual Device used in your test script, it is like you are sending the utterance to another echo device. Please use the Amazon account associated with the selected token in your test scripts. If you have created several virtual devices and you are not sure which one is being used, you can ask to the voice service like in the image below.
+![What is this device][WhichDeviceIsThis]
 
 3. **Try another Polly voice**: If you are able to locate the utterance in the history of interactions and the voice service is wrongly understand it, then we have a speech recognition problem, and if the problem is located in the invocation name, that explains why the voice service can't determine which skill to launch responding "Sorry, I don't know that" instead of invoking your skill.
 ![Invocation name speech recognition problem][InnvocationNameSRP]
@@ -359,3 +361,4 @@ Follow [these steps](./setup.html#enable-personal-results-for-google).
 [TroubleshootingWorkflow]: ./assets/TroubleshootingSRIWithInvocationName-2.png "Workflow to detect speech recognition errors with the invocation name"
 [AlexaInteractionsHistory]: ./assets/TroubleshootingSRIWithInvocationName-3.png "Accessing history of interactions in Alexa"
 [InnvocationNameSRP]: ./assets/TroubleshootingSRIWithInvocationName-4.png "This is how an invocation name speech recognition issue looks like in Alexa"
+[WhichDeviceIsThis]: ./assets/TroubleshootingSRIWithInvocationName-5.png "This is how to know which Bespoken Virtual Device you are using."
