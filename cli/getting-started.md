@@ -4,6 +4,14 @@ permalink: /cli/getting-started/
 ---
 # Getting Started With The Bespoken CLI
 
+## What is the Bespoken CLI
+
+The Bespoken CLI are a set of tools created by us to let you develop faster and better. Do not slow-down for:
+
+    Time-consuming server deployments
+    Over-complicated and highly manual testing routines
+
+
 ## Installation
 
 Make sure you have NPM and node installed:
