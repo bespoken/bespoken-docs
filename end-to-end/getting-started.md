@@ -39,7 +39,7 @@ What happens is:
 
 There is a lot going on under the covers, but the tests themselves are very easy to write and maintain - in fact, we believe it's as easy to type the tests as it is to manually say them. And once they have been written, you have an automated test suite, that can be run at any time and incorporated into other automated processes (such as continuous integration/continuous delivery).
 
-To see a complex example in action, [check out this project](https://github.com/bespoken/virtual-device-example/tree/SkillTesterScripts).
+To see a complex example in action, [check out this project](https://github.com/bespoken/virtual-device-example/).
 
 ## Next Steps
  * [Setup A Virtual Device](setup.html)

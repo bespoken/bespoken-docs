@@ -101,7 +101,7 @@ If you need assistance reach us on any of these channels:
 
 
 ## **Besides Alexa, can I use Bespoken to functional test Google Actions?**
-Yes, you can. Our Virtual Device Test Scripts can also be used to do E2E or Regression testing for Google Actions. First thing is to generate a Virtual Device token to be used with your Action, get it [__here__](https://virtual-device.bespoken.io/link_account?platform=google). Then you need to include the token in your `testing.json` file, something like this:
+Yes, you can. Our Virtual Device Test Scripts can also be used to do E2E or Regression testing for Google Actions. First thing is to generate a Virtual Device token to be used with your Action, get it [__here__](https://apps.bespoken.io/dashboard). Then you need to include the token in your `testing.json` file, something like this:
 ```json
 {
     "type": "e2e",
