@@ -101,7 +101,7 @@ If you need assistance reach us on any of these channels:
 
 
 ## **Besides Alexa, can I use Bespoken to functional test Google Actions?**
-Yes, you can. Our Virtual Device Test Scripts can also be used to do E2E or Regression testing for Google Actions. First thing is to generate a Virtual Device token to be used with your Action, get it [__here__](https://virtual-device.bespoken.io/link_account?platform=google). Then you need to include the token in your `testing.json` file, something like this:
+Yes, you can. Our Virtual Device Test Scripts can also be used to do E2E or Regression testing for Google Actions. First thing is to generate a Virtual Device token to be used with your Action, get it [__here__](https://apps.bespoken.io/dashboard). Then you need to include the token in your `testing.json` file, something like this:
 ```json
 {
     "type": "e2e",
@@ -198,6 +198,38 @@ We recommend taking into account the following:
 - Check the history of interactions on the Alexa website.
 ![Showing Alexa's utterances history][AlexaHistory]
 - Use the `.only` command in the scripts to isolate a specific sequence.
+
+If you need assistance, please talk to us through the chat widget at the lower right-hand corner of our [Dashboard](https://apps.bespoken.io/dashboard/) or [Website](https://bespoken.io/).
+
+## **My test interaction is not working, how can I troubleshoot the problem?**
+Perhaps you are trying to run a monitoring script (or just executing an end-to-end test) and you are getting an odd response like this one:
+![Showing monitoring odd result][MonitoringOddResult]
+What is going on here? Let's follow this workflow to troubleshoot the problem:
+![Workflow to troubleshoot test script issues][TroubleshootingWorkflow]
+1. **Check what the voice service understood:** First thing is to know if the voice service is understanding correctly what you said in your test script. In the image above our utterance is "ask my skill to tell me a joke". Let's see what the voice service understood. As this is an Alexa skill, check the interactions history page (navigate to the Alexa dashboard, log in with the same account used to create the Bespoken Virtual Device token used in your test script, go to "Settings - History" in the left menu).
+![Alexa interactions history][AlexaInteractionsHistory]
+>Note:  Take into account that the Alexa page changes depending on the geography, for example, for the US go to alexa.amazon.com, for Germany go to alexa.amazon.de. 
+
+2. **Verify what token you are using**: If you can't locate the interaction in the history page, that means you probably have logged in with a different account than the one used to create the Bespoken Virtual Device used in your test script. It is like you are sending the utterance to a different Echo device. Please use the Amazon account associated with the selected token in your test scripts. If you have created several virtual devices and you are not sure which one is being used, ask the voice service by sending the utterance 'what is this device name' or 'what is my name'.
+![What is this device][WhichDeviceIsThis]
+
+3. **Try another Polly voice**: If you are able to locate the utterance in the history of interactions and the voice service did not understand it, then we have a speech recognition problem. If the problem is related to the invocation name, that explains why the voice service can't determine which skill to launch - it will say something like "Sorry, I don't know that" instead of invoking the skill.
+![Invocation name speech recognition problem][InnvocationNameSRP]
+In the above image (not a real case), Alexa is wrongly understanding "my skill". Why is that? ... There are several possible reasons. Just think of the myriad of combinations of accents, background noises and idiomatic variations your voice app can receive from your users. Voice services keep improving their ASR and NLU every day, but they are not perfect. In our case, we use Amazon Polly voices to transform the text utterance from your test script into speech, and sometimes, like in real life, the voice service might not understand it correctly. One way to troubleshoot this is going to the AWS Polly console and play around with the different available voices - listen to how they pronounce your voice app's invocation name and select the one you think sounds best. By default, we use the "Joey" voice for en-US locale, which in general provides good results. But keep in mind that if you listen to the generated speech and it sounds good to you, but the voice service is not understanding correctly, [you might have a serious problem that can become a reality once you publish your skill](https://medium.com/swlh/i-just-shut-down-my-startup-heres-what-i-learned-2a57c0e98090). If that is the case, consider using a different invocation name and be sure it is correctly understood in one-shot and in-session utterances.
+
+4. **Use special characters in the invocation name**: Let's image the invocation name you have selected is ABE, but the voice service is interpreting it as the name "Abe". To avoid this you can add special characters to it, for example, "A-B-E" or "A.B.E."
+
+5. **Use sound-alike words or the phoneme tag**: This is a good way to overcome speech recognition issues with your invocation name when writing test scripts. You can start by using sound-alike words. For example, let's imagine you invoke your voice app like this "open pikachu facts", you can use "open peak a choo facts" as the invocation name in your scripts if you are having speech recognition problems. If that doesn't solve the issue you can try using [the `phoneme` tag](https://docs.aws.amazon.com/polly/latest/dg/supportedtags.html#phoneme-tag). For example, let's say we have a skill which can be invoked with a one-shot utterance like "ask who's the boss to play episode 3 season 4 on main screen", sadly Alexa is hearing "ask who's the bounce to play episode 3 season 4 on main screen" and we are getting "sorry, I don't know that" in return. This certainly might happen with some of your user's accents. To resolve this problem you can use the phoneme tag like this:
+```
+<speak>ask who's the <phoneme alphabet="ipa" ph="/bɒss/">boss</phoneme> to play episode 3 season 4 on main screen.</speak>
+```
+Adding an extra "s" with the phoneme tag makes it more clear, and Alexa can properly understand the invocation name. Use Amazon Polly console, a [phonetic transcription software](https://www.phonetizer.com/ui), and a [phonetic alphabet](https://docs.aws.amazon.com/polly/latest/dg/ph-table-english-us.html) to help you create the appropriate SSML code for your specific case.
+
+6. **Choose another invocation name**: In case you have tried several things and the problem persists, we recommend to select another invocation name that provides better results.
+
+7. **Check your interaction model**: It might happen that the voice service is correctly invoking your voice app but the wrong intent is requested, causing unexpected behavior. In this case, the problem might be located in your interaction model. If this is your case, please check if you have provided enough sample utterances and update it accordingly.
+
+8. **Check your voice app code**: In case the voice service is correctly recognizing the invocation name, and the appropriate intent is being hit, but still you are getting an unexpected response it is probably a problem with your voice app's backend. Please check your app's code. For this, we suggest using unit test scripts with a debugger to easily and quickly spot the issue. Read [here](https://read.bespoken.io/unit-testing/faq/#how-do-i-use-the-debugger-with-bespoken-unit-tests-and-visual-studio) to know how.
 
 If you need assistance, please talk to us through the chat widget at the lower right-hand corner of our [Dashboard](https://apps.bespoken.io/dashboard/) or [Website](https://bespoken.io/).
 
@@ -323,12 +355,16 @@ It is also possible to specify multiple valid values for a property. That is don
     - How are you?
 ```
 
-## I have errors when testing in parallel with devices using the same account with Alexa
+## **I have errors when testing in parallel with devices using the same account with Alexa**
 Alexa AVS doesn't handle more than one request for the same account, if you need to do parallel tests, create the necessary virtual devices using different accounts at the setup.
 
+## **If you get "to let me read out that information turn on personal results in the google app home" as response instead a response from your action**
+Follow [these steps](./setup.html#enable-personal-results-for-google).
 
 <!-- Images references -->
 [AlexaHistory]: ./assets/alexaHistory.png "Showing Alexa voice interactions history"
-
-## If you get "to let me read out that information turn on personal results in the google app home" as response instead a response from your action
-Follow [these steps](./setup.html#enable-personal-results-for-google).
+[MonitoringOddResult]: ./assets/TroubleshootingSRIWithInvocationName-1.png "Showing monitoring odd result"
+[TroubleshootingWorkflow]: ./assets/TroubleshootingSRIWithInvocationName-2.png "Workflow to detect speech recognition errors with the invocation name"
+[AlexaInteractionsHistory]: ./assets/TroubleshootingSRIWithInvocationName-3.png "Accessing history of interactions in Alexa"
+[InnvocationNameSRP]: ./assets/TroubleshootingSRIWithInvocationName-4.png "This is how an invocation name speech recognition issue looks like in Alexa"
+[WhichDeviceIsThis]: ./assets/TroubleshootingSRIWithInvocationName-5.png "This is how to know which Bespoken Virtual Device you are using."
