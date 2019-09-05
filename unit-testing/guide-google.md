@@ -643,7 +643,7 @@ You can also apply tags to all the tests inside a file by setting the tags insid
 
 ```yml
 configuration
-  tags: FirstUse, Alexa
+  tags: FirstUse, Google
 ```
 
 Note that multiple tags can be applied to a test, as a comma-delimited list.
