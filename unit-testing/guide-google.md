@@ -639,6 +639,13 @@ By specifying tags in particular tests you can then run only the tests you want.
 - open my skill: hello
 ```
 
+You can also apply tags to all the tests inside a file by setting the tags inside de configuration element:
+
+```yml
+configuration
+  tags: FirstUse, Alexa
+```
+
 Note that multiple tags can be applied to a test, as a comma-delimited list.
 
 If you want to run all the tests that have that particular tag, you can edit testing.json to indicate that those are the ones to run by adding the "include" property:
