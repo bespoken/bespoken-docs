@@ -459,8 +459,9 @@ This is a shorthand for this more verbose syntax:
 ```yml
 - "Some utterance"
   - intent: SomeIntent
-    SlotA: ValueA
-    SlotB: ValueB
+  - slots:
+      SlotA: ValueA
+      SlotB: ValueB
 ```
 
 This interaction will send an IntentRequest with the intent name SomeIntent and slots SlotA and SlotB set to ValueA and ValueB respectively.
