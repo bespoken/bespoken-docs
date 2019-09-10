@@ -39,7 +39,7 @@ To set the address to be returned from the Address API via mock, just enter a co
 ```yml
 configuration:
   address:
-    addressLine1: 1600 Pennsylvania Avenue, NW
+    addressLine1: 215 Elm Street, NW
     city: Washington
     countryCode: US
     postalCode: 20816
