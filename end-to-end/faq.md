@@ -1,5 +1,5 @@
 ---
-title: FAQ
+title: FAQ (End to End Testing)
 permalink: /end-to-end/faq/
 ---
 
