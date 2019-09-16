@@ -14,13 +14,7 @@ The Bespoken CLI are a set of tools created by us to let you develop faster and 
 
 ## Installation
 
-Make sure you have NPM and node installed:
-```bash
-$ node --version && npm --version
-```
-We support node version `4.x.x` and above.  For help installing, see [How To Install NPM](http://blog.npmjs.org/post/85484771375/how-to-install-npm)
-
-Next, install the Bespoken command line tool (bst):
+To install the Bespoken command line tool (bst) do:
 ```bash
 $ npm install bespoken-tools -g
 ```
@@ -32,6 +26,9 @@ Verify the installation by typing:
 ```bash
 $ bst
 ```
+
+Haven't used npm before?, we have you covered:
+[How To Install NPM](http://blog.npmjs.org/post/85484771375/how-to-install-npm)
 
 You will then be able to use our commands, described below: 
  
