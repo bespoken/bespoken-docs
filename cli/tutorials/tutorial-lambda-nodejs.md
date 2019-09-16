@@ -51,9 +51,7 @@ __Click on the "Create Skill" button__
 
 __Fill out the Information tab__
 
-<div>
-<img src="attachment:./../../assets/images/Tutorials-CLI-create-skill.png" width="500"/>
-</div>
+<img src="./../../assets/images/Tutorials-CLI-create-skill.png" width="500"/>
 
 * Give your skill a name, 'greeter' for example
 * Click on the __"Create Skill"__ button
@@ -63,9 +61,7 @@ __Leave the default "Start from scratch" option and click on "Choose"__
 
 __Fill out the Interaction Model__
 
-<div>
-<img src="attachment:./../../assets/images/Tutorials-CLI-InteractionModel.png" width="500"/>
-</div>
+<img src="./../../assets/images/Tutorials-CLI-InteractionModel.png" width="500"/>
 
 * Copy the Interaction Model from [here](https://raw.githubusercontent.com/alexa/skill-sample-nodejs-hello-world/master/models/en-US.json)
 * Click on the __"JSON Editor"__ from the Interaction Model Options
@@ -92,10 +88,7 @@ Copy this URL as your endpoint, then:
 * Paste the proxy url
 * On the SSL Certificate Option, select the middle option "My development endpoint is a sub-domain of a domain that has a wildcard certificate from a certificate authority"
 
-<div>
-<img src="attachment:./../../assets/images/Tutorials-CLI-proxy-configuration.png" width="500"/>
-</div>
-
+<img src="./../../assets/images/Tutorials-CLI-proxy-configuration.png" width="500"/>
 
 ## Test
  * Go to the __"Test"__ tab in the skill Configuration
@@ -104,6 +97,4 @@ Copy this URL as your endpoint, then:
 
 You should get a valid JSON in reply:
 
-<div>
-<img src="attachment:./../../assets/images/Tutorials-CLI-test.png" width="500"/>
-</div>
+<img src="./../../assets/images/Tutorials-CLI-test.png" width="500"/>
