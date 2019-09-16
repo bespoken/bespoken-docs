@@ -27,7 +27,7 @@ Verify the installation by typing:
 $ bst
 ```
 
-Haven't used npm before?, we have you covered:
+Haven't used npm before? We have you covered:
 [How To Install NPM](http://blog.npmjs.org/post/85484771375/how-to-install-npm)
 
 You will then be able to use our commands, described below: 
