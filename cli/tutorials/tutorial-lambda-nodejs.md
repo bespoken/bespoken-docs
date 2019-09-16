@@ -3,7 +3,7 @@ title: NODE.JS & LAMBDA
 permalink: /tutorials/tutorial-lambda-nodejs/
 ---
 
-# Debugging voice apps locally With Webstorm and Bespoken
+# Debugging your Node voice apps locally Bespoken
 
 This tutorial shows you how to get started developing for Alexa Skills Kit using a Nodejs Lambda.  
 

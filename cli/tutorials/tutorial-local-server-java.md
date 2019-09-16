@@ -3,7 +3,7 @@ title: LOCAL JAVA SERVER
 permalink: /tutorials/tutorial-local-server-java/
 ---
 
-# Debugging voice apps locally With Webstorm and Bespoken
+# Debugging your Java voice apps locally with Bespoken
 
 This tutorial shows you how to get started developing for Alexa with Java and Maven.  
 
@@ -56,16 +56,27 @@ $ bst proxy http 9999
 
 From the [Alexa Skills Kit list](https://developer.amazon.com/edw/home.html#/skills/list) within the Amazon Developer's Console:
 
-__Choose "Add a New Skill"__
+__Click on the "Create Skill" button__
 
 __Fill out the Information tab__
 
-* Give your skill a name and invocation phrase, 'bst java sample' and 'greeter' for example
+<img src="./../../assets/images/Tutorials-CLI-create-skill.png" width="500"/>
+
+* Give your skill a name, 'greeter' for example
+* Click on the __"Create Skill"__ button
+
+__Leave the default "Start from scratch" option and click on "Choose"__
+
 
 __Fill out the Interaction Model__
 
-* Copy and paste the Intent Schema from [here](https://raw.githubusercontent.com/bespoken/bst/master/samples/java/src/main/java/helloworld/speechAssets/IntentSchema.json)
-* Copy and paste the Sample Utterances from [here](https://raw.githubusercontent.com/bespoken/bst/master/samples/java/src/main/java/helloworld/speechAssets/SampleUtterances.txt)
+<img src="./../../assets/images/Tutorials-CLI-InteractionModel.png" width="500"/>
+
+* Copy the Interaction Model from [here](https://raw.githubusercontent.com/alexa/skill-sample-nodejs-hello-world/master/models/en-US.json)
+* Click on the __"JSON Editor"__ from the Interaction Model Options
+* Paste the Interaction Model
+* Click on the __"Save Model"__ button
+* Click on the __"Build Model"__ button
 
 __Configure the Endpoint__
 
@@ -80,7 +91,6 @@ https://your-proxy.bespoken.link
 (Be sure to put in your real path and other query string parameters!)
 
 ```
-Alternatively, you can create this URL via the `proxy urlgen` command.
 
 You first need to modify it to the path that your server is listening on, in this case it is `/hello`.
 
@@ -88,25 +98,27 @@ You first need to modify it to the path that your server is listening on, in thi
 https://your-proxy.bespoken.link/hello
 ```
 
-Copy and paste this URL as your endpoint:
+Copy this URL as your endpoint, then:
 
-![Alexa Skill Configuration](./../../assets/images/bst-java-server-tutorial-configuration.png "Alexa Skill Configuration")
+* Select the __"Endpoint"__ option in your skill configuration
+* Select __"HTTPS"__ for your service endpoint type
+* Paste the proxy url
+* On the SSL Certificate Option, select the middle option "My development endpoint is a sub-domain of a domain that has a wildcard certificate from a certificate authority"
 
-Also make sure you select "HTTPS" and account linking to "NO".
+<img src="./../../assets/images/Tutorials-CLI-proxy-configuration-with-path.png" width="500"/>
 
-__Configure SSL__  
-
-On the SSL Certificate page, select the middle radio button "My development endpoint is a subdomain of a domain that has a wildcard certificate from a certificate authority"
 
 ## Test
-Go to the service simulator, and type: "hello" and hit "Ask \<Your Skill Name>".
+ * Go to the __"Test"__ tab in the skill Configuration
+ * Enable testing for development by clicking in the selector on the top of the page, it starts in "Off" by default.
+ * On the service simulator, type: "Ask hello world".
 
 You should get a valid JSON in reply:
 
-![Test your Skill](./../../assets/images/bst-java-server-tutorial-test.png "Test your Skill")
+<img src="./../../assets/images/Tutorials-CLI-test.png" width="500"/>
 
 ## Next Steps
 You can now start adding functionality to your skill. To learn more about coding Alexa Skills, see the official [documentation](https://github.com/amzn/alexa-skills-kit-java)
 
 You can also try it out on an Alexa device like an Echo, as long as it is registered with your account.
-Just say "Open \<Your Invocation Name>" to use it.
+Just say "Open hello world" to use it.
