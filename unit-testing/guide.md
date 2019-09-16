@@ -400,8 +400,9 @@ This is a shorthand for this more verbose syntax:
 ```yml
 - "Some utterance"
   - intent: SomeIntent
-    SlotA: ValueA
-    SlotB: ValueB
+  - slots:
+      SlotA: ValueA
+      SlotB: ValueB
 ```
 
 This interaction will send an IntentRequest with the intent name SomeIntent and slots SlotA and SlotB set to ValueA and ValueB respectively.
@@ -578,6 +579,13 @@ By specifying tags in particular tests you can then run only the tests you want.
 - test: open the skill
 - tags: FirstUse, Alexa
 - open my skill: hello
+```
+
+You can also apply tags to all the tests inside a file by setting the tags inside de configuration element:
+
+```yml
+configuration
+  tags: FirstUse, Alexa
 ```
 
 Note that multiple tags can be applied to a test, as a comma-delimited list.
