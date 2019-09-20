@@ -3,7 +3,7 @@ title: PYTHON & FLASK ASK
 permalink: /tutorials/tutorial-flask-ask-python/
 ---
 
-# Debugging voice apps locally With Webstorm and Bespoken
+# Debugging Python voice apps locally with Bespoken
 
 This tutorial shows you how to get started developing with bst for Alexa Skills Kit in Python using [Flask-Ask](https://alexatutorial.com/flask-ask/).
 
@@ -53,18 +53,26 @@ where `http` is the protocol for the proxy and `5000` is the port the tidepooler
 
 From the [Alexa Skills Kit list](https://developer.amazon.com/edw/home.html#/skills/list) within the Amazon Developer's Console:
 
-__Choose "Add a New Skill"__
+__Click on the "Create Skill" button__
 
 __Fill out the Information tab__
 
-*  Give your skill a name and invocation phrase, "tidepooler" and "tidepooler" for example
+<img src="./../../assets/images/Tutorials-CLI-create-skill.png" width="500"/>
+
+* Give your skill a name, 'tidepooler' for example
+* Click on the __"Create Skill"__ button
+
+__Leave the default "Start from scratch" option and click on "Choose"__
 
 __Fill out the Interaction Model__
 
-* Copy and paste the Intent Schema from [here](https://raw.githubusercontent.com/johnwheeler/flask-ask/master/samples/tidepooler/speech_assets/IntentSchema.json)
-* Click "Add Slot Type", enter `LIST_OF_CITIES` as the type and copy and paste the values from [here](https://raw.githubusercontent.com/johnwheeler/flask-ask/master/samples/tidepooler/speech_assets/customSlotTypes/LIST_OF_CITIES), click `Save`
-* Click "Add Slot Type", enter `LIST_OF_STATES` as the type and copy and paste the values from [here](https://raw.githubusercontent.com/johnwheeler/flask-ask/master/samples/tidepooler/speech_assets/customSlotTypes/LIST_OF_STATES), click `Save`
-* Copy and paste the Sample Utterances from [here](https://raw.githubusercontent.com/johnwheeler/flask-ask/master/samples/tidepooler/speech_assets/SampleUtterances.txt)
+<img src="./../../assets/images/Tutorials-CLI-InteractionModel.png" width="500"/>
+
+* Copy the Interaction Model from [here](https://gist.githubusercontent.com/jperata/e9866c5d86311ae6558012a7b9e153c7/raw/4cbe189c6f9c55bf8bb65be321b04bc597645c28/en-US.json)
+* Click on the __"JSON Editor"__ from the Interaction Model Options
+* Paste the Interaction Model
+* Click on the __"Save Model"__ button
+* Click on the __"Build Model"__ button
 
 __Configure the Endpoint__
 
@@ -81,15 +89,25 @@ https://your-proxy.bespoken.link
 INFO  2016-09-12T17:34:52.202Z Connected - proxy.bespoken.tools:5000
 ```
 
-Also make sure you select "HTTPS" for the endpoint type and account linking is set to "NO".
+Copy this URL as your endpoint, then:
 
-__Configure SSL__  
+* Select the __"Endpoint"__ option in your skill configuration
+* Select __"HTTPS"__ for your service endpoint type
+* Paste the proxy url
+* On the SSL Certificate Option, select the middle option "My development endpoint is a sub-domain of a domain that has a wildcard certificate from a certificate authority"
 
-On the SSL Certificate page, select the middle radio button "My development endpoint is a subdomain of a domain that has a wildcard certificate from a certificate authority"
+<img src="./../../assets/images/Tutorials-CLI-proxy-configuration.png" width="500"/>
 
 ## Test
+ * Go to the __"Test"__ tab in the skill Configuration
+ * Enable testing for development by clicking in the selector on the top of the page, it starts in "Off" by default.
+ * On the service simulator, type: "Ask hello world".
 
-Now that you have the python server running, bst proxy running and your skill configured, it is time to test.  In the Service Simulator on the Test tab, try typing in some of the following phrases:
+You should get a valid JSON in reply:
+
+<img src="./../../assets/images/Tutorials-CLI-test.png" width="500"/>
+
+After that you can try other utterances like:
 
 ```bash
 get high tide
@@ -101,7 +119,7 @@ when is the next highest water for virginia beach
 what cities are supported
 ```
 
-We can also use the bst speak command to test locally instead of using the Service Simulator.  In order to do this, you need to tell Flask-Ask to not verify the request signatures (which it does by default).
+We can also use the bst utter command to test locally instead of using the Service Simulator.  In order to do this, you need to tell Flask-Ask to not verify the request signatures (which it does by default).
 
 After [line 55](https://github.com/johnwheeler/flask-ask/blob/master/samples/tidepooler/tidepooler.py#L55) of tidepooler.py, insert the following line:
 
@@ -114,7 +132,7 @@ __Please Note:__  As mentioned in the [documentation](https://alexatutorial.com/
 Restart your python skill server and from a new terminal (make sure bst proxy is still running) at the root of the project run:
 
 ```bash
-$ bst speak -i speech_assets/IntentSchema.json -s speech_assets/SampleUtterances.txt get high tide
+$ bst utter -i speech_assets/IntentSchema.json -s speech_assets/SampleUtterances.txt get high tide
 ```
 
 You should see the request and then the response back from tidepooler.py.
@@ -122,5 +140,5 @@ You should see the request and then the response back from tidepooler.py.
 You can even test with slots by including your slot value in brackets, for example:
 
 ```bash
-$ bst speak -i speech_assets/IntentSchema.json -s speech_assets/SampleUtterances.txt when is the next highest water for {virginia beach}
+$ bst utter -i speech_assets/IntentSchema.json -s speech_assets/SampleUtterances.txt when is the next highest water for {virginia beach}
 ```
