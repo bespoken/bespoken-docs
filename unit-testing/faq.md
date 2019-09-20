@@ -63,11 +63,24 @@ Yes, you can. It does require having a server running locally on your laptop tha
 
 Before the test is run, start the server to receive payloads. It will be listening on something like: `http://localhost:9000`.
 
-Set that URL in the `skillURL` configuration element in the testing.json file. This should be set instead of the `handler` element - the handler only works with Javascript lambdas/functions.
+Set that URL in the `skillURL` configuration element in the `testing.json` file. This should be set instead of the `handler` element - the handler only works with Javascript lambdas/functions.
 
 After tests are run, shut the server down - we recommend doing this as part of a regular process. It can be added to one of our filters, for example - [read about filters here](https://read.bespoken.io/unit-testing/guide/#filtering-during-test).
 
 Finally, if you have request signature checking or timestamp filtering being performed on the requests, you will need to disable this.
+
+## **I have network issues while using the tools, why is that?**  
+This might happen if your network admin is blocking ports. The `bst proxy` tool uses a tunnel in the port 80. In case your network admin has defined blocking rules for domains, you won't be able to use Bespoken. To make it work, you have to request your network admin to unblock next domains:
+* https://api.bespoken.link and (`*.bespoken.link` if you want to use the proxy command)
+* https://proxy.bespoken.tools
+* https://source-api.bespoken.tools
+* https://virtual-device.bespoken.io (if you are going to execute end-to-end tests)
+
+## **I get errors when using bespoken unit testing against my Alexa production server**
+In order to certify your Alexa Skill, all requests have to come from Amazon. Since we generate mock requests to do the unit testing, these don't go through the Amazon validation process and will be rejected. If you want to test against a production skill please use our end-to-end tests.
+
+## **I want to do something that is not supported with the tools like adding a delay between responses or stopping after a test has failed**
+Use the filter functionalities to add any kind of behavior during tests (read [here](https://read.bespoken.io/unit-testing/guide/#filtering-during-test) for more information). Please, also refer to [the API documentation](https://bespoken.github.io/skill-testing-ml/api/Test.html) to understand how to use the `test` property. For instance, the `test` property can be used to know if the test has passed/failed, or if the test should be skipped.
 
 # **Working with test scripts**
 
