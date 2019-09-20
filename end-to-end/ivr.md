@@ -1,6 +1,6 @@
 ---
 title: Guide to End-To-End IVR Testing (BETA)
-permalink: /end-to-end/guide-ivr/
+permalink: /end-to-end/ivr/
 ---
 
 # End-To-End Testing For Interactive Voice Response
