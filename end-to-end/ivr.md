@@ -91,7 +91,7 @@ Make sure "trace" is set to true in the testing.json file. This will output the 
 * The transcript of the response received
 
 ## Listen To Twilio Recordings
-* Log into Twilio (ask [Bespoken Support](support@bespoken.io) for access if you don't have  it already)
+* Log into Twilio (ask [Bespoken Support](mailto:support@bespoken.io) for access if you don't have  it already)
 * Click on phone icon (Programmable Voice)
 * Click on the number being used for the test (should be 202-559-1161)
 * Click on calls logs
