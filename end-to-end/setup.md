@@ -5,7 +5,7 @@ permalink: /end-to-end/setup/
 
 # Setting Up A Virtual Device
 ## Background
-In order to test your Alexa skills and Google Actions, you need to create a Virtual Device. What is a Virtual Device? It is like a physical Amazon Echo, but one that can be interacted with programmatically.
+In order to test your Alexa skills and Google Actions, you need to create a Virtual Device. What is a Virtual Device? It is like a physical Amazon Echo or Google Home, but one that can be interacted with programmatically.
 
 We'll create a trial Virtual Device for you, the only thing we need you to do is to grant us to access to your Amazon Alexa or Google Assistant account. Once completed, you will have a token, which uniquely identifies the Virtual Device, that you can use in your tests.
 
@@ -16,34 +16,36 @@ There a couple steps for the setup - but don't worry - you will only have to do 
 1. The way to get a token is through [Bespoken Dashboard](https://apps.bespoken.io/dashboard). Sign up for free or login; you will see a screen like this:
 ![Bespoken Dashboard](./assets/dashboard.png "Bespoken Dashboard")
 
-2. Add a source for your skill, to do it just click on the big + icon below the llama, you will be asked to input the name for this source, for example, *"my awesome skill"*. Then click on the text saying **"Validate your new skill >>"**. You will see a window like this:
-![A skill source inside Bespoken Dashboard](./assets/source.png "New source added")
+2. On the left panel click on **"Virtual Devices"** option. You will see the virtual device manager:
+![Virtual Device Manager](./assets/virtualDeviceManager.png "Virtual Device Manager")
 
-3. Click on the **"Create Virtual Device"** link, you will see an Amazon window where you have to log in:
+3. Click on the **"Add Virtual Device"** link, then select "Alexa Virtual Device":
+![Alexa Virtual Device](./assets/alexaVirtualDevice.png "Alexa Virtual Device")
+
+4. A dialog will be displayed, after click on **"OK"** you will be redirected to an Amazon window where you have to log in:
+![Virtual Device Manager Dialog](./assets/VirtualDeviceManagerDialog.png "Virtual Device Manager Dialog")
 ![Window to log in with Amazon](./assets/amazonLogin.png "Giving permissions to Virtual Device")
 
-4. After providing your credentials you will return to Bespoken dashboard and the **"Virtual Device Token"** will be retrieved automatically:
-![Skill source with token retrieved](./assets/sourceWithToken.png "Token is retrieved automatically")
-
-5. Click on the copy icon next to the name of your virtual device to copy it to the clipboard and you are set.
+5. After providing your credentials you will return to Bespoken dashboard and the **"Virtual Device Token"** will be retrieved automatically:
+![Virtual Device Manager With Token](./assets/VirtualDeviceManagerWithToken.png "Virtual Device Manager With Token")
 
 ### Virtual Devices for Google
 1. The way to get a token is through [Bespoken Dashboard](https://apps.bespoken.io/dashboard). Sign up for free or login; you will see a screen like this:
 ![Bespoken Dashboard](./assets/dashboard.png "Bespoken Dashboard")
 
-2. Add a source for your action, to do it just click on the big + icon below the llama, you will be asked to input the name for this source, for example, *"my awesome action"*. Then click on the text saying **"Validate your new skill >>"**. You will see a window like this:
-![An action source inside Bespoken Dashboard](./assets/source.png "New source added")
+2. On the left panel click on **"Virtual Devices"** option. You will see the virtual device manager:
+![Virtual Device Manager](./assets/virtualDeviceManager.png "Virtual Device Manager")
 
-3. Ensure the type of your source is set to Google Action.
-![An action source with the correct type](./assets/sourceAction.png "Type action selected")
+3. Click on the **"Add Virtual Device"** link, then select "Google Virtual Device":
+![Google Virtual Device](./assets/alexaVirtualDevice.png "Google Virtual Device")
 
-4. Click on the **"Create Virtual Device"** link, after you login or select your account, you will see a Google window where you have to allow Bespoken to access to your Google Account:
-![Window to allow permissions in Google](./assets/googlePermissions.png "Giving permissions to Virtual Device")
+4. A dialog will be displayed, after click on **"OK"** you will be redirected to an Google window where you have to log in:
+![Virtual Device Manager Dialog](./assets/VirtualDeviceManagerDialogGoogle.png "Virtual Device Manager Dialog")
+![Google Permissions](./assets/googlePermissions.png "Google Permissions")
 
-5. After allowing access to Bespoken you will return to Bespoken dashboard and the **"Virtual Device Token"** will be retrieved automatically:
-![Action source with token retrieved](./assets/sourceForGoogleWithToken.png "Token is retrieved automatically")
+5. After providing your credentials you will return to Bespoken dashboard and the **"Virtual Device Token"** will be retrieved automatically:
+![Virtual Device Manager With Token](./assets/VirtualDeviceManagerWithTokenGoogle.png "Virtual Device Manager With Token")
 
-6. Click on the copy icon next to the name of your virtual device to copy it to the clipboard and you are set.
 
 ### Enable personal results for Google 
 
