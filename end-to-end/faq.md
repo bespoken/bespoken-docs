@@ -236,11 +236,19 @@ Adding an extra "s" with the phoneme tag makes it more clear, and Alexa can prop
 
 If you need assistance, please talk to us through the chat widget at the lower right-hand corner of our [Dashboard](https://apps.bespoken.io/dashboard/) or [Website](https://bespoken.io/).
 
-## **Does Bespoken Tools support account linking? How can I test a voice app that requires a linked account?**
-The account linking process is part of your app's functionality. The features provided by the external backend might be part of your functional scope or extend it. Either way, the Bespoken Tools setup is agnostic to it. What you should do in any case is to first link the Amazon or Google account you want to use to run tests with your app's backend and then start testing. Remember that, when creating a Virtual Device, you have to use the same Amazon or Google account used in the account linking process.
+## <a id="anchorToAccLinking!stQ"></a>**How do I test a voice app that requires account linking?**
+To test a voice app that requires account linking, simply link the account as you normally would within the Alexa and/or Google management screens. Once the account linking process is completed, you can talk to the skill and access account-specific information via your virtual device. It's that easy!
 
-## **Can I use Bespoken Tools to test the account linking process itself?**
-As the account linking process involves __visual__ user interaction between your voice service provider and an external backend, you need to use an external web automation tool like Selenium to accomplish it. This visual interaction test script can be later linked to the audio interaction test scripts created with Bespoken Tools to check the entire functionality of your app. Please [contact us](mailto:sales@bespoken.io) in case you want to discuss further as we can assist you in creating the visual test scripts with Selenium.
+Of course, make sure the Alexa/Google account you are using is the same one that your virtual device is associated with.
+
+If you are unsure what Amazon account your virtual device is associated with, try sending this to Alexa:
+
+`bst speak --token <VIRTUAL-DEVICE-TOKEN> what is my name`
+
+## **Can I test the account linking process itself with Bespoken?**
+As the account linking process involves __visual__ user interaction between a voice platform and your backend, you need to use an external web automation tool like Selenium to accomplish it. This visual interaction test script can be later linked to the audio interaction test scripts created with Bespoken Tools. Please [contact us](mailto:sales@bespoken.io) in case you want to discuss further as we can assist you in creating the visual test scripts with Selenium.
+
+Of course, if you are just trying to test specific account scenarios (and not the account linking process itself), we recommend setting up virtual devices linked to specific accounts. You only need to do this once, and then you can test these scenarios as needed essentially forever. Read more at this [FAQ entry](#anchorToAccLinking!stQ)
 
 ## **My skill supports multiple locales, how do I create functional tests for it?**
 First thing is to generate one Bespoken Virtual Device token per each locale you want to test. Then organize your test folder as [shown previously](#anchorToFolderStructure) and add your tokens to your test script files or `testing.json` file.
