@@ -514,6 +514,21 @@ The test will end when it reaches the `exit` statement at the end (no further in
 
 Using `goto` and `exit`, more complex tests can be built.
 
+### Pause
+
+By adding a "$PAUSE" instruction within the test, the execution of the test can be paused for the specific time. Add "$PAUSE" follow by the time to pause in seconds.
+
+For example:
+```yml
+---
+- test: pause instruction
+- open get fact: here's your fact
+- help: just say get fact to get a fact
+- $PAUSE 3
+- open get fact: here's your fact
+- stop: goodbye
+```
+
 ### Skipping Tests
 Label tests "test.only" or "test.skip" to either only run a particular test, or to skip it. Example:
 ```yml
