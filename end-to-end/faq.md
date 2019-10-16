@@ -236,7 +236,7 @@ Adding an extra "s" with the phoneme tag makes it more clear, and Alexa can prop
 
 If you need assistance, please talk to us through the chat widget at the lower right-hand corner of our [Dashboard](https://apps.bespoken.io/dashboard/) or [Website](https://bespoken.io/).
 
-## <a id="anchorToAccLinking!stQ"></a>**How do I test a voice app that requires account linking?**
+## **How do I test a voice app that requires account linking?**
 To test a voice app that requires account linking, simply link the account as you normally would within the Alexa and/or Google management screens. Once the account linking process is completed, you can talk to the skill and access account-specific information via your virtual device. It's that easy!
 
 Of course, make sure the Alexa/Google account you are using is the same one that your virtual device is associated with.
@@ -248,7 +248,7 @@ If you are unsure what Amazon account your virtual device is associated with, tr
 ## **Can I test the account linking process itself with Bespoken?**
 As the account linking process involves __visual__ user interaction between a voice platform and your backend, you need to use an external web automation tool like Selenium to accomplish it. This visual interaction test script can be later linked to the audio interaction test scripts created with Bespoken Tools. Please [contact us](mailto:sales@bespoken.io) in case you want to discuss further as we can assist you in creating the visual test scripts with Selenium.
 
-Of course, if you are just trying to test specific account scenarios (and not the account linking process itself), we recommend setting up virtual devices linked to specific accounts. You only need to do this once, and then you can test these scenarios as needed essentially forever. Read more at this [FAQ entry](#anchorToAccLinking!stQ)
+Of course, if you are just trying to test specific account scenarios (and not the account linking process itself), we recommend setting up virtual devices linked to specific accounts. You only need to do this once, and then you can test these scenarios as needed essentially forever. Read more at this [FAQ entry](#how-do-i-test-a-voice-app-that-requires-account-linking)
 
 ## **My skill supports multiple locales, how do I create functional tests for it?**
 First thing is to generate one Bespoken Virtual Device token per each locale you want to test. Then organize your test folder as [shown previously](#anchorToFolderStructure) and add your tokens to your test script files or `testing.json` file.
