@@ -1,6 +1,6 @@
 ---
 title: NODE.JS & LAMBDA
-permalink: /tutorials/tutorial-lambda-nodejs/
+permalink: /cli/tutorials/tutorial-lambda-nodejs/
 ---
 
 # Debugging your Node voice apps locally Bespoken

@@ -1,6 +1,6 @@
 ---
 title: WEBSTORM DEBUGGING
-permalink: /tutorials/debugging-locally/
+permalink: /cli/tutorials/debugging-locally/
 ---
 
 # Debugging voice apps locally With Webstorm and Bespoken
