@@ -1,6 +1,6 @@
 ---
 title: LOCAL JAVA SERVER
-permalink: /tutorials/tutorial-local-server-java/
+permalink: /cli/tutorials/tutorial-local-server-java/
 ---
 
 # Debugging your Java voice apps locally with Bespoken

@@ -1,6 +1,6 @@
 ---
 title: PYTHON & FLASK ASK
-permalink: /tutorials/tutorial-flask-ask-python/
+permalink: /cli/tutorials/tutorial-flask-ask-python/
 ---
 
 # Debugging Python voice apps locally with Bespoken
