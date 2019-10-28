@@ -5,49 +5,43 @@ permalink: /end-to-end/setup/
 
 # Setting Up A Virtual Device
 ## Background
-In order to test your Alexa skills and Google Actions, you need to create a Virtual Device. What is a Virtual Device? It is like a physical Amazon Echo or Google Home, but one that can be interacted with programmatically.
+In order to test your Alexa skills and Google Actions, you need to create a Virtual Device. A Virtual Device is just like a physical Amazon Echo or Google Home, but one that can be interacted with programmatically.
 
-We'll create a trial Virtual Device for you, the only thing we need you to do is to grant us to access to your Amazon Alexa or Google Assistant account. Once completed, you will have a token, which uniquely identifies the Virtual Device, that you can use in your tests.
+We'll create a trial Virtual Device for you, the only thing we need you to do is grant us access to your Amazon Alexa or Google Assistant account. Once completed, you will have a token, which uniquely identifies the Virtual Device, that you can use in your tests.
 
-There a couple steps for the setup - but don't worry - you will only have to do it once. And if you run into any issues, just [ping us here](https://gitter.im/bespoken/bst). We'll get it sorted out quickly!
+There is a couple of steps for the setup - but don't worry - you will only have to do it once. And if you run into any issues, just [ping us here](https://gitter.im/bespoken/bst). We'll get it sorted out quickly!
 
 ## Creating A Virtual Device
 ### Virtual Devices for Alexa
-1. The way to get a token is through [Bespoken Dashboard](https://apps.bespoken.io/dashboard). Sign up for free or login; you will see a screen like this:
+1. Sign up for free or login to the [Bespoken Dashboard](https://apps.bespoken.io/dashboard) and you will see the following screen:
 ![Bespoken Dashboard](./assets/dashboard.gif "Bespoken Dashboard")
 
-2. On the left panel click on **"Virtual Devices"** option. You will see the virtual device manager:
+2. On the left panel click on **"Virtual Devices"** to access the Virtual Device Manager:
 ![Virtual Device Manager](./assets/virtualDeviceManager.gif "Virtual Device Manager")
 
-3. Click on the **"Add Virtual Device"** link, then select "Alexa Virtual Device":
+3. Click on the **"Add Virtual Device"** button, then select "Alexa Virtual Device":
 ![Alexa Virtual Device](./assets/alexaVirtualDevice.gif "Alexa Virtual Device")
 
-4. A dialog will be displayed, after click on **"OK"** you will be redirected to an Amazon window where you have to log in:
+4. A dialog will be displayed, after clicking on **"OK"** you will be redirected to a  Login with Amazon page:
 ![Virtual Device Manager Dialog](./assets/VirtualDeviceManagerDialog.gif "Virtual Device Manager Dialog")
 
 5. After providing your credentials you will return to Bespoken dashboard and the **"Virtual Device Token"** will be retrieved automatically:
 ![Virtual Device Manager With Token](./assets/VirtualDeviceManagerWithToken.gif "Virtual Device Manager With Token")
 
 ### Virtual Devices for Google
-1. The way to get a token is through [Bespoken Dashboard](https://apps.bespoken.io/dashboard). Sign up for free or login; you will see a screen like this:
-![Bespoken Dashboard](./assets/dashboard.gif "Bespoken Dashboard")
-
-2. On the left panel click on **"Virtual Devices"** option. You will see the virtual device manager:
-![Virtual Device Manager](./assets/virtualDeviceManager.gif "Virtual Device Manager")
-
-3. Click on the **"Add Virtual Device"** link, then select "Google Virtual Device":
+1. Follow steps 1-3 from "Creating a Virtual Device for Alexa" but on step 3, select "Google Virtual Device" instead. 
 ![Google Virtual Device](./assets/alexaVirtualDevice.gif "Google Virtual Device")
 
-4. A dialog will be displayed, after click on **"OK"** you will be redirected to an Google window where you have to log in:
+2. A dialog will be displayed, after clicking on **"OK"** you will be redirected to a Google Sign-in page:
 ![Virtual Device Manager Dialog](./assets/VirtualDeviceManagerDialogGoogle.gif "Virtual Device Manager Dialog")
 
-5. After providing your credentials you will return to Bespoken dashboard and the **"Virtual Device Token"** will be retrieved automatically:
+3. After providing your credentials you will return to Bespoken dashboard and the **"Virtual Device Token"** will be retrieved automatically:
 ![Virtual Device Manager With Token](./assets/VirtualDeviceManagerWithTokenGoogle.gif "Virtual Device Manager With Token")
 
 
 ### Enable personal results for Google
 
-If you get a response: "to let me read out that information turn on personal results in the google app home" instead of a response from your actions, follow these additional steps:
+If you get a response: "to let me read out that information turn on personal results in the google app home" when testing your actions, follow these additional steps:
 
 ![Google app home](./assets/enable-personal-results.gif "enable personal results")
 On Android Devices:
