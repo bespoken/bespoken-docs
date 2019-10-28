@@ -14,40 +14,38 @@ There a couple steps for the setup - but don't worry - you will only have to do 
 ## Creating A Virtual Device
 ### Virtual Devices for Alexa
 1. The way to get a token is through [Bespoken Dashboard](https://apps.bespoken.io/dashboard). Sign up for free or login; you will see a screen like this:
-![Bespoken Dashboard](./assets/dashboard.png "Bespoken Dashboard")
+![Bespoken Dashboard](./assets/dashboard.gif "Bespoken Dashboard")
 
 2. On the left panel click on **"Virtual Devices"** option. You will see the virtual device manager:
-![Virtual Device Manager](./assets/virtualDeviceManager.png "Virtual Device Manager")
+![Virtual Device Manager](./assets/virtualDeviceManager.gif "Virtual Device Manager")
 
 3. Click on the **"Add Virtual Device"** link, then select "Alexa Virtual Device":
-![Alexa Virtual Device](./assets/alexaVirtualDevice.png "Alexa Virtual Device")
+![Alexa Virtual Device](./assets/alexaVirtualDevice.gif "Alexa Virtual Device")
 
 4. A dialog will be displayed, after click on **"OK"** you will be redirected to an Amazon window where you have to log in:
-![Virtual Device Manager Dialog](./assets/VirtualDeviceManagerDialog.png "Virtual Device Manager Dialog")
-![Window to log in with Amazon](./assets/amazonLogin.png "Giving permissions to Virtual Device")
+![Virtual Device Manager Dialog](./assets/VirtualDeviceManagerDialog.gif "Virtual Device Manager Dialog")
 
 5. After providing your credentials you will return to Bespoken dashboard and the **"Virtual Device Token"** will be retrieved automatically:
-![Virtual Device Manager With Token](./assets/VirtualDeviceManagerWithToken.png "Virtual Device Manager With Token")
+![Virtual Device Manager With Token](./assets/VirtualDeviceManagerWithToken.gif "Virtual Device Manager With Token")
 
 ### Virtual Devices for Google
 1. The way to get a token is through [Bespoken Dashboard](https://apps.bespoken.io/dashboard). Sign up for free or login; you will see a screen like this:
-![Bespoken Dashboard](./assets/dashboard.png "Bespoken Dashboard")
+![Bespoken Dashboard](./assets/dashboard.gif "Bespoken Dashboard")
 
 2. On the left panel click on **"Virtual Devices"** option. You will see the virtual device manager:
-![Virtual Device Manager](./assets/virtualDeviceManager.png "Virtual Device Manager")
+![Virtual Device Manager](./assets/virtualDeviceManager.gif "Virtual Device Manager")
 
 3. Click on the **"Add Virtual Device"** link, then select "Google Virtual Device":
-![Google Virtual Device](./assets/alexaVirtualDevice.png "Google Virtual Device")
+![Google Virtual Device](./assets/alexaVirtualDevice.gif "Google Virtual Device")
 
 4. A dialog will be displayed, after click on **"OK"** you will be redirected to an Google window where you have to log in:
-![Virtual Device Manager Dialog](./assets/VirtualDeviceManagerDialogGoogle.png "Virtual Device Manager Dialog")
-![Google Permissions](./assets/googlePermissions.png "Google Permissions")
+![Virtual Device Manager Dialog](./assets/VirtualDeviceManagerDialogGoogle.gif "Virtual Device Manager Dialog")
 
 5. After providing your credentials you will return to Bespoken dashboard and the **"Virtual Device Token"** will be retrieved automatically:
-![Virtual Device Manager With Token](./assets/VirtualDeviceManagerWithTokenGoogle.png "Virtual Device Manager With Token")
+![Virtual Device Manager With Token](./assets/VirtualDeviceManagerWithTokenGoogle.gif "Virtual Device Manager With Token")
 
 
-### Enable personal results for Google 
+### Enable personal results for Google
 
 If you get a response: "to let me read out that information turn on personal results in the google app home" instead of a response from your actions, follow these additional steps:
 
@@ -82,4 +80,4 @@ Now you can use the virtual device with your test script. Place it in the testin
 
 See how we do it [here](https://github.com/bespoken/virtual-device-example/blob/master/testing.json).
 
-And that is all you need in the setup process, now you can continue with the creation of your test scripts, or using Virtual Device programmatically. 
+And that is all you need in the setup process, now you can continue with the creation of your test scripts, or using Virtual Device programmatically.
