@@ -14,7 +14,7 @@ There is a couple of steps for the setup - but don't worry - you will only have 
 ## Creating A Virtual Device
 ### Virtual Devices for Alexa
 1. Sign up for free or login to the [Bespoken Dashboard](https://apps.bespoken.io/dashboard) and you will see the following screen:
-![Bespoken Dashboard](./assets/dashboard.gif "Bespoken Dashboard")
+![Bespoken Dashboard](./assets/dashboard.png "Bespoken Dashboard")
 
 2. On the left panel click on **"Virtual Devices"** to access the Virtual Device Manager:
 ![Virtual Device Manager](./assets/virtualDeviceManager.gif "Virtual Device Manager")
@@ -29,7 +29,7 @@ There is a couple of steps for the setup - but don't worry - you will only have 
 ![Virtual Device Manager With Token](./assets/VirtualDeviceManagerWithToken.gif "Virtual Device Manager With Token")
 
 ### Virtual Devices for Google
-1. Follow steps 1-3 from "Creating a Virtual Device for Alexa" but on step 3, select "Google Virtual Device" instead. 
+1. Follow steps 1-3 from "Creating a Virtual Device for Alexa" but on step 3, select "Google Virtual Device" instead.
 ![Google Virtual Device](./assets/alexaVirtualDevice.gif "Google Virtual Device")
 
 2. A dialog will be displayed, after clicking on **"OK"** you will be redirected to a Google Sign-in page:
@@ -72,6 +72,6 @@ Now you can use the virtual device with your test script. Place it in the testin
 }
 ```
 
-See how we do it [here](https://github.com/bespoken/virtual-device-example/blob/master/testing.json).
+See how we do it [here](https://github.com/bespoken-samples/virtual-device-example/blob/master/testing.json).
 
 And that is all you need in the setup process, now you can continue with the creation of your test scripts, or using Virtual Device programmatically.
