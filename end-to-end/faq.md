@@ -9,9 +9,8 @@ Here you can find common questions on regards End-to-end testing for voice apps.
 # **Getting started**
 
 ## **What is End-to-end (E2E) testing and why do I need it?**
-::: tip What is End-to-end (E2E) testing and why do I need it?
 >_End-to-end testing involves ensuring that the integrated components of an application function as expected. The entire application is tested in a real-world scenario such as communicating with the database, network, hardware and other applications ... Techopedia_
-:::
+
 Talking specifically about voice apps. End-to-end tests focus on testing:
 * The voice app as a whole (from Alexa/Google through infrastructure to voice app).
 * The utterance resolution aka the speech recognition.
