@@ -116,7 +116,7 @@ Below the end-to-end testing configuration options and what they do are listed:
 * [trace](#viewing-response-payloads) - Causes request and response JSON payloads from the skill to be printed to the console
 * [virtualDeviceToken](./setup.html) - For end-to-end tests that use virtual devices, this must be specified.
 [Get one here](./setup.html)
-* virtualDeviceBaseURL - Set a custom address for virtual device
+* virtualDeviceBaseURL - Sets a custom base address for the Virtual Device API endpoints 
 
 
 
