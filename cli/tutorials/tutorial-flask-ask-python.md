@@ -5,7 +5,7 @@ permalink: /cli/tutorials/tutorial-flask-ask-python/
 
 # Debugging Python voice apps locally with Bespoken
 
-This tutorial shows you how to get started developing with bst for Alexa Skills Kit in Python using [Flask-Ask](https://alexatutorial.com/flask-ask/).
+This tutorial shows you how to get started developing with bst for Alexa Skills Kit in Python using [Flask-Ask](https://flask-ask.readthedocs.io/en/latest/).
 
 ## Prerequisites
 
@@ -127,7 +127,7 @@ After [line 55](https://github.com/johnwheeler/flask-ask/blob/master/samples/tid
 app.config['ASK_VERIFY_REQUESTS'] = False
 ```
 
-__Please Note:__  As mentioned in the [documentation](https://alexatutorial.com/flask-ask/configuration.html), this should be disabled for production.  
+__Please Note:__  As mentioned in the [documentation](https://flask-ask.readthedocs.io/en/latest/configuration.html), this should be disabled for production.  
 
 Restart your python skill server and from a new terminal (make sure bst proxy is still running) at the root of the project run:
 
