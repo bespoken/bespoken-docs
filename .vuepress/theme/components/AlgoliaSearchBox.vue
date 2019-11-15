@@ -25,17 +25,13 @@ export default {
         import(/* webpackChunkName: "docsearch" */ 'docsearch.js/dist/cdn/docsearch.min.js'),
         import(/* webpackChunkName: "docsearch" */ 'docsearch.js/dist/cdn/docsearch.min.css')
       ]).then(([docsearch]) => {
-        docsearch = docsearch.default
-        const { algoliaOptions = {}} = userOptions
+        docsearch = docsearch.default;
+        const { algoliaOptions = {}} = userOptions;
         docsearch(Object.assign(
           {},
           userOptions,
           {
             inputSelector: '#algolia-search-input',
-            // #697 Make docsearch work well at i18n mode.
-            algoliaOptions: Object.assign({
-              'facetFilters': [`lang:${lang}`].concat(algoliaOptions.facetFilters || [])
-            }, algoliaOptions)
           }
         ))
       })
