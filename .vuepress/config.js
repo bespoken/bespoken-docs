@@ -1,7 +1,12 @@
 module.exports = {
     title: "Bespoken Docs",
-    descripcion: "this is a great job",
+    description: "Bespoken Documentation",
     themeConfig: {
+        algolia: {
+            apiKey: '36d68ce99344a644d0bc7667b5ee4003',
+            indexName: 'bespoken',
+            debug: true
+        },
         bespokenUri: "https://bespoken.io/",
         logo: "/assets/images/BespokenLogo-small.png",
         head: [
