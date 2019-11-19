@@ -470,7 +470,7 @@ Tests are run in the order they appear in the file.
 
 End-to-end tests are not run in parallel, unlike unit tests. This is because of limitations in how the virtual devices work. This is also true for tests that are run using SMAPI Simulations.
 
-## Locales
+### Locales
 For each locale defined in either the testing.json file or in the test suite itself, the tests will be run in their entirety.
 
 That means if three locales are defined, the entire test suite will be run three times.
