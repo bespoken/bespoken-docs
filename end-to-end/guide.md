@@ -712,7 +712,7 @@ By scrolling down or clicking on any of the tests of the summary, you can go int
 
 ![detailed results](https://user-images.githubusercontent.com/6411740/69192709-24dcc400-0af3-11ea-941b-3b26fed8aaa1.png)
 
-You can also customize the title at the start of the report and the title of the report window by setting the following environment variables repectively:
+You can also customize the title at the start of the report and the title of the report window by setting the following environment variables respectively:
 ```
 JEST_STARE_REPORT_HEADLINE
 JEST_STARE_REPORT_TITLE
