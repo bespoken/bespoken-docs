@@ -143,15 +143,15 @@ const configuration = {
 const virtualDevice = new vdSDK.VirtualDevice(configuration);
 
 sdk.batchMessage(
-    [{text: "what is the weather"}, {text:  "what time is it"}, {text: "tell test player to play"}],
+  [{text: "what is the weather"}, {text:  "what time is it"}, {text: "tell test player to play"}],
 ).then((result) => {
-    console.log("Conversation Id: ", result.conversation_id);
+  console.log("Conversation Id: ", result.conversation_id);
 
-    // logic to wait some time
-
-    return sdk.getConversationResults(result.conversation_id);
+  // logic to wait some time - you can use setTimeout to do this
+  
+  return sdk.getConversationResults(result.conversation_id);
 }).then((results) => {
-    console.log("Results: ", results);
+  console.log("Results: ", results);
 });
 ```
 
@@ -211,21 +211,20 @@ https://virtual-device.bespoken.io
     **Content:**
 	```json
 	 {
-            "streamURL": "string",
-            "sessionTimeout": 0,
-            "transcriptAudioURL": "string",
-            "message": "string",
-            "transcript": "string",
-            "card": {
-                "subTitle": "string",
-                "mainTitle": "string",
-                "textField": "string",
-                "type": "string",
-                "imageURL": "string"
-            }
-        }
+      "streamURL": "string",
+      "sessionTimeout": 0,
+      "transcriptAudioURL": "string",
+      "message": "string",
+      "transcript": "string",
+      "card": {
+          "subTitle": "string",
+          "mainTitle": "string",
+          "textField": "string",
+          "type": "string",
+          "imageURL": "string"
+      }
+  }
 	```
-
 
 * **Error Response:**
 
@@ -267,43 +266,71 @@ Receives multiple messages and expected phrases in an object array. The goal of 
 
  `POST`
 
+* **Headers**
+
+   `Content-Type: application/json` - The content type must be set to application/json.
+
 *  **URL Params**
 
    **Required:**
 
-      `user_id=[string]`: "validation token" obtained from Bespoken Dashboard (http://apps.bespoken.io/dashboard)
+      `user_id=string`: "validation token" obtained from Bespoken Dashboard (http://apps.bespoken.io/dashboard)
 
    **Optional:**
 
-   `language_code=[string]`: one of Alexa's supported locales (e.g. en-US, de-DE, etc.). Default value: "en-US". Taken from https://developer.amazon.com/docs/custom-skills/develop-skills-in-multiple-languages.html#h2-code-changes
+   `language_code=string`: one of Alexa's supported locales (e.g. en-US, de-DE, etc.). Default value: "en-US". Taken from https://developer.amazon.com/docs/custom-skills/develop-skills-in-multiple-languages.html#h2-code-changes
 
-   `voice_id=[string]`: one of Amazon Polly's supported voices (e.g. Joey, Vicki, Hans, etc.). Default value: "Joey". MUST correspond with the language_code. Taken from: https://docs.aws.amazon.com/polly/latest/dg/voicelist.html
+   `voice_id=string`: one of Amazon Polly's supported voices (e.g. Joey, Vicki, Hans, etc.). Default value: "Joey". MUST correspond with the language_code. Taken from: https://docs.aws.amazon.com/polly/latest/dg/voicelist.html
 
-   `async_mode=[boolean]`: process the messages in the background, results can be obtained in the conversation endpoint. Default value: "false".
+   `async_mode=boolean`: process the messages in the background, results can be obtained in the conversation endpoint. Default value: "false".
 
-   `debug=[boolean]`: return additional information like process duration, transcript duration and raw response. Default value: "false"
+   `debug=boolean`: return additional information like process duration, transcript duration and raw response. Default value: "false"
 
-   `stt=[string]`: speech to text service to use, supported services are google and witai. Default value: "google"
+   `stt=string`: speech to text service to use, supported services are google and witai. Default value: "google"
 
-   `location_lat=[float]`: only for google, latitude coordinate from the location of the request
+   `location_lat=float`: only for google, latitude coordinate from the location of the request
 
-   `location_long=[float]`: only for google, longitude coordinate from the location of the request
+   `location_long=float`: only for google, longitude coordinate from the location of the request
 
-   `conversation_id=[string]`: only from async_mode, set the conversation id
+   `conversation_id=string`: only from async_mode, set the conversation id
 
-   `project_id=[string]`: project id of the Dialog Flow agent
+   `project_id=string`: project id of the Dialog Flow agent
 
-* **Data Params**
+* **Request Body**
 
    **Required:**
 
-    `messages=[array]`: object array where each object represent a message sent to the device. It could be text or audio. To send text, set the "text" field with the message, "phrases" property is an optional array of strings representing words or phrases used as hint for the speech recognition library to recognize them better. To send audio, set the "audio" field with the base64 representation of the audio, is also mandatory the "format" field of the audio, currently we support the formats supported by ffmpeg, for "raw" or "pcm" formats "frame_rate", "channels" and "sample_width" could be set, if not Default values will be used "frame_rate": 16000, "channels": 1, "sample_width": 2
+    `messages=message[]`: object array where each object represent a message sent to the device. Each message can contain text or audio. 
+    
+    The JSON fields for the `message` object are as follows - all fields are optional:
+    
+    `text: string`: For messages to be converted to audio via text-to-speech, the text to convert.
+
+    `phrases: string[]`: Hints for converting the audio response from the assistant back to text. This will guide the speech-to-text that is performed on the response from Alexa and/or Google.
+
+    `audio: string`: Base64-encoded audio data - for sending pre-recorded audio to the assistant.
+
+    `format: string`: When audio data is provided, the format of the audio. Valid values are 'raw' (for PCM), 'wav', 'mp3' and 'ogg'. Defaults to 'raw'.
+
+    `frame_rate: int`: The sample rate of the audio - defaults to 16000. We recommend using audio recorded at 16000 as this is what is typically used by the assistants. Using other sample rates will require re-sampling the audio. This field is only needed for audio with format 'raw' - for other formats, the frame_rate is contained in the audio data.
+
+    `channels: int`: The number of channels in the audio. Defaults to 1. This field is only needed for audio with format 'raw' - for other formats, the frame_rate is contained in the audio data.
+
+    `sample_width: int`: The number of 8-bit bytes in the audio - defaults to 2. This field is only needed for audio with format 'raw' - for other formats, the frame_rate is contained in the audio data.
 
     ```json
     {
-      "messages": [
-        {"text":"string", "phrases":["string"], "audio":["string"], "format":["string"], "frame_rate":["int"], "channels":["int"], "sample_width":["int"]}
-      ]
+        "messages": [
+            {
+                "text": string, 
+                "phrases": string[], 
+                "audio": string (Base64-Encoded Byte Array), 
+                "format": string, 
+                "frame_rate": int, 
+                "channels": int, 
+                "sample_width": int
+            }
+        ]
     }
     ```
 
@@ -314,7 +341,7 @@ Receives multiple messages and expected phrases in an object array. The goal of 
     **Content:**
 	```javascript
 	{
-	    "results": [
+      "results": [
           {
               "streamURL": "string",
               "sessionTimeout": 0,
@@ -329,7 +356,7 @@ Receives multiple messages and expected phrases in an object array. The goal of 
                   "imageURL": "string"
               }
           }
-	    ]
+      ]
 	}
 	```
 
@@ -376,19 +403,19 @@ Receives multiple messages and expected phrases in an object array. The goal of 
     $.post(`https://virtual-device.bespoken.io/batch_process?user_id=${userId}&voice_id=${voiceId}&language_code=${languageCode}`,  
     {  
         "messages": [
-            {"text":"open guess the price", "phrases":["how many persons"]},
-            {"text":"one"}
+            {
+                "text":"open guess the price", 
+                "phrases":["how many persons"]
+            },
+            {
+                "text":"one"
+            }
         ]
     },  
     function(data, status){  
         console.log("Got: " + data.results.length + " responses!");  
     });
     ```
-
-* **Notes:**
-
-  * Not sending the language_code or voice_id will default **both** to en-US and Joey.
-
 
 ### **Conversation** Endpoint
 
@@ -443,8 +470,6 @@ Obtains the processed results from a batch process sent in async mode
 
   * **Code:** 500 INTERNAL SERVER ERROR <br />
     **Content:** `{error: 'error message in case of an exception'}`
-
-
 * **Sample Call:**
 
     ```javascript
