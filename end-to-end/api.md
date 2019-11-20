@@ -302,7 +302,7 @@ Receives multiple messages and expected phrases in an object array. The goal of 
 
     `messages=message[]`: object array where each object represent a message sent to the device. Each message can contain text or audio. 
     
-    The JSON fields for the `message` object are as follows - all fields are optional:
+    The JSON fields for the `message` object are as follows - either the text or audio field must be provided for each object:
     
     `text: string`: For messages to be converted to audio via text-to-speech, the text to convert.
 
