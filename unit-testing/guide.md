@@ -479,7 +479,7 @@ When there are multiple test files, [Jest](https://facebook.github.io/jest/) wil
 
 This allows test suites to run much faster. When any particular test fails, the other tests will continue to process.
 
-## Locales
+### Locales
 For each locale defined in either the testing.json file or in the test suite itself, the tests will be run in their entirety.
 
 That means if three locales are defined, the entire test suite will be run three times.
@@ -500,10 +500,10 @@ If multiple tests are labeled only within a suite, all the ones will be labeled 
 
 Use these flags together with the test pattern matching when calling `bst test <pattern>` to narrow the tests that should be run.
 
-## Viewing Request/Response Payloads
+### Viewing Request/Response Payloads
 Set the `trace` flag in the testing.json file and the full request and response JSON payloads will be printed to the console when the tests are run.
 
-## Filtering during test
+### Filtering during test
 By specifying the "filter" property, it is possible to intercept and even change the properties of the tests along their execution.
 For example you can intercept the request before it is sent to the skill, as well as the response before the assertions are run against it.
 
