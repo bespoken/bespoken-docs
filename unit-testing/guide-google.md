@@ -680,7 +680,7 @@ An HTML report is also viewable under `./test_output/coverage/lcov-report/index.
 
 ![files](https://user-images.githubusercontent.com/6411740/69264437-527a4980-0b95-11ea-8066-c5506c2e23f6.png)
 
-Clicking on a file will reveal the lines that were covered (hihghlighted in green) and the ones that were not (highlighted in red).
+Clicking on a file will reveal the lines that were covered (highlighted in green) and the ones that were not (highlighted in red).
 
 ![detailed results](https://user-images.githubusercontent.com/6411740/69264647-bc92ee80-0b95-11ea-8622-051d9a08c41a.png)
 
@@ -700,7 +700,7 @@ By scrolling down or clicking on any of the tests of the summary, you can go int
 
 ![detailed results](https://user-images.githubusercontent.com/6411740/69192709-24dcc400-0af3-11ea-941b-3b26fed8aaa1.png)
 
-You can also customize the title at the start of the report and the title of the report window by setting the following environment variables repectively:
+You can also customize the title at the start of the report and the title of the report window by setting the following environment variables respectively:
 ```
 JEST_STARE_REPORT_HEADLINE
 JEST_STARE_REPORT_TITLE
