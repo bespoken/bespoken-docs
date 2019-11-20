@@ -671,22 +671,43 @@ Remember you can also use the override properties when executing the bst test co
 bst test --include FirstUse,ReturningUser --exclude broken
 ```
 
-### Code Coverage
+## Code Coverage
 Whenever Jest runs, it produces code coverage information - it is seen on the console.
 
-An HTML report is also viewable under `<TESTING_CONFIG_DIR>/coverage/lcov-report/index.html`.
-TESTING_CONFIG_DIR is the directory where your `testing.json` file is located.
+![code coverage](https://user-images.githubusercontent.com/6411740/69264113-acc6da80-0b94-11ea-96af-464e3acf8f39.png)
 
-### HTML Reporting
-The results of your tests are automatically formatted into a nice HTML report, courtesy of jest-stare.
+An HTML report is also viewable under `./test_output/coverage/lcov-report/index.html`.
 
-It is viewable under `./test_output/results/index.html`.
+![files](https://user-images.githubusercontent.com/6411740/69264437-527a4980-0b95-11ea-8066-c5506c2e23f6.png)
 
-It provides a nice summary of the results of your tests, with charts. You can also drill down into the detailed test results.
+Clicking on a file will reveal the lines that were covered (hihghlighted in green) and the ones that were not (highlighted in red).
 
+![detailed results](https://user-images.githubusercontent.com/6411740/69264647-bc92ee80-0b95-11ea-8622-051d9a08c41a.png)
+
+
+## HTML Reporting
+The results of your tests are automatically formatted into a nice HTML report, courtesy of jest-stare. 
+Once you run your tests, you'll find it under `./test_output/results/index.html`.
+The report provides a nice summary of the results of your tests along with useful charts. 
+
+![bst html report](https://user-images.githubusercontent.com/6411740/69192235-2f4a8e00-0af2-11ea-9176-2628e8f73927.png)
+
+You can filter the tests by result with the toggles at the top.
+
+![result toggles](https://user-images.githubusercontent.com/6411740/69192392-7769b080-0af2-11ea-99e5-72a15040be5e.png)
+
+By scrolling down or clicking on any of the tests of the summary, you can go into the detailed test results.
+
+![detailed results](https://user-images.githubusercontent.com/6411740/69192709-24dcc400-0af3-11ea-941b-3b26fed8aaa1.png)
+
+You can also customize the title at the start of the report and the title of the report window by setting the following environment variables repectively:
+```
+JEST_STARE_REPORT_HEADLINE
+JEST_STARE_REPORT_TITLE
+```
 To read more about jest-stare, [click here](https://github.com/dkelosky/jest-stare#readme).
 
-### Continuous Integration
+## Continuous Integration
 To see how a project works with a total CI setup, [checkout this project](https://github.com/ig-perez/skill-sample-nodejs-fact/tree/ContinuousIntegration).
 
 It is configured with Travis and Codecov. Here is the `.travis.yml` configuration file included with the project:
