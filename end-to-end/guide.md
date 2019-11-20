@@ -700,7 +700,7 @@ configuration:
 ### HTML Reporting
 The results of your tests are automatically formatted into a nice HTML report, courtesy of jest-stare. 
 Once you run your tests, you'll find it under `./test_output/results/index.html`.
-The repport provides a nice summary of the results of your tests along with useful charts. 
+The report provides a nice summary of the results of your tests along with useful charts. 
 
 ![bst html report](https://user-images.githubusercontent.com/6411740/69192235-2f4a8e00-0af2-11ea-9176-2628e8f73927.png)
 
