@@ -470,7 +470,7 @@ Tests are run in the order they appear in the file.
 
 End-to-end tests are not run in parallel, unlike unit tests. This is because of limitations in how the virtual devices work. This is also true for tests that are run using SMAPI Simulations.
 
-## Locales
+### Locales
 For each locale defined in either the testing.json file or in the test suite itself, the tests will be run in their entirety.
 
 That means if three locales are defined, the entire test suite will be run three times.
@@ -698,11 +698,25 @@ configuration:
 ```
 
 ### HTML Reporting
-The results of your tests are automatically formatted into a nice HTML report, courtesy of jest-stare.
+The results of your tests are automatically formatted into a nice HTML report, courtesy of jest-stare. 
+Once you run your tests, you'll find it under `./test_output/results/index.html`.
+The repport provides a nice summary of the results of your tests along with useful charts. 
 
-It is viewable under `./test_output/results/index.html`.
+![bst html report](https://user-images.githubusercontent.com/6411740/69192235-2f4a8e00-0af2-11ea-9176-2628e8f73927.png)
 
-It provides a nice summary of the results of your tests, with charts. You can also drill down into the detailed test results.
+You can filter the tests by result with the toggles at the top.
+
+![result toggles](https://user-images.githubusercontent.com/6411740/69192392-7769b080-0af2-11ea-99e5-72a15040be5e.png)
+
+By scrolling down or clicking on any of the tests of the summary, you can go into the detailed test results.
+
+![detailed results](https://user-images.githubusercontent.com/6411740/69192709-24dcc400-0af3-11ea-941b-3b26fed8aaa1.png)
+
+You can also customize the title at the start of the report and the title of the report window by setting the following environment variables repectively:
+```
+JEST_STARE_REPORT_HEADLINE
+JEST_STARE_REPORT_TITLE
+```
 
 To read more about jest-stare, [click here](https://github.com/dkelosky/jest-stare#readme).
 
