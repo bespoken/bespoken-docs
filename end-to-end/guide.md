@@ -697,7 +697,7 @@ configuration:
     - cardTitle: Space Facts
 ```
 
-### HTML Reporting
+## HTML Reporting
 The results of your tests are automatically formatted into a nice HTML report, courtesy of jest-stare. 
 Once you run your tests, you'll find it under `./test_output/results/index.html`.
 The report provides a nice summary of the results of your tests along with useful charts. 
