@@ -9,12 +9,12 @@ keywords:
 comments: false
 
 # Hero section
-title: Getting Started With Unit Testing with Bespoken
+title: Getting Started With Unit Testing With Bespoken
 
 # Micro navigation
 micro_nav: true
 --- -->
-# Getting Started With Unit Testing with Bespoken
+# Getting Started With Unit Testing With Bespoken
 It's easy to unit-test your Alexa skills and Google actions with Bespoken.
 
 <img src="./../assets/images/BST-Test-Run.gif" width="800" alt="Test Run Animated" />
