@@ -181,27 +181,27 @@ https://virtual-device.bespoken.io
 
    **Required:**
 
-   `message=[string]`: the message that we want to send to Alexa
+   `message=string`: the message that we want to send to Alexa
 
-   `user_id=[string]`: "validation token" obtained from Bespoken Dashboard (http://apps.bespoken.io/dashboard)
+   `user_id=string`: "validation token" obtained from Bespoken Dashboard (http://apps.bespoken.io/dashboard)
 
 
    **Optional:**
 
-   `language_code=[string]`: one of Alexa's supported locales (e.g. en-US, de-DE, etc.). Default value: "en-US". Taken from https://developer.amazon.com/docs/custom-skills/develop-skills-in-multiple-languages.html#h2-code-changes
+   `language_code=string`: one of Alexa's supported locales (e.g. en-US, de-DE, etc.). Default value: "en-US". Taken from https://developer.amazon.com/docs/custom-skills/develop-skills-in-multiple-languages.html#h2-code-changes
 
-   `voice_id=[string]`: one of Amazon Polly's supported voices (e.g. Joey, Vicki, Hans, etc.). Default value: "Joey". MUST correspond with the language_code. Taken from: https://docs.aws.amazon.com/polly/latest/dg/voicelist.html
+   `voice_id=string`: one of Amazon Polly's supported voices (e.g. Joey, Vicki, Hans, etc.). Default value: "Joey". MUST correspond with the language_code. Taken from: https://docs.aws.amazon.com/polly/latest/dg/voicelist.html
 
-   `phrases=[string]`: a word or phrase used as a hint so that the speech recognition is more likely to recognize them as part of the alexa response. You can use this multiple times in the query string to send more than one.
+   `phrases=string`: a word or phrase used as a hint so that the speech recognition is more likely to recognize them as part of the alexa response. You can use this multiple times in the query string to send more than one.
 
-   `debug=[boolean]`: return additional information like process duration, transcript duration and raw response. Default value: "false"
+   `debug=boolean`: return additional information like process duration, transcript duration and raw response. Default value: "false"
 
-   `new_conversation=[boolean]`: open a new session, only for google virtual devices.
+   `new_conversation=boolean`: open a new session, only for google virtual devices.
     Default value: "false"
 
-   `stt=[string]`: speech to text service to use, supported services are google and witai. Default value: "google"
+   `stt=string`: speech to text service to use, supported services are google and witai. Default value: "google"
 
-   `project_id=[string]`: project id of the Dialog Flow agent
+   `project_id=string`: project id of the Dialog Flow agent
 
 
 * **Success Response:**
