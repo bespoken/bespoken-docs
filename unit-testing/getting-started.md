@@ -9,17 +9,17 @@ keywords:
 comments: false
 
 # Hero section
-title: Getting Started With Unit Testing for Alexa
+title: Getting Started With Unit Testing With Bespoken
 
 # Micro navigation
 micro_nav: true
 --- -->
-# Getting Started With Unit Testing for Alexa
-It's easy to unit-test your Alexa skill with Bespoken.
+# Getting Started With Unit Testing With Bespoken
+It's easy to unit-test your Alexa skills and Google actions with Bespoken.
 
 <img src="./../assets/images/BST-Test-Run.gif" width="800" alt="Test Run Animated" />
 
-Here's a sample from the tests being run:
+Here's a sample from the tests being run (for Alexa):
 
 ```yml
 ---
@@ -88,7 +88,7 @@ BST: v2.0.0  Node: v8.11.1
 ```
 
 ## Run Your Tests
-If you are starting with one of the Alexa sample projects, just go ahead and enter:
+If you are starting with one of the [sample projects below](#further-reading-and-examples), just go ahead and enter:
 ```bash
 bst test
 ```
@@ -117,9 +117,10 @@ The coverage directory will be located in the same directory where your `testing
 This provides detailed information about the code coverage for our tests.
 
 ## Further Reading and Examples
-To add more tests, read our guide on the [Skill Testing Markup Language syntax here](./guide.html).
 
-Learn about [common use-cases here](./use-cases.html), such as:
+### Alexa
+To learn in detail how to add more tests and other advanced topics, read our [In-depth guide for Alexa](./guide.html).
+Also, learn about other common use-cases [here](./use-cases.html), such as:
 
 * State Management With Dynamo
 * Testing The Address API
@@ -147,4 +148,13 @@ And take a look at the following skills with test examples already configured:
 * College Finder (Unit + E2E)
 [Github](https://github.com/alexa/skill-sample-nodejs-college-finder)
 [Travis](https://travis-ci.org/alexa/skill-sample-nodejs-college-finder)
+
+### Google
+To learn in detail how to add more tests and other advanced topics, read our [In-depth guide for Google](./guide-google.html).
+
+And take a look at the following skills with test examples already configured:
+* Guess the Price Game
+[Github](https://github.com/bespoken-cookbook/GuessThePriceForGoogle)
+
+
 
