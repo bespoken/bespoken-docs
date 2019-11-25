@@ -4,9 +4,26 @@ permalink: /cli/commands/
 ---
 
 # Complete Guide to Bespoken CLI Commands
- ## Proxy
 
-# Overview
+## Init
+
+### Overview
+
+The init command allows you to create unit and e2e test boilerplates.
+
+### Usage
+
+To run the init command, simply type:
+```
+$ bst init
+```
+
+The command will ask you some questions to create the test that you want.
+
+## Proxy
+
+### Overview
+
 The proxy command allows you to interact with a local service running on your machine via an Alexa device.  Using it, you can make changes to code running on your machine and immediately make them available via an Echo or the Alexa simulator.
 
 The proxy tool works either directly with Node/JavaScript lambda code - **proxy lambda**.  Or it can proxy any http service using **proxy http**.  
@@ -92,6 +109,9 @@ $ bst proxy function index.js myFunction
 ```
 
 ## Utter
+
+### Overview
+
 The utter command takes an utterance ("play next song") and turns into a JSON payload, imitating as if it was coming from Alexa itself.
 
 It works in a manner very similar to the Alexa simulator available via the Alexa developer console.  
@@ -161,6 +181,9 @@ $ bst utter Hello World, my name is John
 The value `John` will then be automatically placed in the Name slot for the utterance on the request.
 
 ## Launch
+
+### Overview
+
 The launch command sends a launch request to your service as if it was coming from alexa itself.
 
 To start using it, you will need to support the "LaunchRequest" event on your handler for the received Intents in your service.
@@ -184,7 +207,7 @@ $ bst launch --url https://my.skill.com/skill/path
 ```
 
 
-## Intend 
+## Intend
 
 ### Overview
 
@@ -242,6 +265,8 @@ These files are JSON, and typically defined by the ASK CLI tool from Amazon.
 An example of these file can be found [here](https://github.com/alexa/skill-sample-nodejs-fact/blob/en-US/models/en-US.json).
 
 ## Speak
+
+### Overview
 
 The speak command communicates to a virtual device to test your skills with text as if they were voice commands.
 
