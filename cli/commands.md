@@ -18,7 +18,20 @@ To run the init command, simply type:
 $ bst init
 ```
 
-The command will ask you some questions to create the test that you want.
+This command will ask you some information to create your first test:
+
+- Choose between unit or e2e test type
+- Enter the name of your voice app
+- Choose between Alexa, Google voice platform
+- Enter the path of your handler file (only for unit test)
+- Enter some locales, for example en-US
+- Enter the path of your dialogflow directory (only for unit/google test)
+
+After that, we will create a test directory with boilerplate code. You can run it using
+
+```
+$ bst test
+```
 
 ## Proxy
 
