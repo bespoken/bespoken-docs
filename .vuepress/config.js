@@ -34,6 +34,7 @@ function getCliSidebar() {
             children: [
                 "getting-started",
                 "commands",
+                "faq"
             ],
         }, {
             title: "Tutorials",
