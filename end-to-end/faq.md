@@ -92,7 +92,7 @@ To use this feature, set your test type to `simulation`. The feature support is 
 Read more about it in our [full guide](./guide.html#smapi-configuration).
 
 ## **How do I learn more?**
-Take a look at this [__sample project__](https://github.com/bespoken/virtual-device-example) and use it as a base to start creating your own functional test scripts. For more info on End-to-end testing please read [__here__](https://read.bespoken.io/end-to-end/getting-started.html).
+Take a look at this [__sample project__](https://github.com/bespoken-samples/virtual-device-example) and use it as a base to start creating your own functional test scripts. For more info on End-to-end testing please read [__here__](https://read.bespoken.io/end-to-end/getting-started.html).
 If you need assistance reach us on any of these channels:
 * [Email](mailto:contact@bespoken.io)
 * [Twitter](https://twitter.com/bespokenio)

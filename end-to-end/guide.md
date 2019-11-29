@@ -723,6 +723,6 @@ To read more about jest-stare, [click here](https://github.com/dkelosky/jest-sta
 ## Further Reading
 Take a look at:
 * Our [getting started guide](./getting-started.html)
-* Our [example project](https://github.com/bespoken/virtual-device-example)
+* Our [example project](https://github.com/bespoken-samples/virtual-device-example)
 
 And don't hesitate to reach out via [Gitter](https://gitter.im/bespoken/bst).
