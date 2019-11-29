@@ -35,6 +35,6 @@ ERROR 2019-11-26T08:25:38.449Z Socket closed by bst server: proxy.bespoken.tools
 
 This is most likely due to a firewall issue.
 
-See [this answer](/cli/faq#my-organization-uses-a- firewall-how-do-i-use-your-tools?) if your organization/household uses a firewall.
+See [this answer](#my-organization-uses-a-firewall-how-do-i-use-your-tools) if your organization/household uses a firewall.
 
-Additionally, you can send us the `bst-debug.log`, which will be found in the directory where you ran the `bst proxy` command, to us via [Gitter](https://gitter.im/bespoken).
+Additionally, you can send us the `bst-debug.log`, which will be found in the directory where you ran the `bst proxy` command, to us via [Gitter](https://gitter.im/bespoken). This provides additional information on what is happening.
