@@ -33,6 +33,16 @@ After that, we will create a test directory with boilerplate code. You can run i
 $ bst test
 ```
 
+**what it looks like?**
+
+
+<img src="./../end-to-end/assets/bst-init-demo.gif" width="800" alt="BST init command" />
+
+**This is your test directory**
+<img src="./../end-to-end/assets/bst-init-test-directory.png" width="800" alt="BST init command" />
+
+
+
 ## Proxy
 
 ### Overview
