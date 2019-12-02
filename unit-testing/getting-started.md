@@ -116,6 +116,9 @@ To see more detailed code coverage info, we can go to `coverage/lcov-report/inde
 The coverage directory will be located in the same directory where your `testing.json` file is located.
 This provides detailed information about the code coverage for our tests.
 
+## bst init
+The bst init command is quick way to create all the needed files and folders needed to start unit testing your voice apps. It's a great starting point! You can read more about it [here](./../cli/commands#init).
+
 ## Further Reading and Examples
 
 ### Alexa
