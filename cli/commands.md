@@ -5,44 +5,6 @@ permalink: /cli/commands/
 
 # Complete Guide to Bespoken CLI Commands
 
-## Init
-
-### Overview
-
-The init command allows you to create unit and e2e test boilerplates.
-
-### Usage
-
-To run the init command, simply type:
-```
-$ bst init
-```
-
-This command will ask you some information to create your first test:
-
-- Choose between unit or e2e test type
-- Enter the name of your voice app
-- Choose between Alexa, Google voice platform
-- Enter the path of your handler file (only for unit test)
-- Enter some locales, for example en-US
-- Enter the path of your dialogflow directory (only for unit/google test)
-
-After that, we will create a test directory with boilerplate code. You can run it using
-
-```
-$ bst test
-```
-
-**what it looks like?**
-
-
-<img src="./../end-to-end/assets/bst-init-demo.gif" width="800" alt="BST init command" />
-
-**This is your test directory**
-<img src="./../end-to-end/assets/bst-init-test-directory.png" width="800" alt="BST init command" />
-
-
-
 ## Proxy
 
 ### Overview
@@ -335,3 +297,40 @@ Now you will get the expected response
 ```
 
 From then on you can use the command without the token.
+
+## Init
+
+### Overview
+
+The init command helps you creating all the files and folders you need to start unit or end to end testing your Alexa Skills and Google Actions.
+
+### Usage
+
+To run the init command, simply open a terminal and, in the root folder of your project, type:
+```
+$ bst init
+```
+
+The command will ask you for the following data:
+
+- Test type: unit or e2e
+- Name of your voice app
+- Voice Platform: Alexa or Google
+- Locales of your voice app: en-US is the default. You can add more by adding commas (,) eg: en-US, de-DE, es-ES
+- For unit testing only:
+  - Path of your handler file: default is index.js
+  - Path of your dialogflow directory (only for Google actions)
+- For end to end testing only:
+  - Virtual device token
+ 
+ Here's a preview:
+![bst init command](./../end-to-end/assets/bst-init-demo.gif)
+
+After that, the command will create a "test" directory with all the needed files and folders. 
+![bst test files](./../end-to-end/assets/bst-init-test-directory.png)
+
+
+You can execute your tests by typing `bst test` on the same command line.
+
+
+
