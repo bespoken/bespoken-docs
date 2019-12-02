@@ -49,8 +49,11 @@ That means it was installed successfully!
 ### Virtual Device Setup
 First, you need to setup a virtual device, which allows for interaction via text and API with Alexa and Google Assistant. See [here for instructions](./setup.html).  
 
+## BST Init
+The `bst init` command is the fastest way to create all the files and folders needed to start testing your voice apps. It's a great starting point! You can read more about it [here](./../../cli/commands/#init).
+
 ## Configuration
-Global configuration options for testing skills can be set in the `testing.json` file, which is typically kept at the root level of your project.
+Global configuration options for testing skills can be set in the `testing.json` file, which is typically kept at the root level of your project or inside a "test" folder.
 
 These options can include overriding Jest options, as well as setting skill testing specific ones.
 
