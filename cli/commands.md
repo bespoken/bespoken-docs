@@ -302,7 +302,7 @@ From then on you can use the command without the token.
 
 ### Overview
 
-The init command helps you creating all the files and folders you need to start unit or end to end testing your Alexa Skills and Google Actions.
+The init command helps you creating all the files and folders you need to start unit or end to end testing your Alexa skills and Google Actions.
 
 ### Usage
 
@@ -316,21 +316,18 @@ The command will ask you for the following data:
 - Test type: unit or e2e
 - Name of your voice app
 - Voice Platform: Alexa or Google
-- Locales of your voice app: en-US is the default. You can add more by adding commas (,) eg: en-US, de-DE, es-ES
+- Locales of your voice app: en-US is the default. You can add more via a comma-separated list - for example: en-US, de-DE, es-ES
 - For unit testing only:
   - Path of your handler file: default is index.js
   - Path of your dialogflow directory (only for Google actions)
 - For end to end testing only:
   - Virtual device token
- 
+
  Here's a preview:
 ![bst init command](./../end-to-end/assets/bst-init-demo.gif)
 
-After that, the command will create a "test" directory with all the needed files and folders. 
+After that, the command will create a "test" directory with all the needed files and folders.
 ![bst test files](./../end-to-end/assets/bst-init-test-directory.png)
 
 
 You can execute your tests by typing `bst test` on the same command line.
-
-
-
