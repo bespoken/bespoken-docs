@@ -42,6 +42,9 @@ If you run into issues with testing specific utterances, always keep in mind you
 In order to turn utterances into intents correctly we need your interaction model. For Google export your [Dialog Flow Agent](https://dialogflow.com/docs/agents/export-import-restore)
 then unzip it. You need to keep these files up to date or you won't be able to correctly run your tests.
 
+## BST Init
+The `bst init` command is the fastest way to create all the files and folders needed to start testing your voice apps. It's a great starting point! You can read more about it [here](./../../cli/commands/#init).
+
 ## Configuration
 Global configuration options for testing skills can be set in the `testing.json` file, which is typically kept at the root level of your project.
 
@@ -686,9 +689,9 @@ Clicking on a file will reveal the lines that were covered (highlighted in green
 
 
 ## HTML Reporting
-The results of your tests are automatically formatted into a nice HTML report, courtesy of jest-stare. 
+The results of your tests are automatically formatted into a nice HTML report, courtesy of jest-stare.
 Once you run your tests, you'll find it under `./test_output/results/index.html`.
-The report provides a nice summary of the results of your tests along with useful charts. 
+The report provides a nice summary of the results of your tests along with useful charts.
 
 ![bst html report](https://user-images.githubusercontent.com/6411740/69192235-2f4a8e00-0af2-11ea-9176-2628e8f73927.png)
 

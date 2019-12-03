@@ -4,9 +4,11 @@ permalink: /cli/commands/
 ---
 
 # Complete Guide to Bespoken CLI Commands
- ## Proxy
 
-# Overview
+## Proxy
+
+### Overview
+
 The proxy command allows you to interact with a local service running on your machine via an Alexa device.  Using it, you can make changes to code running on your machine and immediately make them available via an Echo or the Alexa simulator.
 
 The proxy tool works either directly with Node/JavaScript lambda code - **proxy lambda**.  Or it can proxy any http service using **proxy http**.  
@@ -92,6 +94,9 @@ $ bst proxy function index.js myFunction
 ```
 
 ## Utter
+
+### Overview
+
 The utter command takes an utterance ("play next song") and turns into a JSON payload, imitating as if it was coming from Alexa itself.
 
 It works in a manner very similar to the Alexa simulator available via the Alexa developer console.  
@@ -161,6 +166,9 @@ $ bst utter Hello World, my name is John
 The value `John` will then be automatically placed in the Name slot for the utterance on the request.
 
 ## Launch
+
+### Overview
+
 The launch command sends a launch request to your service as if it was coming from alexa itself.
 
 To start using it, you will need to support the "LaunchRequest" event on your handler for the received Intents in your service.
@@ -184,7 +192,7 @@ $ bst launch --url https://my.skill.com/skill/path
 ```
 
 
-## Intend 
+## Intend
 
 ### Overview
 
@@ -243,6 +251,8 @@ An example of these file can be found [here](https://github.com/alexa/skill-samp
 
 ## Speak
 
+### Overview
+
 The speak command communicates to a virtual device to test your skills with text as if they were voice commands.
 
 It allows you to test your skill without using a physical device and it will return the generated audio response converted to text as well as the card data and possible audio streams that could have been returned.
@@ -287,3 +297,37 @@ Now you will get the expected response
 ```
 
 From then on you can use the command without the token.
+
+## Init
+
+### Overview
+
+The init command helps you creating all the files and folders you need to start unit or end to end testing your Alexa skills and Google Actions.
+
+### Usage
+
+To run the init command, simply open a terminal and, in the root folder of your project, type:
+```
+$ bst init
+```
+
+The command will ask you for the following data:
+
+- Test type: unit or e2e
+- Name of your voice app
+- Voice Platform: Alexa or Google
+- Locales of your voice app: en-US is the default. You can add more via a comma-separated list - for example: en-US, de-DE, es-ES
+- For unit testing only:
+  - Path of your handler file: default is index.js
+  - Path of your dialogflow directory (only for Google actions)
+- For end to end testing only:
+  - Virtual device token
+
+ Here's a preview:
+![bst init command](./../end-to-end/assets/bst-init-demo.gif)
+
+After that, the command will create a "test" directory with all the needed files and folders.
+![bst test files](./../end-to-end/assets/bst-init-test-directory.png)
+
+
+You can execute your tests by typing `bst test` on the same command line.
