@@ -156,7 +156,7 @@ For example:
 }
 ```
 
-Will look for an environment variable called "myEnvVariable" and replace the value in the testing.json with it.
+Will look for an environment variable called "SKILL_LOCALE" and replace the value in the testing.json with it.
 
 ## CLI Options
 When invoking `bst test`, the name of a specific test or regex can be used, like this:
