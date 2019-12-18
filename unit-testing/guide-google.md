@@ -217,9 +217,7 @@ For example:
 
 ```json
 {
-    "findReplace": {
-        "INVOCATION_NAME": "${myEnvVariable}"
-    }
+    "interactionModel": "${SKILL_LOCALE}.json"
 }
 ```
 
