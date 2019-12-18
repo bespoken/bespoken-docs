@@ -209,6 +209,22 @@ Will be turned into this:
 
 This is a useful feature for tests that are run against multiple instances of the same skill, where there are slight variations in the input or output.
 
+### Use environment variables in the testing.json
+
+You can use environment variables inside the testing.json by using the ${variable} format.
+
+For example:
+
+```json
+{
+    "findReplace": {
+        "INVOCATION_NAME": "${myEnvVariable}"
+    }
+}
+```
+
+Will look for an environment variable called "myEnvVariable" and replace the value in the testing.json with it.
+
 ## CLI Options
 When invoking `bst test`, the name of a specific test or regex can be used, like this:
 ```bash
