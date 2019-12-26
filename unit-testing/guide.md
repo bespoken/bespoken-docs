@@ -160,7 +160,7 @@ bst test --help
 ```
 
 ### Custom configuration path and context
-By convention the testing.json file is under the root folder, but you can also set a custom path for it.
+By convention, the testing.json file is kept under the root of the project, but you can also set a custom path for it.
 
 ```bash
 bst test --config customPath/testing.json
@@ -168,13 +168,14 @@ bst test --config customPath/testing.json
 By default the context to resolve custom paths are relative to the location of the testing.json file. So if your testing.json file is in the root folder:
 
 ```bash
-testing.json
-test.yml
-lambda
-  index.js
+.
+├ testing.json
+├ test.yml
+├ lambda
+    └ index.js
 ```
 
-To set the location of your handler in your testing.json will be:
+To set the location of your handler in your testing.json, it will be:
 ```json
 {
   "handler": "./lambda/index"
@@ -184,11 +185,12 @@ To set the location of your handler in your testing.json will be:
 If you have a particular folder structure, you have to set the configuration path and the context you want to use to resolve the relative path.
 
 ```bash
-config
-  testing.json
-lambda
-  custom
-    index.js
+.
+├ config
+|   └ testing.json
+├ lambda
+    └ custom
+        └ index.js
 ```
 
 ```json
