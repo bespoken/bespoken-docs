@@ -140,7 +140,6 @@ Any tests that match these patterns will be run.
 | [--include](#including-or-excluding-tests-using-tags) | Set the include tags to execute |
 | --locales | Override the locales set in the configuration file |
 | --platform | Override the platform set in the configuration file |
-| --reporters |  |
 | --skillURL | Override the skillURL set in the configuration file |
 | --trace | Override the trace set in the configuration file |
 | --userId | Override the userId set in the configuration file |
