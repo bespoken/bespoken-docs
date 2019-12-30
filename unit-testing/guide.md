@@ -81,25 +81,68 @@ An example `testing.json` file:
 
 Below the unit testing configuration options and what they do are listed:
 
-* accessToken - Sets the access token in the generated request payload
-* [address](./use-cases.html#testing-with-the-address-api) - Sets the address to be returned by the address API
-* deviceId - Sets the deviceId to be used in the generated requests
-* [dynamo](./use-cases.html#testing-with-dynamo) - : Should be set to "mock" to use the mock dynamo component
-* description - The description of the set of tests
-* [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
-* [findReplace](#find-replace) - Values that will be replaced in the scripts before execution
-* handler - The path to the handler (and function name) to run the test
-* html - Generate a pretty HTML report of test results - defaults to `true`
-* [include and exclude](#including-or-excluding-tests-using-tags) - Runs or Skip the tests having the particular specified tags
-* intentSchema - If using "old-style" configuration files, the path to the intent schema
-* interactionModel - The path to the interaction model to use for the test
-* [locales](#locales) - The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale.
-* sampleUtterances - If using the "old-style" configuration files, the path to the sampleUtterances
-* skillURL - If not calling a javascript handler directly, the URL to call instead - e.g., http://localhost:9000/skill. Very useful for testing skills written in languages other than Javascript.
-* [trace](#viewing-requestresponse-payloads) - Causes request and response JSON payloads from the skill to be printed to the console
-* userId - Sets the userId in the request payload
+| Key | Description |
+| --- | --- |
+| [address](./use-cases.html#testing-with-the-address-api) | Sets the address to be returned by the address API |
+| deviceId | Sets the deviceId to be used in the generated requests |
+| [dynamo](./use-cases.html#testing-with-dynamo) | Should be set to "mock" to use the mock dynamo component |
+| description | The description of the set of tests |
+| [filter](#filtering-during-test) | The (optional) path to a class that can be used to override value on the request and response |
+| [findReplace](#find-replace) | Values that will be replaced in the scripts before execution |
+| handler | The path to the handler (and function name) to run the test |
+| html | Generate a pretty HTML report of test results - defaults to `true` |
+| [include and exclude](#including-or-excluding-tests-using-tags) | Runs or Skip the tests having the particular specified tags |
+| intentSchema | If using "old-style" configuration files, the path to the intent schema |
+| interactionModel | The path to the interaction model to use for the test |
+| [locales](#locales) | The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale |
+| sampleUtterances | If using the "old-style" configuration files, the path to the sampleUtterances |
+| skillURL | If not calling a javascript handler directly, the URL to call instead - e.g., http://localhost:9000/skill. Very useful for testing skills written in languages other than Javascript |
+| [trace](#viewing-requestresponse-payloads) | Causes request and response JSON payloads from the skill to be printed to the console |
+| userId | Sets the userId in the request payload |
 
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
+
+## BST Test
+### Description
+Execute the test(s).
+
+### Usage
+```bash
+bst test [OPTIONS] PATH_OR_REGEX
+```
+When running `bst test`, it automatically searches for files with the following names:
+
+* `**/test/\*\*/*.yml`
+* `**/*.e2e.yml`
+* `**/*.spec.yml`
+* `**/*.test.yml`
+
+The name of a specific test can be used:
+```bash
+bst test test/MyIntent.test.yml
+```
+
+Or a regular expression:
+```bash
+bst test MyIntent
+```
+Any tests that match these patterns will be run.
+
+### Options
+
+| Option | Description |
+| --- | --- |
+| --version| current version of Bespoken CLI |
+| --config | Set the path of the testing.json file |
+| --context | Set the context to resolve relative paths, defaults to where testing.json is located |
+| --deviceId | Override the deviceId set in the configuration file |
+| [--exclude](#including-or-excluding-tests-using-tags) | Set the exclude tags to execute |
+| [--include](#including-or-excluding-tests-using-tags) | Set the include tags to execute |
+| --locales | Override the locales set in the configuration file |
+| --platform | Override the platform set in the configuration file |
+| --skillURL | Override the skillURL set in the configuration file |
+| --trace | Override the trace set in the configuration file |
+| --userId | Override the userId set in the configuration file |
 
 ### Overwriting configuration parameters
 
@@ -115,35 +158,6 @@ You can get the complete list of parameters you can use by running:
 bst test --help
 ```
 
-### Find/Replace
-Find/replace values are helpful for parameterizing parts of the test.
-
-For example, if the invocation name of the skill being tested will change from one run to the next, it can be set as a find/replace value like so:
-
-
-They will look like this:
-```json
-{
-    "findReplace": {
-        "INVOCATION_NAME": "my skill"
-    }
-}
-```
-
-This will cause any instances of the value INVOCATION_NAME to be replaced by `my skill` in the test scripts.
-
-So a script that looks like this:
-```yaml
-"open INVOCATION_NAME and say hello": "*"
-```
-
-Will be turned into this:
-```yaml
-"open my skill and say hello": "*"
-```
-
-This is a useful feature for tests that are run against multiple instances of the same skill, where there are slight variations in the input or output.
-
 ### Using environment variables as settings
 
 You can use environment variables inside the testing.json file by using the `${variable}` format.
@@ -158,29 +172,64 @@ For example, this:
 
 ...will look for an environment variable called "SKILL_LOCALE" and replace the value in your testing.json file with it.
 
-## CLI Options
-When invoking `bst test`, the name of a specific test or regex can be used, like this:
+### Custom configuration path and context
+By convention, the testing.json file is kept under the root of the project, but you can also set a custom path for it.
+
 ```bash
-bst test test/MyIntent.test.yml
+bst test --config customPath/testing.json
+```
+By default the context to resolve custom paths are relative to the location of the testing.json file. So if your testing.json file is in the root folder:
+
+```bash
+.
+├ testing.json
+├ test.yml
+├ lambda
+    └ index.js
 ```
 
-Or this:
+To set the location of your handler in your testing.json, it will be:
+```json
+{
+  "handler": "./lambda/index"
+}
+```
+
+If you have a particular folder structure, you have to set the configuration path and the context you want to use to resolve the relative path.
+
 ```bash
-bst test MyIntent
+.
+├ config
+|   └ testing.json
+├ lambda
+    └ custom
+        └ index.js
+```
+
+```json
+{
+  "handler": "./lambda/custom/index"
+}
+```
+
+```bash
+bst test --config config/testing.json --context .
+```
+
+
+If you do not set the context, the handler path should be relative to the testing.json
+```json
+{
+  "handler": "../lambda/custom/index"
+}
+```
+
+```bash
+bst test --config config/testing.json
 ```
 
 ## Tests
 The test syntax is based on YAML.
-
-When running `bst test`, it automatically searches for files with the following names:
-
-* `**/test/\*\*/*.yml`
-* `**/*.e2e.yml`
-* `**/*.spec.yml`
-* `**/*.test.yml`
-
-Any tests that match these patterns will be run.
-A recommended convention is to sort test files under a test dir.
 
 ### Localization
 Localization is a built-in feature of Bespoken unit-testing.
@@ -476,6 +525,36 @@ The test will end when it reaches the `exit` statement at the end (no further in
 Using `goto` and `exit`, more complex tests can be built.
 
 ## Test Execution
+
+### Find/Replace
+Find/replace values are helpful for parameterizing parts of the test.
+
+For example, if the invocation name of the skill being tested will change from one run to the next, it can be set as a find/replace value like so:
+
+
+They will look like this:
+```json
+{
+    "findReplace": {
+        "INVOCATION_NAME": "my skill"
+    }
+}
+```
+
+This will cause any instances of the value INVOCATION_NAME to be replaced by `my skill` in the test scripts.
+
+So a script that looks like this:
+```yaml
+"open INVOCATION_NAME and say hello": "*"
+```
+
+Will be turned into this:
+```yaml
+"open my skill and say hello": "*"
+```
+
+This is a useful feature for tests that are run against multiple instances of the same skill, where there are slight variations in the input or output.
+
 ### Test Environment
 Whenever tests are run, the environment variable UNIT_TEST is automatically set.
 
