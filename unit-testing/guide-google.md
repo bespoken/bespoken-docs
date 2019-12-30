@@ -209,11 +209,11 @@ Will be turned into this:
 
 This is a useful feature for tests that are run against multiple instances of the same skill, where there are slight variations in the input or output.
 
-### Use environment variables in the testing.json
+### Using environment variables as settings
 
-You can use environment variables inside the testing.json by using the ${variable} format.
+You can use environment variables inside the testing.json file by using the `${variable}` format.
 
-For example:
+For example, this:
 
 ```json
 {
@@ -221,7 +221,7 @@ For example:
 }
 ```
 
-Will look for an environment variable called "SKILL_LOCALE" and replace the value in the testing.json with it.
+...will look for an environment variable called "SKILL_LOCALE" and replace the value in your testing.json file with it.
 
 ## CLI Options
 When invoking `bst test`, the name of a specific test or regex can be used, like this:

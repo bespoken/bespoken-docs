@@ -182,21 +182,19 @@ Will be turned into this:
 
 This is a useful feature for tests that are run against multiple instances of the same skill, where there are slight variations in the input or output.
 
-### Use environment variables in the testing.json
+### Using environment variables as settings
 
-You can use environment variables inside the testing.json by using the ${variable} format.
+You can use environment variables inside the testing.json file by using the `${variable}` format.
 
-For example:
+For example, this:
 
 ```json
 {
-    "findReplace": {
-        "INVOCATION_NAME": "${myEnvVariable}"
-    }
+    "interactionModel": "${SKILL_LOCALE}.json"
 }
 ```
 
-Will look for an environment variable called "myEnvVariable" and replace the value in the testing.json with it.
+...will look for an environment variable called "SKILL_LOCALE" and replace the value in your testing.json file with it.
 
 ### Homophones
 Our end-to-end tests use speech recognition for turning the output speech coming back from Alexa into text.
