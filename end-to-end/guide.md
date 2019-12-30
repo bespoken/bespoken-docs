@@ -100,44 +100,72 @@ An example `testing.json` file for end-to-end tests:
 
 Below the end-to-end testing configuration options and what they do are listed:
 
-* [asyncMode](#batch-or-sequential-tests) - Only works when batchEnabled is true, if asyncMode is false we wait for all the results, if it is true we retrieve them asynchronously - defaults to false.
-* [asyncE2EWaitInterval](#batch-or-sequential-tests) - Set an interval in milliseconds to wait before querying for new results, when batchEnabled is set to false - defaults to 5000
-* [batchEnabled](#batch-or-sequential-tests) - If it is true we sent the complete set of utterances to the virtual device server in a test, if it is false we sent them one by one - defaults to true
-* description - The description of the set of tests
-* [filter](#filtering-during-test) - The (optional) path to a class that can be used to override value on the request and response
-* [findReplace](#find-replace) - Values that will be replaced in the scripts before execution
-* [homophones](#homophones) - Values that will be replaced in actual responses from the virtual device
-* html - Generate a pretty HTML report of test results - defaults to `true`
-* [include and exclude](#including-or-excluding-tests-using-tags) - Runs or Skip the tests having the particular specified tags
-* [locales](#locales) - The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale.
-* [maxAsyncE2EResponseWaitTime](#batch-or-sequential-tests) - Set an interval in milliseconds to wait before stop looking for new results, when batchEnabled is set to false - defaults to 15000
-* platform - The platform that is being tested - can be either `alexa` or `google` - defaults to `alexa`
-* skillId - For tests of type `simulation`, the skillId must be specified
-* stage - For tests of type `simulation`, the stage must be specified - can be `development` or `live`
-* type - The type of test being run - can be `unit`, `simulation`, or `e2e` - defaults to `unit`
-* stopTestOnFailure: Stops the execution of an interaction if there is an assertion error - defaults to `false`
-* [trace](#viewing-response-payloads) - Causes request and response JSON payloads from the skill to be printed to the console
-* [virtualDeviceToken](./setup.html) - For end-to-end tests that use virtual devices, this must be specified.
-[Get one here](./setup.html)
-* virtualDeviceBaseURL - Sets a custom base address for the Virtual Device API endpoints
-
-
+| Key | Description |
+| --- | --- |
+| [asyncMode](#batch-or-sequential-tests) | Only works when batchEnabled is true, if asyncMode is false we wait for all the results, if it is true we retrieve them asynchronously - defaults to false |
+| [asyncE2EWaitInterval](#batch-or-sequential-tests) | Set an interval in milliseconds to wait before querying for new results, when batchEnabled is set to false - defaults to 5000 |
+| [batchEnabled](#batch-or-sequential-tests) | If it is true we sent the complete set of utterances to the virtual device server in a test, if it is false we sent them one by one - defaults to true |
+| description | The description of the set of tests |
+| [filter](#filtering-during-test) | The (optional) path to a class that can be used to override value on the request and response |
+| [findReplace](#find-replace) | Values that will be replaced in the scripts before execution |
+| [homophones](#homophones) | Values that will be replaced in actual responses from the virtual device |
+| html | Generate a pretty HTML report of test results - defaults to `true` |
+| [include and exclude](#including-or-excluding-tests-using-tags) | Runs or Skip the tests having the particular specified tags |
+| [locales](#locales) | The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale |
+| [maxAsyncE2EResponseWaitTime](#batch-or-sequential-tests) | Set an interval in milliseconds to wait before stop looking for new results, when batchEnabled is set to false - defaults to 15000 |
+| platform | The platform that is being tested - can be either `alexa` or `google` - defaults to `alexa` |
+| skillId | For tests of type `simulation`, the skillId must be specified |
+| stage | For tests of type `simulation`, the stage must be specified - can be `development` or `live` |
+| type | The type of test being run - can be `unit`, `simulation`, or `e2e` - defaults to `unit` |
+| stopTestOnFailure | Stops the execution of an interaction if there is an assertion error - defaults to `false` |
+| [trace](#viewing-response-payloads) | Causes request and response JSON payloads from the skill to be printed to the console |
+| [virtualDeviceToken](./setup.html) | For end-to-end tests that use virtual devices, this must be specified. [Get one here](./setup.html) |
+| virtualDeviceBaseURL | Sets a custom base address for the Virtual Device API endpoints |
 
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
 
-Values in the configuration file can be overridden by setting an environment variable using dot-notation. For example, to override the INVOCATION_NAME value above, use this statement:
-```js
-export findReplace.INVOCATION_NAME=my new skill
+## BST Test
+### Description
+Execute the test(s).
+
+### Usage
+
+When running `bst test`, it automatically searches for files with the following names:
+
+* `**/test/\*\*/*.yml`
+* `**/*.e2e.yml`
+* `**/*.spec.yml`
+* `**/*.test.yml`
+
+Any tests that match these patterns will be run.
+A recommended convention is to sort test files under a test dir, and to label end-to-end tests as `IntentName.e2e.yml`, where each test file contains tests for a specific intent.
+
+When invoking `bst test`, the name of a specific test or regex can be used, like this:
+```bash
+bst test test/MyIntent.test.yml
 ```
 
-This will be as if the configuration file was set like so:
-```json
-{
-    "findReplace": {
-        "INVOCATION_NAME": "my new skill"
-    }
-}
+Or this:
+```bash
+bst test MyIntent
 ```
+
+### Options
+
+| Option | Description |
+| --- | --- |
+| --version| current version of Bespoken CLI |
+| --asyncE2EWaitInterval | set how much time e2e waits to check for processed messages in ms, defaults to 5000 |
+| --asyncMode | set async mode for e2e batch process, defaults to false |
+| --config | Set the path of the testing.json file |
+| [--exclude](#including-or-excluding-tests-using-tags) | Set the exclude tags to execute |
+| [--include](#including-or-excluding-tests-using-tags) | Set the include tags to execute |
+| --locales | Override the locales set in the configuration file |
+| --maxAsyncE2EResponseWaitTime | set the max time we wait for a single response in a e2e async interaction in ms, defaults to 15000 |
+| --stt | speech to text service to use, supported services are google and witai. Default value: google |
+| --trace | Override the trace set in the configuration file |
+| --virtualDeviceToken | set virtual device token |
+| --voiceId | set voice id |
 
 ### Overwriting configuration parameters
 
@@ -153,60 +181,12 @@ You can get the complete list of parameters you can use by running:
 bst test --help
 ```
 
-### Find/Replace
-Find/replace values are helpful for parameterizing parts of the test.
 
-For example, if the invocation name of the skill being tested will change from one run to the next, it can be set as a find/replace value like so:
+### Custom configuration path
+By convention, the testing.json file is kept under the root of the project, but you can also set a custom path for it.
 
-
-They will look like this:
-```json
-{
-    "findReplace": {
-        "INVOCATION_NAME": "my skill"
-    }
-}
-```
-
-This will cause any instances of the value INVOCATION_NAME to be replaced by `my skill` in the test scripts.
-
-So a script that looks like this:
-```yaml
-"open INVOCATION_NAME and say hello": "*"
-```
-
-Will be turned into this:
-```yaml
-"open my skill and say hello": "*"
-```
-
-This is a useful feature for tests that are run against multiple instances of the same skill, where there are slight variations in the input or output.
-
-### Homophones
-Our end-to-end tests use speech recognition for turning the output speech coming back from Alexa into text.
-
-This process is imperfect - to compensate for this, homophones can be specified for errors that occur when a reply from Alexa is misunderstood.
-
-For example, if Alexa says:
-`address sent to your white car`
-
-The Bespoken Virtual Device may transcribe it as:
-`address sent to your wife car`
-
-(FYI, for Alexa, the definitive response can be found at the Alexa user console, under [settings -> history](https://alexa.amazon.com/spa/index.html#settings/dialogs)).
-
-This misunderstanding will lead to a test like this failing incorrectly:
-```
-- send address for in n out burger to my car: address sent to your white car
-```
-
-To avoid this, just define a homophone in the configuration file like so:
-```json
-{
-    "homophones": {
-        "white": ["wife"]
-    }
-}
+```bash
+bst test --config customPath/testing.json
 ```
 
 ### SMAPI Configuration
@@ -223,29 +203,7 @@ Simulation tests return the full skill payload from Alexa, similar to a unit-tes
 * SMAPI doesn't support digits, so all numbers should be sent as words.
 
 
-## CLI Options
-When invoking `bst test`, the name of a specific test or regex can be used, like this:
-```bash
-bst test test/MyIntent.test.yml
-```
-
-Or this:
-```bash
-bst test MyIntent
-```
-
 ## Tests
-The test syntax is based on YAML.
-
-When running `bst test`, it automatically searches for files with the following names:
-
-* `**/test/\*\*/*.yml`
-* `**/*.e2e.yml`
-* `**/*.spec.yml`
-* `**/*.test.yml`
-
-Any tests that match these patterns will be run.
-A recommended convention is to sort test files under a test dir, and to label end-to-end tests as `IntentName.e2e.yml`, where each test file contains tests for a specific intent.
 
 ### Test Suites
 Each test file is a test suite. Test suites are made up of one or many tests.
@@ -468,6 +426,63 @@ If you want to create utterances valid for both providers use only common tags: 
 
 
 ## Test Execution
+
+### Find/Replace
+Find/replace values are helpful for parameterizing parts of the test.
+
+For example, if the invocation name of the skill being tested will change from one run to the next, it can be set as a find/replace value like so:
+
+
+They will look like this:
+```json
+{
+    "findReplace": {
+        "INVOCATION_NAME": "my skill"
+    }
+}
+```
+
+This will cause any instances of the value INVOCATION_NAME to be replaced by `my skill` in the test scripts.
+
+So a script that looks like this:
+```yaml
+"open INVOCATION_NAME and say hello": "*"
+```
+
+Will be turned into this:
+```yaml
+"open my skill and say hello": "*"
+```
+
+This is a useful feature for tests that are run against multiple instances of the same skill, where there are slight variations in the input or output.
+
+### Homophones
+Our end-to-end tests use speech recognition for turning the output speech coming back from Alexa into text.
+
+This process is imperfect - to compensate for this, homophones can be specified for errors that occur when a reply from Alexa is misunderstood.
+
+For example, if Alexa says:
+`address sent to your white car`
+
+The Bespoken Virtual Device may transcribe it as:
+`address sent to your wife car`
+
+(FYI, for Alexa, the definitive response can be found at the Alexa user console, under [settings -> history](https://alexa.amazon.com/spa/index.html#settings/dialogs)).
+
+This misunderstanding will lead to a test like this failing incorrectly:
+```
+- send address for in n out burger to my car: address sent to your white car
+```
+
+To avoid this, just define a homophone in the configuration file like so:
+```json
+{
+    "homophones": {
+        "white": ["wife"]
+    }
+}
+```
+
 ### Test Sequence
 Tests are run in the order they appear in the file.
 
