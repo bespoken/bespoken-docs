@@ -158,6 +158,20 @@ You can get the complete list of parameters you can use by running:
 bst test --help
 ```
 
+### Using environment variables as settings
+
+You can use environment variables inside the testing.json file by using the `${variable}` format.
+
+For example, this:
+
+```json
+{
+    "interactionModel": "${SKILL_LOCALE}.json"
+}
+```
+
+...will look for an environment variable called "SKILL_LOCALE" and replace the value in your testing.json file with it.
+
 ### Custom configuration path and context
 By convention, the testing.json file is kept under the root of the project, but you can also set a custom path for it.
 
