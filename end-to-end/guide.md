@@ -110,6 +110,7 @@ Below the end-to-end testing configuration options and what they do are listed:
 | [findReplace](#find-replace) | Values that will be replaced in the scripts before execution |
 | [homophones](#homophones) | Values that will be replaced in actual responses from the virtual device |
 | html | Generate a pretty HTML report of test results - defaults to `true` |
+| ignoreExternalErrors | When a not controlled error happens on your voice platform, marks tests as skipped instead of failures - defaults to `false` |
 | [include and exclude](#including-or-excluding-tests-using-tags) | Runs or Skip the tests having the particular specified tags |
 | [locales](#locales) | The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale |
 | [maxAsyncE2EResponseWaitTime](#batch-or-sequential-tests) | Set an interval in milliseconds to wait before stop looking for new results, when batchEnabled is set to false - defaults to 15000 |
