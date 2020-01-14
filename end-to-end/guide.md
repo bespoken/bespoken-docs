@@ -343,6 +343,17 @@ The expected value can be:
 * A regular expression - should be denoted with slashes (/this .* that/)
 * `undefined` - special value indicating not defined
 
+Finally, you can also write utterances without assertions. This would be equivalent to doing `- open my skill: "*"`, but it can be useful you have utterances that are not relevant to one or more of your tests. In the following example, we only focus on testing the stop intent of our voice app:
+
+```yaml
+---
+- test: Invoke skill and stop
+- open fact skill
+- stop: 
+  - prompt: Goodbye!
+  - card.title: Fact skill
+```
+
 #### JSONPath Properties
 JSONPath is an incredibly expressive way to get values from a JSON object.
 

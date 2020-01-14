@@ -325,7 +325,7 @@ This description, if provided, must be the first line in the test.
 
 The test is then made up of a series of interactions and assertions.
 
-Each interaction is prefixed with a "-" which indicates a YAML colletion.
+Each interaction is prefixed with a "-" which indicates a YAML collection.
 
 After each interaction, comes a series of expressions. Typically, these are assertions about the test.
 But they can be:
@@ -342,7 +342,7 @@ each assertion is in turn evaluated in order when a response is received.
 
 If any assertion fails for a test, the test stops processing, and information about the failed assertion is provided.
 
-## Assertions
+### Assertions
 An assertion follows a simple syntax:  
  `[JSONPath Property] [Operator] [Expected Value]`
 
@@ -452,12 +452,23 @@ LaunchRequest:
 
 When a collection is used like this, if any of the values matches, the assertion will be considered a success.
 
-## Intent and Slot properties
-Though it is convenient to use the utterance syntax, some times it may not work correctly.
+#### Empty Assertions
+You can also write interactions without assertions. This would be equivalent to doing `- MyIntent: "*"`, but it can be useful when you have interactions that are not relevant to your test but required to get to the interaction that is. In the following example, after launching our voice app, we only focus on testing the help intent:
 
-It also is useful to be explicit about which intents and slots are desired.
+```yaml
+---
+- test: Ask for help and exit
+- LaunchRequest
+- AMAZON.HelpIntent: 
+  - response.outputSpeech.ssml: "What can I help you with?"
+  - response.card: undefined
+  - response.reprompt.outputSpeech.ssml: "What can I help you with?"
+- exit
+```
 
-To do that, set the first line of the test like so:
+### Intent and Slot properties
+Though it is convenient to use the utterance syntax, some times it may not work correctly. On those cases, it is useful to be explicit about which intents and slots are desired. To do that, set the first line of the test like so:
+
 ```yml
 - SomeIntent SlotA=ValueA SlotB=ValueB
 ```
@@ -473,7 +484,7 @@ This is a shorthand for this more verbose syntax:
 
 This interaction will send an IntentRequest with the intent name SomeIntent and slots SlotA and SlotB set to ValueA and ValueB respectively.
 
-## Request Expressions
+### Request Expressions
 Request expressions allow for setting values explicitly on the request to handler more complex cases.
 
 For example, to set a request attribute explicity in a certain way, just write:

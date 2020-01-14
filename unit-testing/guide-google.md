@@ -386,7 +386,7 @@ This description, if provided, must be the first line in the test.
 
 The test is then made up of a series of interactions and assertions.
 
-Each interaction is prefixed with a "-" which indicates a YAML colletion.
+Each interaction is prefixed with a "-" which indicates a YAML collection.
 
 After each interaction, comes a series of expressions. Typically, these are assertions about the test.
 But they can be:
@@ -510,12 +510,23 @@ LaunchRequest:
 
 When a collection is used like this, if any of the values matches, the assertion will be considered a success.
 
+#### Empty Assertions
+You can also write interactions without assertions. This would be equivalent to doing `- MyIntent: "*"`, but it can be useful when you have interactions that are not relevant to your test but required to get to the interaction that is. In the following example, after launching our voice app, we only focus on testing the help intent:
+
+```yaml
+---
+- test: Ask for help and exit
+- LaunchRequest
+- MyHelpIntent: 
+  - prompt: "What can I help you with?"
+  - cardTitle: Help
+  - payload.google.richResponse.items[0].simpleResponse.textToSpeech: "What can I help you with?"
+- exit
+```
+
 ### Intent and Slot properties
-Though it is convenient to use the utterance syntax, some times it may not work correctly.
+Though it is convenient to use the utterance syntax, some times it may not work correctly. On those cases, it is useful to be explicit about which intents and slots are desired. To do that, set the first line of the test like so:
 
-It also is useful to be explicit about which intents and slots are desired.
-
-To do that, set the first line of the test like so:
 ```yml
 - SomeIntent SlotA=ValueA SlotB=ValueB
 ```
