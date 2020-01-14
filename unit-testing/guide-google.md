@@ -810,7 +810,7 @@ You can also customize the title at the start of the report and the title of the
 JEST_STARE_REPORT_HEADLINE
 JEST_STARE_REPORT_TITLE
 ```
-To read more about jest-stare, [click here](https://github.com/dkelosky/jest-stare#readme).
+To read more about jest-stare, [click here](https://github.com/bespoken/jest-stare#readme).
 
 ## Continuous Integration
 To see how a project works with a total CI setup, [checkout this project](https://github.com/ig-perez/skill-sample-nodejs-fact/tree/ContinuousIntegration).
