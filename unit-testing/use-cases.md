@@ -61,7 +61,7 @@ This will return the country and postal code when requested - **NOTE** it will r
 If no address information is provided, the Address API will return a 403 - which indicates no permission was received from the user.
 
 ## Testing With The User Profile Service API
-The User Profile Service API can also be mocked, and specified to reply with a specific value.
+The User Profile Service API can also be mocked and specified to reply with a specific value.
 
 To set the user data to be returned from the User Profile Service API via mock, just enter a configuration like so:
 ```yml
@@ -77,5 +77,5 @@ configuration:
 
 That will return each of the user data when the corresponding service is called.
 
-If any of the user attribute is not provided, the mock will return a 403 for that specific attribute - which indicates no permission was received from the user.
+If any of the user attributes are not provided, the mock will return a 403 for that specific attribute - which indicates no permission was received from the user.
 
