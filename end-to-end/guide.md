@@ -113,6 +113,8 @@ Below the end-to-end testing configuration options and what they do are listed:
 | ignoreExternalErrors | When a not controlled error happens on your voice platform, marks tests as skipped instead of failures - defaults to `false` |
 | [include and exclude](#including-or-excluding-tests-using-tags) | Runs or Skip the tests having the particular specified tags |
 | [locales](#locales) | The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale |
+| locationLat | The latitude in degrees from where the requests should be made. It must be in the range [-90.0, +90.0]. Only for Google virtual devices |
+| locationLong | The longitude in degrees from where the requests should be made. It must be in the range [-180.0, +180.0] Only for Google virtual devices |
 | [maxAsyncE2EResponseWaitTime](#batch-or-sequential-tests) | Set an interval in milliseconds to wait before stop looking for new results, when batchEnabled is set to false - defaults to 15000 |
 | platform | The platform that is being tested - can be either `alexa` or `google` - defaults to `alexa` |
 | skillId | For tests of type `simulation`, the skillId must be specified |
@@ -307,7 +309,7 @@ Speech Synthesis Markup Language example, more details [here](#ssml):
 - <speak>this is SSML</speak>:
 ```
 
-## Assertions
+### Assertions
 An assertion follows a simple syntax:
  `[JSONPath Property] [Operator] [Expected Value]`
 
@@ -517,6 +519,42 @@ End-to-end tests are not run in parallel, unlike unit tests. This is because of 
 For each locale defined in either the testing.json file or in the test suite itself, the tests will be run in their entirety.
 
 That means if three locales are defined, the entire test suite will be run three times.
+
+### Localization
+Localization is a built-in feature of the Bespoken tests.
+
+To leverage it, add a directory `locales` where your tests are located. Inside it add files for each language and/or locale, like so:
+```bash
+test
+  index.test.yml
+  locales
+    en.yml # Core english phrases
+    en-GB.yml # Overrides for english phrases in Great Britain locale
+    de.yml # Core german phrases
+```
+The files themselves look like this:
+```
+openSpaceFacts: Open Space Facts
+heresIsAFact: Here's your fact
+cardTitle: Space Facts
+helpPrompt: You can say tell me a space fact, or, you can say exit... What can I help you with?
+helpReprompt: What can I help you with?
+stopPrompt: Goodbye!
+cancelPrompt: Goodbye!
+fallbackPrompt: The Space Facts skill can't help you with that.  It can help you discover facts about space if you say tell me a space fact. What can I help you with?
+fallbackReprompt: What can I help you with?
+```
+
+When utterances, slot values and assertions are being resolved, tokens from the left-hand side are automatically replaced with values on the right-hand side. For example, take this simple test:
+```yml
+---
+- test: Launch request, no further interaction.
+- openSpaceFacts: heresIsAFact
+```
+
+In this scenario, when the test is run for the en-US locale, the utterance will be replaced by "Open Space Facts" and the output speech will be compared to "Here's your fact", the value that heresIsAFact resolves to in our locale file.
+
+To see a complete example, [check out this project](https://github.com/bespoken-samples/space-facts/tree/master/test/e2e).
 
 ### Batch or Sequential Tests
 Tests are run by default in batch. This means that all the utterances are sent to be processed. How we retrieve them depends on the "asyncMode" flag:

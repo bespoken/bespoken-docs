@@ -43,12 +43,12 @@ The specific permissions are to access Alexa Voice Services and Alexa Account Co
 Remember, you can remove access at any time by visiting your Alexa account [online](https://alexa.amazon.com/spa/index.html#settings) or via the Alexa app.
 
 ## **Is it possible to test skills written in languages other than Javascript?**
-Yes, it is possible. Our tools are language agnostic. For example, you can create [unit](https://read.bespoken.io/unit-testing/getting-started.html) or [end-to-end](https://read.bespoken.io/end-to-end/getting-started.html) test scripts using our syntax based on YAML regardless of the language used to create the voice app. We also provide SDKs for writing testings programmatically - also available for both [unit](https://github.com/bespoken/virtual-alexa) and [end-to-end](https://read.bespoken.io/end-to-end/api.html) testing. In either case, our tests work with your skill, regardless of the language it is written in. 
+Yes, it is possible. Our tools are language agnostic. For example, you can create [unit](https://read.bespoken.io/unit-testing/getting-started.html) or [end-to-end](https://read.bespoken.io/end-to-end/getting-started.html) test scripts using our syntax based on YAML regardless of the language used to create the voice app. We also provide SDKs for writing tests programmatically - also available for both [unit](https://github.com/bespoken/virtual-alexa) and [end-to-end](https://read.bespoken.io/end-to-end/api.html) testing. In either case, our tests work with your skill regardless of the language it is written in. 
 
 ## **Is it better to use the YAML syntax or the programmatic SDKs for testing?**
 Both are good choices. In the case of unit-testing, our YAML tests actually rely on [Virtual Alexa](https://github.com/bespoken/virtual-alexa) under the covers. In the case of end-to-end tests, similarly our YAML test scripts rely on our [Virtual Device SDK](https://github.com/bespoken/virtual-device-sdk). The big advantage of our YAML syntax is that it allows tests to be written in the same way no matter what type of test it is (unit or end-to-end), and what platform it works with (Google or Alexa). It also does not require programming skills. On the other hand, for many programmer using our programmatic APIs is easy and more what they are accustomed to - it also allows for writing tests that are more complex, such as ones that call external APIs to validate results. So the best approach takes into consideration the type of tests being written, as well as the skillset of the testing team.
 
-## **How to do I run end-to-end tests?**
+## **How do I run end-to-end tests?**
 To get started, you need to install the Bespoken CLI, please follow next steps:
 1. Install the CLI by running `npm install -g bespoken-tools` on your command line.
 2. Open a command-line window and change directory to the root of your `<PROJECT_FOLDER>`
@@ -119,7 +119,7 @@ Use the filter functionalities to add any kind of behavior during tests (read [h
 # **Working with test scripts**
 
 ## <a name="anchorToFolderStructure"></a>**How should I organize my test files?**
-That depends, if you are testing your voice app and it supports just one locale you can have a folder structure like this:
+If your voice app supports just one locale you can have a folder structure like this:
 
 ```
 └───My Skill E2E testing
@@ -128,9 +128,16 @@ That depends, if you are testing your voice app and it supports just one locale 
         testing.json
 ```
 
-For this case, we recommend the locale and Virtual Device Token is defined on your `testing.json` file.
+For this case, we recommend the locale and Virtual Device Token to be defined on your `testing.json` file.
 
-If your voice app supports multiple locales you have to get a Virtual Device token per each locale you want to test. The folder structure for testing 3 locales might look like this:
+```json
+{
+  "type": "e2e",
+  "virtualDeviceToken": "alexa-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
+}
+```
+
+If your voice app supports multiple locales, the folder structure can look like this:
 
 ```
 └───My Multi-locale E2E testing
@@ -157,28 +164,19 @@ configuration:
   voiceId: Hans
   virtualDeviceToken: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
-And this is how a `testing.json` file looks like for a multi-locale test project:
+And this is how a `testing.json` file would look like if you'd want to use a different virtual device for each locale (useful if your voice apps are published in different regions):
 ```json
 {
   "type": "e2e",
-  "homophones": {
-    "lettuce": ["let us"],
-    "figs": ["six", "vicks"]
-  },
-  "trace": false,
-  "jest": {
-    "silent": false
-  },  
   "virtualDeviceToken": {
     "alexa": {
-       "en-US": "token-en-us-alexa-xxxx-xxxx",
-       "de-DE": "token-de-de-alexa-xxxx-xxxx",
-       "en-GB": "token-en-gb-alexa-xxxx-xxxx"
+       "en-US": "alexa-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+       "de-DE": "alexa-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxy",
+       "en-GB": "alexa-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxz"
     }
  }
 }
 ```
-
 
 ## **How do I troubleshoot end-to-end tests for Alexa?**
 We recommend taking into account the following:
@@ -249,8 +247,17 @@ As the account linking process involves __visual__ user interaction between a vo
 
 Of course, if you are just trying to test specific account scenarios (and not the account linking process itself), we recommend setting up virtual devices linked to specific accounts. You only need to do this once, and then you can test these scenarios as needed essentially forever. Read more at this [FAQ entry](#how-do-i-test-a-voice-app-that-requires-account-linking)
 
-## **My skill supports multiple locales, how do I create functional tests for it?**
-First thing is to generate one Bespoken Virtual Device token per each locale you want to test. Then organize your test folder as [shown previously](#anchorToFolderStructure) and add your tokens to your test script files or `testing.json` file.
+## **My voice app supports multiple locales, how do I create functional tests for it?**
+Both Alexa and Google's virtual devices support multiple locales from the get-go. You just need to set correctly the locale that you want to test against by using the `locale` property on your test scripts. You can also keep it to one test file and a resource file for each locale by using our localization feature as explained [here](../end-to-end/guide/#localization).
+
+## **I've changed my locale to en-UK however I can't access a voice app from that region**
+There's a distinction that has to be made between a locale and a voice app region. A locale refers to the language that you want to use when communicating with your voice platform. A region refers to the geographical space in which your voice app is available. In other words, your voice app could be prepared to reply to multiple locales (en-US, es-ES, etc) but then be published only in certain regions. 
+
+By default, our virtual devices will always point to the USA region. If you want to reach a voice app in a specific region there are two things you can do:
+
+1. For Alexa: You'll need to create a virtual device tied to an Amazon account that is specific to the region that you want to test. That is, an amazon.co.uk for testing a voice app published in the UK, an amazon.es account for voice apps in Spain, and so on. If you have the same voice app in multiple regions, you can follow our file structure recommendation from [here](#anchorToFolderStructure).
+
+2. For Google: Use the properties locationLat and locationLong on your test scripts or `testing.json` file to specify the latitude and longitude from where your virtual device should be located in order to test your voice app.
 
 ## **How do I handle different invocation names for different environments?**
 In case you have different invocation names for your skill you can define them all in the `testing.json` file as you were defining variables. Then use those variables in your test script. We will do the find/replace when executing the test scripts.
@@ -373,7 +380,7 @@ It is also possible to specify multiple valid values for a property. That is don
 ## **I have errors when testing in parallel with devices using the same account with Alexa**
 Alexa AVS doesn't handle more than one request for the same account, if you need to do parallel tests, create the necessary virtual devices using different accounts at the setup.
 
-## **If you get "to let me read out that information turn on personal results in the google app home" as response instead a response from your action**
+## ** My Google action responds with  "to let me read out that information turn on personal results in the google app home"**
 Follow [these steps](./setup.html#enable-personal-results-for-google).
 
 <!-- Images references -->
