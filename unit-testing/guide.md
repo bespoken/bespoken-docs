@@ -232,7 +232,7 @@ bst test --config config/testing.json
 The test syntax is based on YAML.
 
 ### Localization
-Localization is a built-in feature of Bespoken unit-testing.
+Localization is a built-in feature of the Bespoken tests.
 
 To leverage it, add a directory `locales` where your tests are located. Inside it add files for each language and/or locale, like so:
 ```bash
