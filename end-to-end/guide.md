@@ -113,6 +113,8 @@ Below the end-to-end testing configuration options and what they do are listed:
 | ignoreExternalErrors | When a not controlled error happens on your voice platform, marks tests as skipped instead of failures - defaults to `false` |
 | [include and exclude](#including-or-excluding-tests-using-tags) | Runs or Skip the tests having the particular specified tags |
 | [locales](#locales) | The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale |
+| locationLat | The latitude in degrees from where the requests should be made. It must be in the range [-90.0, +90.0]. Only for Google virtual devices |
+| locationLong | The longitude in degrees from where the requests should be made. It must be in the range [-180.0, +180.0] Only for Google virtual devices |
 | [maxAsyncE2EResponseWaitTime](#batch-or-sequential-tests) | Set an interval in milliseconds to wait before stop looking for new results, when batchEnabled is set to false - defaults to 15000 |
 | platform | The platform that is being tested - can be either `alexa` or `google` - defaults to `alexa` |
 | skillId | For tests of type `simulation`, the skillId must be specified |
