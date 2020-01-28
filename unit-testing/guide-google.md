@@ -677,13 +677,12 @@ And the filter file is `/Users/bst-user/project/test/myFilterModule`
 Then the filter should be set to `filter: test/myfilterModule`
 
 The filter module should be a simple JS object with all or some of this functions:
-* onTestSuiteStart(testSuite)
-* onTestStart(test)
-* onRequest(test, request)
-* onResponse(test, response)
-* onTestEnd(test, testResults)
-* onTestSuiteEnd(testResults)
-* resolve(variable, interaction)
+* onTestSuiteStart([testSuite](https://bespoken.github.io/skill-testing-ml/api/TestSuite.html))
+* onTestStart([test](https://bespoken.github.io/skill-testing-ml/api/Test.html))
+* onResponse([test](https://bespoken.github.io/skill-testing-ml/api/Test.html), response)
+* onTestEnd([test](https://bespoken.github.io/skill-testing-ml/api/Test.html), [testResults](https://bespoken.github.io/skill-testing-ml/api/TestResult.html))
+* onTestSuiteEnd([testResults](https://bespoken.github.io/skill-testing-ml/api/TestResult.html))
+* resolve(variable, [interaction](https://bespoken.github.io/skill-testing-ml/api/TestInteraction.html))
 
 An example filter is here:
 ```js
