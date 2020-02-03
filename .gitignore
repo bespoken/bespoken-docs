@@ -6,3 +6,6 @@ _site
 node_modules
 build
 dist
+releases/.DS_Store
+.DS_Store
+.DS_Store
