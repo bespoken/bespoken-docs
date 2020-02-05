@@ -380,7 +380,7 @@ It is also possible to specify multiple valid values for a property. That is don
 ## **I have errors when testing in parallel with devices using the same account with Alexa**
 Alexa AVS doesn't handle more than one request for the same account, if you need to do parallel tests, create the necessary virtual devices using different accounts at the setup.
 
-## ** My Google action responds with  "to let me read out that information turn on personal results in the google app home"**
+## **My Google action responds with  "to let me read out that information turn on personal results in the google app home"**
 Follow [these steps](./setup.html#enable-personal-results-for-google).
 
 <!-- Images references -->
