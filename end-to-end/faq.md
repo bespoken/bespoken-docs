@@ -259,19 +259,32 @@ By default, our virtual devices will always point to the USA region. If you want
 
 2. For Google: Use the properties locationLat and locationLong on your test scripts or `testing.json` file to specify the latitude and longitude from where your virtual device should be located in order to test your voice app.
 
-## **How do I change my Virtual Device location to test location-specific features?**
-Our Virtual Devices are created without a specific location. If you want to set it, follow the instructions below:
+## **What is the default location for a virtual device?**
 ### Alexa
-After creating a Virtual Device, Alexa will use the address specified in your Amazon Account (the current one or any of the previous ones you have set). If you want to change it:
+When you create your first Virtual Device, you will be asked to select a country. 
+
+[<img src="assets/UpdateLocation-03.png" width="50%">](assets/UpdateLocation-03.png)
+
+Despite this, the Virtual Device has not yet an assigned location. If, in this state, you ask for the device location (see image below), and you are located in the US, Amazon will assign it an American zip code. Otherwise, the Virtual Device will remain with no location information.
+
+[<img src="assets/UpdateLocation-01.png" width="50%">](assets/UpdateLocation-01.png)
+
+The location defined in the Virtual Device settings will take precedence over the address added to the linked Amazon account.
+
+### Google
+The location of Virtual Devices is set by [this precedence logic](https://developers.google.com/assistant/sdk/reference/rpc/google.assistant.embedded.v1alpha2#devicelocation).
+
+## **How do I change my Virtual Device location to test location-specific features?**
+### Alexa
 - Go to your Alexa account (for the US, go to alexa.amazon.com) and navigate to **Settings**.
 - Select the Virtual Device for which you want to update the location. If you are not sure which one to choose, run these tests on Bespoken Dashboard:
 
   [<img src="assets/UpdateLocation-01.png" width="50%">](assets/UpdateLocation-01.png)
 - Add the desired address or zip code in the General section, under "Device Location"
 
-    [<img src="assets/UpdateLocation-02.png" width="50%">](assets/UpdateLocation-02.png)
+  [<img src="assets/UpdateLocation-02.png" width="50%">](assets/UpdateLocation-02.png)
 ### Google
-It is very easy to set a specific location for your Google Virtual Devices. Just add the desired latitude (`lat`, values from -90.0 to +90.0) and longitude (`lng`, values from -180.0 to +180.0) to your `testing.json` file by using the `deviceLocation` object:
+Add the desired latitude (`lat`, values from -90.0 to +90.0) and longitude (`lng`, values from -180.0 to +180.0) to your `testing.json` file by using the `deviceLocation` object:
 ```json
 "deviceLocation": {
     "lat": 17.991830,
