@@ -259,6 +259,29 @@ By default, our virtual devices will always point to the USA region. If you want
 
 2. For Google: Use the properties locationLat and locationLong on your test scripts or `testing.json` file to specify the latitude and longitude from where your virtual device should be located in order to test your voice app.
 
+## **How do I change my Virtual Device location to test location-specific features?**
+Our Virtual Devices are created without a specific location. If you want to set it, follow the instructions below:
+### Alexa
+After creating a Virtual Device, Alexa will use the address specified in your Amazon Account (the current one or any of the previous ones you have set). If you want to change it:
+- Go to your Alexa account (for the US, go to alexa.amazon.com) and navigate to **Settings**.
+- Select the Virtual Device for which you want to update the location. If you are not sure which one to choose, run these tests on Bespoken Dashboard:
+
+  [<img src="assets/UpdateLocation-01.png" width="50%">](assets/UpdateLocation-01.png)
+- Add the desired address or zip code in the General section, under "Device Location"
+
+    [<img src="assets/UpdateLocation-02.png" width="50%">](assets/UpdateLocation-02.png)
+### Google
+It is very easy to set a specific location for your Google Virtual Devices. Just add the desired latitude (`lat`, values from -90.0 to +90.0) and longitude (`lng`, values from -180.0 to +180.0) to your `testing.json` file by using the `deviceLocation` object:
+```json
+"deviceLocation": {
+    "lat": 17.991830,
+    "lng": -76.800145
+  }
+```
+You can also use a specific location in Bespoken Dashboard by adding the `deviceLocation` key in the "Advanced Configuration" section:
+
+[<img src="assets/UpdateLocationGoogle.png" width="50%">](assets/UpdateLocationGoogle.png)
+
 ## **How do I handle different invocation names for different environments?**
 In case you have different invocation names for your skill you can define them all in the `testing.json` file as you were defining variables. Then use those variables in your test script. We will do the find/replace when executing the test scripts.
 
