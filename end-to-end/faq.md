@@ -263,11 +263,11 @@ By default, our virtual devices will always point to the USA region. If you want
 ### Alexa
 When you create your first Virtual Device, you will be asked to select a country. 
 
-[<img src="assets/UpdateLocation-03.png" width="50%">](assets/UpdateLocation-03.png)
+[<img src="./assets/UpdateLocation-03.png" width="50%">](./assets/UpdateLocation-03.png)
 
 Despite this, the Virtual Device has not yet an assigned location. If, in this state, you ask for its location (see image below), and you have selected "United States", Amazon will assign it an American zip code. Otherwise, if you selected a different country, Alexa will reply with "Sorry, I couldn't find your current location information" (the linked Amazon account's address is not taken as fallback).
 
-[<img src="assets/UpdateLocation-01.png" width="50%">](assets/UpdateLocation-01.png)
+[<img src="./assets/UpdateLocation-01.png" width="50%">](./assets/UpdateLocation-01.png)
 
 Take note, that the location defined in the Virtual Device settings will take precedence over the address added to the linked Amazon account.
 
@@ -279,10 +279,10 @@ The location of Virtual Devices is set by [this precedence logic](https://develo
 - Go to your Alexa account (for the US, go to alexa.amazon.com) and navigate to **Settings**.
 - Select the Virtual Device for which you want to update the location. If you are not sure which one to choose, run these tests on Bespoken Dashboard:
 
-  [<img src="assets/UpdateLocation-01.png" width="50%">](assets/UpdateLocation-01.png)
+  [<img src="./assets/UpdateLocation-01.png" width="50%">](./assets/UpdateLocation-01.png)
 - Add the desired address or zip code in the General section, under "Device Location"
 
-  [<img src="assets/UpdateLocation-02.png" width="50%">](assets/UpdateLocation-02.png)
+  [<img src="./assets/UpdateLocation-02.png" width="50%">](./assets/UpdateLocation-02.png)
 ### Google
 Add the desired latitude (`lat`, values from -90.0 to +90.0) and longitude (`lng`, values from -180.0 to +180.0) to your `testing.json` file by using the `deviceLocation` object:
 ```json
@@ -293,7 +293,7 @@ Add the desired latitude (`lat`, values from -90.0 to +90.0) and longitude (`lng
 ```
 You can also use a specific location in Bespoken Dashboard by adding the `deviceLocation` key in the "Advanced Configuration" section:
 
-[<img src="assets/UpdateLocationGoogle.png" width="50%">](assets/UpdateLocationGoogle.png)
+[<img src="./assets/UpdateLocationGoogle.png" width="50%">](./assets/UpdateLocationGoogle.png)
 
 ## **How do I handle different invocation names for different environments?**
 In case you have different invocation names for your skill you can define them all in the `testing.json` file as you were defining variables. Then use those variables in your test script. We will do the find/replace when executing the test scripts.
