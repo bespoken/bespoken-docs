@@ -265,11 +265,11 @@ When you create your first Virtual Device, you will be asked to select a country
 
 [<img src="assets/UpdateLocation-03.png" width="50%">](assets/UpdateLocation-03.png)
 
-Despite this, the Virtual Device has not yet an assigned location. If, in this state, you ask for the device location (see image below), and you are located in the US, Amazon will assign it an American zip code. Otherwise, the Virtual Device will remain with no location information.
+Despite this, the Virtual Device has not yet an assigned location. If, in this state, you ask for its location (see image below), and you have selected "United States", Amazon will assign it an American zip code. Otherwise, if you selected a different country, Alexa will reply with "Sorry, I couldn't find your current location information" (the linked Amazon account's address is not taken as fallback).
 
 [<img src="assets/UpdateLocation-01.png" width="50%">](assets/UpdateLocation-01.png)
 
-The location defined in the Virtual Device settings will take precedence over the address added to the linked Amazon account.
+Take note, that the location defined in the Virtual Device settings will take precedence over the address added to the linked Amazon account.
 
 ### Google
 The location of Virtual Devices is set by [this precedence logic](https://developers.google.com/assistant/sdk/reference/rpc/google.assistant.embedded.v1alpha2#devicelocation).
