@@ -243,7 +243,7 @@ If you are unsure what Amazon account your virtual device is associated with, tr
 `bst speak --token <VIRTUAL-DEVICE-TOKEN> what is my name`
 
 ## **Can I test the account linking process itself with Bespoken?**
-As the account linking process involves __visual__ user interaction between a voice platform and your backend, you need to use an external web automation tool like Selenium to accomplish it. This visual interaction test script can be later linked to the audio interaction test scripts created with Bespoken Tools. Please [contact us](mailto:sales@bespoken.io) in case you want to discuss further as we can assist you in creating the visual test scripts with Selenium.
+As the account linking process involves __visual__ user interaction between a voice platform and your backend, you need to use an external web automation tool like Selenium to accomplish it. This visual interaction test script can be later linked to the audio interaction test scripts created with Bespoken. Please [contact us](mailto:sales@bespoken.io) in case you want to discuss further as we can assist you in creating the visual test scripts with Selenium.
 
 Of course, if you are just trying to test specific account scenarios (and not the account linking process itself), we recommend setting up virtual devices linked to specific accounts. You only need to do this once, and then you can test these scenarios as needed essentially forever. Read more at this [FAQ entry](#how-do-i-test-a-voice-app-that-requires-account-linking)
 
