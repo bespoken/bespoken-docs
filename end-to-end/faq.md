@@ -243,7 +243,7 @@ If you are unsure what Amazon account your virtual device is associated with, tr
 `bst speak --token <VIRTUAL-DEVICE-TOKEN> what is my name`
 
 ## **Can I test the account linking process itself with Bespoken?**
-As the account linking process involves __visual__ user interaction between a voice platform and your backend, you need to use an external web automation tool like Selenium to accomplish it. This visual interaction test script can be later linked to the audio interaction test scripts created with Bespoken Tools. Please [contact us](mailto:sales@bespoken.io) in case you want to discuss further as we can assist you in creating the visual test scripts with Selenium.
+As the account linking process involves __visual__ user interaction between a voice platform and your backend, you need to use an external web automation tool like Selenium to accomplish it. This visual interaction test script can be later linked to the audio interaction test scripts created with Bespoken. Please [contact us](mailto:sales@bespoken.io) in case you want to discuss further as we can assist you in creating the visual test scripts with Selenium.
 
 Of course, if you are just trying to test specific account scenarios (and not the account linking process itself), we recommend setting up virtual devices linked to specific accounts. You only need to do this once, and then you can test these scenarios as needed essentially forever. Read more at this [FAQ entry](#how-do-i-test-a-voice-app-that-requires-account-linking)
 
@@ -258,6 +258,42 @@ By default, our virtual devices will always point to the USA region. If you want
 1. For Alexa: You'll need to create a virtual device tied to an Amazon account that is specific to the region that you want to test. That is, an amazon.co.uk for testing a voice app published in the UK, an amazon.es account for voice apps in Spain, and so on. If you have the same voice app in multiple regions, you can follow our file structure recommendation from [here](#anchorToFolderStructure).
 
 2. For Google: Use the properties locationLat and locationLong on your test scripts or `testing.json` file to specify the latitude and longitude from where your virtual device should be located in order to test your voice app.
+
+## **What is the default location for a virtual device?**
+### Alexa
+When you create your first Virtual Device, you will be asked to select a country. 
+
+[<img src="assets/UpdateLocation-03.png" width="50%">](assets/UpdateLocation-03.png)
+
+Despite this, the Virtual Device has not yet an assigned location. If, in this state, you ask for its location (see image below), and you have selected "United States", Amazon will assign it an American zip code. Otherwise, if you selected a different country, Alexa will reply with "Sorry, I couldn't find your current location information" (the linked Amazon account's address is not taken as fallback).
+
+[<img src="assets/UpdateLocation-01.png" width="50%">](assets/UpdateLocation-01.png)
+
+Take note, that the location defined in the Virtual Device settings will take precedence over the address added to the linked Amazon account.
+
+### Google
+The location of Virtual Devices is set by [this precedence logic](https://developers.google.com/assistant/sdk/reference/rpc/google.assistant.embedded.v1alpha2#devicelocation).
+
+## **How do I change my Virtual Device location to test location-specific features?**
+### Alexa
+- Go to your Alexa account (for the US, go to alexa.amazon.com) and navigate to **Settings**.
+- Select the Virtual Device for which you want to update the location. If you are not sure which one to choose, run these tests on Bespoken Dashboard:
+
+  [<img src="assets/UpdateLocation-01.png" width="50%">](assets/UpdateLocation-01.png)
+- Add the desired address or zip code in the General section, under "Device Location"
+
+  [<img src="assets/UpdateLocation-02.png" width="50%">](assets/UpdateLocation-02.png)
+### Google
+Add the desired latitude (`lat`, values from -90.0 to +90.0) and longitude (`lng`, values from -180.0 to +180.0) to your `testing.json` file by using the `deviceLocation` object:
+```json
+"deviceLocation": {
+    "lat": 17.991830,
+    "lng": -76.800145
+  }
+```
+You can also use a specific location in Bespoken Dashboard by adding the `deviceLocation` key in the "Advanced Configuration" section:
+
+[<img src="assets/UpdateLocationGoogle.png" width="50%">](assets/UpdateLocationGoogle.png)
 
 ## **How do I handle different invocation names for different environments?**
 In case you have different invocation names for your skill you can define them all in the `testing.json` file as you were defining variables. Then use those variables in your test script. We will do the find/replace when executing the test scripts.
