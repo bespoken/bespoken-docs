@@ -102,27 +102,21 @@ Below the end-to-end testing configuration options and what they do are listed:
 
 | Key | Description |
 | --- | --- |
-| [asyncMode](#batch-or-sequential-tests) | Only works when batchEnabled is true, if asyncMode is false we wait for all the results, if it is true we retrieve them asynchronously - defaults to false |
-| [asyncE2EWaitInterval](#batch-or-sequential-tests) | Set an interval in milliseconds to wait before querying for new results, when batchEnabled is set to false - defaults to 5000 |
-| [batchEnabled](#batch-or-sequential-tests) | If it is true we sent the complete set of utterances to the virtual device server in a test, if it is false we sent them one by one - defaults to true |
 | description | The description of the set of tests |
 | [filter](#filtering-during-test) | The (optional) path to a class that can be used to override value on the request and response |
 | [findReplace](#find-replace) | Values that will be replaced in the scripts before execution |
 | [homophones](#homophones) | Values that will be replaced in actual responses from the virtual device |
 | html | Generate a pretty HTML report of test results - defaults to `true` |
-| ignoreExternalErrors | When a not controlled error happens on your voice platform, marks tests as skipped instead of failures - defaults to `false` |
 | [include and exclude](#including-or-excluding-tests-using-tags) | Runs or Skip the tests having the particular specified tags |
 | [locales](#locales) | The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale |
 | [deviceLocation]((./faq#how-do-i-change-my-virtual-device-location-to-test-location-specific-features)) | An object to set a specific location value from where the requests are sent in Google Virtual Devices. It is composed by the `lat` and `lng` keys. Read here to know how to use it.
-| [maxAsyncE2EResponseWaitTime](#batch-or-sequential-tests) | Set an interval in milliseconds to wait before stop looking for new results, when batchEnabled is set to false - defaults to 15000 |
 | platform | The platform that is being tested - can be either `alexa` or `google` - defaults to `alexa` |
 | skillId | For tests of type `simulation`, the skillId must be specified |
 | stage | For tests of type `simulation`, the stage must be specified - can be `development` or `live` |
 | type | The type of test being run - can be `unit`, `simulation`, or `e2e` - defaults to `unit` |
-| stopTestOnFailure | Stops the execution of an interaction if there is an assertion error - defaults to `false` |
+| stopTestOnFailure | Stops the execution of a test and continues with the next one as soon as there is an assertion error - defaults to `false` |
 | [trace](#viewing-response-payloads) | Causes request and response JSON payloads from the skill to be printed to the console |
 | [virtualDeviceToken](./setup.html) | For end-to-end tests that use virtual devices, this must be specified. [Get one here](./setup.html) |
-| virtualDeviceBaseURL | Sets a custom base address for the Virtual Device API endpoints |
 
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
 
@@ -733,8 +727,7 @@ bst test --include FirstUse,ReturningUser --exclude broken
 
 ### Ignore properties on demand
 
-Different platforms have different properties and sometimes is not possible to validate the same exact properties when running the test using
-another platform. For these cases, you can ignore a list of properties from your tests.
+Different platforms have different properties and sometimes is not possible to validate the same exact properties when running the test using another platform. For these cases, you can ignore a list of properties from your tests.
 Here is an example of a testing.json that have some properties ignored:
 
 ```json
@@ -776,6 +769,33 @@ configuration:
     - cardContent: /.*/
     - cardTitle: Space Facts
 ```
+### Retrying tests 
+
+As end-to-end tests depend on external services, sometimes things unrelated to your voice applications can fail and spoil a long-running test session. To prevent that from happening, you can set a number of times in which your tests should be retried before marking them as failed. To do this, you need to set the following properties in your testing.json file:
+
+```json
+{
+    "retryOn": [553, 556],
+    "retryNumber" : 2
+}
+
+```
+
+`retryOn` is an array containing error codes returned from our Virtual Device server, while `retryNumber` is the number of times you want to retry your tests in case of an error (from 0 to 5, defaults at 2). Below is a list of the most significant error codes:
+
+Error code | Reason | Category
+-- | -- | --
+400 | A required parameter was set with invalid values. | user
+450 | Multiple calls made at the same time to the same virtual device. | user
+451 | The virtual device associated with this token did not work correctly. Try refreshing your credentials in https://apps.bespoken.io/dashboard/ | user
+500 | Unknown system error. | system
+550 | Error sending request to AVS (104). | system
+551 | Error sending request to AVS. | system
+552 | Error refreshing AVS credentials. | system
+553 | Error in response from AVS | system
+554 | Error in response from AVS | system
+555 | Error sending request to Google assistant. | system
+556 | The Alexa Voice Service took too long to respond | user
 
 ## HTML Reporting
 The results of your tests are automatically formatted into a nice HTML report, courtesy of jest-stare.
@@ -799,6 +819,20 @@ JEST_STARE_REPORT_TITLE
 ```
 
 To read more about jest-stare, [click here](https://github.com/dkelosky/jest-stare#readme).
+
+## Special / Advanced Configurations
+The following are settings than can help you overcome specific testing issues. However, you should use them with caution.
+
+| Key | Description |
+| --- | --- |
+| [asyncMode](#batch-or-sequential-tests) | Only works when batchEnabled is true, if asyncMode is false we wait for all the results, if it is true we retrieve them asynchronously - defaults to false |
+| [asyncE2EWaitInterval](#batch-or-sequential-tests) | Set an interval in milliseconds to wait before querying for new results, when batchEnabled is set to false - defaults to 5000 |
+| [batchEnabled](#batch-or-sequential-tests) | If it is true we sent the complete set of utterances to the virtual device server in a test, if it is false we sent them one by one - defaults to true |
+| ignoreExternalErrors | When a not controlled error happens while executing your tests, marks them as skipped instead of failures - defaults to `false` |
+| [maxAsyncE2EResponseWaitTime](#batch-or-sequential-tests) | Set an interval in milliseconds to wait before stop looking for new results, when batchEnabled is set to false - defaults to 15000 |
+| [retryOn](#retrying-tests) | An array with Virtual Device error codes on which to do a retry if a test fails |
+| [retryNumber](#retrying-tests) | The number of retrys to execute if a test fails must be in the range [0,5] |
+| virtualDeviceBaseURL | Sets a custom base address for the Virtual Device API endpoints |
 
 ## Further Reading
 Take a look at:
