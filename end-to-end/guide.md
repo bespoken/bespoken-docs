@@ -727,8 +727,7 @@ bst test --include FirstUse,ReturningUser --exclude broken
 
 ### Ignore properties on demand
 
-Different platforms have different properties and sometimes is not possible to validate the same exact properties when running the test using another platform. For these cases, you can ignore a list of properties from your tests.
-Here is an example of a testing.json that have some properties ignored:
+Different platforms have different properties and sometimes is not possible to validate the same exact properties when running the test using another platform. For these cases, you can ignore a list of properties from your tests. Here is an example of a testing.json that has some properties ignored:
 
 ```json
 {
@@ -775,7 +774,7 @@ As end-to-end tests depend on external services, sometimes things unrelated to y
 
 ```json
 {
-    "retryOn": [553, 556],
+    "retryOn": [551, 552],
     "retryNumber" : 2
 }
 
@@ -789,13 +788,12 @@ Error code | Reason | Category
 450 | Multiple calls made at the same time to the same virtual device. | user
 451 | The virtual device associated with this token did not work correctly. Try refreshing your credentials in https://apps.bespoken.io/dashboard/ | user
 500 | Unknown system error. | system
-550 | Error sending request to AVS (104). | system
-551 | Error sending request to AVS. | system
-552 | Error refreshing AVS credentials. | system
-553 | Error in response from AVS | system
-554 | Error in response from AVS | system
-555 | Error sending request to Google assistant. | system
-556 | The Alexa Voice Service took too long to respond | user
+550 | Error sending request to AVS. | system
+551 | Error in response from AVS | system
+552 | The Alexa Voice Service took too long to respond | system
+553 | Error refreshing AVS credentials. | system
+
+Errors 551 and 552 are retried by default unless you specify other codes for `retryOn`.
 
 ## HTML Reporting
 The results of your tests are automatically formatted into a nice HTML report, courtesy of jest-stare.
