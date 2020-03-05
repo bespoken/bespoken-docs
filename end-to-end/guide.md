@@ -784,14 +784,14 @@ As end-to-end tests depend on external services, sometimes things unrelated to y
 
 Error code | Reason | Category
 -- | -- | --
-400 | A required parameter was set with invalid values. | user
-450 | Multiple calls made at the same time to the same virtual device. | user
+400 | A required parameter was set with invalid values | user
+450 | Multiple calls made at the same time to the same virtual device | user
 451 | The virtual device associated with this token did not work correctly. Try refreshing your credentials in https://apps.bespoken.io/dashboard/ | user
-500 | Unknown system error. | system
-550 | Error sending request to AVS. | system
+500 | Unknown system error | system
+550 | Error sending request to AVS | system
 551 | Error in response from AVS | system
 552 | The Alexa Voice Service took too long to respond | system
-553 | Error refreshing AVS credentials. | system
+553 | Error refreshing AVS credentials | system
 
 Errors 551 and 552 are retried by default unless you specify other codes for `retryOn`.
 
