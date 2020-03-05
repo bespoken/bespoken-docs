@@ -720,9 +720,7 @@ bst test --include FirstUse,ReturningUser --exclude broken
 
 ### Ignore properties on demand
 
-Different platforms have different properties and sometimes is not possible to validate the same exact properties when running the test using
-another platform. For these cases, you can ignore a list of properties from your tests.
-Here is an example of a testing.json that have some properties ignored:
+Different platforms have different properties and sometimes is not possible to validate the same exact properties when running the test using another platform. For these cases, you can ignore a list of properties from your tests. Here is an example of a testing.json that has some properties ignored:
 
 ```json
 {
