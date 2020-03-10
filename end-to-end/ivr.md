@@ -3,14 +3,14 @@ title: Guide to End-To-End IVR Testing (BETA)
 permalink: /end-to-end/ivr/
 ---
 
-# End-To-End Testing For Interactive Voice Response
+# End-To-End Testing For Interactive Voice Response 
 We provide support for Interactive Voice Response (IVR) systems.
 
 Most of the features from our standard end-to-end testing work as normal for this, but there are some special features that we will cover in this guide.
 
 For in-depth information on how our end-to-end testing works, [read here](/end-to-end/guide).
 
-# Approach
+## Approach
 We leverage Twilio to interact with IVR systems.
 
 Here is a simple test
@@ -30,7 +30,7 @@ If the expected response matches the actual response we receive from the system,
 
 There is much more that can be done with our response assertions - [read all about them here](/end-to-end/guide/#assertions).
 
-# Configuration
+## Configuration
 We have several parameters that are particular to IVR testing. They are set like so in the testing.json file:
 ```json
 {
@@ -72,11 +72,11 @@ configuration:
   phoneNumber: "PHONE_NUMBER"
 ```
 
-# Special syntax
-## DIAL Command
-The `$DIAL` command is always the first command that we issue. It initiates the phone call.
+## Special syntax
+### DIAL Command
+The `$DIAL` command is always the first command that we issue. It initiates the phone call to the specified `phoneNumber`.
 
-## Touch-tone entry
+### Touch-tone entry
 Touch-tone numbers can be entered by prefixing them with a `$`,like so:
 ```
 - test: Call a touchtone service
@@ -84,13 +84,13 @@ Touch-tone numbers can be entered by prefixing them with a `$`,like so:
 - $2: Gracias y bienvenido
 ```
 
-# Debugging
-## Tracing Output
+## Debugging
+### Tracing Output
 Make sure "trace" is set to true in the testing.json file. This will output the complete back and forth of the test. It includes:
 * The message we send to the IVR system
 * The transcript of the response received
 
-## Listen To Twilio Recordings
+### Listen To Twilio Recordings
 * Log into Twilio (ask [Bespoken Support](mailto:support@bespoken.io) for access if you don't have  it already)
 * Click on phone icon (Programmable Voice)
 * Click on the number being used for the test (should be 202-559-1161)
@@ -99,3 +99,13 @@ Make sure "trace" is set to true in the testing.json file. This will output the 
 From there, you can access any of the phone calls. You can:
 * See the payload for each request and response
 * Listen to the recording of the phone call
+
+## Limitations
+As of today, only Amazon Polly voices are supported for IVR testing with Twilio. We do not support Twilio's own "Alice" voice. For a list of Amazon Polly voices that work with Twilio, take a look [here](https://support.twilio.com/hc/en-us/articles/223132827-What-Languages-can-the-Say-TwiML-Verb-Speak-).
+
+While our regular end-to-end tests use Google's Cloud Speech to Text service, IVR tests use [Twilio's Speech Recognition API](https://www.twilio.com/speech-recognition) in order to get the most accurate transcript. 
+
+## Example
+
+
+
