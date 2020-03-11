@@ -70,9 +70,10 @@ function getEndToEndSidebar() {
             collapsable: true,
             children: [
                 "getting-started",
-                "guide",
-                "api",
                 "setup",
+                "guide",
+                "ivr",
+                "api",
                 "faq",
             ]
         }
