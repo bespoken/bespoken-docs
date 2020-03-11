@@ -105,7 +105,3 @@ As of today, only Amazon Polly voices are supported for IVR testing with Twilio.
 
 While our regular end-to-end tests use Google's Cloud Speech to Text service, IVR tests use [Twilio's Speech Recognition API](https://www.twilio.com/speech-recognition) in order to get the most accurate transcript. 
 
-## Example
-
-
-
