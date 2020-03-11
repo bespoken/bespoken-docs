@@ -1,9 +1,9 @@
 ---
-title: Guide to End-To-End IVR Testing (BETA)
+title: Guide to End-To-End IVR Testing
 permalink: /end-to-end/ivr/
 ---
 
-# End-To-End Testing For Interactive Voice Response 
+# End-To-End Testing For Interactive Voice Response systems
 We provide support for Interactive Voice Response (IVR) systems.
 
 Most of the features from our standard end-to-end testing work as normal for this, but there are some special features that we will cover in this guide.
