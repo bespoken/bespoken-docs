@@ -1,5 +1,5 @@
 ---
-title: Guide to End-To-End IVR Testing
+title: IVR Testing Guide
 permalink: /end-to-end/ivr/
 ---
 
