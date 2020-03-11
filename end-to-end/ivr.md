@@ -52,7 +52,7 @@ Most of these can be set across the entire project.
 | Property | Description |
 | --- | --- |
 | twilio_pause_seconds | How long to wait before speaking in response to a prompt |
-| twilio_record | Whether or not to record the conversation for debugging purposes |
+| twilio_record | Whether or not to record the conversation for debugging purposes on Twilio's Dashboard |
 | twilio_repeat_message | How many times to repeat the input phrase [OPTIONAL - Defaults to 1]|
 | twilio_repeat_when | If the response received matches one of the pipe-delimited values specified here, the input message will be repeated to the system | 
 | twilio_say_inside_gather | Whether to speak to the system while also simultaneously listening for a response |
@@ -77,7 +77,7 @@ configuration:
 The `$DIAL` command is always the first command that we issue. It initiates the phone call to the specified `phoneNumber`.
 
 ### Touch-tone entry
-Touch-tone numbers can be entered by prefixing them with a `$`,like so:
+Touch-tone numbers can be entered by prefixing them with a `$`, like so:
 ```
 - test: Call a touchtone service
 - $DIAL: Welcome to JPK Enterprises. Press one for english, two for spanish
@@ -103,5 +103,5 @@ From there, you can access any of the phone calls. You can:
 ## Limitations
 As of today, only Amazon Polly voices are supported for IVR testing with Twilio. We do not support Twilio's own "Alice" voice. For a list of Amazon Polly voices that work with Twilio, take a look [here](https://support.twilio.com/hc/en-us/articles/223132827-What-Languages-can-the-Say-TwiML-Verb-Speak-).
 
-While our regular end-to-end tests use Google's Cloud Speech to Text service, IVR tests use [Twilio's Speech Recognition API](https://www.twilio.com/speech-recognition) in order to get the most accurate transcript. 
+While our regular end-to-end tests use Google's Cloud Speech to Text service, IVR tests use [Twilio's Speech Recognition API](https://www.twilio.com/speech-recognition) to get the most accurate transcript. 
 
