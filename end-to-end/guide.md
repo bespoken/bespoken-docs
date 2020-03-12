@@ -788,6 +788,8 @@ Error code | Reason | Category
 450 | Multiple calls made at the same time to the same virtual device | user
 451 | The virtual device associated with this token did not work correctly. Try refreshing your credentials in https://apps.bespoken.io/dashboard/ | user
 500 | Unknown system error | system
+540 | Call was not answered | system
+541 | Call ended | system
 550 | Error sending request to AVS | system
 551 | Error in response from AVS | system
 552 | The Alexa Voice Service took too long to respond | system
