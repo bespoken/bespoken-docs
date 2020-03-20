@@ -203,6 +203,15 @@ https://virtual-device.bespoken.io
 
    `project_id=string`: project id of the Dialog Flow agent
 
+   `audio_url: string`: Url address of the audio file.
+
+   `format: string`: When audio data is provided, the format of the audio. If an audio_url that includes an extension is provided, we'll use that instead. Valid values are 'raw' (for PCM), 'wav', 'mp3', and 'ogg'. Defaults to 'raw'.
+
+   `frame_rate: int`: When audio data is provided, the sample rate of the audio - defaults to 16000. We recommend using audio recorded at 16000 as this is what is typically used by the assistants. Using other sample rates will require re-sampling the audio. This field is only needed for audio with 'raw' format - for other formats, the frame_rate is contained in the audio data.
+
+   `channels: int`: When audio data is provided, the number of channels in the audio. Defaults to 1. This field is only needed for audio with 'raw' format - for other formats, the frame_rate is contained in the audio data.
+
+   `sample_width: int`: When audio data is provided, the number of 8-bit bytes in the audio - defaults to 2. This field is only needed for audio with 'raw' format - for other formats, the frame_rate is contained in the audio data.
 
 * **Success Response:**
 
@@ -308,15 +317,17 @@ Receives multiple messages and expected phrases in an object array. The goal of 
 
     `phrases: string[]`: Hints for converting the audio response from the assistant back to text. This will guide the speech-to-text that is performed on the response from Alexa and/or Google.
 
-    `audio: string`: Base64-encoded audio data - for sending pre-recorded audio to the assistant.
+    `audio_data: string`: Base64-encoded audio data - for sending pre-recorded audio to the assistant.
 
-    `format: string`: When audio data is provided, the format of the audio. Valid values are 'raw' (for PCM), 'wav', 'mp3' and 'ogg'. Defaults to 'raw'.
+    `audio_url: string`:  Url address of the audio file.
 
-    `frame_rate: int`: The sample rate of the audio - defaults to 16000. We recommend using audio recorded at 16000 as this is what is typically used by the assistants. Using other sample rates will require re-sampling the audio. This field is only needed for audio with format 'raw' - for other formats, the frame_rate is contained in the audio data.
+    `format: string`: When audio data is provided, the format of the audio. If an audio_url that includes an extension is provided, we'll use that instead. Valid values are 'raw' (for PCM), 'wav', 'mp3', and 'ogg'. Defaults to 'raw'.
 
-    `channels: int`: The number of channels in the audio. Defaults to 1. This field is only needed for audio with format 'raw' - for other formats, the frame_rate is contained in the audio data.
+    `frame_rate: int`: The sample rate of the audio - defaults to 16000. We recommend using audio recorded at 16000 as this is what is typically used by the assistants. Using other sample rates will require re-sampling the audio. This field is only needed for audio with 'raw' format - for other formats, the frame_rate is contained in the audio data.
 
-    `sample_width: int`: The number of 8-bit bytes in the audio - defaults to 2. This field is only needed for audio with format 'raw' - for other formats, the frame_rate is contained in the audio data.
+    `channels: int`: The number of channels in the audio. Defaults to 1. This field is only needed for audio with 'raw' format - for other formats, the frame_rate is contained in the audio data.
+
+    `sample_width: int`: The number of 8-bit bytes in the audio - defaults to 2. This field is only needed for audio with 'raw' format - for other formats, the frame_rate is contained in the audio data.
 
     ```json
     {
@@ -324,7 +335,8 @@ Receives multiple messages and expected phrases in an object array. The goal of 
             {
                 "text": string, 
                 "phrases": string[], 
-                "audio": string (Base64-Encoded Byte Array), 
+                "audio_data": string (Base64-Encoded Byte Array), 
+                "audio_url": string,
                 "format": string, 
                 "frame_rate": int, 
                 "channels": int, 
