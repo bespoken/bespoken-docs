@@ -23,11 +23,11 @@ The good stuff, however, is on the left side of the screen. Click on "Add test",
 
 Is the new test that you want to create similar to a previous one? Simply click on the three dots next to that test name, click on "Clone" and enter a new name for it. Then modify as you want.
 
--- gif for cloning
+![Clone a test](./images/20200404.gif)
 
 You can also rename a test or delete it on that same menu.
 
--- gif for deleting
+![Clone a test](./images/20200405.gif)
 
 When clicking on "Run all", all of your tests will be run in succession. A green or red indicator to the left of your tests will let you know if your test succeeded or not. Simply click on any of your tests to see its results in detail.
 
