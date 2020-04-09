@@ -46,7 +46,4 @@ Finally, you can export your tests as a .zip file anytime you want. The file wil
 ## Now it's your turn
 If you are already a Dashboard user, you can go into any of your voice apps and start adding new tests to them. If you are not, then I invite you to try our 30-day free trial by signing up [here](https://apps.bespoken.io)
 
-Give it a try and let me know your thoughts. Is there something you would like us to improve? A bug that slipped through our hands? Write to me at diego@bespoken.io and I'll be glad to take care of it. We hope you found this useful, we firmly believe it is a big step on improving our Dashboard experience and the foundation of many more good things to come. 
-
-
-
+Give it a try and let me know your thoughts. Is there something you would like us to improve? A bug that slipped through our hands? Write to me at diego@bespoken.io and I'll be glad to take care of it. We hope you found this useful, we firmly believe it is a big step on improving our Dashboard experience and the foundation of many more good things to come.
