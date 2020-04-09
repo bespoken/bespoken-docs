@@ -332,12 +332,3 @@ After that, the command will create a "test" directory with all the needed files
 
 You can execute your tests by typing `bst test` on the same command line.
 
-## Use the tools behind a proxy
-
-We support the HTTPS_PROXY environment variable, example:
-
-```
-export HTTPS_PROXY=http://<proxy-url>:<proxy-port>
-```
-
-And then run the command you need.

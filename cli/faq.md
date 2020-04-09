@@ -6,7 +6,7 @@ permalink: /cli/faq/
 # FAQ For Bespoken CLI
 Here are answers to commonly asked questions about our CLI.
 
-# Setup
+# Networking
 ## My organization uses a firewall - how do I use your tools with it?
 Your firewall needs to allow access to the following domains:
 * *.bespoken.io
@@ -23,7 +23,17 @@ We use the following ports for our services:
 * 443
 * 80 (bst proxy only)
 
-Please note - the IP addresses above our subject to change - please contact us via [Gitter](https://gitter.im/bespoken) if you have white-listed all of the above and it is still not working.
+Please note - the IP addresses above are subject to change - please contact us via [Gitter](https://gitter.im/bespoken) if you have white-listed all of the above and are still having problems.
+
+## My organization uses a Proxy - how do I use your tools with it?
+To run our tools through your proxy, you need to set the `HTTPS_PROXY` env variable. 
+
+On a Mac, open up a terminal and type:
+```
+export HTTPS_PROXY=http://<proxy-url>:<proxy-port>
+```
+
+For Windows, instructions can be found [here](https://www.computerhope.com/issues/ch000549.htm) 
 
 # Errors
 ## I get an error trying to connect using the bst proxy

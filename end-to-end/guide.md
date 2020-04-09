@@ -834,17 +834,6 @@ The following are settings than can help you overcome specific testing issues. H
 | [retryNumber](#retrying-tests) | The number of retrys to execute if a test fails must be in the range [0,5] |
 | virtualDeviceBaseURL | Sets a custom base address for the Virtual Device API endpoints |
 
-
-## Use the tools behind a proxy
-
-We support the HTTPS_PROXY environment variable, example:
-
-```
-export HTTPS_PROXY=http://<proxy-url>:<proxy-port>
-```
-
-And then run bst test.
-
 ## Further Reading
 Take a look at:
 * Our [getting started guide](./getting-started.html)
