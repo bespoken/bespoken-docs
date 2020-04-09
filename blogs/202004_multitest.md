@@ -17,9 +17,9 @@ As you can see, most of the test screen remains unchanged. You can still create 
 
 ![One test run](./images/20200402.gif)
 
-The good stuff, however, is on the left side of the screen. Click on "Add test", then enter a name for your test and press ENTER or TAB. A new test has been created.
+The good stuff, however, is on the left side of the screen. Click on "Add test", then enter a name for your test and press ENTER or TAB and your new test will be created.
 
--- gif for adding a test
+![Add a test](./images/20200403.gif)
 
 Is the new test that you want to create similar to a previous one? Simply click on the three dots next to that test name, click on "Clone" and enter a new name for it. Then modify as you want.
 
