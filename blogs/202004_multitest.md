@@ -11,11 +11,11 @@ The limitation remained in place while we focused our efforts on improving and m
 
 Adding more tests is simple, we'll start by creating a new voice app as usual. Once inside your voice app, you'll be presented with this screen.
 
--- image with an empty test
+![Test screen](./images/20200401.png)
 
 As you can see, most of the test screen remains unchanged. You can still create your assertions and run them in the same way you did before.
 
--- image for running one test
+![One test run](./images/20200402.gif)
 
 The good stuff, however, is on the left side of the screen. Click on "Add test", then enter a name for your test and press ENTER or TAB. A new test has been created.
 
