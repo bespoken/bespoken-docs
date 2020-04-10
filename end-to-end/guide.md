@@ -315,7 +315,7 @@ and here's an example for a Google action:
 - talk to bring! shopping list
 ```
 
-These are not the only ways you can invoke your voice apps, however. For more details on how to invoke an Alexa skill by locale see [here](https://developers.google.com/assistant/console/languages-locales) and, for Google Actions, take a look [here](https://developers.google.com/assistant/discovery#invocation_phrases).
+These are not the only ways you can invoke your voice apps, however. For more details on how to invoke an Alexa skill, including different locales, see [here](https://developer.amazon.com/en-US/docs/alexa/custom-skills/understanding-how-users-invoke-custom-skills.html). For Google Actions, take a look at how invocation phrases work [here](https://developers.google.com/assistant/discovery#invocation_phrases), and their variants per locale [here](https://developers.google.com/assistant/console/languages-locales).
 
 ### Assertions
 An assertion follows a simple syntax:
