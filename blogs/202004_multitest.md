@@ -31,7 +31,7 @@ You can also rename a test or delete it on that same menu.
 
 When clicking on "Run all", all of your tests will be run in succession. A green or red indicator to the left of your tests will let you know if your test succeeded or not. Simply click on any of your tests to see its results in detail.
 
--- gif with a whole test running
+![Clone a test](./images/20200406.gif)
 
 If you are already familiar with our YAML scripts and prefer to write your tests that way, you can still switch over to our YAML editor and edit, remove or add tests and, of course, run them. 
 
