@@ -27,19 +27,15 @@ Is the new test that you want to create similar to a previous one? Simply click 
 
 You can also rename a test or delete it on that same menu.
 
-![Clone a test](./images/20200405.gif)
+![Delete and rename](./images/20200405.gif)
 
 When clicking on "Run all", all of your tests will be run in succession. A green or red indicator to the left of your tests will let you know if your test succeeded or not. Simply click on any of your tests to see its results in detail.
 
-![Clone a test](./images/20200406.gif)
+![Run all](./images/20200406.gif)
 
-If you are already familiar with our YAML scripts and prefer to write your tests that way, you can still switch over to our YAML editor and edit, remove or add tests and, of course, run them. 
+If you are already familiar with our YAML scripts and prefer to write your tests that way, you can still switch over to our YAML editor and edit, remove or add tests and, of course, run them. Switching back to the UI editor will preserve your changes. 
 
--- gif running a YAML test.
-
-Switching back to the UI editor will preserve your changes. 
-
--- gif switching back
+![YAML editor](./images/20200407.gif)
 
 Finally, you can export your tests as a .zip file anytime you want. The file will contain both the YAML script and the `testing.json` file needed to run your tests using our Bespoken CLI.
 
