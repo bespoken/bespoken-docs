@@ -29,7 +29,7 @@ You can also rename a test or delete it on that same menu.
 
 ![Delete and rename](./images/20200405.gif)
 
-When clicking on "Run all", all of your tests will be run in succession. A green or red indicator to the left of your tests will let you know if your test succeeded or not. Simply click on any of your tests to see its results in detail.
+When clicking on "Run all", all of your tests will be run in succession. A green or red indicator to the left of your tests will let you know if your test succeeded or not. Simply click on any of your tests to see its results in detail. This way, it's easy to find errors like mine below.
 
 ![Run all](./images/20200406.gif)
 
