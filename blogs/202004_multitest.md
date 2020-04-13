@@ -1,11 +1,11 @@
-# NEW: adding multiple tests to your voice apps in the Bespoken Dashboard
+# NEW FROM BESPOKEN! Manage Multiple Tests Easily In One Place
 
 ## A quick background
-If you are like us and you love testing your voice experiences from end to end, you know how important it is to have all your tests well grouped, organized and easily accessible under one place. A lack of organization in your tests can lead to hunting and searching for a particular file or test in frustration, wasting your valuable time.
+If you are like us and you delivering exceptional voice experiences, you know how important it is to have well-organized automated tests: thoughtfully grouped and easily accessible in one place. A lack of organization in your tests leads to wasted time, gaps in your areas under test, and confusion across your team.
 
 While there are several places you can store and organize your YAML scripts (Github and other repos come to mind), many of you have asked us to provide a way to do it in our Dashboard. You see, up until now, you could create as many voice apps as you'd want with one caveat: each voice app could only have one single test. 
 
-The limitation remained in place while we focused our efforts on improving and maturing our CLI, something we think we've accomplished in the past few months. And so, today we are excited to announce the release of this long-awaited feature: allowing multiple tests in your voice app.
+The limitation remained in place while we focused our efforts on improving and maturing our CLI, something we think we've accomplished in the past few months. And so, today we are excited to announce the release of this long-awaited feature: allowing multiple tests in your voice app. With it, we have transitioned to making our Dashboard into a full-fledged, enterprise-grade testing environment.
 
 ## How does this work?
 
@@ -42,4 +42,4 @@ Finally, you can export your tests as a .zip file anytime you want. The file wil
 ## Now it's your turn
 If you are already a Dashboard user, you can go into any of your voice apps and start adding new tests to them. If you are not, then I invite you to try our 30-day free trial by signing up [here](https://apps.bespoken.io)
 
-Give it a try and let me know your thoughts. Is there something you would like us to improve? A bug that slipped through our hands? Write to me at diego@bespoken.io and I'll be glad to take care of it. We hope you found this useful, we firmly believe it is a big step on improving our Dashboard experience and the foundation of many more good things to come.
+Give it a try and let me know your thoughts. Is there something you would like us to improve? A bug that slipped through the cracks? Write to me at diego@bespoken.io and I'll be glad to take care of it. We hope you found this useful - we firmly believe it is a big step towards improving our Dashboard experience and the foundation of many more good things to come.
