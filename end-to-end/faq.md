@@ -446,7 +446,10 @@ On a Mac, open up a terminal and type:
 export HTTPS_PROXY=http://<proxy-url>:<proxy-port>
 ```
 
-For Windows, instructions can be found [here](https://www.computerhope.com/issues/ch000549.htm) 
+On Windows, open up a command line and type: 
+```
+set HTTPS_PROXY=http://<proxy-url>:<proxy-port>
+```
 
 <!-- Images references -->
 [AlexaHistory]: ./assets/alexaHistory.png "Showing Alexa voice interactions history"
