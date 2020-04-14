@@ -331,3 +331,4 @@ After that, the command will create a "test" directory with all the needed files
 
 
 You can execute your tests by typing `bst test` on the same command line.
+
