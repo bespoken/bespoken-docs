@@ -38,14 +38,10 @@ There are a couple of steps for the setup - but don't worry - you will only have
 
 ![Virtual Device Manager With Token](./assets/VirtualDeviceManagerWithTokenGoogle.gif "Virtual Device Manager With Token")
 
+#### Enabling personal results on your Google Virtual Device
+If you get a response that says: "to let me read out that information turn on personal results in the google app home" while using your virtual device, you'll need to follow these additional steps:
 
-### Enabling personal results for Google
-If you get a response that says: "to let me read out that information turn on personal results in the google app home" when testing with your Google Virtual Device, follow these additional steps:
-
-![Google app home](./assets/enable-personal-results.gif "enable personal results")
-On Android Devices:
-
-1. Long press the “home” button on an Android device.
+1. Long press the “home” button on an Android device. For IOS devices you need to install *Google Assistant* from the [app store](https://itunes.apple.com/us/app/google-assistant/id1220976145), open it, then skip to step 3.
 
 2. Click on the compass icon.
 
@@ -55,13 +51,14 @@ On Android Devices:
 
 5. Click on the Assistant Tab.
 
-6. Scroll Down and you should see “virtual device” listed after your phone.
+6. Scroll Down and you should see “virtual device” under "Assistant devices".
 
 7. Click on it and enable Personal Results.
 
-Additional information:
+![Google app home](./assets/enable-personal-results.gif "enable personal results")
 
-For IOS devices you need to install the *Google Assistant* from the [app store](https://itunes.apple.com/us/app/google-assistant/id1220976145) and do the same steps starting from step 3.
+#### Enabling test mode on your Google Action
+Another important aspect of testing with Google is that your Action should be enabled for testing. To do this, follow [this guide](https://developers.google.com/assistant/smarthome/develop/testing#setup).
 
 ## Using the Device In Your Scripts
 Now you can use the virtual device with your test script. Place it in the testing.json file of your project like so:

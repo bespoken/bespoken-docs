@@ -272,10 +272,9 @@ This description, if provided, must be the first line in the test.
 
 The test is then made up of a series of interactions and assertions.
 
-Each interaction is prefixed with a "-" which indicates a YAML colletion.
+Each interaction is prefixed with a "-" which indicates a YAML collection.
 
-The first part of each interaction is an [utterance](#utterance), after it comes a series of expressions. Typically, these are assertions about the test.
-But they can be:
+The first part of each interaction is an [utterance](#utterance), and the first utterance of each test should include your voice app [invocation name](#invocation-names). After each utterance, there comes a series of expressions. Typically, these are assertions about the test, but they can be:
 
 * [Assertions](#assertions): The life-blood of tests - statements about the expected output
 * [Request Expressions](#request-expressions): Allow for setting values on the request - helpful for testing more complex cases
@@ -284,23 +283,39 @@ But they can be:
 For each interaction, there can be many assertions and request expressions.
 There is not a limit on how much can be tested!
 
-When tests are run, each interaction is processed in order. Within it,
-each assertion is in turn evaluated in order when a response is received.
+When tests are run, each interaction is processed in sequential order. Within it, each assertion is in turn evaluated in order when a response is received.
 
 If any assertion fails for a test, the test stops processing, and information about the failed assertion is provided.
 
 ### Utterance
-Is the first part of the interaction, it can be plain text or Speech Synthesis Markup Language
+Is the first part of the interaction, it can be plain text or SSML (Speech Synthesis Markup Language)
 
 Plain text:
 ```
 - this is a plain text:
 ```
 
-Speech Synthesis Markup Language example, more details [here](#ssml):
+SSML:
 ```xml
 - <speak>this is SSML</speak>:
 ```
+
+For more details on how to write SSML, look [here](#ssml).
+
+### Invocation Names
+The first utterance of your test should contain the invocation name of your voice app. It is important to know that since you'll be interacting with your voice platform directly, you don't need to use the wake words "Alexa" or "Hey Google". 
+
+Here's an example of invoking an Alexa skill:
+```yaml
+- open bring! shopping list
+```
+
+and here's an example for a Google action:
+```yaml
+- talk to bring! shopping list
+```
+
+These are not the only ways you can invoke your voice apps, however. For more details on how to invoke an Alexa skill, including different locales, see [here](https://developer.amazon.com/en-US/docs/alexa/custom-skills/understanding-how-users-invoke-custom-skills.html). For Google Actions, take a look at how invocation phrases work [here](https://developers.google.com/assistant/discovery#invocation_phrases), and their variants per locale [here](https://developers.google.com/assistant/console/languages-locales).
 
 ### Assertions
 An assertion follows a simple syntax:
