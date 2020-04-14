@@ -41,7 +41,7 @@ If you are already familiar with our YAML scripts and prefer to write your tests
 Finally, you can export your tests as a .zip file anytime you want. The file will contain both the YAML script and the `testing.json` file needed to run your tests using our CLI.
 
 ### What's next?
-At Bespoken, we want to make sure that our products are your go-to source in voice experiences testing. Our Dashboard plays a key role in reaching that goal, as the one place where you can manage and automate all of your tests. There are many more things that we have planned for it, some of which we are already working on, that aim to improve your experience with it and increase your testing productivity over time. We firmly believe that this is a big step towards that and the foundation of many more good things to come your way.
+At Bespoken, we want to make sure that our products are your go-to source in voice experiences testing. Our Dashboard plays a key role in that vision, as the one place where you can manage and automate all of your tests. You can think of it as an integrated test environment, one that will give you an improved user experience and increase your testing productivity overall. And, while there are many more steps we have to take to reach that goal, we firmly believe that this is a big step towards that and the foundation of many more good things to come your way.
 
 ### Now it's your turn
 If you are already a Dashboard user, you can go into any of your voice apps and start adding new tests to them. If you are not, then I invite you to try our 30-day free trial by signing up [here](https://apps.bespoken.io)
