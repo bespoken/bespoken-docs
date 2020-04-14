@@ -1,12 +1,14 @@
 # NEW FROM BESPOKEN! Manage Multiple Tests Easily In One Place
 ## One of our MOST requested features now available in your Bespoken Dashboard
 
-### A quick background
+### Background - Our Evolution Froms Tools To Testing Environment
 If you are like us and you love delivering exceptional voice experiences, you know how important it is to have well-organized automated tests: thoughtfully grouped and easily accessible in one place. A lack of organization in your tests leads to wasted time, gaps in your areas under test, and confusion across your team.
 
 While there are several places you can store and organize your YAML scripts (GitHub and other repos come to mind), many of you have asked us to provide a way to do it in our Dashboard. You see, up until now, you could create as many voice apps as you'd want with one caveat: each voice app could only have one single test. 
 
-The limitation remained in place while we focused our efforts on improving and maturing our CLI, something we think we've accomplished in the past few months. And so, today we are excited to announce the release of this long-awaited feature: allowing multiple tests in your voice app. With it, we have transitioned to making our Dashboard into a full-fledged, enterprise-grade testing environment.
+The limitation remained in place while we focused our efforts on improving and maturing our CLI, something we think we've accomplished in the past few months. And so, today we are excited to announce the release of this long-awaited feature: allowing multiple tests in our UI. With it, we have transitioned to making our Dashboard into a full-fledged, enterprise-grade testing environment.
+
+With it, we have furthered our aim of making automated testing for voice accessible to anyone. We invite everyone, regardless of their technical background (or lack thereof) to try it out and see how easy it is to begin making better voice experiences through our easy-to-use UI.
 
 ### How does this work?
 
