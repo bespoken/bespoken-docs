@@ -103,6 +103,7 @@ Below the end-to-end testing configuration options and what they do are listed:
 | Key | Description |
 | --- | --- |
 | description | The description of the set of tests |
+| env | The location of the .env file to load environment variables, defaults to ".env" at the project root directory|
 | [filter](#filtering-during-test) | The (optional) path to a class that can be used to override value on the request and response |
 | [findReplace](#find-replace) | Values that will be replaced in the scripts before execution |
 | [homophones](#homophones) | Values that will be replaced in actual responses from the virtual device |
@@ -154,6 +155,7 @@ bst test MyIntent
 | --asyncE2EWaitInterval | set how much time e2e waits to check for processed messages in ms, defaults to 5000 |
 | --asyncMode | set async mode for e2e batch process, defaults to false |
 | --config | Set the path of the testing.json file |
+| --env | The location of the .env file to load environment variables, defaults to ".env" at the project root directory|
 | [--exclude](#including-or-excluding-tests-using-tags) | Set the exclude tags to execute |
 | [--include](#including-or-excluding-tests-using-tags) | Set the include tags to execute |
 | --locales | Override the locales set in the configuration file |

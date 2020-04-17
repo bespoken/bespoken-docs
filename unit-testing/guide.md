@@ -87,6 +87,7 @@ Below the unit testing configuration options and what they do are listed:
 | deviceId | Sets the deviceId to be used in the generated requests |
 | [dynamo](./use-cases.html#testing-with-dynamo) | Should be set to "mock" to use the mock dynamo component |
 | description | The description of the set of tests |
+| env | The location of the .env file to load environment variables, defaults to ".env" at the project root directory|
 | [filter](#filtering-during-test) | The (optional) path to a class that can be used to override value on the request and response |
 | [findReplace](#find-replace) | Values that will be replaced in the scripts before execution |
 | handler | The path to the handler (and function name) to run the test |
@@ -136,6 +137,7 @@ Any tests that match these patterns will be run.
 | --config | Set the path of the testing.json file |
 | --context | Set the context to resolve relative paths, defaults to where testing.json is located |
 | --deviceId | Override the deviceId set in the configuration file |
+| --env | The location of the .env file to load environment variables, defaults to ".env" at the project root directory|
 | [--exclude](#including-or-excluding-tests-using-tags) | Set the exclude tags to execute |
 | [--include](#including-or-excluding-tests-using-tags) | Set the include tags to execute |
 | --locales | Override the locales set in the configuration file |

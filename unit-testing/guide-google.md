@@ -81,6 +81,7 @@ Below the unit testing configuration options and what they do are listed:
 | [actionURL](#url-configuration) | The complete url that is going to receive the requests (Required if you need to start your endpoint manually) |
 | description | The description of the set of tests |
 | dialogFlowDirectory | The location of the unzipped folder retrieved from [Dialog Flow Agent](https://dialogflow.com/docs/agents/export-import-restore), used to be able to interact with your Intents and Entities |
+| env | The location of the .env file to load environment variables, defaults to ".env" at the project root directory|
 | [expressModule](#express-server-configuration) | The javascript file where express is started, it needs the express instance exported (Required if you use a express server for your endpoint) |
 | [expressPort](#express-server-configuration) | The port in which express is serving  (Required if you use a express server for your endpoint) |
 | [filter](#filtering-during-test) | The (optional) path to a class that can be used to override value on the request and response |
@@ -202,6 +203,7 @@ Any tests that match these patterns will be run.
 | --version| current version of Bespoken CLI |
 | --config | Set the path of the testing.json file |
 | --context | Set the context to resolve relative paths, defaults to where testing.json is located |
+| --env | The location of the .env file to load environment variables, defaults to ".env" at the project root directory|
 | [--exclude](#including-or-excluding-tests-using-tags) | Set the exclude tags to execute |
 | [--include](#including-or-excluding-tests-using-tags) | Set the include tags to execute |
 | --locales | Override the locales set in the configuration file |
