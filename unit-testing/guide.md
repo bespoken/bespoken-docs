@@ -622,6 +622,7 @@ Then the filter should be set to `filter: test/myfilterModule`
 The filter module should be a simple JS object with all or some of this functions:
 * onTestSuiteStart([testSuite](https://bespoken.github.io/skill-testing-ml/api/TestSuite.html))
 * onTestStart([test](https://bespoken.github.io/skill-testing-ml/api/Test.html))
+* onRequest([test](https://bespoken.github.io/skill-testing-ml/api/Test.html), request)
 * onResponse([test](https://bespoken.github.io/skill-testing-ml/api/Test.html), response)
 * onTestEnd([test](https://bespoken.github.io/skill-testing-ml/api/Test.html), [testResults](https://bespoken.github.io/skill-testing-ml/api/TestResult.html))
 * onTestSuiteEnd([testResults](https://bespoken.github.io/skill-testing-ml/api/TestResult.html))
