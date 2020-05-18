@@ -177,7 +177,7 @@ Execute the test(s).
 ### Usage
 
 ```bash
-bst test [OPTIONS] PATH_OR_REGEX
+bst test [OPTIONS] [REGEX]
 ```
 When running `bst test`, it automatically searches for files with the following names:
 
