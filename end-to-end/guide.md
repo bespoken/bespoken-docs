@@ -548,11 +548,9 @@ openSpaceFacts: Open Space Facts
 heresIsAFact: Here's your fact
 cardTitle: Space Facts
 helpPrompt: You can say tell me a space fact, or, you can say exit... What can I help you with?
-helpReprompt: What can I help you with?
 stopPrompt: Goodbye!
 cancelPrompt: Goodbye!
 fallbackPrompt: The Space Facts skill can't help you with that.  It can help you discover facts about space if you say tell me a space fact. What can I help you with?
-fallbackReprompt: What can I help you with?
 ```
 
 When utterances, slot values and assertions are being resolved, tokens from the left-hand side are automatically replaced with values on the right-hand side. For example, take this simple test:
@@ -591,11 +589,9 @@ For example:
   - exit
 - Help:
   - response.outputSpeech.ssml == "Here's your fact:*"
-  - response.reprompt == undefined
   - response.card.content =~ /.*/
 - Get New Fact:
   - response.outputSpeech.ssml == "ABC"
-  - response.reprompt == undefined
   - response.card.content =~ /.*/
 ```
 
