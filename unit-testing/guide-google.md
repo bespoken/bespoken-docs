@@ -88,6 +88,21 @@ Below the unit testing configuration options and what they do are listed:
 
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
 
+### Overriding Configuration Settings Using Environment Variables
+Values in the configuration file can be overridden by using environment variables. For example, to override the `expressPort` setting above, set an environment variable like so (note - this is a Unix-style environment variable):
+```js
+export PORT=9999
+```
+
+This can then be used configuration file like so:
+```json
+{
+    "expressPort": ${PORT}
+}
+```
+
+This feature is very useful when the same test scripts are being used across multipe different environments, such as when there are separate versions of an application for development, test and production.
+
 ## Configuration (Google-specific)
 In order to test Google Actions you need to set the platform parameter to "google"
 

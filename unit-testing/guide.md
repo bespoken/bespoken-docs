@@ -98,7 +98,22 @@ Below the unit testing configuration options and what they do are listed:
 
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
 
-### Overwriting configuration parameters
+### Overriding Configuration Settings Using Environment Variables
+Values in the configuration file can be overridden by using environment variables. For example, to override the `interactionModel` setting above, set an environment variable like so (note - this is a Unix-style environment variable):
+```js
+export MODEL=models/en-GB.json
+```
+
+This can then be used configuration file like so:
+```json
+{
+    "interactionModel": "${MODEL}"
+}
+```
+
+This feature is very useful when the same test scripts are being used across multipe different environments, such as when there are separate versions of an application for development, test and production.
+
+### Overriding Configuration Settings Using the CLI
 
 If you want to run the tests with one or more parameters changed you can overwrite parameters directly from the run file. This will even replace existing parameters set on the testing.json file. For example if you want to replace the platform
 
