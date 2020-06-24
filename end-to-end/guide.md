@@ -381,6 +381,7 @@ For certain commonly accessed elements, we offer short-hand properties for refer
 * cardTitle - Corresponds to `card.title`
 * prompt - An alias for the `transcript` element from the JSON payload
 * streamURL - (Alexa only) Corresponds to the `streamURL` element from JSON the payload
+* caption - (Alexa only) Corresponds to the caption property from the Speak directive on SpeechSynthesizer interface
 
 Example:
 
