@@ -95,6 +95,7 @@ Below the unit testing configuration options and what they do are listed:
 | [include and exclude](#including-or-excluding-tests-using-tags) | Runs or Skip the tests having the particular specified tags |
 | intentSchema | If using "old-style" configuration files, the path to the intent schema |
 | interactionModel | The path to the interaction model to use for the test |
+| lenientMode | Ignores extra spaces and punctuation for assertions | defaults to `false` |
 | [locales](#locales) | The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale |
 | sampleUtterances | If using the "old-style" configuration files, the path to the sampleUtterances |
 | skillURL | If not calling a javascript handler directly, the URL to call instead - e.g., http://localhost:9000/skill. Very useful for testing skills written in languages other than Javascript |
