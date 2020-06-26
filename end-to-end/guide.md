@@ -103,14 +103,15 @@ Below the end-to-end testing configuration options and what they do are listed:
 | Key | Description |
 | --- | --- |
 | description | The description of the set of tests |
+| [deviceLocation]((./faq#how-do-i-change-my-virtual-device-location-to-test-location-specific-features)) | An object to set a specific location value from where the requests are sent in Google Virtual Devices. It is composed by the `lat` and `lng` keys. Read here to know how to use it.
 | env | The location of the .env file to load environment variables, defaults to ".env" at the project root directory|
 | [filter](#filtering-during-test) | The (optional) path to a class that can be used to override value on the request and response |
 | [findReplace](#find-replace) | Values that will be replaced in the scripts before execution |
 | [homophones](#homophones) | Values that will be replaced in actual responses from the virtual device |
 | html | Generate a pretty HTML report of test results - defaults to `true` |
 | [include and exclude](#including-or-excluding-tests-using-tags) | Runs or Skip the tests having the particular specified tags |
+| lenientMode | Ignores extra spaces and puntuation for assertions | defaults to `false` |
 | [locales](#locales) | The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale |
-| [deviceLocation]((./faq#how-do-i-change-my-virtual-device-location-to-test-location-specific-features)) | An object to set a specific location value from where the requests are sent in Google Virtual Devices. It is composed by the `lat` and `lng` keys. Read here to know how to use it.
 | platform | The platform that is being tested - can be either `alexa` or `google` - defaults to `alexa` |
 | skillId | For tests of type `simulation`, the skillId must be specified |
 | stage | For tests of type `simulation`, the stage must be specified - can be `development` or `live` |

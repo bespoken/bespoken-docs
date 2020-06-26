@@ -89,6 +89,7 @@ Below the unit testing configuration options and what they do are listed:
 | handler | The path to the handler (and function name) to run the test |
 | html | Generate a pretty HTML report of test results | defaults to `true` |
 | [include and exclude](#including-or-excluding-tests-using-tags) | Runs or Skip the tests having the particular specified tags |
+| lenientMode | Ignores extra spaces and puntuation for assertions | defaults to `false` |
 | [locales](#locales) | The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale |
 | [trace](#viewing-request-response-payloads) | Causes request and response JSON payloads from the skill to be printed to the console |
 
