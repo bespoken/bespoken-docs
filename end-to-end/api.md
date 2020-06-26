@@ -80,6 +80,10 @@ export interface IVirtualDeviceResult {
     streamURL: string | null;
     transcript: string;
     transcriptAudioURL: string;
+    utteranceURL: string;
+    caption: string;
+    display: object;
+    debug: object;
 }
 
 export interface ICard {
@@ -218,8 +222,8 @@ https://virtual-device.bespoken.io
 
   * **Code:** 200 <br />
     **Content:**
-	```json
-	 {
+  ```json
+  {
       "streamURL": "string",
       "sessionTimeout": 0,
       "transcriptAudioURL": "string",
@@ -231,9 +235,11 @@ https://virtual-device.bespoken.io
           "textField": "string",
           "type": "string",
           "imageURL": "string"
-      }
+      },
+      "display": "object",
+      "caption": "string"
   }
-	```
+  ```
 
 * **Error Response:**
 
@@ -366,7 +372,9 @@ Receives multiple messages and expected phrases in an object array. The goal of 
                   "textField": "string",
                   "type": "string",
                   "imageURL": "string"
-              }
+              },
+              "display": "object",
+              "caption": "string"
           }
       ]
 	}
@@ -467,7 +475,9 @@ Obtains the processed results from a batch process sent in async mode
                   "textField": "string",
                   "type": "string",
                   "imageURL": "string"
-              }
+              },
+              "display": "object",
+              "caption": "string"
           }
 	    ]
 	}
