@@ -110,7 +110,7 @@ Below the end-to-end testing configuration options and what they do are listed:
 | [homophones](#homophones) | Values that will be replaced in actual responses from the virtual device |
 | html | Generate a pretty HTML report of test results - defaults to `true` |
 | [include and exclude](#including-or-excluding-tests-using-tags) | Runs or Skip the tests having the particular specified tags |
-| lenientMode | Ignores extra spaces and punctuation for assertions | defaults to `false` |
+| lenientMode | Removes the following punctuation signs: `().-"',;:!?)` as well as any extra white spaces present in the transcript while doing assertions | defaults to `false` |
 | [locales](#locales) | The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale |
 | platform | The platform that is being tested - can be either `alexa` or `google` - defaults to `alexa` |
 | skillId | For tests of type `simulation`, the skillId must be specified |
