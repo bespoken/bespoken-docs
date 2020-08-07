@@ -13,9 +13,9 @@ Using this, you can run your Alexa Skill or Google Action directly on your machi
 ## **Prerequisites**
 If you haven't already, follow these steps:
 * Install Bespoken Tools (bst) with `npm install -g bespoken-tools`
-* Install Webstorm from this [link](https://www.jetbrains.com/webstorm/download){:target="_blank"}.
+* Install Webstorm from this [link](https://www.jetbrains.com/webstorm/download).
 
-This tutorial is based on a simple sample project. If you want to use the same, just clone the repository [here](https://github.com/bespoken-samples/GuessThePrice){:target="_blank"} and install the dependencies by running `npm install` from its root folder. Of course, feel free to use your own existing project.
+This tutorial is based on a simple sample project. If you want to use the same, just clone the repository [here](https://github.com/bespoken-samples/GuessThePrice) and install the dependencies by running `npm install` from its root folder. Of course, feel free to use your own existing project.
 
 ## **Configuring WebStorm**
 First thing is to create a run configuration. The easiest way to do it is to right-click on the main JS file of your voice app project, and then select `Create <MainFile.js>`
@@ -52,7 +52,7 @@ Now, let's start debugging by clicking in this icon, located at the top right me
 
 ![Icon to start debugging][Create-Run-Config3]
 
-When the debugger starts, it executes the Bespoken proxy with the parameters we defined when creating the run configuration, that means the skill is running locally. Now, let's interact with the skill from the command line, for that we are going to use the [launch](https://read.bespoken.io/cli/commands.html#launch){:target="_blank"} and [utter](https://read.bespoken.io/cli/commands.html#utter){:target="_blank"} commands.
+When the debugger starts, it executes the Bespoken proxy with the parameters we defined when creating the run configuration, that means the skill is running locally. Now, let's interact with the skill from the command line, for that we are going to use the [launch](https://read.bespoken.io/cli/commands#launch) and [utter](https://read.bespoken.io/cli/commands#utter) commands.
 
 First, we open a Terminal on Webstorm by clicking here:
 ![Opening a terminal in Webstorm][Create-Run-Config5]
@@ -65,7 +65,7 @@ Let's reply back one by executing the command `bst utter one`. When this command
 
 That is awesome, isn't it? We can inspect the variables we want and finding the problematic areas in our code easily. This simple saves you tons of time!.
 
-WebStorm offers a host of capabilities via their debugger - [you can learn more here](https://www.jetbrains.com/help/webstorm/running-and-debugging-node-js.html){:target="_blank"}.
+WebStorm offers a host of capabilities via their debugger - [you can learn more here](https://www.jetbrains.com/help/webstorm/running-and-debugging-node-js.html).
 
 We hope this helps accelerate how you develop and debug your code. Please do not hesitate to [contact us](mailto:contact@bespoken.io) if you need assistance, we are happy to help!
 

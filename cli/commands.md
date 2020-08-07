@@ -39,7 +39,7 @@ Example:
 $ bst proxy lambda index.js
 ```
 
-You can learn more here at our [Node.js Tutorial](tutorials/tutorial-lambda-nodejs.html):
+You can learn more here at our [Node.js Tutorial](/cli/tutorials/tutorial-lambda-nodejs):
 
 ### bst proxy http
 
@@ -61,7 +61,7 @@ Example:
 $ bst proxy http 9999
 ```
 
-You can learn more here at our [Java Tutorial](tutorials/tutorial-local-server-java.html)
+You can learn more here at our [Java Tutorial](/cli/tutorials/tutorial-local-server-java)
 
 **Options**
 
