@@ -17,7 +17,7 @@ Jest has been configured with a custom test runner, which:
 * Works with YAML files, fitting the structure described in this document
 * Runs using our [Virtual Device SDK](https://github.com/bespoken/virtual-device-sdk) to interact directly with Alexa and/or Google assistant
 
-We use the same basic format for unit-testing and end-to-end testing, but there are differences in how the tests should be written. For information on unit-testing, [read here](/unit-testing/guide).
+We use the same basic format for unit-testing and end-to-end testing, but there are differences in how the tests should be written. For information on unit-testing, [read here](/unit-testing/guide/).
 
 ADDITIONALLY - we now support experimentally the SMAPI Simulation API. This can be enabled using the type of `simulation`.
 
@@ -346,7 +346,7 @@ This will return the value: "My SSML Value" from the following JSON response:
 Note that the response output from the Virtual Device is much more limited than what your actual skill returns.
 This is a limitation of what is provided by Alexa Voice Service/Google Assistant.
 
-To test the actual JSON response from your skill, we recommend writing unit-tests - they use the same structure as our end-to-end test but can be run locally and have access to the full skill payload. [More info here](/unit-testing/guide).
+To test the actual JSON response from your skill, we recommend writing unit-tests - they use the same structure as our end-to-end test but can be run locally and have access to the full skill payload. [More info here](/unit-testing/guide/).
 
 The expected value can be:
 
