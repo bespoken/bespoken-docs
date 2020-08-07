@@ -40,7 +40,7 @@ export interface IVirtualDeviceConfiguration {
     projectId?: string;
 }
 ```
- - token: Your virtual device token, check [here](../setup) how to obtain it
+ - token: Your virtual device token, check [here](/end-to-end/setup) how to obtain it
  - locale: The locale you are using, defaults to en-US
  - voiceID: The voice from Polly to use with the current locale, defaults to the default voice for the locale
  - skipSTT: Skip speech to text for Google (Google can return text directly), defaults to false

@@ -150,7 +150,7 @@ And take a look at the following skills with test examples already configured:
 [Travis](https://travis-ci.org/alexa/skill-sample-nodejs-college-finder)
 
 ### Google
-To learn in detail how to add more tests and other advanced topics, read our [In-depth guide for Google](../guide-google).
+To learn in detail how to add more tests and other advanced topics, read our [In-depth guide for Google](/unit-testing/guide-google).
 
 And take a look at the following skills with test examples already configured:
 * Guess the Price Game
