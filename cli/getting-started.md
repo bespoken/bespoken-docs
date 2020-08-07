@@ -32,11 +32,11 @@ Haven't used npm before? We have you covered:
 
 You will then be able to use our commands, described below: 
  
-* [Proxy](commands#proxy) Proxies the Alexa service to your laptop - develop and debug with the real Alexa
-* [Utter](commands#utter) Emulate utterances coming from Alexa, without Alexa. Magic!
-* [Intend](commands#intend) Emulate intents coming from Alexa
-* [Launch](commands#launch) Emulate launch requests coming from Alexa
-* [Speak](commands#speak) Sends utterances directly to the real Alexa
+* [Proxy](/cli/commands#proxy) Proxies the Alexa service to your laptop - develop and debug with the real Alexa
+* [Utter](/cli/commands#utter) Emulate utterances coming from Alexa, without Alexa. Magic!
+* [Intend](/cli/commands#intend) Emulate intents coming from Alexa
+* [Launch](/cli/commands#launch) Emulate launch requests coming from Alexa
+* [Speak](/cli/commands#speak) Sends utterances directly to the real Alexa
 
 
 You can also use:

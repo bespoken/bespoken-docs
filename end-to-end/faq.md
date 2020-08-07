@@ -89,7 +89,7 @@ To use this feature, set your test type to `simulation`. The feature support is 
 * Testing must be enabled for the skill in the Alexa dev console
 * The skill must be in development stage
 
-Read more about it in our [full guide](./guide#smapi-configuration).
+Read more about it in our [full guide](/end-to-end/guide#smapi-configuration).
 
 ## **How do I learn more?**
 Take a look at this [__sample project__](https://github.com/bespoken-samples/virtual-device-example) and use it as a base to start creating your own functional test scripts. For more info on End-to-end testing please read [__here__](https://read.bespoken.io/end-to-end/getting-started).
@@ -417,7 +417,7 @@ It is also possible to specify multiple valid values for a property. That is don
 Alexa AVS doesn't handle more than one request for the same account, if you need to do parallel tests, create the necessary virtual devices using different accounts at the setup.
 
 ## **My Google action responds with  "to let me read out that information turn on personal results in the google app home"**
-Follow [these steps](./setup#enabling-personal-results-on-your-google-virtual-device).
+Follow [these steps](/end-to-end/setup#enabling-personal-results-on-your-google-virtual-device).
 
 # Networking
 ## My organization uses a firewall - how do I use your tools with it?

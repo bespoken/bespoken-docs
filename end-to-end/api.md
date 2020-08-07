@@ -13,7 +13,7 @@ virtualDevice.message("ask my skill what is the weather", (result) => {
 });
 ```
 
-It is as easy as that! For more information on how our end-to-end testing work, [read here](getting-started).
+It is as easy as that! For more information on how our end-to-end testing work, [read here](/end-to-end/getting-started).
 
 ## Node.js API
 ### Installation
@@ -21,7 +21,7 @@ It is as easy as that! For more information on how our end-to-end testing work, 
     ```bash
     npm install virtual-device-sdk --save
     ```
-2. Get your token: Follow the instructions [here](setup).
+2. Get your token: Follow the instructions [here](/end-to-end/setup).
 
 ### Constructor parameters
 
@@ -40,7 +40,7 @@ export interface IVirtualDeviceConfiguration {
     projectId?: string;
 }
 ```
- - token: Your virtual device token, check [here](setup) how to obtain it
+ - token: Your virtual device token, check [here](../setup) how to obtain it
  - locale: The locale you are using, defaults to en-US
  - voiceID: The voice from Polly to use with the current locale, defaults to the default voice for the locale
  - skipSTT: Skip speech to text for Google (Google can return text directly), defaults to false
@@ -165,7 +165,7 @@ As the results are processed the "getConversationResults" method will return the
 The VirtualDevice service can also be called directly via HTTP.
 
 To use it, first get your token:  
-Follow the instructions [here](./setup).
+Follow the instructions [here](/end-to-end/setup).
 
 The Base URL is:  
 https://virtual-device.bespoken.io

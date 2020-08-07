@@ -17,7 +17,7 @@ Jest has been configured with a custom test runner, which:
 * Works with YAML files, fitting the structure described in this document
 * Runs using our [Virtual Device SDK](https://github.com/bespoken/virtual-device-sdk) to interact directly with Alexa and/or Google assistant
 
-We use the same basic format for unit-testing and end-to-end testing, but there are differences in how the tests should be written. For information on unit-testing, [read here](./../unit-testing/guide).
+We use the same basic format for unit-testing and end-to-end testing, but there are differences in how the tests should be written. For information on unit-testing, [read here](/unit-testing/guide).
 
 ADDITIONALLY - we now support experimentally the SMAPI Simulation API. This can be enabled using the type of `simulation`.
 
@@ -47,7 +47,7 @@ BST: v2.0.0  Node: v8.11.1
 That means it was installed successfully!
 
 ### Virtual Device Setup
-First, you need to setup a virtual device, which allows for interaction via text and API with Alexa and Google Assistant. See [here for instructions](./setup).  
+First, you need to setup a virtual device, which allows for interaction via text and API with Alexa and Google Assistant. See [here for instructions](/end-to-end/setup).  
 
 ## BST Init
 The `bst init` command is the fastest way to create all the files and folders needed to start testing your voice apps. It's a great starting point! You can read more about it [here](./../../cli/commands/#init).
@@ -118,7 +118,7 @@ Below the end-to-end testing configuration options and what they do are listed:
 | type | The type of test being run - can be `unit`, `simulation`, or `e2e` - defaults to `unit` |
 | stopTestOnFailure | Stops the execution of a test and continues with the next one as soon as there is an assertion error - defaults to `false` |
 | [trace](#viewing-response-payloads) | Causes request and response JSON payloads from the skill to be printed to the console |
-| [virtualDeviceToken](./setup) | For end-to-end tests that use virtual devices, this must be specified. [Get one here](./setup) |
+| [virtualDeviceToken](/end-to-end/setup) | For end-to-end tests that use virtual devices, this must be specified. [Get one here](../setup) |
 
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
 
@@ -346,7 +346,7 @@ This will return the value: "My SSML Value" from the following JSON response:
 Note that the response output from the Virtual Device is much more limited than what your actual skill returns.
 This is a limitation of what is provided by Alexa Voice Service/Google Assistant.
 
-To test the actual JSON response from your skill, we recommend writing unit-tests - they use the same structure as our end-to-end test but can be run locally and have access to the full skill payload. [More info here](../unit-testing/guide).
+To test the actual JSON response from your skill, we recommend writing unit-tests - they use the same structure as our end-to-end test but can be run locally and have access to the full skill payload. [More info here](/unit-testing/guide).
 
 The expected value can be:
 
@@ -852,7 +852,7 @@ The following are settings than can help you overcome specific testing issues. H
 
 ## Further Reading
 Take a look at:
-* Our [getting started guide](./getting-started)
+* Our [getting started guide](/end-to-end/getting-started)
 * Our [example project](https://github.com/bespoken-samples/virtual-device-example)
 
 And don't hesitate to reach out via [Gitter](https://gitter.im/bespoken/bst).

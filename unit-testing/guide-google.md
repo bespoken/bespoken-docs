@@ -839,7 +839,7 @@ To set it up for your own projects, you will need to enable them with [Travis](h
 
 ## Further Reading
 Take a look at:
-* Our [use cases](./use-cases)
-* Our [getting started guide](./getting-started)
+* Our [use cases](/unit-testing/use-cases)
+* Our [getting started guide](/unit-testing/getting-started)
 
 And don't hesitate to reach out via [Gitter](https://gitter.im/bespoken/bst).
