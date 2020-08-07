@@ -8,7 +8,7 @@ We provide support for Interactive Voice Response (IVR) systems.
 
 Most of the features from our standard end-to-end testing work as normal for this, but there are some special features that we will cover in this guide.
 
-For in-depth information on how our end-to-end testing works, [read here](/end-to-end/guide).
+For in-depth information on how our end-to-end testing works, [read here](/end-to-end/guide/).
 
 ## Approach
 We leverage Twilio to interact with IVR systems.

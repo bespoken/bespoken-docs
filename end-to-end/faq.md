@@ -89,7 +89,7 @@ To use this feature, set your test type to `simulation`. The feature support is 
 * Testing must be enabled for the skill in the Alexa dev console
 * The skill must be in development stage
 
-Read more about it in our [full guide](/end-to-end/guide#smapi-configuration).
+Read more about it in our [full guide](/end-to-end/guide/#smapi-configuration).
 
 ## **How do I learn more?**
 Take a look at this [__sample project__](https://github.com/bespoken-samples/virtual-device-example) and use it as a base to start creating your own functional test scripts. For more info on End-to-end testing please read [__here__](https://read.bespoken.io/end-to-end/getting-started).
