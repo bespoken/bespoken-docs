@@ -83,9 +83,9 @@ Below the unit testing configuration options and what they do are listed:
 
 | Key | Description |
 | --- | --- |
-| [address](./use-cases.html#testing-with-the-address-api) | Sets the address to be returned by the address API |
+| [address](./use-cases#testing-with-the-address-api) | Sets the address to be returned by the address API |
 | deviceId | Sets the deviceId to be used in the generated requests |
-| [dynamo](./use-cases.html#testing-with-dynamo) | Should be set to "mock" to use the mock dynamo component |
+| [dynamo](./use-cases#testing-with-dynamo) | Should be set to "mock" to use the mock dynamo component |
 | description | The description of the set of tests |
 | env | The location of the .env file to load environment variables, defaults to ".env" at the project root directory|
 | [filter](#filtering-during-test) | The (optional) path to a class that can be used to override value on the request and response |
@@ -310,10 +310,10 @@ The test configuration can override elements set in the global skill testing con
 It can also set test-suite specific items such as:
 
 * accessToken: Sets the access token in the generated requests
-* [address](./use-cases.html#testing-with-the-address-api): Should be set with address attributes to emulate results from the Address API
+* [address](./use-cases#testing-with-the-address-api): Should be set with address attributes to emulate results from the Address API
 * applicationId: Sets the applicationId to be used in the generated requests
 * deviceId: Sets the deviceId to be used in the generated requests
-* [dynamo](./use-cases.html#testing-with-dynamo): Should be set to "mock" to use the mock dynamo component
+* [dynamo](./use-cases#testing-with-dynamo): Should be set to "mock" to use the mock dynamo component
 * userId: Sets the userId to be used in the generated requests
 
 ### Test Structure
@@ -428,7 +428,7 @@ Example:
   - prompt: "Here's your fact"
 ```
 
-The `prompt` property is also used by the Dialog Interface. [More information on that here](./use-cases.html#testing-with-the-dialog-interface).
+The `prompt` property is also used by the Dialog Interface. [More information on that here](./use-cases#testing-with-the-dialog-interface).
 
 #### Regular Expression Values
 The expected value can be a regular expression.
@@ -825,7 +825,7 @@ To set it up for your own projects, you will need to enable them with [Travis](h
 
 ## Further Reading
 Take a look at:
-* Our [use cases](./use-cases.html)
-* Our [getting started guide](./getting-started.html)
+* Our [use cases](./use-cases)
+* Our [getting started guide](./getting-started)
 
 And don't hesitate to reach out via [Gitter](https://gitter.im/bespoken/bst).

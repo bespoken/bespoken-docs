@@ -7,7 +7,7 @@ permalink: /end-to-end/getting-started/
 ## Overview
 Bespoken makes it easy to do end-to-end testing for voice apps.
 
-We use Virtual Devices to do it. A virtual device works like a physical device, such as Amazon Echo, but can be interacted with via our [simple test scripting syntax](./guide.html) (as well as programmatically [via our API](./api.html)).
+We use Virtual Devices to do it. A virtual device works like a physical device, such as Amazon Echo, but can be interacted with via our [simple test scripting syntax](./guide) (as well as programmatically [via our API](./api)).
 
 ```yml
 --- 
@@ -43,7 +43,7 @@ There is a lot going on under the covers, but the tests themselves are very easy
 To see a complex example in action, [check out this project](https://github.com/bespoken-samples/virtual-device-example/).
 
 ## Next Steps
- * [Setup A Virtual Device](setup.html)
- * [Complete Guide To Test Scripts](guide.html)
+ * [Setup A Virtual Device](setup)
+ * [Complete Guide To Test Scripts](guide)
  * [Example Project](https://github.com/bespoken-samples/virtual-device-example)
- * [API](api.html)
+ * [API](api)
