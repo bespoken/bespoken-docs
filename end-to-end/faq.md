@@ -43,10 +43,10 @@ The specific permissions are to access Alexa Voice Services and Alexa Account Co
 Remember, you can remove access at any time by visiting your Alexa account [online](https://alexa.amazon.com/spa/index.html#settings) or via the Alexa app.
 
 ## **Is it possible to test skills written in languages other than Javascript?**
-Yes, it is possible. Our tools are language agnostic. For example, you can create [unit](https://read.bespoken.io/unit-testing/getting-started) or [end-to-end](https://read.bespoken.io/end-to-end/getting-started) test scripts using our syntax based on YAML regardless of the language used to create the voice app. We also provide SDKs for writing tests programmatically - also available for both [unit](https://github.com/bespoken/virtual-alexa) and [end-to-end](https://read.bespoken.io/end-to-end/api) testing. In either case, our tests work with your skill regardless of the language it is written in. 
+Yes, it is possible. Our tools are language agnostic. For example, you can create [unit](https://read.bespoken.io/unit-testing/getting-started/) or [end-to-end](https://read.bespoken.io/end-to-end/getting-started/) test scripts using our syntax based on YAML regardless of the language used to create the voice app. We also provide SDKs for writing tests programmatically - also available for both [unit](https://github.com/bespoken/virtual-alexa) and [end-to-end](https://read.bespoken.io/end-to-end/api/) testing. In either case, our tests work with your skill regardless of the language it is written in. 
 
 ## **Is it better to use the YAML syntax or the programmatic SDKs for testing?**
-Both are good choices. In the case of unit-testing, our YAML tests actually rely on [Virtual Alexa](https://github.com/bespoken/virtual-alexa) under the covers. In the case of end-to-end tests, similarly our YAML test scripts rely on our [Virtual Device SDK](https://github.com/bespoken/virtual-device-sdk). The big advantage of our YAML syntax is that it allows tests to be written in the same way no matter what type of test it is (unit or end-to-end), and what platform it works with (Google or Alexa). It also does not require programming skills. On the other hand, for many programmer using our programmatic APIs is easy and more what they are accustomed to - it also allows for writing tests that are more complex, such as ones that call external APIs to validate results. So the best approach takes into consideration the type of tests being written, as well as the skillset of the testing team.
+Both are good choices. In the case of unit-testing, our YAML tests actually rely on [Virtual Alexa](https://github.com/bespoken/virtual-alexa/) under the covers. In the case of end-to-end tests, similarly our YAML test scripts rely on our [Virtual Device SDK](https://github.com/bespoken/virtual-device-sdk/). The big advantage of our YAML syntax is that it allows tests to be written in the same way no matter what type of test it is (unit or end-to-end), and what platform it works with (Google or Alexa). It also does not require programming skills. On the other hand, for many programmer using our programmatic APIs is easy and more what they are accustomed to - it also allows for writing tests that are more complex, such as ones that call external APIs to validate results. So the best approach takes into consideration the type of tests being written, as well as the skillset of the testing team.
 
 ## **How do I run end-to-end tests?**
 To get started, you need to install the Bespoken CLI, please follow next steps:
@@ -100,7 +100,7 @@ If you need assistance reach us on any of these channels:
 
 
 ## **Besides Alexa, can I use Bespoken to functional test Google Actions?**
-Yes, you can. Our Virtual Device Test Scripts can also be used to do E2E or Regression testing for Google Actions. First thing is to generate a Virtual Device token to be used with your Action, get it [__here__](https://apps.bespoken.io/dashboard). Then you need to include the token in your `testing.json` file, something like this:
+Yes, you can. Our Virtual Device Test Scripts can also be used to do E2E or Regression testing for Google Actions. First thing is to generate a Virtual Device token to be used with your Action, get it [__here__](https://apps.bespoken.io/dashboard/). Then you need to include the token in your `testing.json` file, something like this:
 ```json
 {
     "type": "e2e",
@@ -417,7 +417,7 @@ It is also possible to specify multiple valid values for a property. That is don
 Alexa AVS doesn't handle more than one request for the same account, if you need to do parallel tests, create the necessary virtual devices using different accounts at the setup.
 
 ## **My Google action responds with  "to let me read out that information turn on personal results in the google app home"**
-Follow [these steps](/end-to-end/setup#enabling-personal-results-on-your-google-virtual-device).
+Follow [these steps](/end-to-end/setup/#enabling-personal-results-on-your-google-virtual-device).
 
 # Networking
 ## My organization uses a firewall - how do I use your tools with it?

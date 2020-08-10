@@ -23,7 +23,7 @@ We use the following ports for our services:
 * 443
 * 80 (bst proxy only)
 
-Please note - the IP addresses above are subject to change - please contact us via [Gitter](https://gitter.im/bespoken) if you have white-listed all of the above and are still having problems.
+Please note - the IP addresses above are subject to change - please contact us via [Gitter](https://gitter.im/bespoken/) if you have white-listed all of the above and are still having problems.
 
 ## My organization uses a Proxy - how do I use your tools with it?
 To run our tools through your proxy, you need to set the `HTTPS_PROXY` env variable. 
@@ -50,4 +50,4 @@ This is most likely due to a firewall issue.
 
 See [this answer](#my-organization-uses-a-firewall-how-do-i-use-your-tools-with-it) if your organization/household uses a firewall.
 
-Additionally, you can send us the `bst-debug.log`, which will be found in the directory where you ran the `bst proxy` command, to us via [Gitter](https://gitter.im/bespoken). This provides additional information on what is happening.
+Additionally, you can send us the `bst-debug.log`, which will be found in the directory where you ran the `bst proxy` command, to us via [Gitter](https://gitter.im/bespoken/). This provides additional information on what is happening.

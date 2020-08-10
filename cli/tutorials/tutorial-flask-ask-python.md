@@ -13,13 +13,13 @@ This tutorial shows you how to get started developing with bst for Alexa Skills 
     * `$ npm install bespoken-tools -g`
     <!-- * [Installation Instructions](./../getting-started#Installation/) -->
 * Amazon Developer Account
-    * [Amazon Developer](https://developer.amazon.com/alexa)
+    * [Amazon Developer](https://developer.amazon.com/alexa/)
 * Flask-Ask
     * `$ pip install flask-ask`
 
 ## Getting Started
 
-We will use the tidepooler sample John [provides](https://github.com/johnwheeler/flask-ask/tree/master/samples/tidepooler) in the Flask-Ask repo..
+We will use the tidepooler sample John [provides](https://github.com/johnwheeler/flask-ask/tree/master/samples/tidepooler/) in the Flask-Ask repo..
 
 Clone the repo:
 ```bash

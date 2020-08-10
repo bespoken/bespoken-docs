@@ -9,11 +9,11 @@ In order to test your Alexa skills and Google Actions, you need to create a Virt
 
 We'll create a trial Virtual Device, the only thing we need you to do is grant us access to your Amazon Alexa or Google Assistant account. Once completed, you will have a token that uniquely identifies your Virtual Device, ready to use in your tests.
 
-There are a couple of steps for the setup - but don't worry - you will only have to do it once and, if you run into any issues, just [ping us here](https://gitter.im/bespoken/bst). We'll get it sorted out quickly!
+There are a couple of steps for the setup - but don't worry - you will only have to do it once and, if you run into any issues, just [ping us here](https://gitter.im/bespoken/bst/). We'll get it sorted out quickly!
 
 ## Creating A Virtual Device
 ### Virtual Devices for Alexa
-1. Sign up for free or login to the [Bespoken Dashboard](https://apps.bespoken.io/dashboard), you will see the following screen:
+1. Sign up for free or login to the [Bespoken Dashboard](https://apps.bespoken.io/dashboard/), you will see the following screen:
 
 ![Bespoken Dashboard](./assets/dashboard.png "Bespoken Dashboard")
 
