@@ -47,7 +47,7 @@ BST: v2.0.0  Node: v8.11.1
 That means it was installed successfully!
 
 ### Virtual Device Setup
-First, you need to setup a virtual device, which allows for interaction via text and API with Alexa and Google Assistant. See [here for instructions](/end-to-end/setup).  
+First, you need to setup a virtual device, which allows for interaction via text and API with Alexa and Google Assistant. See [here for instructions](/end-to-end/setup/).  
 
 ## BST Init
 The `bst init` command is the fastest way to create all the files and folders needed to start testing your voice apps. It's a great starting point! You can read more about it [here](./../../cli/commands/#init).
@@ -103,7 +103,7 @@ Below the end-to-end testing configuration options and what they do are listed:
 | Key | Description |
 | --- | --- |
 | description | The description of the set of tests |
-| [deviceLocation](./faq#how-do-i-change-my-virtual-device-location-to-test-location-specific-features) | An object to set a specific location value from where the requests are sent in Google Virtual Devices. It is composed by the `lat` and `lng` keys.
+| [deviceLocation](./faq/#how-do-i-change-my-virtual-device-location-to-test-location-specific-features) | An object to set a specific location value from where the requests are sent in Google Virtual Devices. It is composed by the `lat` and `lng` keys.
 | env | The location of the .env file to load environment variables, defaults to ".env" at the project root directory|
 | [filter](#filtering-during-test) | The (optional) path to a class that can be used to override value on the request and response |
 | [findReplace](#find-replace) | Values that will be replaced in the scripts before execution |
@@ -118,7 +118,7 @@ Below the end-to-end testing configuration options and what they do are listed:
 | type | The type of test being run - can be `unit`, `simulation`, or `e2e` - defaults to `unit` |
 | stopTestOnFailure | Stops the execution of a test and continues with the next one as soon as there is an assertion error - defaults to `false` |
 | [trace](#viewing-response-payloads) | Causes request and response JSON payloads from the skill to be printed to the console |
-| [virtualDeviceToken](/end-to-end/setup) | For end-to-end tests that use virtual devices, this must be specified. [Get one here](../setup) |
+| [virtualDeviceToken](/end-to-end/setup/) | For end-to-end tests that use virtual devices, this must be specified. [Get one here](../setup/) |
 
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
 
@@ -852,7 +852,7 @@ The following are settings than can help you overcome specific testing issues. H
 
 ## Further Reading
 Take a look at:
-* Our [getting started guide](/end-to-end/getting-started)
-* Our [example project](https://github.com/bespoken-samples/virtual-device-example)
+* Our [getting started guide](/end-to-end/getting-started/)
+* Our [example project](https://github.com/bespoken-samples/virtual-device-example/)
 
-And don't hesitate to reach out via [Gitter](https://gitter.im/bespoken/bst).
+And don't hesitate to reach out via [Gitter](https://gitter.im/bespoken/bst/).

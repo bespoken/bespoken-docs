@@ -28,15 +28,15 @@ $ bst
 ```
 
 Haven't used npm before? We have you covered:
-[How To Install NPM](http://blog.npmjs.org/post/85484771375/how-to-install-npm)
+[How To Install NPM](http://blog.npmjs.org/post/85484771375/how-to-install-npm/)
 
 You will then be able to use our commands, described below: 
  
-* [Proxy](/cli/commands#proxy) Proxies the Alexa service to your laptop - develop and debug with the real Alexa
-* [Utter](/cli/commands#utter) Emulate utterances coming from Alexa, without Alexa. Magic!
-* [Intend](/cli/commands#intend) Emulate intents coming from Alexa
-* [Launch](/cli/commands#launch) Emulate launch requests coming from Alexa
-* [Speak](/cli/commands#speak) Sends utterances directly to the real Alexa
+* [Proxy](/cli/commands/#proxy) Proxies the Alexa service to your laptop - develop and debug with the real Alexa
+* [Utter](/cli/commands/#utter) Emulate utterances coming from Alexa, without Alexa. Magic!
+* [Intend](/cli/commands/#intend) Emulate intents coming from Alexa
+* [Launch](/cli/commands/#launch) Emulate launch requests coming from Alexa
+* [Speak](/cli/commands/#speak) Sends utterances directly to the real Alexa
 
 
 You can also use:
