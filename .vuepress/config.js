@@ -13,9 +13,9 @@ module.exports = {
             ['link', { rel: 'icon', href: '/favicon.ico' }]
         ],
         nav: [
-            { text: "CLI AND PROXY", link: "/cli/getting-started" },
-            { text: "UNIT TESTING", link: "/unit-testing/getting-started" },
-            { text: "END-TO-END TESTING", link: "/end-to-end/getting-started" },
+            { text: "CLI AND PROXY", link: "/cli/getting-started/" },
+            { text: "UNIT TESTING", link: "/unit-testing/getting-started/" },
+            { text: "END-TO-END TESTING", link: "/end-to-end/getting-started/" },
             { text: "CONTINUOUS TESTING", link: "https://bespoken.io/blog/monitor-alexa-skills-or-google-actions/" },
         ],
         sidebar: {
