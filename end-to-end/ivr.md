@@ -19,7 +19,7 @@ Unlike Alexa or Google Assistant, where communication is done "in turns", an IVR
 - Dialing the American Airlines number
 - Replying with our intention after the prompt "please, tell me what you're calling about"
 - Repeating our intention if the IVR system does not understand us 
-- Pressing a number on the phone key pad if necessary
+- Pressing a number on the phone keypad if necessary
 
 Here's the same call translated into one of our YAML tests:
 
@@ -38,7 +38,7 @@ Here's the same call translated into one of our YAML tests:
 - $1: Please wait while I transfer you to an agent
 ```
 
-What happens here is we call the United Airlines number, which is set as part of our configuration file. We then have a back and forth interaction with the system - the first part of each line before the `:` is what we say to the system, such as "new flight reservation". The second part, which comes after the colon, contains the expected response(s) evaluated with via the `transcript` property, as well as request modifiers (defined by the keyword `set`) that allows us to go to the next interaction, or to repeat an interaction when needed. These keywords and modifiers will be explained in following sections.
+What happens here is we call the United Airlines number, which is set as part of our configuration file. We then have a back and forth interaction with the system - the first part of each line before the `:` is what we say to the system, such as "new flight reservation". The second part, which comes after the colon, contains the expected response(s) evaluated with via the `transcript` property, as well as request modifiers (defined by the keyword `set`) that allows us to go to the next interaction, or to repeat an interaction when needed. These keywords and modifiers will be explained in the following sections.
 
 If the expected response matches the actual response we receive from the system, then the test passes. Please note we use partial matches - so if the full response is "hi, how are you doing", a test that looks for "hi" will be considered a pass.
 
@@ -66,11 +66,11 @@ We have some parameters that are particular to IVR testing. In addition to the [
         "Could you repeat that"
       ],
     "recordCall": false
-	}
+  }
 }
 ```
 
-These values can also be set inside particular test file with a configuration section at the top of the file, like this:
+These values can also be set inside a particular test file with a configuration section at the top of the file, like this:
 ```yaml
 ---
 configuration:
@@ -81,20 +81,20 @@ configuration:
   recordCall: false
 ```
 
-"Utterance" level parameters are set inside each test with the use of the reserverd keyword `set`.
+"Utterance" level parameters are set inside each test with the use of the reserved keyword `set`.
 
 ## Special syntax
 ### DIAL Command
 The `$DIAL` command is always the first command that we issue. It initiates the phone call to the specified `phoneNumber`.
 
 ### set keyword
-The `set` keyword is used to stablish parameters that will alter the behavior of an interaction, it's also used to differentiate them from properties that will be evaluated like `transcript`. 
+The `set` keyword is used to establish parameters that will alter the behavior of each interaction, it's also used to differentiate them from properties that will be evaluated like `transcript`. 
 
 ### Touch-tone entry
 Touch-tone numbers can be entered by prefixing them with a `$`, like so:
 ```
 - test: Call a touchtone service
-- $DIAL: Welcome to Bespoken Enterprises. Press one for english, two for spanish
+- $DIAL: Welcome to Bespoken Enterprises. Press one for English, two for Spanish
 - $2: Gracias y bienvenido
 ```
 
