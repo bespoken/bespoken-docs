@@ -12,7 +12,7 @@ For in-depth information on how our end-to-end testing works, [read here](/end-t
 
 ## Approach
 Take a look at the following excerpt from a call made to the American Airlines IVR system.
-![IVR sample call](../assets/ivr-excerpt.gif)
+![IVR sample call](./assets/ivr-excerpt.gif)
 
 Unlike Alexa or Google Assistant, where communication is done "in turns", an IVR call happens over a bi-directional line where each end can speak at any given time, so it is important to identify key moments during the call to translate that correctly into a test. From a caller perspective, the key moments in the call are:
 
