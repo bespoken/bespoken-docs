@@ -23,6 +23,16 @@ module.exports = {
             "/unit-testing/": getUnitTestingSidebar(),
             "/end-to-end/": getEndToEndSidebar(),
         },
+    },
+    // https://stackoverflow.com/questions/53874577/vuepress-how-to-get-the-processed-image-filename
+    chainWebpack: (config, isServer) => {
+        config.module.rule('vue').uses.store.get('vue-loader').store.get('options').transformAssetUrls = {
+            video: ['src', 'poster'],
+            source: 'src',
+            img: 'src',
+            image: ['xlink:href', 'href'],
+            a: 'href'
+        };
     }
 }
 
