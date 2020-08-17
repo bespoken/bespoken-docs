@@ -14,7 +14,7 @@ For in-depth information on how our end-to-end testing works, [read here](/end-t
 Take a look at the following excerpt from a call made to the American Airlines IVR system.
 
 <p style="text-align:center">
-![<img src="./assets/ivr-excerpt.gif" style="max-width: 60%;">](./assets/ivr-excerpt.gif)
+<img src="./assets/ivr-excerpt.gif" style="max-width: 60%;">
 </p>
 
 Unlike Alexa or Google Assistant, where communication is done "in turns", an IVR call happens over a bi-directional line where each end can speak at any given time, so it is important to identify key moments during the call to translate that correctly into a test. From a caller perspective, the key moments in the call are:
