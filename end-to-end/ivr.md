@@ -3,7 +3,7 @@ title: IVR Testing Guide
 permalink: /end-to-end/ivr/
 ---
 
-# End-To-End Testing For Interactive Voice Response Systems
+# End-To-End Testing for Interactive Voice Response systems
 We provide support for Interactive Voice Response (IVR) systems by leveraging Twilio to interact with them.
 
 Most of the features from our standard end-to-end testing work as normal for this, but there are some special features that we will cover in this guide.
@@ -12,7 +12,7 @@ For in-depth information on how our end-to-end testing works, [read here](/end-t
 
 ## Approach
 Take a look at the following excerpt from a call made to the American Airlines IVR system.
-![IVR sample call](./assets/ivr-excerpt.gif)
+![IVR sample call](<img src="./assets/ivr-excerpt.gif" width="50%">)
 
 Unlike Alexa or Google Assistant, where communication is done "in turns", an IVR call happens over a bi-directional line where each end can speak at any given time, so it is important to identify key moments during the call to translate that correctly into a test. From a caller perspective, the key moments in the call are:
 
@@ -84,10 +84,10 @@ configuration:
 "Utterance" level parameters are set inside each test with the use of the reserved keyword `set`.
 
 ## Special syntax
-### DIAL Command
+### The $DIAL Command
 The `$DIAL` command is always the first command that we issue. It initiates the phone call to the specified `phoneNumber`.
 
-### set keyword
+### The "set" keyword
 The `set` keyword is used to establish parameters that will alter the behavior of each interaction, it's also used to differentiate them from properties that will be evaluated like `transcript`. 
 
 ### Touch-tone entry
@@ -99,12 +99,12 @@ Touch-tone numbers can be entered by prefixing them with a `$`, like so:
 ```
 
 ## Debugging
-### Tracing Output
+### Tracing output
 Make sure "trace" is set to true in the testing.json file. This will output the complete back and forth of the test. It includes:
 * The message we send to the IVR system
 * The transcript of the response received
 
-### Listen To Twilio Recordings
+### Listening to Twilio recordings
 If `recordCall` is set to true. The response payload will include the `callURL` property. It contains the call recording in `.wav` format. Listening to it is a good way to understand why a test doesn't do well. Recordings are available for a week.
 
 ## Limitations
