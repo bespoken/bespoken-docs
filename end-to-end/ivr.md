@@ -29,8 +29,11 @@ Here's the same call translated into one of our YAML tests:
 ```yaml
 - test: Call to American Airlines
 - $DIAL: 
-    - transcript: Thanks for calling American Airlines
-    - set finishOnPhrase: Please tell me what you're calling about
+    - transcript: 
+      - Thanks for calling American Airlines
+      - Thanks for choosing American Airlines
+      - Welcome to American Airlines
+    - set finishOnPhrase: please tell me what you're calling about
 - New flight reservation: 
     - transcript: Okay
     - set listeningTimeout: 10
@@ -48,18 +51,19 @@ If the expected response matches the actual response we receive from the system,
 There is much more that can be done with our response assertions - [you can read all about them here](/end-to-end/guide/#assertions).
 
 ## Configuration
-We have some parameters that are particular to IVR testing. In addition to the [regular e2e configuration](https://read.bespoken.io/end-to-end/guide/#configuration).
+We have some parameters that are particular to IVR testing. In addition to the [regular e2e configuration](https://read.bespoken.io/end-to-end/guide/#configuration). 
 
 |Name|Description|Unit / Type|Scope|Default|
 |--- |--- |--- |--- |--- |
 |phoneNumber|Phone number to call to. Should be in the [E.164 format](https://www.twilio.com/docs/glossary/what-e164).|number|Global||
 |finishOnPhrase|Phrases that, when detected, will make the test continue to the next utterance.|String array|Utterance||
 |listeningTimeout|The maximum time to listen to before sending the next utterance. Can be used instead of finishOnPhrase.|seconds|Global/Utterance|45|
-|recognitionHints|Phrases that improve speech recognition for STT.|String array|Utterance||
+|recognitionHints|Phrases that improve speech recognition for speech to text detection.|String array|Utterance||
 |recordCall|Whether to record the call. If recorded, the URL for accessing the call will be provided as part of the response in a `callAudioURL` property.|boolean|Global|FALSE|
 |repeatOnPhrase|Repeats the previous utterance when one of these values is found.|String array|Global/Utterance||
 
-"Global" parameters can be set in the testing.json file like this:
+All Global parameters, except `phoneNumber` should go inside a `virtualDeviceConfig` property inside your testing.json file if set: 
+
 ```json
 {
     "phoneNumber": "PHONE_NUMBER",
@@ -101,14 +105,39 @@ Touch-tone numbers can be entered by prefixing them with a `$`, like so:
 - $2: Gracias y bienvenido
 ```
 
-## Debugging
+## Debugging and Troubleshooting
 ### Tracing output
 Make sure "trace" is set to true in the testing.json file. This will output the complete back and forth of the test. It includes:
 * The message we send to the IVR system
 * The transcript of the response received
 
 ### Listening to Twilio recordings
-If `recordCall` is set to true. The response payload will include the `callURL` property. It contains the call recording in `.wav` format. Listening to it is a good way to understand why a test doesn't do well. Recordings are available for a week.
+If `recordCall` is set to true, the response payload will include the `callURL` property. It contains the call recording in `.wav` format and will be shown as part of the bst command line output. Listening to it is a good way to understand why a test doesn't do well. Recordings are available for a week.
+
+### Increasing the response wait time
+IVR systems have prompts that vary in their lenght before expecting a user interaction. When these go over the one minute mark, it's possible that you'll find an error saying: `Timeout exceeded while waiting for the interaction response`. If this happens, be sure to set the property `maxAsyncE2EResponseWaitTime` to a value higher than 60000 ms, which is the default value, in your testing.json file. This property will allow our tests to wait longer for a response before timing out.
+
+### Improving transcript accuracy
+Transcripts that are evaluated in our tests come from doing speech to text detection over the call streaming. In order to improve their accuracy, `transcript`, `finishOnPhrase`, and `repeatOnPhrase` values are sent to Google's speech recognition service as "hints" of what we are expecting to get back. While this is usually enough to get correct transcripts, those three properties are usually short and can also accept regular expressions that won't work as hints. For example the star here could be used as a placeholder for "calling" and "choosing":
+
+```yaml
+- $DIAL: 
+  - transcript: Thanks for * American Airlines
+  - set finishOnPhrase: Please tell me what you're calling about
+```
+
+If you want the most accurate transcripts possible, you can help the speech to text process by setting up the `recognitionHints` property like this:
+
+```yaml
+- $DIAL: 
+  - transcript: Thanks for * American Airlines
+  - set finishOnPhrase: please tell me what you're calling about
+  - set recognitionHints: 
+    - Thanks for calling American Airlines. In a few words, please tell me what you're calling about.
+    - Thanks for choosing American Airlines. In a few words, please tell me what you're calling about.
+```
+
+When this is set, the `recognitionHints` values will be the **only** values sent to Google's speech to text. The more detailed they are, the better the results will be.
 
 ## Limitations
 As of today, only Amazon Polly voices are supported for IVR testing with Twilio. We do not support Twilio's own "Alice" voice. For a list of Amazon Polly voices that work with Twilio, take a look [here](https://support.twilio.com/hc/en-us/articles/223132827-What-Languages-can-the-Say-TwiML-Verb-Speak-).
