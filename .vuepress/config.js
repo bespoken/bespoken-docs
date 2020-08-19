@@ -66,7 +66,7 @@ function getUnitTestingSidebar() {
 function getEndToEndSidebar() {
     return [
         {
-            title: "End-to-end- Testing",
+            title: "End-to-end Testing",
             collapsable: true,
             children: [
                 "getting-started",

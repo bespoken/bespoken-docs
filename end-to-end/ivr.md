@@ -44,7 +44,7 @@ Here's the same call translated into one of our YAML tests:
 - $1: Please wait while I transfer you to an agent
 ```
 
-What happens here is we call the United Airlines number, which is set as part of our configuration file. We then have a back and forth interaction with the system - the first part of each line before the `:` is what we say to the system, such as "new flight reservation". The second part, which comes after the colon, contains the expected response(s) evaluated with via the `transcript` property, as well as request modifiers (defined by the keyword `set`) that allows us to go to the next interaction, or to repeat an interaction when needed. These keywords and modifiers will be explained in the following sections.
+What happens here is we call the United Airlines number, which is set as part of our configuration file. We then have a back and forth interaction with the system - the first part of each line before the `:` is what we say to the system, such as "new flight reservation". The second part, which comes after the colon, contains assertions as well as additional configuration. We check the `transcript` property to verify the system's response is as expectged. We `set` the finishOnPhrase to help us figure out when the system has finished speaking. These keywords and modifiers will be explained in the following sections.
 
 If the expected response matches the actual response we receive from the system, then the test passes. Please note we use partial matches - so if the full response is "hi, how are you doing", a test that looks for "hi" will be considered a pass.
 
@@ -56,11 +56,11 @@ We have some parameters that are particular to IVR testing. In addition to the [
 |Name|Description|Unit / Type|Scope|Default|
 |--- |--- |--- |--- |--- |
 |phoneNumber|Phone number to call to. Should be in the [E.164 format](https://www.twilio.com/docs/glossary/what-e164).|number|Global||
-|finishOnPhrase|Phrases that, when detected, will make the test continue to the next utterance.|String array|Utterance||
+|finishOnPhrase|Phrases that, when detected, will make the test continue to the next utterance.|string, array|Utterance||
 |listeningTimeout|The maximum time to listen to before sending the next utterance. Can be used instead of finishOnPhrase.|seconds|Global/Utterance|45|
-|recognitionHints|Phrases that improve speech recognition for speech to text detection.|String array|Utterance||
-|recordCall|Whether to record the call. If recorded, the URL for accessing the call will be provided as part of the response in a `callAudioURL` property.|boolean|Global|FALSE|
-|repeatOnPhrase|Repeats the previous utterance when one of these values is found.|String array|Global/Utterance||
+|recognitionHints|Phrases that improve speech recognition for speech to text detection.|string, array|Utterance||
+|recordCall|Whether to record the call. If recorded, the URL for accessing the call will be provided as part of the response in a `callAudioURL` property.|boolean|Global|false|
+|repeatOnPhrase|Repeats the previous utterance when one of these values is found. For cases when the system we are calling does not understand, for whatever reason, our utterance.|string, array|Global/Utterance||
 
 All Global parameters, except `phoneNumber` should go inside a `virtualDeviceConfig` property inside your testing.json file if set: 
 
@@ -95,7 +95,7 @@ configuration:
 The `$DIAL` command is always the first command that we issue. It initiates the phone call to the specified `phoneNumber`.
 
 ### The "set" keyword
-The `set` keyword is used to establish parameters that will alter the behavior of each interaction, it's also used to differentiate them from properties that will be evaluated like `transcript`. 
+The `set` keyword is used to establish parameters that will alter the behavior of each interaction, it's also used to differentiate them from properties that will be verified (and not set) like `transcript`. 
 
 ### Touch-tone entry
 Touch-tone numbers can be entered by prefixing them with a `$`, like so:
