@@ -44,7 +44,7 @@ Here's the same call translated into one of our YAML tests:
 - $1: Please wait while I transfer you to an agent
 ```
 
-What happens here is we call the United Airlines number, which is set as part of our configuration file. We then have a back and forth interaction with the system - the first part of each line before the `:` is what we say to the system, such as "new flight reservation". The second part, which comes after the colon, contains assertions as well as additional configuration. We check the `transcript` property to verify the system's response is as expectged. We `set` the finishOnPhrase to help us figure out when the system has finished speaking. These keywords and modifiers will be explained in the following sections.
+What happens here is we call the United Airlines number, which is set as part of our configuration file. We then have a back and forth interaction with the system - the first part of each line before the `:` is what we say to the system, such as "new flight reservation". The second part, which comes after the colon, contains assertions as well as additional configuration. We check the `transcript` property to verify the system's response is as expected. We `set` the finishOnPhrase to help us figure out when the system has finished speaking. These keywords and modifiers will be explained in the following sections.
 
 If the expected response matches the actual response we receive from the system, then the test passes. Please note we use partial matches - so if the full response is "hi, how are you doing", a test that looks for "hi" will be considered a pass.
 
@@ -115,10 +115,10 @@ Make sure "trace" is set to true in the testing.json file. This will output the 
 If `recordCall` is set to true, the response payload will include the `callURL` property. It contains the call recording in `.wav` format and will be shown as part of the bst command line output. Listening to it is a good way to understand why a test doesn't do well. Recordings are available for a week.
 
 ### Increasing the response wait time
-IVR systems have prompts that vary in their lenght before expecting a user interaction. When these go over the one minute mark, it's possible that you'll find an error saying: `Timeout exceeded while waiting for the interaction response`. If this happens, be sure to set the property `maxAsyncE2EResponseWaitTime` to a value higher than 60000 ms, which is the default value, in your testing.json file. This property will allow our tests to wait longer for a response before timing out.
+IVR systems have prompts that vary in their length before expecting a user interaction. When these go over the one minute mark, you may find an error saying: `Timeout exceeded while waiting for the interaction response`. If this happens, be sure to set the property `maxAsyncE2EResponseWaitTime` to a value higher than 60000 ms, which is the default value, in your testing.json file. This property will allow our tests to wait longer for a response before timing out.
 
 ### Improving transcript accuracy
-Transcripts that are evaluated in our tests come from doing speech to text detection over the call streaming. In order to improve their accuracy, `transcript`, `finishOnPhrase`, and `repeatOnPhrase` values are sent to Google's speech recognition service as "hints" of what we are expecting to get back. While this is usually enough to get correct transcripts, those three properties are usually short and can also accept regular expressions that won't work as hints. For example the star here could be used as a placeholder for "calling" and "choosing":
+Transcripts that are evaluated in our tests come from doing speech to text detection over the call streaming. To improve their accuracy, `transcript`, `finishOnPhrase`, and `repeatOnPhrase` values are sent to Google's speech recognition service as "hints" of what we are expecting to get back. While this is usually enough to get correct transcripts, those three properties are usually short and can also accept regular expressions that won't work as hints. For example, the star here could be used as a placeholder for "calling" and "choosing":
 
 ```yaml
 - $DIAL: 
