@@ -291,7 +291,7 @@ When tests are run, each interaction is processed in sequential order. Within it
 If any assertion fails for a test, the test stops processing, and information about the failed assertion is provided.
 
 ### Utterance
-Is the first part of the interaction, it can be plain text or SSML (Speech Synthesis Markup Language)
+Is the first part of the interaction, it can be plain text, SSML (Speech Synthesis Markup Language), or a url with prerecorded audio.
 
 Plain text:
 ```
@@ -303,7 +303,16 @@ SSML:
 - <speak>this is SSML</speak>:
 ```
 
+URL:
+```yaml
+- https://mywebpage.com/alexa_interaction.mp3
+```
+
 For more details on how to write SSML, look [here](#ssml).
+
+Prerecorded audios that are sent as utterances should have the following formats: 
+- Any of the [FFMPEG supported audio formats](https://ffmpeg.org/ffmpeg-formats.html) for regular end-to-end tests.
+- Any of the [Twilio Play supported audio formats](https://www.twilio.com/docs/voice/twiml/play#nouns) for IVR end-to-end tests. 
 
 ### Invocation Names
 The first utterance of your test should contain the invocation name of your voice app. It is important to know that since you'll be interacting with your voice platform directly, you don't need to use the wake words "Alexa" or "Hey Google". 

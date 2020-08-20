@@ -66,6 +66,7 @@ All Global parameters, except `phoneNumber` should go inside a `virtualDeviceCon
 
 ```json
 {
+    "virtualDeviceToken": "twilio-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "phoneNumber": "PHONE_NUMBER",
     "virtualDeviceConfig": {
       "repeatOnPhrase": [
@@ -104,6 +105,28 @@ Touch-tone numbers can be entered by prefixing them with a `$`, like so:
 - $DIAL: Welcome to Bespoken Enterprises. Press one for English, two for Spanish
 - $2: Gracias y bienvenido
 ```
+## Supported voices
+As of today, only Amazon Polly voices are supported for IVR testing with Twilio. We do not support Twilio's own "Alice" voice. For a list of Amazon Polly voices that work with Twilio, take a look [here](https://support.twilio.com/hc/en-us/articles/223132827-What-Languages-can-the-Say-TwiML-Verb-Speak-). If you need to use a custom voice, a good alternative is to use pre-recorded audios. To do this, simply replace your utterances for publicly available URLs containing the files you would like to use. Like this:
+
+```yaml
+- test: Call to American Airlines
+- $DIAL: 
+    - transcript: Thanks for calling American Airlines
+    - set finishOnPhrase: please tell me what you're calling about
+- https://bespoken-samples.s3.amazonaws.com/audios/YES.wav: 
+    - transcript: Okay
+    - set listeningTimeout: 10
+    - set repeatOnPhrase: I didn't get that
+- https://bespoken-samples.s3.amazonaws.com/audios/NewFlightReservation.mp3: 
+    - transcript: Excellent
+    - set finishOnPhrase: if so press 1
+- $1: Please wait while I transfer you to an agent
+```
+
+Information about supported audio formats can be found [here](https://www.twilio.com/docs/voice/twiml/play).
+
+## BST Init
+The `bst init` command is the fastest way to create all the files and folders needed to start testing your IVR system. It's a great starting point! You can read more about it [here](./../../cli/commands/#init).
 
 ## Debugging and Troubleshooting
 ### Tracing output
@@ -139,5 +162,5 @@ If you want the most accurate transcripts possible, you can help the speech to t
 
 When this is set, the `recognitionHints` values will be the **only** values sent to Google's speech to text. The more detailed they are, the better the results will be.
 
-## Limitations
-As of today, only Amazon Polly voices are supported for IVR testing with Twilio. We do not support Twilio's own "Alice" voice. For a list of Amazon Polly voices that work with Twilio, take a look [here](https://support.twilio.com/hc/en-us/articles/223132827-What-Languages-can-the-Say-TwiML-Verb-Speak-).
+## Project Sample
+You can find the test we used in this page here: https://github.com/bespoken-samples/ivr-test-samples. 

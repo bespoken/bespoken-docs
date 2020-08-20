@@ -12,29 +12,29 @@ We'll create a trial Virtual Device, the only thing we need you to do is grant u
 There are a couple of steps for the setup - but don't worry - you will only have to do it once and, if you run into any issues, just [ping us here](https://gitter.im/bespoken/bst). We'll get it sorted out quickly!
 
 ## Creating A Virtual Device
-### Virtual Devices for Alexa
-1. Sign up for free or login to the [Bespoken Dashboard](https://apps.bespoken.io/dashboard), you will see the following screen:
+
+- Login to our [Bespoken Dashboard](https://apps.bespoken.io/dashboard) (if you don't have an account yet, apply for a free trial), you will see the following screen:
 
 ![Bespoken Dashboard](./assets/dashboard.png "Bespoken Dashboard")
 
-2. On the left panel click on **"Virtual Devices"** to access the Virtual Device Manager:
+- On the left panel click on **"Virtual Devices"** to access the Virtual Device Manager:
 
 ![Virtual Device Manager](./assets/virtualDeviceManager.gif "Virtual Device Manager")
-
-3. Click on the **"Add Virtual Device"** button and select "Alexa Virtual Device". After clicking on **"OK"** you will be redirected to a Login with Amazon page:
+### For Alexa
+- Click on the **"Add Virtual Device"** button and select "Alexa Virtual Device". After clicking on **"OK"** you will be redirected to a Login with Amazon page:
 
 ![Virtual Device Manager Dialog](./assets/VirtualDeviceManagerDialog.gif "Virtual Device Manager Dialog")
 
-4. Provide your credentials and you will be returned to the Bespoken Dashboard. The **"Virtual Device Token"** will be retrieved automatically:
+- Provide your credentials and you will be returned to the Bespoken Dashboard. The **"Virtual Device Token"** will be retrieved automatically:
 
 ![Virtual Device Manager With Token](./assets/VirtualDeviceManagerWithToken.gif "Virtual Device Manager With Token")
 
-### Virtual Devices for Google
-1. Follow steps 1-3 from "Virtual Devices for Alexa" but, on step 3, select "Google Virtual Device" instead. After clicking on **"OK"** you will be redirected to a Google Sign-in page:
+### For Google
+- Click on the  **"Add Virtual Device"** button and select "Google Virtual Device". After clicking on **"OK"** you will be redirected to a Google Sign-in page:
 
 ![Virtual Device Manager Dialog](./assets/VirtualDeviceManagerDialogGoogle.gif "Virtual Device Manager Dialog")
 
-2. Provide your credentials and you will be returned to the Bespoken Dashboard. The **"Virtual Device Token"** will be retrieved automatically:
+- Provide your credentials and you will be returned to the Bespoken Dashboard. The **"Virtual Device Token"** will be retrieved automatically:
 
 ![Virtual Device Manager With Token](./assets/VirtualDeviceManagerWithTokenGoogle.gif "Virtual Device Manager With Token")
 
@@ -59,6 +59,12 @@ If you get a response that says: "to let me read out that information turn on pe
 
 #### Enabling test mode on your Google Action
 Another important aspect of testing with Google is that your Action should be enabled for testing. To do this, follow [this guide](https://developers.google.com/assistant/smarthome/develop/testing#setup).
+
+### For IVR systems (Twilio)
+
+- [Contact us](mailto:contact@bespoken.io) if you are interested in testing IVR systems with us.
+- Once your account is setup to allow for Twilio Virtual Devices, click on the  **"Add Virtual Device"** button and select "Twilio Virtual Device". 
+
 
 ## Using the Device In Your Scripts
 Now you can use the virtual device with your test script. Place it in the testing.json file of your project like so:
