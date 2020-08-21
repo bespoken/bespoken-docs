@@ -43,10 +43,10 @@ The specific permissions are to access Alexa Voice Services and Alexa Account Co
 Remember, you can remove access at any time by visiting your Alexa account [online](https://alexa.amazon.com/spa/index.html#settings) or via the Alexa app.
 
 ## **Is it possible to test skills written in languages other than Javascript?**
-Yes, it is possible. Our tools are language agnostic. For example, you can create [unit](https://read.bespoken.io/unit-testing/getting-started.html) or [end-to-end](https://read.bespoken.io/end-to-end/getting-started.html) test scripts using our syntax based on YAML regardless of the language used to create the voice app. We also provide SDKs for writing tests programmatically - also available for both [unit](https://github.com/bespoken/virtual-alexa) and [end-to-end](https://read.bespoken.io/end-to-end/api.html) testing. In either case, our tests work with your skill regardless of the language it is written in. 
+Yes, it is possible. Our tools are language agnostic. For example, you can create [unit](https://read.bespoken.io/unit-testing/getting-started/) or [end-to-end](https://read.bespoken.io/end-to-end/getting-started/) test scripts using our syntax based on YAML regardless of the language used to create the voice app. We also provide SDKs for writing tests programmatically - also available for both [unit](https://github.com/bespoken/virtual-alexa) and [end-to-end](https://read.bespoken.io/end-to-end/api/) testing. In either case, our tests work with your skill regardless of the language it is written in. 
 
 ## **Is it better to use the YAML syntax or the programmatic SDKs for testing?**
-Both are good choices. In the case of unit-testing, our YAML tests actually rely on [Virtual Alexa](https://github.com/bespoken/virtual-alexa) under the covers. In the case of end-to-end tests, similarly our YAML test scripts rely on our [Virtual Device SDK](https://github.com/bespoken/virtual-device-sdk). The big advantage of our YAML syntax is that it allows tests to be written in the same way no matter what type of test it is (unit or end-to-end), and what platform it works with (Google or Alexa). It also does not require programming skills. On the other hand, for many programmer using our programmatic APIs is easy and more what they are accustomed to - it also allows for writing tests that are more complex, such as ones that call external APIs to validate results. So the best approach takes into consideration the type of tests being written, as well as the skillset of the testing team.
+Both are good choices. In the case of unit-testing, our YAML tests actually rely on [Virtual Alexa](https://github.com/bespoken/virtual-alexa/) under the covers. In the case of end-to-end tests, similarly our YAML test scripts rely on our [Virtual Device SDK](https://github.com/bespoken/virtual-device-sdk/). The big advantage of our YAML syntax is that it allows tests to be written in the same way no matter what type of test it is (unit or end-to-end), and what platform it works with (Google or Alexa). It also does not require programming skills. On the other hand, for many programmer using our programmatic APIs is easy and more what they are accustomed to - it also allows for writing tests that are more complex, such as ones that call external APIs to validate results. So the best approach takes into consideration the type of tests being written, as well as the skillset of the testing team.
 
 ## **How do I run end-to-end tests?**
 To get started, you need to install the Bespoken CLI, please follow next steps:
@@ -102,10 +102,10 @@ To use this feature, set your test type to `simulation`. The feature support is 
 * Testing must be enabled for the skill in the Alexa dev console
 * The skill must be in development stage
 
-Read more about it in our [full guide](./guide.html#smapi-configuration).
+Read more about it in our [full guide](/end-to-end/guide/#smapi-configuration).
 
 ## **How do I learn more?**
-Take a look at this [__sample project__](https://github.com/bespoken-samples/virtual-device-example) and use it as a base to start creating your own functional test scripts. For more info on End-to-end testing please read [__here__](https://read.bespoken.io/end-to-end/getting-started.html).
+Take a look at this [__sample project__](https://github.com/bespoken-samples/virtual-device-example) and use it as a base to start creating your own functional test scripts. For more info on End-to-end testing please read [__here__](https://read.bespoken.io/end-to-end/getting-started).
 If you need assistance reach us on any of these channels:
 * [Email](mailto:contact@bespoken.io)
 * [Twitter](https://twitter.com/bespokenio)
@@ -113,7 +113,7 @@ If you need assistance reach us on any of these channels:
 
 
 ## **Besides Alexa, can I use Bespoken to functional test Google Actions?**
-Yes, you can. Our Virtual Device Test Scripts can also be used to do E2E or Regression testing for Google Actions. First thing is to generate a Virtual Device token to be used with your Action, get it [__here__](https://apps.bespoken.io/dashboard). Then you need to include the token in your `testing.json` file, something like this:
+Yes, you can. Our Virtual Device Test Scripts can also be used to do E2E or Regression testing for Google Actions. First thing is to generate a Virtual Device token to be used with your Action, get it [__here__](https://apps.bespoken.io/dashboard/). Then you need to include the token in your `testing.json` file, something like this:
 ```json
 {
     "type": "e2e",
@@ -280,7 +280,7 @@ When you create your first Virtual Device, you will be asked to select a country
 
 Despite this, the Virtual Device has not yet an assigned location. If, in this state, you ask for its location (see image below), and you have selected "United States", Amazon will assign it an American zip code. Otherwise, if you selected a different country, Alexa will reply with "Sorry, I couldn't find your current location information" (the linked Amazon account's address is not taken as fallback).
 
-[<img src="./assets/UpdateLocation-01.png" width="50%">](./assets/UpdateLocation-01.png)
+[<img src="./assets/UpdateLocation-01.png">](./assets/UpdateLocation-01.png)
 
 Take note, that the location defined in the Virtual Device settings will take precedence over the address added to the linked Amazon account.
 
@@ -292,10 +292,10 @@ The location of Virtual Devices is set by [this precedence logic](https://develo
 - Go to your Alexa account (for the US, go to alexa.amazon.com) and navigate to **Settings**.
 - Select the Virtual Device for which you want to update the location. If you are not sure which one to choose, run these tests on Bespoken Dashboard:
 
-  [<img src="./assets/UpdateLocation-01.png" width="50%">](./assets/UpdateLocation-01.png)
+  [<img src="./assets/UpdateLocation-01.png">](./assets/UpdateLocation-01.png)
 - Add the desired address or zip code in the General section, under "Device Location"
 
-  [<img src="./assets/UpdateLocation-02.png" width="50%">](./assets/UpdateLocation-02.png)
+  [<img src="./assets/UpdateLocation-02.png">](./assets/UpdateLocation-02.png)
 ### Google
 Add the desired latitude (`lat`, values from -90.0 to +90.0) and longitude (`lng`, values from -180.0 to +180.0) to your `testing.json` file by using the `deviceLocation` object:
 ```json
@@ -430,7 +430,7 @@ It is also possible to specify multiple valid values for a property. That is don
 Alexa AVS doesn't handle more than one request for the same account, if you need to do parallel tests, create the necessary virtual devices using different accounts at the setup.
 
 ## **My Google action responds with  "to let me read out that information turn on personal results in the google app home"**
-Follow [these steps](./setup.html#enabling-personal-results-on-your-google-virtual-device).
+Follow [these steps](/end-to-end/setup/#enabling-personal-results-on-your-google-virtual-device).
 
 # Networking
 ## My organization uses a firewall - how do I use your tools with it?

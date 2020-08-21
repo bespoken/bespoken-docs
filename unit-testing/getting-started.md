@@ -119,8 +119,8 @@ This provides detailed information about the code coverage for our tests.
 ## Further Reading and Examples
 
 ### Alexa
-To learn in detail how to add more tests and other advanced topics, read our [In-depth guide for Alexa](./guide.html).
-Also, learn about other common use-cases [here](./use-cases.html), such as:
+To learn in detail how to add more tests and other advanced topics, read our [In-depth guide for Alexa](/unit-testing/guide/).
+Also, learn about other common use-cases [here](/unit-testing/use-cases/), such as:
 
 * State Management With Dynamo
 * Testing The Address API
@@ -150,7 +150,7 @@ And take a look at the following skills with test examples already configured:
 [Travis](https://travis-ci.org/alexa/skill-sample-nodejs-college-finder)
 
 ### Google
-To learn in detail how to add more tests and other advanced topics, read our [In-depth guide for Google](./guide-google.html).
+To learn in detail how to add more tests and other advanced topics, read our [In-depth guide for Google](/unit-testing/guide-google/).
 
 And take a look at the following skills with test examples already configured:
 * Guess the Price Game

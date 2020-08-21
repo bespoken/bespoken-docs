@@ -13,9 +13,9 @@ module.exports = {
             ['link', { rel: 'icon', href: '/favicon.ico' }]
         ],
         nav: [
-            { text: "CLI AND PROXY", link: "/cli/getting-started" },
-            { text: "UNIT TESTING", link: "/unit-testing/getting-started" },
-            { text: "END-TO-END TESTING", link: "/end-to-end/getting-started" },
+            { text: "CLI AND PROXY", link: "/cli/getting-started/" },
+            { text: "UNIT TESTING", link: "/unit-testing/getting-started/" },
+            { text: "END-TO-END TESTING", link: "/end-to-end/getting-started/" },
             { text: "CONTINUOUS TESTING", link: "https://bespoken.io/blog/monitor-alexa-skills-or-google-actions/" },
         ],
         sidebar: {
@@ -23,6 +23,16 @@ module.exports = {
             "/unit-testing/": getUnitTestingSidebar(),
             "/end-to-end/": getEndToEndSidebar(),
         },
+    },
+    // https://stackoverflow.com/questions/53874577/vuepress-how-to-get-the-processed-image-filename
+    chainWebpack: (config, isServer) => {
+        config.module.rule('vue').uses.store.get('vue-loader').store.get('options').transformAssetUrls = {
+            video: ['src', 'poster'],
+            source: 'src',
+            img: 'src',
+            image: ['xlink:href', 'href'],
+            a: 'href'
+        };
     }
 }
 

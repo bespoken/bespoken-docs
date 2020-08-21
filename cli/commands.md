@@ -39,7 +39,7 @@ Example:
 $ bst proxy lambda index.js
 ```
 
-You can learn more here at our [Node.js Tutorial](tutorials/tutorial-lambda-nodejs.html):
+You can learn more here at our [Node.js Tutorial](/cli/tutorials/tutorial-lambda-nodejs/):
 
 ### bst proxy http
 
@@ -61,7 +61,7 @@ Example:
 $ bst proxy http 9999
 ```
 
-You can learn more here at our [Java Tutorial](tutorials/tutorial-local-server-java.html)
+You can learn more here at our [Java Tutorial](/cli/tutorials/tutorial-local-server-java/)
 
 **Options**
 
@@ -102,7 +102,7 @@ The utter command takes an utterance ("play next song") and turns into a JSON pa
 It works in a manner very similar to the Alexa simulator available via the Alexa developer console.  
 
 To start using it, you will need to have your Interaction model, it could be written as a single file or separated as an Intent Schema and Sample Utterances.
-By default, we have adopted the pattern used by the Alexa Skills Sample projects, we support the [Interaction model pattern](https://github.com/alexa/skill-sample-nodejs-fact) and also the [Intent Schema and Sample Utterances](https://github.com/alexa/skill-sample-nodejs-hello-world/) one.
+By default, we have adopted the pattern used by the Alexa Skills Sample projects, we support the [Interaction model pattern](https://github.com/alexa/skill-sample-nodejs-fact/) and also the [Intent Schema and Sample Utterances](https://github.com/alexa/skill-sample-nodejs-hello-world/) one.
 
 That is, we look for the Interaction Model files inside a folder called models or speechAssets (if you're using the older style) located off the source root.
 

@@ -11,7 +11,7 @@ This tutorial shows you how to get started developing for Alexa Skills Kit using
 
 * Bespoken command-line tools (bst)
     * `$ npm install bespoken-tools -g`
-    * [Installation Instructions](../getting-started.html#Installation)
+    * [Installation Instructions](/cli/getting-started/#Installation)
 * Amazon Developer Account
     * [Amazon Developer](https://developer.amazon.com/alexa)
 
