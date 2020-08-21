@@ -163,4 +163,4 @@ If you want the most accurate transcripts possible, you can help the speech to t
 When this is set, the `recognitionHints` values will be the **only** values sent to Google's speech to text. The more detailed they are, the better the results will be.
 
 ## Project Sample
-You can find the test we used in this page here: https://github.com/bespoken-samples/ivr-test-samples. 
+You can find the American Airlines tests we used in this page [here](https://github.com/bespoken-samples/ivr-test-samples). 
