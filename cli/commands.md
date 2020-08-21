@@ -314,14 +314,16 @@ $ bst init
 The command will ask you for the following data:
 
 - Test type: unit or e2e
-- Name of your voice app
-- Voice Platform: Alexa or Google
-- Locales of your voice app: en-US is the default. You can add more via a comma-separated list - for example: en-US, de-DE, es-ES
+- Name of the Voice Experience you are testing
+- Type of Voice Experience: Alexa, Google or IVR
+- Test locales: en-US is the default. You can add more via a comma-separated list - for example: `en-US, de-DE, es-ES`
 - For unit testing only:
   - Path of your handler file: default is index.js
   - Path of your dialogflow directory (only for Google actions)
 - For end to end testing only:
   - Virtual device token
+- For IVR systems only:
+  - Phone number to call to
 
  Here's a preview:
 ![bst init command](./../end-to-end/assets/bst-init-demo.gif)

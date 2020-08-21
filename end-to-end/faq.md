@@ -80,6 +80,19 @@ Snapshots:   0 total
 Time:        150.985s
 ```
 
+## **Can I use my own prerecorded audios with your tests?
+Yes, you certainly can. To do this, you need to replace utterances in your tests with a publicly available URL containing your audio files. Like this:
+
+```yaml
+- test: Guess the price test
+- Open guess the price: How many players are playing today
+- https://bespoken-samples.s3.amazonaws.com/audios/Two.wav: Okay Two Players
+```
+
+Prerecorded audios that are sent as utterances should have the following formats: 
+- Any of the [FFMPEG supported audio formats](https://ffmpeg.org/ffmpeg-formats.html) for regular end-to-end tests.
+- Any of the [Twilio Play supported audio formats](https://www.twilio.com/docs/voice/twiml/play#nouns) for IVR end-to-end tests. 
+
 ## **Does Bespoken support the Amazon SMAPI Simulation API for testing?**
 Yes, we do in our latest versions, now that the Simulation API supports multi-turn testing.
 
