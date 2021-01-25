@@ -842,6 +842,14 @@ You can also customize the title at the start of the report and the title of the
 JEST_STARE_REPORT_HEADLINE
 JEST_STARE_REPORT_TITLE
 ```
+To generate a single page version of the report:
+```
+JEST_STARE_INLINE_SOURCE=true
+```
+To generate a pdf version of the report:
+```
+JEST_STARE_GENERATE_PDF=true
+```
 
 To read more about jest-stare, [click here](https://github.com/dkelosky/jest-stare#readme).
 
