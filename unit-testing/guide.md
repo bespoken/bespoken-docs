@@ -381,15 +381,15 @@ The expected value can be:
 * `undefined` - special value indicating not defined
 
 #### JSONPath Properties
-JSONPath is an incredibly expressive way to get values from a JSON object.
+JSONPath is an incredibly expressive way to get values from a JSON object. Besides handling basic properties like the ones above, it can also navigate arrays and apply conditions.
 
-You can play around with [how it works here](http://jsonpath.com/).
+You can play around with [how it works here](http://jsonpath.com/). Just make sure to wrap your assertion in double-quotes if you use these so that they don't conflict with our YAML syntax.
 
-Besides handling basic properties, it can also navigate arrays and apply conditions.
+For example, to get the first directive type in this response:
 
-An array example:
 ```json
 {
+  "response": {
      "directives": [
       {
         "type": "AudioPlayer.Play",
@@ -403,10 +403,14 @@ An array example:
         }
       }
     ]
+  }
 }
 ```
 
-`directives[0].type == "AudioPlayer.Play"`
+Our assertion would look like this:
+```yaml
+- "response.directives[0].type" : "AudioPlayer.Play"`
+```
 
 #### Shorthand Properties
 For certain commonly accessed elements, we offer short-hand properties for referring to them. These are:

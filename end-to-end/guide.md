@@ -339,9 +339,7 @@ The operators are:
 * != Not equal to
 
 We use JSONPath to get values from the response, such as:
-`transcript`
-
-This will return the value: "My SSML Value" from the following JSON response:
+`transcript` or `card.title`. This will return "My SSML Value"  and "Card Title" from the following JSON response:
 ```json
 {
     "transcript": "My SSML value",
@@ -352,8 +350,7 @@ This will return the value: "My SSML Value" from the following JSON response:
 }
 ```
 
-Note that the response output from the Virtual Device is much more limited than what your actual skill returns.
-This is a limitation of what is provided by Alexa Voice Service/Google Assistant.
+Note that the response output from the Virtual Device is much more limited than what your actual skill returns. This is a limitation of what is provided by Alexa Voice Service/Google Assistant.
 
 To test the actual JSON response from your skill, we recommend writing unit-tests - they use the same structure as our end-to-end test but can be run locally and have access to the full skill payload. [More info here](/unit-testing/guide/).
 
@@ -377,11 +374,9 @@ Finally, you can also write utterances without assertions. This would be equival
 ```
 
 #### JSONPath Properties
-JSONPath is an incredibly expressive way to get values from a JSON object.
+JSONPath is an incredibly expressive way to get values from a JSON object. Besides handling basic properties like the ones above, it can also navigate arrays and apply conditions.
 
-You can play around with [how it works here](http://jsonpath.com/).
-
-Besides handling basic properties, it can also navigate arrays and apply conditions.
+You can play around with [how it works here](http://jsonpath.com/). Just make sure to wrap your assertion in double quotes if you use these, so that they don't conflict with our YAML syntax.
 
 #### Shorthand Properties
 For certain commonly accessed elements, we offer short-hand properties for referring to them. These are:
