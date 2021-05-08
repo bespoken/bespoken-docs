@@ -329,31 +329,42 @@ and here's an example for a Google action:
 
 These are not the only ways you can invoke your voice apps, however. For more details on how to invoke an Alexa skill, including different locales, see [here](https://developer.amazon.com/en-US/docs/alexa/custom-skills/understanding-how-users-invoke-custom-skills.html). For Google Actions, take a look at how invocation phrases work [here](https://developers.google.com/assistant/discovery#invocation_phrases), and their variants per locale [here](https://developers.google.com/assistant/console/languages-locales).
 
+### Response Structure
+A typical response from a virtual device call looks like this:
+
+```json
+{
+    "message": "utterance",
+    "utteranceURL": "url that contains the utterance in audio form",
+    "card": {
+      "content": "Alexa only - Card Content",
+      "title": "Alexa only - Card Title",
+      "imageURL": "Alexa only - Card image URL"
+    },
+    "streamURL": "streaming url (for audio skills)",
+    "transcript": "speech to text result from the voice platform's audio response",
+    "display": {},
+    "caption": "alexa only - contains the caption in text form",
+    "debug": {
+        "deviceInteractionDuration": 2.51
+    },
+    "raw": {}
+}
+
+The `display` property contains any raw JSON response related to display information on the response.
+The `raw` property contains the whole JSON response coming back from the voice platform. In the case of Alexa, this means all the directives are included here.
+
+```
 ### Assertions
 An assertion follows a simple syntax:
- `[JSONPath Property] [Operator] [Expected Value]`
+ `[JSONPath/Shorthand Property] [Operator] [Expected Value]`
 
 The operators are:
 
 * : Partial equals or regular expression - for example, the expected value "partial sentence" will match "this is a partial sentence", the expected value /.*is.*/ will match "this sentence has is on it"
 * != Not equal to
 
-We use JSONPath to get values from the response, such as:
-`transcript`
-
-This will return the value: "My SSML Value" from the following JSON response:
-```json
-{
-    "transcript": "My SSML value",
-    "card": {
-        "content": "Card Content",
-        "title": "Card Title",
-    }
-}
-```
-
-Note that the response output from the Virtual Device is much more limited than what your actual skill returns.
-This is a limitation of what is provided by Alexa Voice Service/Google Assistant.
+Note that the response output from the Virtual Device is much more limited than what your actual skill returns. This is a limitation of what is provided by Alexa Voice Service/Google Assistant.
 
 To test the actual JSON response from your skill, we recommend writing unit-tests - they use the same structure as our end-to-end test but can be run locally and have access to the full skill payload. [More info here](/unit-testing/guide/).
 
@@ -377,11 +388,74 @@ Finally, you can also write utterances without assertions. This would be equival
 ```
 
 #### JSONPath Properties
-JSONPath is an incredibly expressive way to get values from a JSON object.
+JSONPath is an incredibly expressive way to get values from a JSON object. We use it to get values from the response, such as `transcript` or `card.content`. This will return the values "My audio transcript" and "Card Content" from the following JSON response:
 
-You can play around with [how it works here](http://jsonpath.com/).
+```json
+{
+    "transcript": "My audio transcript",
+    "card": {
+        "content": "Card Content",
+        "title": "Card Title",
+    }
+}
+```
 
-Besides handling basic properties, it can also navigate arrays and apply conditions.
+Besides handling basic properties, it can also navigate arrays and apply conditions. Take this other response in which we include all the directives to the question "what time is it":
+
+```json
+{
+    "message": "what time is it",
+    "transcript": "the time is 6:14 p.m.",
+    "raw": {
+        "messageBody": {
+          "directives": [
+                {
+                    "payload": {
+                        "endOfSpeechOffsetInMilliseconds": 2155
+                    },
+                    "namespace": "SpeechRecognizer",
+                    "name": "SetEndOfSpeechOffset"
+                },
+                {
+                    "payload": {},
+                    "namespace": "InteractionModel",
+                    "name": "RequestProcessingStarted"
+                },
+                {
+                    "payload": {
+                        "playBehavior": "ENQUEUE",
+                        "url": "cid:4a59f89b-db42-4be2-ab3c-4b2879067c91_1803955493",
+                        "format": "AUDIO_MPEG",
+                        "token": "amzn1.as-ct.v1.Domain:Application:NotificationsV4#ACRI#4a59f89b-db42-4be2-ab3c-4b2879067c91",
+                        "caption": {
+                            "content": "WEBVTT\n\n1\n00:00.000 --> 00:01.353\nThe time is 6:14 PM.",
+                            "type": "WEBVTT"
+                        }
+                    },
+                    "namespace": "SpeechSynthesizer",
+                    "name": "Speak"
+                },
+                {
+                    "payload": {},
+                    "namespace": "InteractionModel",
+                    "name": "RequestProcessingCompleted"
+                }
+            ]
+        }
+    }
+}
+```
+Then we could ask for the namespace of the first directive like this: `raw.messageBody.directives[0].namespace`. In a test, this is how it would look:
+
+```yaml
+---
+- test : What time is it
+- what time is it :
+  - transcript : the time is 
+  - "raw.messageBody.directives[0].namespace" : SpeechRecognizer
+```
+
+You can play around more with how JSONPath works [here](http://jsonpath.com/).
 
 #### Shorthand Properties
 For certain commonly accessed elements, we offer short-hand properties for referring to them. These are:
@@ -862,6 +936,7 @@ The following are settings than can help you overcome specific testing issues. H
 | [asyncE2EWaitInterval](#batch-or-sequential-tests) | Set an interval in milliseconds to wait before querying for new results, when batchEnabled is set to false - defaults to 5000 |
 | [batchEnabled](#batch-or-sequential-tests) | If it is true we sent the complete set of utterances to the virtual device server in a test, if it is false we sent them one by one - defaults to true |
 | ignoreExternalErrors | When a not controlled error happens while executing your tests, marks them as skipped instead of failures - defaults to `false` |
+| [includeRaw](#batch-or-sequential-tests) | If true, the whole raw response from Alexa or Google is included as part of the response. This provides much more response details, but makes the response a lot bigger -  defaults to true |
 | [maxAsyncE2EResponseWaitTime](#batch-or-sequential-tests) | Set an interval in milliseconds to wait before stop looking for new results, when batchEnabled is set to false - defaults to 15000 |
 | [retryOn](#retrying-tests) | An array with Virtual Device error codes on which to do a retry if a test fails |
 | [retryNumber](#retrying-tests) | The number of retrys to execute if a test fails must be in the range [0,5] |
