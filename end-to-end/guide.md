@@ -359,36 +359,18 @@ The `raw` property contains the whole JSON response coming back from the voice p
 An assertion follows a simple syntax:
  `[JSONPath/Shorthand Property] [Operator] [Expected Value]`
 
-The operators are:
-
-* : Partial equals or regular expression - for example, the expected value "partial sentence" will match "this is a partial sentence", the expected value /.*is.*/ will match "this sentence has is on it"
-* != Not equal to
-
-Note that the response output from the Virtual Device is much more limited than what your actual skill returns. This is a limitation of what is provided by Alexa Voice Service/Google Assistant.
-
-To test the actual JSON response from your skill, we recommend writing unit-tests - they use the same structure as our end-to-end test but can be run locally and have access to the full skill payload. [More info here](/unit-testing/guide/).
-
-The expected value can be:
-
-* A string - quoted or unquoted
-* A number
-* `true` or `false`
-* A regular expression - should be denoted with slashes (/this .* that/)
-* `undefined` - special value indicating not defined
-
-Finally, you can also write utterances without assertions. This would be equivalent to doing `- open my skill: "*"`, but it can be useful you have utterances that are not relevant to one or more of your tests. In the following example, we only focus on testing the stop intent of our voice app:
+An example is line 4 of the following yaml test:
 
 ```yaml
 ---
-- test: Invoke skill and stop
-- open fact skill
-- stop: 
-  - prompt: Goodbye!
-  - card.title: Fact skill
+- test: Lima
+- what is the capital of Peru:
+  - transcript: the capital of Peru is Lima
 ```
 
+
 #### JSONPath Properties
-JSONPath is an incredibly expressive way to get values from a JSON object. We use it to get values from the response, such as `transcript` or `card.content`. This will return the values "My audio transcript" and "Card Content" from the following JSON response:
+JSONPath is an incredibly expressive way to get values from a JSON object. We use it to get values from the response, such as `transcript` or `card.content`. These will return the values "My audio transcript" and "Card Content" from the following JSON response:
 
 ```json
 {
@@ -400,7 +382,7 @@ JSONPath is an incredibly expressive way to get values from a JSON object. We us
 }
 ```
 
-Besides handling basic properties, it can also navigate arrays and apply conditions. Take this other response in which we include all the directives to the question "what time is it":
+Besides handling basic properties, it can also navigate arrays and apply conditions. For example, see this other response in which we include some Alexa directives to the question "what time is it" inside the `raw` property:
 
 ```json
 {
@@ -422,20 +404,6 @@ Besides handling basic properties, it can also navigate arrays and apply conditi
                     "name": "RequestProcessingStarted"
                 },
                 {
-                    "payload": {
-                        "playBehavior": "ENQUEUE",
-                        "url": "cid:4a59f89b-db42-4be2-ab3c-4b2879067c91_1803955493",
-                        "format": "AUDIO_MPEG",
-                        "token": "amzn1.as-ct.v1.Domain:Application:NotificationsV4#ACRI#4a59f89b-db42-4be2-ab3c-4b2879067c91",
-                        "caption": {
-                            "content": "WEBVTT\n\n1\n00:00.000 --> 00:01.353\nThe time is 6:14 PM.",
-                            "type": "WEBVTT"
-                        }
-                    },
-                    "namespace": "SpeechSynthesizer",
-                    "name": "Speak"
-                },
-                {
                     "payload": {},
                     "namespace": "InteractionModel",
                     "name": "RequestProcessingCompleted"
@@ -445,7 +413,8 @@ Besides handling basic properties, it can also navigate arrays and apply conditi
     }
 }
 ```
-Then we could ask for the namespace of the first directive like this: `raw.messageBody.directives[0].namespace`. In a test, this is how it would look:
+
+To get the namespace of the first directive, the JSONPath property would look like this: `raw.messageBody.directives[0].namespace`. And this is how it would look inside a test:
 
 ```yaml
 ---
@@ -455,10 +424,12 @@ Then we could ask for the namespace of the first directive like this: `raw.messa
   - "raw.messageBody.directives[0].namespace" : SpeechRecognizer
 ```
 
-You can play around more with how JSONPath works [here](http://jsonpath.com/).
+You can play around more with how JSONPath works [here](http://jsonpath.com/). Just make sure to wrap your assertion in double quotes if you use these, so that they don't conflict with the YAML syntax.
+
+Note that the response output from the Virtual Device is much more limited than what your actual skill returns. This is a limitation of what is provided by Alexa Voice Service/Google Assistant. To test the actual JSON response from your skill, we recommend writing unit-tests - they use the same structure as our end-to-end test but can be run locally and have access to the full skill payload. [More info here](/unit-testing/guide/).
 
 #### Shorthand Properties
-For certain commonly accessed elements, we offer short-hand properties for referring to them. These are:
+We offer short-hand properties for certain commonly accessed elements. These are:
 
 * cardContent - Corresponds to `card.textField`
 * cardImageURL - Corresponds to `card.imageURL`
@@ -489,17 +460,39 @@ Example:
 These elements are intended to work across platforms and test types. The ones that are available
 only for Alexa will be ignored during the tests if you are using a different platform.
 
-#### Regular Expression Values
-The expected value can be a regular expression.
+#### Operators
+Operators define the type of comparison we do between the property being evaluated and the expected values. These are:
 
-If it follows a ":", it must be in the form of /my regular expression/ like this:
+* : Partial equals or regular expression - for example, the expected value "partial sentence" will match "this is a partial sentence", the expected value /.*is.*/ will match "this sentence has is on it"
+* != Not equal to
+
+#### Expected Values
+The expected value can be:
+
+* A string - quoted or unquoted
+* A number
+* `true` or `false`
+* `undefined` - special value indicating not defined
+* A regular expression - should be denoted with slashes (/this .* that/)
+
+For regular expressions, if following a ":" operator, it must be in the form of /my regular expression/ like this:
 ```yml
-- prompt: /hello, .*, welcome/i
+- response.outputSpeech.ssml: /hello, .*, welcome/i
 ```
 
 Regular expression flags are also supported with this syntax, such as /case insensitive/i.
 They are [described here in more detail](https://javascript.info/regexp-introduction#flags).
 
+Finally, you can also write utterances without assertions. This would be equivalent to doing `- open my skill: "*"`, but it can be useful when some utterances are not relevant to your tests. In the following example, we only focus on testing the stop intent of our voice app and ignore the response to `open fact skill`:
+
+```yaml
+---
+- test: Invoke skill and stop
+- open fact skill
+- stop: 
+  - prompt: Goodbye!
+  - card.title: Fact skill
+```
 #### Collection Values
 It is also possible to specify multiple valid values for a property.
 
@@ -512,7 +505,7 @@ That is done with a collection of expected values, such as this:
     - How are you?
 ```
 
-When a collection is used like this, if any of the values matches, the assertion will be considered a success.
+When a collection is used like this, if **any** of the values matches, the assertion will be considered a success.
 
 ### SSML
 
