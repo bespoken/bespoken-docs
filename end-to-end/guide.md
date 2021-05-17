@@ -370,7 +370,7 @@ An example is line 4 of the following yaml test:
 
 
 #### JSONPath Properties
-JSONPath is an incredibly expressive way to get values from a JSON object. We use it to get values from the response, such as `transcript` or `card.content`. These will return the values "My audio transcript" and "Card Content" from the following JSON response:
+JSONPath is a simple and expressive way to get values from a JSON object. We use it to get values from the response, such as `transcript` or `card.content`. These will return the values "My audio transcript" and "Card Content" from the following JSON response:
 
 ```json
 {
