@@ -407,21 +407,19 @@ each assertion is in turn evaluated in order when a response is received.
 If any assertion fails for a test, the test stops processing, and information about the failed assertion is provided.
 
 ### Assertions
+An assertion follows a simple syntax:  
+ `[JSONPath Property/Shortand property] [Operator] [Expected Value]`
 
-An assertion follows a simple syntax:
- `[JSONPath Property] [Operator] [Expected Value]`
+An example is line 4 of the following yaml test:
 
-The operators are:
-
-* : Partial equals or regular expression - for example, the expected value "partial sentence" will match "this is a partial sentence", the expected value /.*is.*/ will match "this sentence has is on it"
-* != Not equal to
-* \>  Greater than
-* \>= Greater than or equal
-* <  Less than
-* <= Less than or equal
-
-We use JSONPath to get values from the response, such as:
-`response.outputSpeech.ssml`
+```yaml
+---
+- test: Launch the skill
+- LaunchRequest:
+  - response.outputSpeech.ssml: My SSML Value
+```
+#### JSONPath Properties
+JSONPath is an incredibly expressive way to get values from a JSON object. We use JSONPath to get values from the response, such as: `response.outputSpeech.ssml`.
 
 This will return the value: "My SSML Value" from the following JSON response:
 ```json
@@ -434,22 +432,8 @@ This will return the value: "My SSML Value" from the following JSON response:
 }
 ```
 
-The expected value can be:
+Besides handling basic properties, it can also navigate arrays and apply conditions. For example, to get the first directive type in this response:
 
-* A string - quoted or unquoted
-* A number
-* `true` or `false`
-* A regular expression - should be denoted with slashes (/this .* that/)
-* `undefined` - special value indicating not defined
-
-#### JSONPath Properties
-JSONPath is an incredibly expressive way to get values from a JSON object.
-
-You can play around with [how it works here](http://jsonpath.com/).
-
-Besides handling basic properties, it can also navigate arrays and apply conditions.
-
-An array example:
 ```json
 {
      "directives": [
@@ -468,15 +452,22 @@ An array example:
 }
 ```
 
-`directives[0].type == "AudioPlayer.Play"`
+Our assertion would look like this:
+```yaml
+- "response.directives[0].type" : "AudioPlayer.Play"`
+```
+
+You can play around with [how it works here](http://jsonpath.com/). Just make sure to wrap your expression in double-quotes if you use these so that they don't conflict with our YAML syntax.
 
 #### Shorthand Properties
-For certain commonly accessed elements, we offer short-hand properties for referring to them. These are:
+We offer short-hand properties for certain commonly accessed elements. These are:
 
-* cardContent - Corresponds to `displayText`
-* cardTitle - Corresponds to `speech`
-* prompt - Grabs either the text from `data.google.richResponse.items[0].simpleResponse.textToSpeech` or from `speech, whichever one is set
-* sessionEnded - Corresponds to `expectUserResponse` or `data.google.expectUserResponse`
+* cardContent - Corresponds to `response.card.content`
+* cardImageURL - Corresponds to `response.card.image.largeImageUrl`
+* cardTitle - Corresponds to `response.card.title`
+* prompt - Grabs either the text or ssml from `response.outputSpeech`, whichever one is set
+* reprompt - Grabs either the text or ssml from `response.reprompt.outputSpeech`, whichever one is set
+* sessionEnded - Corresponds to `response.shouldEndSession`
 
 These elements are intended to work across platforms and test types.
 
@@ -488,10 +479,28 @@ Example:
   - prompt: "Here's your fact"
 ```
 
-#### Regular Expression Values
-The expected value can be a regular expression.
+The `prompt` property is also used by the Dialog Interface. [More information on that here](/unit-testing/use-cases/#testing-with-the-dialog-interface).
 
-If it follows a ":", it must be in the form of /my regular expression/ like this:
+#### Operators
+Operators define the type of comparison we do between the property being evaluated and the expected values. These are:
+
+* : Partial equals or regular expression - for example, the expected value "partial sentence" will match "this is a partial sentence", the expected value /.*is.*/ will match "this sentence has is on it"
+* != Not equal to
+* \>  Greater than
+* \>= Greater than or equal
+* <  Less than
+* <= Less than or equal
+
+#### Expected Values
+The expected value can be:
+
+* A string - quoted or unquoted
+* A number
+* `true` or `false`
+* `undefined` - special value indicating not defined
+* A regular expression - should be denoted with slashes (/this .* that/)
+
+For regular expressions, if following a ":" operator, it must be in the form of /my regular expression/ like this:
 ```yml
 - response.outputSpeech.ssml: /hello, .*, welcome/i
 ```
@@ -511,7 +520,7 @@ LaunchRequest:
     - How are you?
 ```
 
-When a collection is used like this, if any of the values matches, the assertion will be considered a success.
+When a collection is used like this, if **any** of the values matches, the assertion will be considered a success.
 
 #### Empty Assertions
 You can also write interactions without assertions. This would be equivalent to doing `- MyIntent: "*"`, but it can be useful when you have interactions that are not relevant to your test but required to get to the interaction that is. In the following example, after launching our voice app, we only focus on testing the help intent:
