@@ -4,7 +4,7 @@ permalink: /end-to-end/ivr/
 ---
 
 # End-To-End Testing for Interactive Voice Response systems
-We provide support for Interactive Voice Response (IVR) systems by leveraging Twilio to interact with them.
+We provide support for Interactive Voice Response (IVR) and Intelligent Virtual Agent (IVA) systems by leveraging Twilio to interact with them.
 
 Most of the features from our standard end-to-end testing work as normal for this, but there are some special features that we will cover in this guide.
 
