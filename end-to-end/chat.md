@@ -45,12 +45,22 @@ We have some parameters that are particular to Chatbot testing. In addition to t
 
 These fields allow us to correct enter messages from the user and capture the response from the bot. The virtual device token for chatbots is manually configured - please [contact us](mailto:contact@bespoken.io) to get yours setup.
 
-For SMS and Whatsapp based testing, we just need the phone number for the system we are interacting with:
+For SMS and Whatsapp based testing, we need the phone number for the system we are interacting with. We also need to set the platform to `sms`:
 
 ```json
 {
-    "virtualDeviceToken": "twilio-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "phoneNumber": "PHONE_NUMBER"
+    "platform": "sms",
+    "phoneNumber": "PHONE_NUMBER",
+    "virtualDeviceToken": "twilio-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
+  }
+}
+```
+
+For webchat-based testing, the virtual device base URL should be set to `https://virtual-device-web.bespoken.io`, like so:
+
+```json
+{
+    "virtualDeviceBaseURL": "https://virtual-device-web.bespoken.io" 
   }
 }
 ```
@@ -65,16 +75,33 @@ configuration:
 "Utterance" level parameters are set inside each test with the use of the reserved keyword `set`.
 
 ## Special syntax
-### The $DIAL Command
-The `$DIAL` command is always the first command that we issue. It initiates the phone call to the specified `phoneNumber`.
+### JQuery-style asseertions
+For webchat, it is convenient to write assertions using JQuery selectors. This allows us to do deep-checks on HTML responses.
+
+These selectors can be of the form:
+```
+
+```
 
 ### The "set" keyword
 The `set` keyword is used to establish parameters that will alter the behavior of each interaction, it's also used to differentiate them from properties that will be verified (and not set) like `transcript`. 
+
 
 ## BST Init
 The `bst init` command is the fastest way to create all the files and folders needed to start testing your IVR system. It's a great starting point! You can read more about it [here](./../../cli/commands/#init).
 
 ## Debugging and Troubleshooting
+### Browser screenshots
+Each response comes with a link to a screenshot of the current state of the browser for webchat-based tests. This can be extremely useful for debugging issues with the chatbot.
+<p style="text-align:center">
+  <img src="./assets/webchat-screenshot-link.png" style="max-width: 60%;">
+</p>
+
+A sample image:
+<p style="text-align:center">
+  <img src="./assets/webchat-screenshot.png" style="max-width: 60%;">
+</p>
+
 ### Tracing output
 Make sure "trace" is set to true in the testing.json file. This will output the complete back and forth of the test. It includes:
 * The message we send to the IVR system
