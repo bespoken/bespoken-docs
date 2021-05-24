@@ -14,7 +14,7 @@ For in-depth information on how our end-to-end testing works, [read here](/end-t
 Take a look at the following automated test run for the Chipotle web-based chatbot:
 
 <p style="text-align:center">
-<img src="./assets/ChipotleWebChatTest.gif" style="max-width: 60%;">
+<img src="../assets/images/ChipotleWebChatTest.gif" style="max-width: 60%;">
 </p>
 
 Our process here is simple:
@@ -94,12 +94,12 @@ The `bst init` command is the fastest way to create all the files and folders ne
 ### Browser screenshots
 Each response comes with a link to a screenshot of the current state of the browser for webchat-based tests. This can be extremely useful for debugging issues with the chatbot.
 <p style="text-align:center">
-  <img src="./assets/webchat-screenshot-link.png" style="max-width: 60%;">
+  <img src="../assets/images/webchat-screenshot-link.png" style="max-width: 60%;">
 </p>
 
 A sample image:
 <p style="text-align:center">
-  <img src="./assets/webchat-screenshot.png" style="max-width: 60%;">
+  <img src="../assets/images/webchat-screenshot.png" style="max-width: 60%;">
 </p>
 
 ### Tracing output
