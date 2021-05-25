@@ -4,7 +4,7 @@ permalink: /end-to-end/chat/
 ---
 
 # End-To-End Testing for Chatbots
-We provide support for testing chatbot systems on SMS, Whatsapp and the Web.
+We provide support for testing chatbot systems on the Web.
 
 Most of the features from our standard end-to-end testing work as normal for this, but there are some special features that we will cover in this guide.
 
@@ -27,11 +27,11 @@ Here's the same chat sequence translated into one of our YAML tests:
 ```yaml
 ---
 - test: Rewards test
-- hi: Hey, nice to chat with you!
-- rewards program: Being rewarded for eating, ahh... what a dream!
-- learn about rewards: Dropping knowledge on the most delicious program there is!
-- about points: I've got answers
-- can i earn points anywhere: You can earn points anywhere in the US! Just make sure you
+- "hi": "Hey, nice to chat with you!"
+- "rewards program": "Being rewarded for eating, ahh... what a dream!"
+- "learn about rewards": "Dropping knowledge on the most delicious program there is!"
+- "about points": "I've got answers"
+- "can i earn points anywhere": "You can earn points anywhere in the US! Just make sure you"
 ```
 
 ## Configuration
@@ -45,17 +45,6 @@ We have some parameters that are particular to Chatbot testing. In addition to t
 
 These fields allow us to correct enter messages from the user and capture the response from the bot. The virtual device token for chatbots is manually configured - please [contact us](mailto:contact@bespoken.io) to get yours setup.
 
-For SMS and Whatsapp based testing, we need the phone number for the system we are interacting with. We also need to set the platform to `sms`:
-
-```json
-{
-    "platform": "sms",
-    "phoneNumber": "PHONE_NUMBER",
-    "virtualDeviceToken": "twilio-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
-  }
-}
-```
-
 For webchat-based testing, the virtual device base URL should be set to `https://virtual-device-web.bespoken.io`, like so:
 
 ```json
@@ -65,30 +54,17 @@ For webchat-based testing, the virtual device base URL should be set to `https:/
 }
 ```
 
-These values can also be set inside a particular test file with a configuration section at the top of the file, like this:
-```yaml
----
-configuration:
-  phoneNumber: "PHONE_NUMBER"
-```
-
-"Utterance" level parameters are set inside each test with the use of the reserved keyword `set`.
-
 ## Special syntax
-### JQuery-style asseertions
+### JQuery-style assertions
 For webchat, it is convenient to write assertions using JQuery selectors. This allows us to do deep-checks on HTML responses.
 
 These selectors can be of the form:
 ```
-
+---
+- test: Simple JQuery Selector example
+- hi:
+  - $('span').innerHTML: well, hello to you!
 ```
-
-### The "set" keyword
-The `set` keyword is used to establish parameters that will alter the behavior of each interaction, it's also used to differentiate them from properties that will be verified (and not set) like `transcript`. 
-
-
-## BST Init
-The `bst init` command is the fastest way to create all the files and folders needed to start testing your IVR system. It's a great starting point! You can read more about it [here](./../../cli/commands/#init).
 
 ## Debugging and Troubleshooting
 ### Browser screenshots
@@ -104,7 +80,7 @@ A sample image:
 
 ### Tracing output
 Make sure "trace" is set to true in the testing.json file. This will output the complete back and forth of the test. It includes:
-* The message we send to the IVR system
+* The message we send to the chatbot
 * The transcript of the response received
 
 ## Project Sample
