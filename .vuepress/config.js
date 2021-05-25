@@ -83,6 +83,7 @@ function getEndToEndSidebar() {
                 "setup",
                 "guide",
                 "ivr",
+                "chat",
                 "api",
                 "faq",
             ]
