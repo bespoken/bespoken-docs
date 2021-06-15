@@ -741,8 +741,7 @@ module.exports = {
 The filter is a very useful catch-all for handling tricky test cases that are not supported by the YAML test syntax or if you want to fine tune some aspects of the tests.
 
 ### Replacing values using filter
-If you need to modify certain assertions during the test run, based on the test utterances or external API's you can do it with
-the test [filter](#filtering-during-test) property implementing the `resolve` method.
+If you need to modify certain assertions during the test run, based on the test utterances or external APIs, you can do it with the test [filter](#filtering-during-test) property by implementing the `resolve` method.
 
 With it you can have a variable inside the YML file, for example:
 ```yml
@@ -750,7 +749,7 @@ With it you can have a variable inside the YML file, for example:
   - prompt: Hi {name}, welcome to the skill. You have {points} points
 ```
 
-Then inside the [filter](#filtering-during-test) you can set the resolve method to return:
+Then inside the [filter](#filtering-during-test), you can set the resolve method to return:
  - a string
  - a number
  - a promise resolving in a string or a number
@@ -772,8 +771,7 @@ module.exports = {
 
 ```
 
-This replacement will be done after the response is gotten from the test but before evaluation of the assertion. By default we send all the interactions
-in batch in the test, if you need for this replacement to be done after each utterance ensure that [sequential mode](#batch-or-sequential-tests) is enabled
+Notice that this method is meant only for the right side of an assertion (i.e. expected values and not utterances). This replacement will be done after the response is gotten from the test but before the evaluation of the assertion. By default, we send all the interactions in batch in the test. If you need this replacement to be done after each utterance, ensure that [sequential mode](#batch-or-sequential-tests) is enabled.
 
 ### Including or excluding tests using tags
 
