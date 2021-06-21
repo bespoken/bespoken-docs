@@ -11,7 +11,7 @@ Here are answers to commonly asked questions about our Server.
 ## How to connect to the server
 It is enabled [OS Login](https://cloud.google.com/compute/docs/instances/ssh#metadata-managed_ssh_connections) by default, you can access the server using the same user from google cloud.
 
-## How to star and stop the server
+## How to start and stop the server
 
 Obtain the status of a service:
 ```bash
@@ -37,12 +37,12 @@ You can update the server settings [updating the instance metadata](https://clou
 |role-arn|Value provided by bespoken to access their services||
 |secret-name|Value provided by bespoken to access their services||
 |url|Base url to access the service||
-|port|Port to be used by the server, should be greater than 1024, if you change the default value make sure that the VM has permission to receive inbound/outbound connections|3000|
+|port|Port to be used by the server should be greater than 1024, if you change the default value make sure that the VM has permission to receive inbound/outbound connections|3000|
 
 You should restart the server after any change.
 
 ## How to Setup SSL certificate
-NOTE: Before using this approach, ensure that you have access to domain’s DNS configuration through your DNS provider.
+NOTE: Before using this approach, ensure that you have access to the domain’s DNS configuration through your DNS provider.
 
 For all the following commands, change your_domain with the domain you will use. Example: ivr-server.bespoken.tools
 
@@ -54,12 +54,12 @@ Make sure the firewall allows traffic to HTTP and HTTPS, update otherwise.
 Google Cloud Platform instances are launched with a dynamic IP address by default, which means that the IP address changes every time the server is stopped and restarted. This is not desired we have to assign the server a static IP address and assign it to the VM. Follow the [instruccions](https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address).
 
 ### Update DNS record
-Create an A record in your DNS provider, to point to the IP address set in the previous step. You should get a response when access the domain:
+Create an A record in your DNS provider, to point to the IP address set in the previous step. You should get a response when accessing the domain:
 ```bash
 http://your_domain
 ```
 
-### Enable SSL access over HTTPS with with letsencrypt
+### Enable SSL access over HTTPS with letsencrypt
 
 Create the directory for your_domain as follows, using the -p flag to create any necessary parent directories:
 ```bash
@@ -154,7 +154,7 @@ Select your choice then hit ENTER. The configuration will be updated, and Nginx 
 Your certificates are downloaded, installed, and loaded. Try reloading your website using https:// and notice your browser’s security indicator. It should indicate that the site is properly secured, usually with a lock icon.
 
 # Troubleshooting
-## How to access to server logs
+## How to access server logs
 The logs contain information that can be useful for troubleshooting possible issues. They can be found executing the following command
 
 ```bash
