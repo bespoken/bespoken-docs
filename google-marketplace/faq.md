@@ -145,7 +145,7 @@ It is enabled [OS Login](https://cloud.google.com/compute/docs/instances/connect
 
 ### How to start and stop the server
 
-[Connect to VM](/#how-to-connect-to-the-vm) before executing any command.
+[Connect to VM](/google-marketplace/faq/#how-to-connect-to-the-vm) before executing any command.
 
 Obtain the status of a service:
 ```bash
@@ -178,7 +178,7 @@ You should restart the VM after any change.
 
 ## Troubleshooting
 ### How to access server logs
-The logs contain information that can be useful for troubleshooting possible issues. They can be found [connecting to VM](/#how-to-connect-to-the-vm) and executing the following command:
+The logs contain information that can be useful for troubleshooting possible issues. They can be found [connecting to VM](/google-marketplace/faq/#how-to-connect-to-the-vm) and executing the following command:
 
 ```bash
 sudo -u bespoken /home/bespoken/script/logs.sh
