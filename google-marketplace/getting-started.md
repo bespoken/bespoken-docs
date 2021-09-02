@@ -2,26 +2,26 @@
 title: Getting Started
 permalink: /google-marketplace/getting-started/
 ---
-# Getting Started With 
+# Getting Started With Bespoken Automated Testing for IVR
 
-## What is IVR-Server?
+## What is Bespoken Automated Testing for IVR?
 
-We provide a service to test Interactive Voice Response (IVR) and Intelligent Virtual Agent (IVA) systems by leveraging Twilio to interact with them.
+Bespoken Automated Testing for IVR is a testing, training, and monitoring solution designed specifically for contact centers. Using Bespoken with your environment ensures that your contact center is delivering world-class customer service while reducing operating costs.
 
-## Before you begin
+Increase customer satisfaction and call deflection rates, reduce speech recognition errors, and have confidence your system can meet any surge in calls. All with Bespoken.
 
-### Request access credentials
-Go to [service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts), and create a service account.
-Fill in the name and id.
-[<img src="./assets/google-marketplace-create-service-account-1.png">](./assets/google-marketplace-create-service-account-1.png)
+## Features
 
-Grant the role "Service Account Token Creator", and complete the process with the default values.
-[<img src="./assets/google-marketplace-create-service-account-2.png">](./assets/google-marketplace-create-service-account-2.png)
+* **Testing**: We mimic actual calls and texts to your contact center to ensure it understands your customers and is providing them with fast and easy resolutions to their queries. Our tests are easy to set up and written in plain-english. Once created, they can be run automatically, either on schedule or based on external triggers (such as changes to code).
+* **Training**: We provide detailed, easy-to-implement advice to ensure your users are always well-understood. Speech recognition can be impacted by accents, poor line quality, and/or background noise. Bespoken makes sure your customers are understood every time.
+* **Monitoring**: Once your Genesys application is tested, trained, and has gone live, our monitoring makes sure it continues to deliver outstanding performance and reliability. And when problems do arise, we let you know right away.
+* **Load Testing**: Have confidence your application can scale. We simulate high volumes of calls, automatically, to identify bottlenecks and ensure your system will scale.
 
-Search for the newly created account service, see the details, and copy the "Unique ID"
-[<img src="./assets/google-marketplace-create-service-account-3.png">](./assets/google-marketplace-create-service-account-3.png)
+## Pre-requisites
 
-Reach the bespoken team, requesting the access credentials, you have the provide the "Unique ID", they will reply with some settings to set up your Google VM.
+- A google cloud [service account](/google-marketplace/faq/#how-to-set-up-a-google-cloud-service-account)
+- The URL (with https) that will point to your new virtual machine
+- Reach out to Bespoken and ask for the VM required security information
 
 ## Deployment process
 In the deployment process, fill the parameters for the VM, it is recommended at least 1vCPU and 1GB memory. For "Role arn", and "Secret name" complete those with the settings from the bespoken team. "Server url" is the url that will be used by the server. "Port" is the number of the port used to run the server, by default is 3000, it should be greater than 1024. You can [change](/google-marketplace/faq/#update-server-settings) these settings after the deployment is done.
