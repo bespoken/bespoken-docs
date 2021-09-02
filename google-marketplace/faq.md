@@ -14,14 +14,11 @@ Go to [service accounts](https://console.cloud.google.com/iam-admin/serviceaccou
 Fill in the name and id.
 [<img src="./assets/google-marketplace-create-service-account-1.png">](./assets/google-marketplace-create-service-account-1.png)
 
-
 Grant the role "Service Account Token Creator", and complete the process with the default values.
 [<img src="./assets/google-marketplace-create-service-account-2.png">](./assets/google-marketplace-create-service-account-2.png)
 
-
-Search for the newly created account service, see the details, and copy the "Unique ID"
+Search for the newly created account service, see the details, and copy the "Unique ID".
 [<img src="./assets/google-marketplace-create-service-account-3.png">](./assets/google-marketplace-create-service-account-3.png)
-
 
 Reach the bespoken team at contact@bespoken.io, requesting the access credentials, you have to provide the "Unique ID", they will reply with some settings to set up your Google VM.
 
@@ -143,10 +140,12 @@ Your certificates are downloaded, installed, and loaded. Try reloading your webs
 
 ## Server configuration
 
-### How to connect to the server
-It is enabled [OS Login](https://cloud.google.com/compute/docs/instances/ssh#metadata-managed_ssh_connections) by default, you can access the server using the same user from google cloud.
+### How to connect to the VM
+It is enabled [OS Login](https://cloud.google.com/compute/docs/instances/connecting-to-instance#connecting_to_vms) by default, you can access the server using the same user from google cloud.
 
 ### How to start and stop the server
+
+[Connect to VM](/#how-to-connect-to-the-vm) before executing any command.
 
 Obtain the status of a service:
 ```bash
@@ -165,7 +164,7 @@ sudo -u bespoken /home/bespoken/scripts/stop.sh
 
 ### How to update server settings
 
-You can update the server settings [updating the instance metadata](https://cloud.google.com/compute/docs/storing-retrieving-metadata#set_during_creation)
+You can update the server settings [updating the instance metadata](https://cloud.google.com/compute/docs/metadata/setting-custom-metadata#update_metadata).
 
 |Name|Description|Default|
 |--- |--- |--- |
@@ -174,12 +173,12 @@ You can update the server settings [updating the instance metadata](https://clou
 |url|Base url to access the service||
 |port|Port to be used by the server should be greater than 1024, if you change the default value make sure that the VM has permission to receive inbound/outbound connections|3000|
 
-You should restart the server after any change.
+You should restart the VM after any change.
 
 
 ## Troubleshooting
 ### How to access server logs
-The logs contain information that can be useful for troubleshooting possible issues. They can be found executing the following command
+The logs contain information that can be useful for troubleshooting possible issues. They can be found [connecting to VM](/#how-to-connect-to-the-vm) and executing the following command:
 
 ```bash
 sudo -u bespoken /home/bespoken/script/logs.sh

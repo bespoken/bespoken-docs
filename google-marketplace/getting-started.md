@@ -26,7 +26,7 @@ the account is created you need to reach out to Bespoken and ask for the VM requ
 
 ## Deployment process
 
-- Go to the Google Cloud Marketplace and install Bespoken Automated Testing For Voice and Chat
+- Go to the Google Cloud Marketplace and install Bespoken Automated Testing For Voice and Chat.
 
 - In the deployment process, fill the parameters for the VM, it is recommended at least 1vCPU and 1.7GB memory. For "Role arn", and "Secret name" complete those with the settings from the bespoken team. Fill up the "Url" defined in the pre requisites. You can [change](/google-marketplace/faq/#how-to-update-server-settings) these settings after the deployment is done.
 
