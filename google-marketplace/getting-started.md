@@ -19,17 +19,20 @@ Increase customer satisfaction and call deflection rates, reduce speech recognit
 
 ## Pre-requisites
 
-- A google cloud [service account](/google-marketplace/faq/#how-to-set-up-a-google-cloud-service-account)
-- The URL (with https) that will point to your new virtual machine
-- Reach out to Bespoken and ask for the VM required security information
+- A google cloud [service account](/google-marketplace/faq/#how-to-set-up-a-google-cloud-service-account), after
+the account is created you need to reach out to Bespoken and ask for the VM required security information.
+
+- [The URL (with https)](/google-marketplace/faq/#how-to-set-up-an-https-url-that-works-with-the-bespoken-vm) that will point to your new virtual machine.
 
 ## Deployment process
-In the deployment process, fill the parameters for the VM, it is recommended at least 1vCPU and 1GB memory. For "Role arn", and "Secret name" complete those with the settings from the bespoken team. "Server url" is the url that will be used by the server. "Port" is the number of the port used to run the server, by default is 3000, it should be greater than 1024. You can [change](/google-marketplace/faq/#update-server-settings) these settings after the deployment is done.
 
-An additional step is required after the deployment is completed. Stop the VM, edit the "Service account" field, select the service account created in the previous step and "Save" the changes.
+- Go to the Google Cloud Marketplace and install Bespoken Automated Testing For Voice and Chat
+
+- In the deployment process, fill the parameters for the VM, it is recommended at least 1vCPU and 1.7GB memory. For "Role arn", and "Secret name" complete those with the settings from the bespoken team. Fill up the "Url" defined in the pre requisites. You can [change](/google-marketplace/faq/#how-to-update-server-settings) these settings after the deployment is done.
+
+- An additional step is required after the deployment is completed. Stop the VM, edit the "Service account" field, select the service account created in the previous step and "Save" the changes. After that you can start the VM again.
 [<img src="./assets/google-marketplace-set-service-account.png">](./assets/google-marketplace-set-service-account.png)
 
-After that you can start the VM again.
 
 ## Verify if service is running
 Get the IP number that was assigned to the VM, and request the port you set up, by default 3000. If the server is running you will get a response, otherwise, go to [troubleshooting](/google-marketplace/faq/#troubleshooting).
@@ -37,9 +40,3 @@ Get the IP number that was assigned to the VM, and request the port you set up, 
 ```bash
 http://replace-with-your-ip:3000
 ```
-
-## HTTPS connections
-The server needs an HTTPS connection to work. There are a couple of alternatives to achieve this:
-
-- If you already have in place a Load Balancer to handle HTTPS connections, just redirect the traffic to the VM on the port set during deployment.
-- Setup the SSL certificate [within the server](/google-marketplace/faq/#setup-ssl-certificate)

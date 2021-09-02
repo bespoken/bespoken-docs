@@ -4,7 +4,7 @@ permalink: /google-marketplace/faq/
 ---
 
 # FAQ For Google Marketplace
-Here are answers to commonly asked questions about our Server.
+Here are answers to commonly asked questions about our service.
 
 ## Pre-requisites
 
@@ -14,18 +14,21 @@ Go to [service accounts](https://console.cloud.google.com/iam-admin/serviceaccou
 Fill in the name and id.
 [<img src="./assets/google-marketplace-create-service-account-1.png">](./assets/google-marketplace-create-service-account-1.png)
 
+
 Grant the role "Service Account Token Creator", and complete the process with the default values.
 [<img src="./assets/google-marketplace-create-service-account-2.png">](./assets/google-marketplace-create-service-account-2.png)
+
 
 Search for the newly created account service, see the details, and copy the "Unique ID"
 [<img src="./assets/google-marketplace-create-service-account-3.png">](./assets/google-marketplace-create-service-account-3.png)
 
-Reach the bespoken team, requesting the access credentials, you have to provide the "Unique ID", they will reply with some settings to set up your Google VM.
+
+Reach the bespoken team at contact@bespoken.io, requesting the access credentials, you have to provide the "Unique ID", they will reply with some settings to set up your Google VM.
 
 ### How to set up an https URL that works with the Bespoken VM
 
-- Redirect traffic from your load balancer to your VM.
-- Set up your own https certificate within the VM
+- Redirect traffic from your load balancer to the VM.
+- Set up your own https certificate within the VM.
 
 #### How to set up your own https certificate within the VM
 NOTE: Before using this approach, ensure that you have access to the domain’s DNS configuration through your DNS provider.
@@ -134,8 +137,7 @@ Please choose whether or not to redirect HTTP traffic to HTTPS, removing HTTP ac
 new sites, or if you're confident your site works on HTTPS. You can undo this
 change by editing your web server's configuration.
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-Select the appropriate number [1-2] then [enter] (press 'c' to cancel):
-Select your choice then hit ENTER. The configuration will be updated, and Nginx will reload to pick up the new settings. certbot will wrap up with a message telling you the process was successful and where your certificates are stored:
+Select number 1.
 
 Your certificates are downloaded, installed, and loaded. Try reloading your website using https:// and notice your browser’s security indicator. It should indicate that the site is properly secured, usually with a lock icon.
 
