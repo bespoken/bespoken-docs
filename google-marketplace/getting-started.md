@@ -19,18 +19,20 @@ Increase customer satisfaction and call deflection rates, reduce speech recognit
 
 ## Pre-requisites
 
-- A google cloud [service account](/google-marketplace/faq/#how-to-set-up-a-google-cloud-service-account), after
-the account is created you need to reach out to Bespoken and ask for the VM required security information.
+- A google cloud [service account](/google-marketplace/faq/#how-to-set-up-a-google-cloud-service-account). After
+the account is created, you need to reach out to Bespoken and ask for the VM required parameters to set up your VM.
 
-- [The URL (with https)](/google-marketplace/faq/#how-to-set-up-an-https-url-that-works-with-the-bespoken-vm) that will point to your new virtual machine.
+- [The URL (with https)](/google-marketplace/faq/#how-to-set-up-an-https-url-that-works-with-the-bespoken-vm) that will point to your new VM. 
+
+- Make sure you have [firewall rules](https://cloud.google.com/filestore/docs/configuring-firewall) to allow inbound traffic to ports: 80, 443, and 3000. 
 
 ## Deployment process
 
 - Go to the Google Cloud Marketplace and install Bespoken Automated Testing For Voice and Chat.
 
-- In the deployment process, fill the parameters for the VM, it is recommended at least 1vCPU and 1.7GB memory. For "Role arn", and "Secret name" complete those with the settings from the bespoken team. Fill up the "Url" defined in the pre requisites. You can [change](/google-marketplace/faq/#how-to-update-server-settings) these settings after the deployment is done.
+- In the deployment process, fill the parameters for the VM, it is recommended at least 1vCPU and 1.7GB memory. For "Role arn", and "Secret name" complete those with the settings from the bespoken team. Fill up the "Url" defined in the pre-requisites. You can [change](/google-marketplace/faq/#how-to-update-server-settings) these settings after the deployment is done.
 
-- An additional step is required after the deployment is completed. Stop the VM, edit the "Service account" field, select the service account created in the previous step and "Save" the changes. After that you can start the VM again.
+- An additional step is required after the deployment is completed. Stop the VM, edit the "Service account" field, select the service account created in the previous step and "Save" the changes. After that, you can start the VM again.
 [<img src="./assets/google-marketplace-set-service-account.png">](./assets/google-marketplace-set-service-account.png)
 
 

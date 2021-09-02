@@ -20,12 +20,12 @@ Grant the role "Service Account Token Creator", and complete the process with th
 Search for the newly created account service, see the details, and copy the "Unique ID".
 [<img src="./assets/google-marketplace-create-service-account-3.png">](./assets/google-marketplace-create-service-account-3.png)
 
-Reach the bespoken team at contact@bespoken.io, requesting the access credentials, you have to provide the "Unique ID", they will reply with some settings to set up your Google VM.
+Reach the bespoken team at contact@bespoken.io, requesting the access credentials, have to provide the "Unique ID", they will reply with some settings to set up your Google VM.
 
 ### How to set up an https URL that works with the Bespoken VM
 
 - Redirect traffic from your load balancer to the VM.
-- Set up your own https certificate within the VM.
+- Set up your [https certificate](#how-to-set-up-your-own-https-certificate-within-the-vm) within the VM.
 
 #### How to set up your own https certificate within the VM
 NOTE: Before using this approach, ensure that you have access to the domain’s DNS configuration through your DNS provider.
@@ -37,7 +37,7 @@ Make sure the firewall allows traffic to HTTP and HTTPS, update otherwise.
 [<img src="./assets/google-marketplace-firewall.png">](./assets/google-marketplace-firewall.png)
 
 ##### Configuring a static IP Address
-Google Cloud Platform instances are launched with a dynamic IP address by default, which means that the IP address changes every time the server is stopped and restarted. This is not desired we have to assign the server a static IP address and assign it to the VM. Follow the [instruccions](https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address).
+Google Cloud Platform instances are launched with a dynamic IP address by default, which means that the IP address changes every time the server is stopped and restarted. This behavior is not desired, we have to reserve a static IP address and assign it to the VM. Follow the [instruccions](https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address).
 
 ##### Update DNS record
 Create an A record in your DNS provider, to point to the IP address set in the previous step. You should get a response when accessing the domain:
@@ -141,11 +141,11 @@ Your certificates are downloaded, installed, and loaded. Try reloading your webs
 ## Server configuration
 
 ### How to connect to the VM
-It is enabled [OS Login](https://cloud.google.com/compute/docs/instances/connecting-to-instance#connecting_to_vms) by default, you can access the server using the same user from google cloud.
+You can connect to the VM [through the Google Cloud Console](https://cloud.google.com/compute/docs/instances/connecting-to-instance#connecting_to_vms).
 
 ### How to start and stop the server
 
-[Connect to VM](/google-marketplace/faq/#how-to-connect-to-the-vm) before executing any command.
+[Connect to VM](#how-to-connect-to-the-vm) before executing any command.
 
 Obtain the status of a service:
 ```bash
@@ -173,12 +173,12 @@ You can update the server settings [updating the instance metadata](https://clou
 |url|Base url to access the service||
 |port|Port to be used by the server should be greater than 1024, if you change the default value make sure that the VM has permission to receive inbound/outbound connections|3000|
 
-You should restart the VM after any change.
+You must restart the VM after any change.
 
 
 ## Troubleshooting
 ### How to access server logs
-The logs contain information that can be useful for troubleshooting possible issues. They can be found [connecting to VM](/google-marketplace/faq/#how-to-connect-to-the-vm) and executing the following command:
+The logs contain information that can be useful for troubleshooting possible issues. They can be found [connecting to VM](#how-to-connect-to-the-vm) and executing the following command:
 
 ```bash
 sudo -u bespoken /home/bespoken/script/logs.sh
