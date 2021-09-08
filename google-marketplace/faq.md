@@ -4,62 +4,48 @@ permalink: /google-marketplace/faq/
 ---
 
 # FAQ For Google Marketplace
-Here are answers to commonly asked questions about our Server.
+Here are answers to commonly asked questions about our service.
 
-# How to configure your server
+## Pre-requisites
 
-## How to connect to the server
-It is enabled [OS Login](https://cloud.google.com/compute/docs/instances/ssh#metadata-managed_ssh_connections) by default, you can access the server using the same user from google cloud.
+### How to set up a google cloud service account
 
-## How to start and stop the server
+Go to [service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts), and create a service account.
+Fill in the name and id.
+[<img src="./assets/google-marketplace-create-service-account-1.png">](./assets/google-marketplace-create-service-account-1.png)
 
-Obtain the status of a service:
-```bash
-sudo -u bespoken /home/bespoken/scripts/status.sh
-```
+Grant the role "Service Account Token Creator", and complete the process with the default values.
+[<img src="./assets/google-marketplace-create-service-account-2.png">](./assets/google-marketplace-create-service-account-2.png)
 
-To start the service:
-```bash
-sudo -u bespoken /home/bespoken/scripts/start.sh
-```
+Search for the newly created account service, see the details, and copy the "Unique ID".
+[<img src="./assets/google-marketplace-create-service-account-3.png">](./assets/google-marketplace-create-service-account-3.png)
 
-To stop the service:
-```bash
-sudo -u bespoken /home/bespoken/scripts/stop.sh
-```
+Reach the bespoken team at contact@bespoken.io, requesting the access credentials, have to provide the "Unique ID", they will reply with some settings to set up your Google VM.
 
-## How to update server settings
+### How to set up an https URL that works with the Bespoken VM
 
-You can update the server settings [updating the instance metadata](https://cloud.google.com/compute/docs/storing-retrieving-metadata#set_during_creation)
+- Redirect traffic from your load balancer to the VM.
+- Set up your [https certificate](#how-to-set-up-your-own-https-certificate-within-the-vm) within the VM.
 
-|Name|Description|Default|
-|--- |--- |--- |
-|role-arn|Value provided by bespoken to access their services||
-|secret-name|Value provided by bespoken to access their services||
-|url|Base url to access the service||
-|port|Port to be used by the server should be greater than 1024, if you change the default value make sure that the VM has permission to receive inbound/outbound connections|3000|
-
-You should restart the server after any change.
-
-## How to Setup SSL certificate
+#### How to set up your own https certificate within the VM
 NOTE: Before using this approach, ensure that you have access to the domain’s DNS configuration through your DNS provider.
 
 For all the following commands, change your_domain with the domain you will use. Example: ivr-server.bespoken.tools
 
-### Allow http and https traffic
+##### Allow http and https traffic
 Make sure the firewall allows traffic to HTTP and HTTPS, update otherwise.
 [<img src="./assets/google-marketplace-firewall.png">](./assets/google-marketplace-firewall.png)
 
-### Configuring a static IP Address
-Google Cloud Platform instances are launched with a dynamic IP address by default, which means that the IP address changes every time the server is stopped and restarted. This is not desired we have to assign the server a static IP address and assign it to the VM. Follow the [instruccions](https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address).
+##### Configuring a static IP Address
+Google Cloud Platform instances are launched with a dynamic IP address by default, which means that the IP address changes every time the server is stopped and restarted. This behavior is not desired, we have to reserve a static IP address and assign it to the VM. Follow the [instruccions](https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address).
 
-### Update DNS record
+##### Update DNS record
 Create an A record in your DNS provider, to point to the IP address set in the previous step. You should get a response when accessing the domain:
 ```bash
 http://your_domain
 ```
 
-### Enable SSL access over HTTPS with letsencrypt
+##### Enable SSL access over HTTPS with letsencrypt
 
 Create the directory for your_domain as follows, using the -p flag to create any necessary parent directories:
 ```bash
@@ -148,15 +134,51 @@ Please choose whether or not to redirect HTTP traffic to HTTPS, removing HTTP ac
 new sites, or if you're confident your site works on HTTPS. You can undo this
 change by editing your web server's configuration.
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-Select the appropriate number [1-2] then [enter] (press 'c' to cancel):
-Select your choice then hit ENTER. The configuration will be updated, and Nginx will reload to pick up the new settings. certbot will wrap up with a message telling you the process was successful and where your certificates are stored:
+Select number 1.
 
 Your certificates are downloaded, installed, and loaded. Try reloading your website using https:// and notice your browser’s security indicator. It should indicate that the site is properly secured, usually with a lock icon.
 
-# Troubleshooting
-## How to access server logs
-The logs contain information that can be useful for troubleshooting possible issues. They can be found executing the following command
+## Server configuration
+
+### How to connect to the VM
+You can connect to the VM [through the Google Cloud Console](https://cloud.google.com/compute/docs/instances/connecting-to-instance#connecting_to_vms).
+
+### How to start and stop the server
+
+[Connect to VM](#how-to-connect-to-the-vm) before executing any command.
+
+Obtain the status of a service:
+```bash
+sudo -u bespoken /home/bespoken/scripts/status.sh
+```
+
+To start the service:
+```bash
+sudo -u bespoken /home/bespoken/scripts/start.sh
+```
+
+To stop the service:
+```bash
+sudo -u bespoken /home/bespoken/scripts/stop.sh
+```
+
+### How to update server settings
+
+You can update the server settings [updating the instance metadata](https://cloud.google.com/compute/docs/metadata/setting-custom-metadata#update_metadata).
+
+|Name|Description|Default|
+|--- |--- |--- |
+|role-arn|Value provided by bespoken to access their services||
+|secret-name|Value provided by bespoken to access their services||
+|url|Base url to access the service||
+
+You must restart the VM after any change.
+
+
+## Troubleshooting
+### How to access server logs
+The logs contain information that can be useful for troubleshooting possible issues. They can be found [connecting to VM](#how-to-connect-to-the-vm) and executing the following command:
 
 ```bash
-sudo -u bespoken /home/bespoken/script/logs.sh
+sudo -u bespoken /home/bespoken/scripts/logs.sh
 ```
