@@ -171,7 +171,6 @@ You can update the server settings [updating the instance metadata](https://clou
 |role-arn|Value provided by bespoken to access their services||
 |secret-name|Value provided by bespoken to access their services||
 |url|Base url to access the service||
-|port|Port to be used by the server should be greater than 1024, if you change the default value make sure that the VM has permission to receive inbound/outbound connections|3000|
 
 You must restart the VM after any change.
 
@@ -181,5 +180,5 @@ You must restart the VM after any change.
 The logs contain information that can be useful for troubleshooting possible issues. They can be found [connecting to VM](#how-to-connect-to-the-vm) and executing the following command:
 
 ```bash
-sudo -u bespoken /home/bespoken/script/logs.sh
+sudo -u bespoken /home/bespoken/scripts/logs.sh
 ```

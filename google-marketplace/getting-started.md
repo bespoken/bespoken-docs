@@ -20,7 +20,7 @@ Increase customer satisfaction and call deflection rates, reduce speech recognit
 ## Pre-requisites
 
 - A google cloud [service account](/google-marketplace/faq/#how-to-set-up-a-google-cloud-service-account). After
-the account is created, you need to reach out to Bespoken and ask for the VM required parameters to set up your VM.
+the account is created, you need to reach out to Bespoken and ask for the required parameters to set up your VM.
 
 - [The URL (with https)](/google-marketplace/faq/#how-to-set-up-an-https-url-that-works-with-the-bespoken-vm) that will point to your new VM. 
 
@@ -30,7 +30,8 @@ the account is created, you need to reach out to Bespoken and ask for the VM req
 
 - Go to the Google Cloud Marketplace and install Bespoken Automated Testing For Voice and Chat.
 
-- In the deployment process, fill the parameters for the VM, it is recommended at least 1vCPU and 1.7GB memory. For "Role arn", and "Secret name" complete those with the settings from the bespoken team. Fill up the "Url" defined in the pre-requisites. You can [change](/google-marketplace/faq/#how-to-update-server-settings) these settings after the deployment is done.
+- In the deployment process, fill the parameters for the VM, it is recommended at least 1vCPU and 1.7GB memory. For "Role arn", and "Secret name" complete those with the values provided by Bespoken. Fill up the "Url" defined in the pre-requisites. You can [change](/google-marketplace/faq/#how-to-update-server-settings) these settings after the deployment is done.
+[<img src="./assets/google-marketplace-deployment.png">](./assets/google-marketplace-deployment.png)
 
 - An additional step is required after the deployment is completed. Stop the VM, edit the "Service account" field, select the service account created in the previous step and "Save" the changes. After that, you can start the VM again.
 [<img src="./assets/google-marketplace-set-service-account.png">](./assets/google-marketplace-set-service-account.png)
