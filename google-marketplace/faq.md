@@ -47,7 +47,7 @@ http://your_domain
 
 ##### Enable SSL access over HTTPS with letsencrypt
 
-[Connect to VM](#how-to-connect-to-the-vm)
+[Connect to VM](#how-to-connect-to-the-vm) before executing any command.
 
 Create the directory for your_domain as follows, using the -p flag to create any necessary parent directories:
 ```bash
