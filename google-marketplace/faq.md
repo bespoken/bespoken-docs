@@ -20,7 +20,7 @@ Grant the role "Service Account Token Creator", and complete the process with th
 Search for the newly created account service, see the details, and copy the "Unique ID".
 [<img src="./assets/google-marketplace-create-service-account-3.png">](./assets/google-marketplace-create-service-account-3.png)
 
-Reach the bespoken team at contact@bespoken.io, requesting the access credentials, have to provide the "Unique ID", they will reply with some settings to set up your Google VM.
+Reach the bespoken team at contact@bespoken.io or [click here](contact@bespoken.io), requesting the access credentials, you will have to provide the "Unique ID", they will reply with some settings to set up your Google VM.
 
 ### How to set up an https URL that works with the Bespoken VM
 
