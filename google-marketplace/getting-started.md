@@ -59,4 +59,4 @@ Response:
 
 ## After deployment
 
-- After you verify the service is running it is neccesary to (setup your https URL)](/google-marketplace/faq/#how-to-set-up-an-https-url-that-works-with-the-bespoken-vm).
+- After you verify the service is running it is neccesary to [setup your https URL](/google-marketplace/faq/#how-to-set-up-an-https-url-that-works-with-the-bespoken-vm).
