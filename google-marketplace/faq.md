@@ -47,6 +47,8 @@ http://your_domain
 
 ##### Enable SSL access over HTTPS with letsencrypt
 
+[Connect to VM](#how-to-connect-to-the-vm)
+
 Create the directory for your_domain as follows, using the -p flag to create any necessary parent directories:
 ```bash
 sudo mkdir -p /var/www/your_domain/html
