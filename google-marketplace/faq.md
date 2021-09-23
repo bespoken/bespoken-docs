@@ -48,7 +48,7 @@ Select the newly created "Health check", and finally click on "Create".
 [<img src="./assets/google-marketplace-create-backend-service-final.png">](./assets/google-marketplace-create-backend-service-final.png)
 
 In the "Host and path rules" click on "ADD HOST AND PATH RULE". For field "Hosts" fill up with the URL defined in pre-requisites, for "Backends" select the backend service created previously.
-[<img src="./assets/google-marketplace-host-and-paths">](./assets/google-marketplace-host-and-paths)
+[<img src="./assets/google-marketplace-host-and-paths.png">](./assets/google-marketplace-host-and-paths.png)
 
 Finally, click on "Update".
 
