@@ -64,7 +64,7 @@ Response:
 
 ## Create tokens
 
-Go to following URL, replace yourdomain.com with your own domain.
+Go to the following URL, replace yourdomain.com with your domain.
 ```
 https://yourdomain.com/link_account?platform=phone
 ```
@@ -78,7 +78,7 @@ Copy the token
 
 ## Use the Service
 
-[Update your testing.json](https://read.bespoken.io/end-to-end/ivr/#configuration) with the created token an your URL.
+[Update your testing.json](https://read.bespoken.io/end-to-end/ivr/#configuration) with the created token and your URL.
 
 ```json
 {
