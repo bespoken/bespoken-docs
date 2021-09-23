@@ -24,8 +24,35 @@ Reach the bespoken team at <contact@bespoken.io>, requesting the access credenti
 
 ### How to set up an https URL that works with the Bespoken VM
 
-- Redirect traffic from your load balancer to the VM.
+- Redirect traffic from [your load balancer](#redirect-traffic-from-your-load-balancer-to-the-vm) to the VM.
 - Set up your [https certificate](#how-to-set-up-your-own-https-certificate-within-the-vm) within the VM.
+
+#### Redirect traffic from your load balancer to the VM
+If you already have in place an external HTTP(S) load balancer in your environment we can use it to redirect the request to our VM.
+
+First, we need an unmanaged instance group, you can follow [these steps](https://cloud.google.com/compute/docs/instance-groups/creating-groups-of-unmanaged-instances), you just need to add the VM into the group and add a port name "port-3000" and port 3000 during the creation of the instance group.
+[<img src="./assets/google-marketplace-instance-group.png">](./assets/google-marketplace-instance-group.png)
+
+Go to the [list of load balancers](https://console.cloud.google.com/net-services/loadbalancing/loadBalancers/list) and select the one you will use.
+
+Edit the load balancer, then in the backend configuration create a new Backend Service
+[<img src="./assets/google-marketplace-create-backend-service.png">](./assets/google-marketplace-create-backend-service.png)
+
+Fill up the fields "Backend type": "Instance group", "Protocol": "http", "Named port": "port-3000". In the "Backends" section, select the instance group created in the previous step, in "Port numbers" put "3000"
+[<img src="./assets/google-marketplace-create-backend-service-details.png">](./assets/google-marketplace-create-backend-service-details.png)
+
+Scroll down until field "Health check", you have to create a new one. Using "Protocol": "http", and "Port": "3000".
+[<img src="./assets/google-marketplace-create-health-check.png">](./assets/google-marketplace-create-health-check.png)
+
+Select the newly created "Health check", and finally click on "Create".
+[<img src="./assets/google-marketplace-create-backend-service-final.png">](./assets/google-marketplace-create-backend-service-final.png)
+
+In the "Host and path rules" click on "ADD HOST AND PATH RULE". For field "Hosts" fill up with the URL defined in pre-requisites, for "Backends" select the backend service created previously.
+[<img src="./assets/google-marketplace-host-and-paths">](./assets/google-marketplace-host-and-paths)
+
+Finally, click on "Update".
+
+You should now be able to access your domain using an https:// connection.
 
 #### How to set up your own https certificate within the VM
 NOTE: Before using this approach, ensure that you have access to the domain’s DNS configuration through your DNS provider.

@@ -60,3 +60,30 @@ Response:
 ## After deployment
 
 - After you verify the service is running it is neccesary to [setup your https URL](/google-marketplace/faq/#how-to-set-up-an-https-url-that-works-with-the-bespoken-vm).
+
+
+## Create tokens
+
+Go to following URL, replace yourdomain.com with your own domain.
+```
+https://yourdomain.com/link_account?platform=phone
+```
+
+You should see a response like this:
+```json
+{"token":"phone-xxx-xxx-xxx-xxx-xxxx"}
+```
+
+Copy the token
+
+## Use the Service
+
+[Update your testing.json](https://read.bespoken.io/end-to-end/ivr/#configuration) with the created token an your URL.
+
+```json
+{
+  "virtualDeviceToken":"phone-xxx-xxx-xxx-xxx-xxxx",
+  "virtualDeviceBaseURL": "https://yourdomain.com/"
+}
+```
+Now you are ready to execute your test scripts.
