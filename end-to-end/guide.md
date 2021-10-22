@@ -118,7 +118,7 @@ Below the end-to-end testing configuration options and what they do are listed:
 | type | The type of test being run - can be `unit`, `simulation`, or `e2e` - defaults to `unit` |
 | stopTestOnFailure | Stops the execution of a test and continues with the next one as soon as there is an assertion error - defaults to `false` |
 | [trace](#viewing-response-payloads) | Causes request and response JSON payloads from the skill to be printed to the console |
-| [virtualDeviceToken](/end-to-end/setup/) | For end-to-end tests that use virtual devices, this must be specified. [Get one here](../setup/) |
+| [virtualDeviceToken](/end-to-end/setup/) | For end-to-end tests that use virtual devices, this must be specified.  [Get one here](../setup/) |
 
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
 
