@@ -112,7 +112,7 @@ Below the end-to-end testing configuration options and what they do are listed:
 | [include and exclude](#including-or-excluding-tests-using-tags) | Runs or Skip the tests having the particular specified tags |
 | lenientMode | Removes the following punctuation signs: `().-"',;:!?)` as well as any extra white spaces present in the transcript while doing assertions | defaults to `false` |
 | [locales](#locales) | The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale |
-| platform | The platform that is being tested - can be either `alexa` or `google` - defaults to `alexa` |
+| platform | The platform that is being tested - can be either `alexa` or `google` - defaults to `alexa` update|
 | skillId | For tests of type `simulation`, the skillId must be specified |
 | stage | For tests of type `simulation`, the stage must be specified - can be `development` or `live` |
 | type | The type of test being run - can be `unit`, `simulation`, or `e2e` - defaults to `unit` |
