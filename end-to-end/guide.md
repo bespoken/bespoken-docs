@@ -113,12 +113,12 @@ Below the end-to-end testing configuration options and what they do are listed:
 | lenientMode | Removes the following punctuation signs: `().-"',;:!?)` as well as any extra white spaces present in the transcript while doing assertions | defaults to `false` |
 | [locales](#locales) | The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale |
 | platform | The platform that is being tested - can be either `alexa` or `google` - defaults to `alexa` |
-| runInBand | If set to `true`, it will run all test suites (YAML files) serially, it means one test suite will start after the previous one has been completed - can be either `true` or `false` - defaults to `true` |
+| runInBand | If set to `true`, it will run all test suites (YAML files) serially, it means one test suite will start after the previous one has been completed - defaults to `true` |
 | skillId | For tests of type `simulation`, the skillId must be specified |
 | stage | For tests of type `simulation`, the stage must be specified - can be `development` or `live` |
-| type | The type of test being run - can be `unit`, `simulation`, or `e2e` - defaults to `unit` |
 | stopTestOnFailure | Stops the execution of a test and continues with the next one as soon as there is an assertion error - defaults to `false` |
 | [trace](#viewing-response-payloads) | Causes request and response JSON payloads from the skill to be printed to the console |
+| type | The type of test being run - can be `unit`, `simulation`, or `e2e` - defaults to `unit` |
 | [virtualDeviceToken](/end-to-end/setup/) | For end-to-end tests that use virtual devices, this must be specified. [Get one here](../setup/) |
 
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
