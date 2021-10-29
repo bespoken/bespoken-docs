@@ -136,6 +136,8 @@ When enabling parallelism for IVR scripts, you won't need to define different vi
 
 Here's how test suites running in parallel looks like:
 
+![parallel-run](https://user-images.githubusercontent.com/6411740/139502228-dc29cd92-f328-47a0-8a99-a75df91cf9e1.gif)
+
 ## Debugging and Troubleshooting
 ### Tracing output
 Make sure "trace" is set to true in the testing.json file. This will output the complete back and forth of the test. It includes:
