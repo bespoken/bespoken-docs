@@ -113,7 +113,7 @@ Below the end-to-end testing configuration options and what they do are listed:
 | lenientMode | Removes the following punctuation signs: `().-"',;:!?)` as well as any extra white spaces present in the transcript while doing assertions | defaults to `false` |
 | [locales](#locales) | The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale |
 | platform | The platform that is being tested - can be either `alexa` or `google` - defaults to `alexa` |
-| runInBand | If set to `true`, it will run all test suites (YAML files) serially, it means one test suite will start after the previous one has been completed - defaults to `true`|
+| runInBand | If set to `true` (default), a test suite will run only when the previous one has finished running. If set to `false` test suites will run in parallel to each other - defaults to `true`|
 | skillId | For tests of type `simulation`, the skillId must be specified |
 | stage | For tests of type `simulation`, the stage must be specified - can be `development` or `live` |
 | stopTestOnFailure | Stops the execution of a test and continues with the next one as soon as there is an assertion error - defaults to `false` |
@@ -599,10 +599,13 @@ To avoid this, just define a homophone in the configuration file like so:
 }
 ```
 
-### Test Sequence
-Tests are run in the order they appear in the file.
+### Test Running Sequence - Parallelism
+Tests run in the order they appear in their file. Test suites, however, run one after the other by default and in random order. This behavior can change by setting the `runInBand` property to `false` in your testing.json file, allowing test suites to run much faster and in parallel.
 
-End-to-end tests are not run in parallel, unlike unit tests. This is because of limitations in how the virtual devices work. This is also true for tests that are run using SMAPI Simulations.
+Be aware that, when enabling parallelism, you will need to define a different virtual device within each of your test suites, and these should be from unique Amazon/Google accounts. Otherwise, you'll run into concurrency issues.
+
+Here's how test suites running in parallel looks like:
+
 
 ### Locales
 For each locale defined in either the testing.json file or in the test suite itself, the tests will be run in their entirety.

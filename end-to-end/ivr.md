@@ -61,9 +61,9 @@ We have some parameters that are particular to IVR testing. In addition to the [
 |recognitionHints|Phrases that improve speech recognition for speech to text detection.|string, array|Utterance||
 |recordCall|Whether to record the call. If recorded, the URL for accessing the call will be provided as part of the response in a `callAudioURL` property.|boolean|Global|false|
 |repeatOnPhrase|Repeats the previous utterance when one of these values is found. For cases when the system we are calling does not understand, for whatever reason, our utterance.|string, array|Global/Utterance||
-|runInBand|If set to `true`, it will run all test suites (YAML files) serially, it means one test suite will start after the previous one has been completed|boolean|Global|true|
+| runInBand | If set to `true` (default), a test suite will run only when the previous one has finished running. If set to `false` test suites will run in parallel to each other - defaults to `true`|boolean|Global|true|
 
-All Global parameters, except `phoneNumber` should go inside a `virtualDeviceConfig` property inside your testing.json file if set: 
+All Global parameters, except `phoneNumber` and `runInBand` should go inside a `virtualDeviceConfig` property inside your testing.json file if set: 
 
 ```json
 {
@@ -128,6 +128,13 @@ Information about supported audio formats can be found [here](https://www.twilio
 
 ## BST Init
 The `bst init` command is the fastest way to create all the files and folders needed to start testing your IVR system. It's a great starting point! You can read more about it [here](./../../cli/commands/#init).
+
+### Test Running Sequence - Parallelism
+Tests run in the order they appear in their file. Test suites, however, run one after the other by default and in random order. This behavior can change by setting the `runInBand` property to `false` in your testing.json file, allowing test suites to run much faster and in parallel.
+
+When enabling parallelism for IVR scripts, you won't need to define different virtual devices for your test suites, as multiple calls using the same phone virtual device are allowed.
+
+Here's how test suites running in parallel looks like:
 
 ## Debugging and Troubleshooting
 ### Tracing output
