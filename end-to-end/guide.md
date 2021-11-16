@@ -606,6 +606,7 @@ Be aware that, when enabling parallelism, you will need to define a different vi
 
 Here's how test suites running in parallel looks like:
 
+![parallel-run](https://user-images.githubusercontent.com/6411740/139502228-dc29cd92-f328-47a0-8a99-a75df91cf9e1.gif)
 
 ### Locales
 For each locale defined in either the testing.json file or in the test suite itself, the tests will be run in their entirety.
