@@ -113,11 +113,12 @@ Below the end-to-end testing configuration options and what they do are listed:
 | lenientMode | Removes the following punctuation signs: `().-"',;:!?)` as well as any extra white spaces present in the transcript while doing assertions | defaults to `false` |
 | [locales](#locales) | The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale |
 | platform | The platform that is being tested - can be either `alexa` or `google` - defaults to `alexa` |
+| [runInBand](#test-running-sequence-parallelism) | If set to `true` (default), a test suite will run only when the previous one has finished running. If set to `false` test suites will run in parallel to each other - defaults to `true`|
 | skillId | For tests of type `simulation`, the skillId must be specified |
 | stage | For tests of type `simulation`, the stage must be specified - can be `development` or `live` |
-| type | The type of test being run - can be `unit`, `simulation`, or `e2e` - defaults to `unit` |
 | stopTestOnFailure | Stops the execution of a test and continues with the next one as soon as there is an assertion error - defaults to `false` |
 | [trace](#viewing-response-payloads) | Causes request and response JSON payloads from the skill to be printed to the console |
+| type | The type of test being run - can be `unit`, `simulation`, or `e2e` - defaults to `unit` |
 | [virtualDeviceToken](/end-to-end/setup/) | For end-to-end tests that use virtual devices, this must be specified. [Get one here](../setup/) |
 
 To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
@@ -598,10 +599,14 @@ To avoid this, just define a homophone in the configuration file like so:
 }
 ```
 
-### Test Sequence
-Tests are run in the order they appear in the file.
+### Test Running Sequence - Parallelism
+Individual tests run in the order in which they appear in their file. Test suites, however, run in random order and, by default, in serial. You can change this behavior by setting the `runInBand` property to `false` in your testing.json file, allowing test suites to run much faster and in parallel.
 
-End-to-end tests are not run in parallel, unlike unit tests. This is because of limitations in how the virtual devices work. This is also true for tests that are run using SMAPI Simulations.
+Be aware that, when enabling parallelism, you will need to define a different virtual device within each of your test suites, and these should be from unique Amazon/Google accounts. Otherwise, you'll run into concurrency issues.
+
+Here's how test suites running in parallel looks like:
+
+![parallel-run](https://user-images.githubusercontent.com/6411740/139502228-dc29cd92-f328-47a0-8a99-a75df91cf9e1.gif)
 
 ### Locales
 For each locale defined in either the testing.json file or in the test suite itself, the tests will be run in their entirety.
