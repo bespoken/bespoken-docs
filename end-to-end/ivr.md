@@ -130,7 +130,7 @@ Information about supported audio formats can be found [here](https://www.twilio
 The `bst init` command is the fastest way to create all the files and folders needed to start testing your IVR system. It's a great starting point! You can read more about it [here](./../../cli/commands/#init).
 
 ### Test Running Sequence - Parallelism
-Tests run in the order they appear in their file. Test suites, however, run one after the other by default and in random order. This behavior can change by setting the `runInBand` property to `false` in your testing.json file, allowing test suites to run much faster and in parallel.
+Individual tests run in the order in which they appear in their file. Test suites, however, run in random order and, by default, in serial. You can change this behavior by setting the `runInBand` property to `false` in your testing.json file, allowing test suites to run much faster and in parallel.
 
 When enabling parallelism for IVR scripts, you won't need to define different virtual devices for your test suites, as multiple calls using the same phone virtual device are allowed.
 
