@@ -132,7 +132,7 @@ The `bst init` command is the fastest way to create all the files and folders ne
 ### Test Running Sequence - Parallelism
 Individual tests run in the order in which they appear in their file. Test suites, however, run in random order and, by default, in serial. You can change this behavior by setting the `runInBand` property to `false` in your testing.json file, allowing test suites to run much faster and in parallel.
 
-When enabling parallelism for IVR scripts, you won't need to define different virtual devices for your test suites, as multiple calls using the same phone virtual device are allowed.
+When enabling parallelism for IVR scripts, you don't need to define different virtual devices for your test suites, as multiple calls using the same phone virtual device are allowed.
 
 Here's how test suites running in parallel looks like:
 
