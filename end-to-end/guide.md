@@ -600,7 +600,7 @@ To avoid this, just define a homophone in the configuration file like so:
 ```
 
 ### Test Running Sequence - Parallelism
-Tests run in the order they appear in their file. Test suites, however, run one after the other by default and in random order. This behavior can change by setting the `runInBand` property to `false` in your testing.json file, allowing test suites to run much faster and in parallel.
+Individual tests run in the order in which they appear in their file. Test suites, however, run in random order and, by default, in serial. You can change this behavior by setting the `runInBand` property to `false` in your testing.json file, allowing test suites to run much faster and in parallel.
 
 Be aware that, when enabling parallelism, you will need to define a different virtual device within each of your test suites, and these should be from unique Amazon/Google accounts. Otherwise, you'll run into concurrency issues.
 
