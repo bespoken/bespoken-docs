@@ -60,10 +60,10 @@ If you get a response that says: "to let me read out that information turn on pe
 #### Enabling test mode on your Google Action
 Another important aspect of testing with Google is that your Action should be enabled for testing. To do this, follow [this guide](https://developers.google.com/assistant/smarthome/develop/testing#setup).
 
-### For IVR systems (Twilio)
+### For IVR systems (Phone)
 
-- [Contact us](mailto:contact@bespoken.io) if you are interested in testing IVR systems with us.
-- Once your account is setup to allow for Twilio Virtual Devices, click on the  **"Add Virtual Device"** button and select "Twilio Virtual Device". 
+- Phone virtual devices are available for users of our Contact Center plans. [Contact us](mailto:contact@bespoken.io) if you want to know more.
+- Once your account is setup, click on the  **"Add Virtual Device"** button and select "Phone Virtual Device". You won't need to provide credentials for a phone virtual device.
 
 
 ## Using the Device In Your Scripts

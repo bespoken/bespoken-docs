@@ -59,15 +59,16 @@ We have some parameters that are particular to IVR testing. In addition to the [
 |finishOnPhrase|Phrases that, when detected, will make the test continue to the next utterance.|string, array|Utterance||
 |listeningTimeout|The maximum time to listen to before sending the next utterance. Can be used instead of finishOnPhrase.|seconds|Global/Utterance|45|
 |recognitionHints|Phrases that improve speech recognition for speech to text detection.|string, array|Utterance||
-|recordCall|Whether to record the call. If recorded, the URL for accessing the call will be provided as part of the response in a `callAudioURL` property.|boolean|Global|false|
+|[recordCall](#listening-to-call-recordings)|Whether to record the call. If recorded, the URL for accessing the call will be provided as part of the response in a `callAudioURL` property.|boolean|Global|false|
 |repeatOnPhrase|Repeats the previous utterance when one of these values is found. For cases when the system we are calling does not understand, for whatever reason, our utterance.|string, array|Global/Utterance||
 | [runInBand](#test-running-sequence-parallelism) | If set to `true` (default), a test suite will run only when the previous one has finished running. If set to `false` test suites will run in parallel to each other - defaults to `true`|boolean|Global|true|
+| [sttThreshold](#test-running-sequence-parallelism) | A decimal number from 0 to 1 that represents the threshold applied in a fuzzy matching for identifying a `finishOnPhrase` value. Setting this property to 1, means no fuzzy matching is applied. |number|Global|0.8|
 
 All Global parameters, except `phoneNumber` and `runInBand` should go inside a `virtualDeviceConfig` property inside your testing.json file if set: 
 
 ```json
 {
-    "virtualDeviceToken": "twilio-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "virtualDeviceToken": "phone-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "phoneNumber": "PHONE_NUMBER",
     "virtualDeviceConfig": {
       "repeatOnPhrase": [
@@ -144,7 +145,7 @@ Make sure "trace" is set to true in the testing.json file. This will output the 
 * The message we send to the IVR system
 * The transcript of the response received
 
-### Listening to Twilio recordings
+### Listening to call recordings
 If `recordCall` is set to true, the response payload will include the `callURL` property. It contains the call recording in `.wav` format and will be shown as part of the bst command line output. Listening to it is a good way to understand why a test doesn't do well. Recordings are available for a week.
 
 ### Increasing the response wait time
@@ -171,6 +172,9 @@ If you want the most accurate transcripts possible, you can help the speech to t
 ```
 
 When this is set, the `recognitionHints` values will be the **only** values sent to Google's speech to text. The more detailed they are, the better the results will be.
+
+### Matching `finishOnPhrase` values
+By default, we apply fuzzy matching when possible on `finishOnPhrase` values to identify the end of an interaction. Fuzzy matching means that we look for a value that is not equal but "similar enough". We do this to bypass ocassional speech to text mismatches that could prevent call interactions from continuing. The confidence level that we use is controlled by the `sttThreshold` property, it allows a numeric value between 0 and 1 . The default value is 0.8, setting it lower will be more forgiving with the transcripts, while setting it to 1 would make the tests look for the exact value that was defined as a `finishOnPhrase`.
 
 ## Project Sample
 You can find the American Airlines tests we used in this page [here](https://github.com/bespoken-samples/ivr-test-samples). 
