@@ -59,7 +59,7 @@ We have some parameters that are particular to IVR testing. In addition to the [
 |finishOnPhrase|Phrases that, when detected, will make the test continue to the next utterance.|string, array|Utterance||
 |listeningTimeout|The maximum time to listen to before sending the next utterance. Can be used instead of finishOnPhrase.|seconds|Global/Utterance|45|
 |recognitionHints|Phrases that improve speech recognition for speech to text detection.|string, array|Utterance||
-|[recordCall](#listening-to-call-recordings)|Whether to record the call. If recorded, the URL for accessing the call will be provided as part of the response in a `callAudioURL` property.|boolean|Global|false|
+|[recordCall](#listening-to-call-recordings)|Whether to record the call. If set to `true`, the URL for accessing the call will be provided as part of the response in the `callAudioURL` property.|boolean|Global|false|
 |repeatOnPhrase|Repeats the previous utterance when one of these values is found. For cases when the system we are calling does not understand, for whatever reason, our utterance.|string, array|Global/Utterance||
 | [runInBand](#test-running-sequence-parallelism) | If set to `true` (default), a test suite will run only when the previous one has finished running. If set to `false` test suites will run in parallel to each other - defaults to `true`|boolean|Global|true|
 | [sttThreshold](#test-running-sequence-parallelism) | A decimal number from 0 to 1 that represents the threshold applied when using fuzzy matching to identify a `finishOnPhrase` value. Setting this property to 1 means no fuzzy matching is applied. |number|Global|0.8|
