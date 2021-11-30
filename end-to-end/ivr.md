@@ -174,7 +174,7 @@ If you want the most accurate transcripts possible, you can help the speech to t
 When this is set, the `recognitionHints` values will be the **only** values sent to Google's speech to text. The more detailed they are, the better the results will be.
 
 ### Matching `finishOnPhrase` values
-By default, we apply fuzzy matching when possible on `finishOnPhrase` values to identify the end of an interaction. Fuzzy matching means that we look for a value that is not equal but "similar enough". We do this to bypass ocassional speech to text mismatches that could prevent call interactions from continuing. The confidence level that we use is controlled by the `sttThreshold` property, it allows a numeric value between 0 and 1 . The default value is 0.8, setting it lower will be more forgiving with the transcripts, while setting it to 1 would make the tests look for the exact value that was defined as a `finishOnPhrase`.
+By default, we apply fuzzy matching on `finishOnPhrase` values to identify the end of an interaction. Fuzzy matching means that we look for a value that is not identical but "similar enough" to the supplied value; we do this to bypass ocassional speech-to-text mismatches that could prevent call interactions from continuing. The confidence level that we use is controlled by the `sttThreshold` property, which allows for a numeric value between 0 and 1 . The default value is 0.8; setting it lower is more forgiving with the transcripts, while setting it to 1 makes the tests look for the exact value that was defined as a `finishOnPhrase`.
 
 ## Project Sample
 You can find the American Airlines tests we used in this page [here](https://github.com/bespoken-samples/ivr-test-samples). 
