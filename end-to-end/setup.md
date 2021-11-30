@@ -63,7 +63,7 @@ Another important aspect of testing with Google is that your Action should be en
 ### For IVR systems (Phone)
 
 - Phone virtual devices are available for users of our Contact Center plans. [Contact us](mailto:contact@bespoken.io) if you want to know more.
-- Once your account is setup, click on the  **"Add Virtual Device"** button and select "Phone Virtual Device". You won't need to provide credentials for a phone virtual device.
+- Once your account is set up, click on the  **"Add Virtual Device"** button and select "Phone Virtual Device". You don't need to provide any credentials for a phone virtual device.
 
 
 ## Using the Device In Your Scripts
