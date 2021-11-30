@@ -62,7 +62,7 @@ We have some parameters that are particular to IVR testing. In addition to the [
 |[recordCall](#listening-to-call-recordings)|Whether to record the call. If recorded, the URL for accessing the call will be provided as part of the response in a `callAudioURL` property.|boolean|Global|false|
 |repeatOnPhrase|Repeats the previous utterance when one of these values is found. For cases when the system we are calling does not understand, for whatever reason, our utterance.|string, array|Global/Utterance||
 | [runInBand](#test-running-sequence-parallelism) | If set to `true` (default), a test suite will run only when the previous one has finished running. If set to `false` test suites will run in parallel to each other - defaults to `true`|boolean|Global|true|
-| [sttThreshold](#test-running-sequence-parallelism) | A decimal number from 0 to 1 that represents the threshold applied in a fuzzy matching for identifying a `finishOnPhrase` value. Setting this property to 1, means no fuzzy matching is applied. |number|Global|0.8|
+| [sttThreshold](#test-running-sequence-parallelism) | A decimal number from 0 to 1 that represents the threshold applied when using fuzzy matching to identify a `finishOnPhrase` value. Setting this property to 1 means no fuzzy matching is applied. |number|Global|0.8|
 
 All Global parameters, except `phoneNumber` and `runInBand` should go inside a `virtualDeviceConfig` property inside your testing.json file if set: 
 
