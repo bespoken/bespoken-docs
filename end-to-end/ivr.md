@@ -51,7 +51,7 @@ If the expected response matches the actual response we receive from the system,
 There is much more that can be done with our response assertions - [you can read all about them here](/end-to-end/guide/#assertions).
 
 ## Configuration
-We have some parameters that are particular to IVR testing. In addition to the [regular e2e configuration](https://read.bespoken.io/end-to-end/guide/#configuration). 
+The following parameters are exclusive to IVR testing. They work in addition to the [regular e2e configuration](https://read.bespoken.io/end-to-end/guide/#configuration).  
 
 |Name|Description|Unit / Type|Scope|Default|
 |--- |--- |--- |--- |--- |
@@ -92,6 +92,8 @@ configuration:
 ```
 
 "Utterance" level parameters are set inside each test with the use of the reserved keyword `set`.
+
+Finally, IVR tests are always executed in [sequential mode](https://read.bespoken.io/end-to-end/guide/#batch-or-sequential-tests) with a max wait time of a minute per interaction. More info on how this [here](#increasing-the-response-wait-time)
 
 ## Special syntax
 ### The $DIAL Command
@@ -149,7 +151,10 @@ Make sure "trace" is set to true in the testing.json file. This will output the 
 If `recordCall` is set to true, the response payload will include the `callURL` property. It contains the call recording in `.wav` format and will be shown as part of the bst command line output. Listening to it is a good way to understand why a test doesn't do well. Recordings are available for a week.
 
 ### Increasing the response wait time
-IVR systems have prompts that vary in their length before expecting a user interaction. When these go over the one minute mark, you may find an error saying: `Timeout exceeded while waiting for the interaction response`. If this happens, be sure to set the property `maxAsyncE2EResponseWaitTime` to a value higher than 60000 ms, which is the default value, in your testing.json file. This property will allow our tests to wait longer for a response before timing out.
+IVR systems have interactions that vary in their length. When these go over the minute mark, you may find an error saying: `Timeout exceeded while waiting for the interaction response`. To fix this:
+- Make sure that you have set a correct `finishOnPhrase` value so that the test can move to the next interaction correctly
+- If you are using the `listeningTimeout` property instead, check that the value has been set to a value lower than 60 seconds
+- Finally, if the interaction is sure to last more than a minute, set the property `maxAsyncE2EResponseWaitTime` in your testing.json file to a value higher than the default of 60000 ms. This will allow your tests to wait longer for a response before timing out.
 
 ### Improving transcript accuracy
 Transcripts that are evaluated in our tests come from doing speech to text detection over the call streaming. To improve their accuracy, `transcript`, `finishOnPhrase`, and `repeatOnPhrase` values are sent to Google's speech recognition service as "hints" of what we are expecting to get back. While this is usually enough to get correct transcripts, those three properties are usually short and can also accept regular expressions that won't work as hints. For example, the star here could be used as a placeholder for "calling" and "choosing":
