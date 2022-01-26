@@ -648,13 +648,11 @@ In this scenario, when the test is run for the en-US locale, the utterance will 
 To see a complete example, [check out this project](https://github.com/bespoken-samples/space-facts/tree/master/test/e2e).
 
 ### Batch or Sequential Tests
-Tests are run by default in batch. This means that all the utterances are sent to be processed. How we retrieve them depends on the "asyncMode" flag:
-  - If it is set to false (default behavior) then we wait until all utterances are processed and once they are we return the complete result.
-  - If it is set to true, the utterances will be sent to be processed, and we will run multiple queries to get the results.
+You can run end-to-end tests in batch or sequential mode by changing the `batchEnabled` property. Enabling batch mode means that, for every test, utterances are sent to the virtual device service as a group at the start of the test run. The service will process each message accordingly and return all their responses in a single payload at the end. This is the default behavior for Alexa and Google end-to-end tests.
 
-Setting the "batchEnabled" property to false change this behavior, the utterances will be sent one by one to be processed, waiting each time for the results.
+Changing the `batchEnabled` property to false modifies this by sending utterances one after the other, as soon as a response is received for each interaction. The final result should be the same using any of the two modes, but we strongly recommend the batch mode since it will reduce back and forth messages, providing faster and more reliable results.
 
-The result will be the same using any of the modes, but when sending the batch mode to false, there's the possibility that for large tests the session is lost due the extra delay added between utterances calls.
+If you need to get progressive results while using the batch mode, you can also use the `asyncMode` property. False by default, setting this to true will generate a "conversation id" that's used to query the current process status multiple times, every couple of seconds. Effectively "simulating" a sequential mode.
 
 ### Goto And Exit
 One advanced feature is support for `goto` and `exit`. This feature is only available if "batchEnabled" is set to false.
