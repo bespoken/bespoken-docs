@@ -55,12 +55,13 @@ The following parameters are exclusive to IVR testing. They work in addition to 
 
 |Name|Description|Unit / Type|Scope|Default|
 |--- |--- |--- |--- |--- |
-|phoneNumber|Phone number to call to. Should be in the [E.164 format](https://www.twilio.com/docs/glossary/what-e164).|number|Global||
 |finishOnPhrase|Phrases that, when detected, will make the test continue to the next utterance.|string, array|Utterance||
-|listeningTimeout|The maximum time to listen to before sending the next utterance. Can be used instead of finishOnPhrase.|seconds|Global/Utterance|45|
+|listeningTimeout|The maximum time to listen to before sending the next utterance in seconds. Can be used instead of finishOnPhrase.|seconds|Global/Utterance|45|
+|[pauseBeforeUtterance](#adding-pauses-before-speaking)|Delay in seconds that is added before playing the current utterance. This delay comes after detecting a `finishOnPhrase` or reaching a `listeningTimeout` value, i.e., after the system finishes speaking.|seconds|Global/Utterance|1|
+|phoneNumber|Phone number to call to. Should be in the [E.164 format](https://www.twilio.com/docs/glossary/what-e164).|number|Global||
 |recognitionHints|Phrases that improve speech recognition for speech to text detection.|string, array|Utterance||
 |[recordCall](#listening-to-call-recordings)|Whether to record the call. If set to `true`, the URL for accessing the call will be provided as part of the response in the `callAudioURL` property.|boolean|Global|false|
-|repeatOnPhrase|Repeats the previous utterance when one of these values is found. For cases when the system we are calling does not understand, for whatever reason, our utterance.|string, array|Global/Utterance||
+|repeatOnPhrase|Repeats the previous utterance when one of these values is found. For cases when the system we are calling does not understand, for whatever reason, what was said.|string, array|Utterance||Global/Utterance||
 | [runInBand](#test-running-sequence-parallelism) | If set to `true` (default), a test suite will run only when the previous one has finished running. If set to `false` test suites will run in parallel to each other - defaults to `true`|boolean|Global|true|
 | [sttThreshold]((#matching-finishonphrase-values)) | A decimal number from 0 to 1 that represents the threshold applied when using fuzzy matching to identify a `finishOnPhrase` value. Setting this property to 1 means no fuzzy matching is applied. |number|Global|0.8|
 
@@ -68,15 +69,18 @@ All Global parameters, except `phoneNumber` and `runInBand` should go inside a `
 
 ```json
 {
-    "virtualDeviceToken": "phone-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "phoneNumber": "PHONE_NUMBER",
+    "runInBand": false,
     "virtualDeviceConfig": {
+      "pauseBeforeUtterance": 1,
+      "recordCall": false, 
       "repeatOnPhrase": [
         "Sorry I didn't get that",
         "Could you repeat that"
       ],
-    "recordCall": false
-  }
+      "sttThreshold": 0.8
+    },
+    "virtualDeviceToken": "phone-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
 ```
 
@@ -93,7 +97,7 @@ configuration:
 
 "Utterance" level parameters are set inside each test with the use of the reserved keyword `set`.
 
-Finally, IVR tests are always executed in [sequential mode](https://read.bespoken.io/end-to-end/guide/#batch-or-sequential-tests) with a max wait time of a minute per interaction. More info on how this [here](#increasing-the-response-wait-time)
+Finally, IVR tests are always executed in [batch](https://read.bespoken.io/end-to-end/guide/#batch-or-sequential-tests) with `asyncMode` enabled by default and a [max response wait time](#increasing-the-response-wait-time) of one minute per interaction. 
 
 ## Special syntax
 ### The $DIAL Command
@@ -110,7 +114,9 @@ Touch-tone numbers can be entered by prefixing them with a `$`, like so:
 - $2: Gracias y bienvenido
 ```
 ## Supported voices
-As of today, only Amazon Polly voices are supported for IVR testing with Twilio. We do not support Twilio's own "Alice" voice. For a list of Amazon Polly voices that work with Twilio, take a look [here](https://support.twilio.com/hc/en-us/articles/223132827-What-Languages-can-the-Say-TwiML-Verb-Speak-). If you need to use a custom voice, a good alternative is to use pre-recorded audios. To do this, simply replace your utterances for publicly available URLs containing the files you would like to use. Like this:
+As of today, voices from [Google Text to Speech Service](https://cloud.google.com/text-to-speech/docs/voices), [IBM Watson](https://cloud.ibm.com/docs/text-to-speech?topic=text-to-speech-voices), and Amazon Polly are supported. We do not support Twilio's own "Alice" voice. For a list of Amazon Polly voices that work with Twilio, take a look at the end of [this article](https://support.twilio.com/hc/en-us/articles/223132827-What-Languages-can-the-Say-TwiML-Verb-Speak-). 
+
+If you need to use a custom voice, a good alternative is to use pre-recorded audios. To do this, simply replace your utterances for publicly available URLs containing the files you would like to use. Like this:
 
 ```yaml
 - test: Call to American Airlines
@@ -132,7 +138,7 @@ Information about supported audio formats can be found [here](https://www.twilio
 ## BST Init
 The `bst init` command is the fastest way to create all the files and folders needed to start testing your IVR system. It's a great starting point! You can read more about it [here](./../../cli/commands/#init).
 
-### Test Running Sequence - Parallelism
+## Test Running Sequence - Parallelism
 Individual tests run in the order in which they appear in their file. Test suites, however, run in random order and, by default, in serial. You can change this behavior by setting the `runInBand` property to `false` in your testing.json file, allowing test suites to run much faster and in parallel.
 
 When enabling parallelism for IVR scripts, you don't need to define different virtual devices for your test suites, as multiple calls using the same phone virtual device are allowed.
@@ -180,6 +186,21 @@ When this is set, the `recognitionHints` values will be the **only** values sent
 
 ### Matching `finishOnPhrase` values
 By default, we apply fuzzy matching on `finishOnPhrase` values to identify the end of an interaction. Fuzzy matching means that we look for a value that is not identical but "similar enough" to the supplied value; we do this to bypass ocassional speech-to-text mismatches that could prevent call interactions from continuing. The confidence level that we use is controlled by the `sttThreshold` property, which allows for a numeric value between 0 and 1 . The default value is 0.8; setting it lower is more forgiving with the transcripts, while setting it to 1 makes the tests look for the exact value that was defined as a `finishOnPhrase`.
+
+### Adding pauses before speaking
+Our tests are programmed so that the next utterance plays after detecting a `finishOnPhrase` or reaching a `listeningTimeout`. On rare occasions, this happens before your system is ready to receive the next instruction. To better adjust these times, you can use the `pauseBeforeUtterance` property at the utterance level. Eg:
+
+```yaml
+---
+- test : Cancel a reservation
+- $DIAL :
+  - prompt : Welcome to the American Airlines
+  - set finishOnPhrase : please tell me what you're calling about
+- Cancellations: 
+  - prompt: what's your four digit booking code
+  - set pauseBeforeUtterance: 2
+```
+In the example above, we dial the American Airlines contact center and, as soon as we hear "please tell me what you're calling about", we'll wait 2 seconds before saying "Cancellations".
 
 ## Project Sample
 You can find the American Airlines tests we used in this page [here](https://github.com/bespoken-samples/ivr-test-samples). 
