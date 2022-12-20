@@ -97,7 +97,7 @@ configuration:
 
 "Utterance" level parameters are set inside each test with the use of the reserved keyword `set`.
 
-Finally, IVR tests are always executed in [batch](https://read.bespoken.io/end-to-end/guide/#batch-or-sequential-tests) with `asyncMode` enabled by default and a [max response wait time](#increasing-the-response-wait-time) of one minute per interaction. 
+Finally, IVR tests are always executed with a [max response wait time](#increasing-the-response-wait-time) of one minute per interaction. 
 
 ## Special syntax
 ### The $DIAL Command
