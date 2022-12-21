@@ -299,11 +299,6 @@ A typical response from a virtual device call looks like this:
 {
     "message": "utterance",
     "utteranceURL": "url that contains the utterance in audio form",
-    "card": {
-      "content": "Alexa only - Card Content",
-      "title": "Alexa only - Card Title",
-      "imageURL": "Alexa only - Card image URL"
-    },
     "streamURL": "streaming url (for audio skills)",
     "transcript": "speech to text result from the voice platform's audio response",
     "display": {},
@@ -562,9 +557,9 @@ To avoid this, just define a homophone in the configuration file like so:
 ```
 
 ### Test Running Sequence - Parallelism
-Individual tests run in the order in which they appear in their file. Test suites, however, run in random order and, by default, in serial. You can change this behavior by setting the `runInBand` property to `false` in your testing.json file, allowing test suites to run much faster and in parallel.
+Individual tests run in the order in which they appear in their file. Test suites, however, run in random order and, by default, one after another. You can change this behavior by setting the `runInBand` property to `false` in your testing.json file, allowing test suites to run much faster and in parallel.
 
-Be aware that, when enabling parallelism, you will need to define a different virtual device within each of your test suites, and these should be from unique Amazon/Google accounts. Otherwise, you'll run into concurrency issues.
+Be aware that, for Alexa and Google Assistant tests, you will need to define a different virtual device within each of your test suites, and these should be from unique accounts. Otherwise, you'll run into concurrency issues.
 
 Here's how test suites running in parallel looks like:
 
