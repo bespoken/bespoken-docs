@@ -23,7 +23,7 @@ ADDITIONALLY - we now support experimentally the SMAPI Simulation API. This can 
 
 ## Installation
 ### Prerequisites
-* [Node.js v12 or superior](https://nodejs.org/en/download/)
+* [Node.js v12 or above](https://nodejs.org/en/download/)
 * [npm](https://www.npmjs.com/get-npm)
 
 ### Install
@@ -72,7 +72,7 @@ Global configuration options for testing can be set in the `testing.json` file, 
 }
 ```
 
-The following are the different configuration options available ordered alphabetically:
+The following are the different configuration options available:
 
 | Key | Description |
 | --- | --- |
@@ -94,7 +94,7 @@ The following are the different configuration options available ordered alphabet
 | [virtualDeviceToken](/end-to-end/setup/) | For end-to-end tests that use virtual devices, this must be specified. [Get one here](../setup/) |
 | voiceId| For end-to-end tests that use spoken utterances, this must be specified. Sets the voice id for text to speech conversion of your utterances.|
 
-Additionally, you can override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html) under the "jest" key. Here are our default ones:
+Additionally, you can override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html) under the "jest" key. Here are the default settings:
 
 ```json
 {
@@ -158,9 +158,7 @@ bst test --help
 
 ### Using environment variables as settings
 
-Speaking of environment variables, you can use them inside the `testing.json` file by using the `${variable}` format.
-
-For example, this:
+Regarding environment variables, you can reference them inside the `testing.json` file with the `${ENVIRONMENT_VARIABLE}` format. For example, this:
 
 ```json
 {
@@ -848,7 +846,7 @@ The following are settings than can help you overcome specific testing issues. H
 | --- | --- |
 | ignoreExternalErrors | When a not controlled error happens while executing your tests, mark them as skipped instead of failures - defaults to `false` |
 | includeRaw | If true, the whole raw payload from the tested platform is included as part of the response. This provides much more insight, but makes the response a lot bigger -  defaults to true |
-| maxAsyncE2EResponseWaitTime | Set an interval in milliseconds to wait before stop looking for new results and throwing an error - defaults to 15000 |
+| maxWaitTimeForResponse | Set an interval in milliseconds to wait before stop looking for new results and throwing an error - defaults to 15000 |
 | [retryOn](#retrying-tests) | An array with Virtual Device error codes on which to do a retry if a test fails |
 | [retryNumber](#retrying-tests) | The number of retrys to execute if a test fails must be in the range [0,5] |
 
