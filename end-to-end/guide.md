@@ -846,7 +846,7 @@ The following are settings than can help you overcome specific testing issues. H
 | --- | --- |
 | ignoreExternalErrors | When a not controlled error happens while executing your tests, mark them as skipped instead of failures - defaults to `false` |
 | includeRaw | If true, the whole raw payload from the tested platform is included as part of the response. This provides much more insight, but makes the response a lot bigger -  defaults to true |
-| maxWaitTimeForResponse | Set an interval in milliseconds to wait before stop looking for new results and throwing an error - defaults to 15000 |
+| maxAsyncE2EWaitTime | Set an interval in milliseconds to wait before stop looking for new results and throwing an error - defaults to 15000 |
 | [retryOn](#retrying-tests) | An array with Virtual Device error codes on which to do a retry if a test fails |
 | [retryNumber](#retrying-tests) | The number of retrys to execute if a test fails must be in the range [0,5] |
 

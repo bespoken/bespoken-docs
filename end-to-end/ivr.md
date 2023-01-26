@@ -160,7 +160,7 @@ If `recordCall` is set to true, the response payload will include the `callURL` 
 IVR systems have interactions that vary in their length. When these go over the minute mark, you may find an error saying: `Timeout exceeded while waiting for the interaction response`. To fix this:
 - Make sure that you have set a correct `finishOnPhrase` value so that the test can move to the next interaction correctly
 - If you are using the `listeningTimeout` property instead, check that the value has been set to a value lower than 60 seconds
-- Finally, if the interaction is sure to last more than a minute, set the property `maxWaitTimeForResponse` in your testing.json file to a value higher than the default of 60000 ms. This will allow your tests to wait longer for a response before timing out.
+- Finally, if the interaction is sure to last more than a minute, set the property `maxAsyncE2EWaitTime` in your testing.json file to a value higher than the default of 60000 ms. This will allow your tests to wait longer for a response before timing out.
 
 ### Improving transcript accuracy
 Transcripts that are evaluated in our tests come from doing speech to text detection over the call streaming. To improve their accuracy, `transcript`, `finishOnPhrase`, and `repeatOnPhrase` values are sent to Google's speech recognition service as "hints" of what we are expecting to get back. While this is usually enough to get correct transcripts, those three properties are usually short and can also accept regular expressions that won't work as hints. For example, the star here could be used as a placeholder for "calling" and "choosing":
