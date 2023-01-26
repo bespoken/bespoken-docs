@@ -23,6 +23,7 @@ ADDITIONALLY - we now support experimentally the SMAPI Simulation API. This can 
 
 ## Installation
 ### Prerequisites
+* [Node.js v12 or above](https://nodejs.org/en/download/)
 * [npm](https://www.npmjs.com/get-npm)
 
 ### Install
@@ -38,7 +39,7 @@ bst
 You should see output like this:
 ```bash
 jpk-mbp:alexa-skill jpk$ bst
-BST: v2.0.0  Node: v8.11.1
+BST: v2.0.0  Node: v12.22.11
 
 
   Usage: bst [options] [command]
@@ -53,11 +54,48 @@ First, you need to setup a virtual device, which allows for interaction via text
 The `bst init` command is the fastest way to create all the files and folders needed to start testing your voice apps. It's a great starting point! You can read more about it [here](./../../cli/commands/#init).
 
 ## Configuration
-Global configuration options for testing skills can be set in the `testing.json` file, which is typically kept at the root level of your project.
+Global configuration options for testing can be set in the `testing.json` file, which is typically kept at the root level of your project. Here's an example of how it looks:
 
-These options can include overriding Jest options, as well as setting skill testing specific ones.
+```json
+{
+    "findReplace": {
+        "INVOCATION_NAME": "my skill"
+    }
+    "homophones": {
+        "lettuce": ["let us"],
+        "figs": ["fix", "vicks"]
+    },
+    "locales": "de-DE, en-US",
+    "platform": "alexa",
+    "type": "e2e",
+    "virtualDeviceToken": "<VIRTUAL DEVICE TOKEN>"
+}
+```
 
-The default Jest settings are as follows:
+The following are the different configuration options available:
+
+| Key | Description |
+| --- | --- |
+| [deviceLocation](./faq/#how-do-i-change-my-virtual-device-location-to-test-location-specific-features) | Only for Google virtual devices, it allows to set a specific location value from where the requests are sent. It is composed by the `lat` and `lng` keys.
+| env | The location of the .env file to load environment variables, defaults to ".env" at the project root directory|
+| [filter](#filtering-during-test) | Optional path to a class that can be used to override values on the requests and responses |
+| [findReplace](#find-replace) | Values that will be replaced in the scripts before execution |
+| [homophones](#homophones) | Values that will be replaced in actual responses from a virtual device |
+| [include/exclude](#including-or-excluding-tests-using-tags) | Run or skip the tests that match the specified set of tags |
+| lenientMode | Removes the following punctuation signs: `().-"',;:!?)` as well as any extra white spaces present in the transcript while doing assertions - defaults to `false` |
+| [locales](#locales) | The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale |
+| platform | The platform to test (alexa, google, phone, sms, whatsapp, webchat) defaults to `alexa` |
+| [runInBand](#test-running-sequence-parallelism) | If set to `true` (default), a test suite will run only when the previous one has finished running. If set to `false` test suites will run in parallel to each other - defaults to `true`|
+| stopTestOnFailure | Stops the execution of a test and continues with the next one as soon as there is an assertion error - defaults to `false` |
+| stt | Speech to text service to use on your test's utterances. Supported services are google and witai - defaults to google |
+| [trace](#viewing-response-payloads) | Causes request and response JSON payloads to be printed to the console |
+| traceOutput | Saves a copy of each request and response in the `test_output` folder for debugging purposes - defaults to false|
+| type | The type of test being run - can be `unit` or `e2e` - defaults to `unit` |
+| [virtualDeviceToken](/end-to-end/setup/) | For end-to-end tests that use virtual devices, this must be specified. [Get one here](../setup/) |
+| voiceId| For end-to-end tests that use spoken utterances, this must be specified. Sets the voice id for text to speech conversion of your utterances.|
+
+Additionally, you can override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html) under the "jest" key. Here are the default settings:
+
 ```json
 {
     "collectCoverage": true,
@@ -78,50 +116,6 @@ The default Jest settings are as follows:
     "verbose": true
 }
 ```
-
-[Learn what these do here](https://facebook.github.io/jest/docs/en/configuration.html).
-
-An example `testing.json` file for end-to-end tests:
-```json
-{
-    "findReplace": {
-        "INVOCATION_NAME": "my skill"
-    }
-    "homophones": {
-        "lettuce": ["let us"],
-        "figs": ["fix", "vicks"]
-    },
-    "locales": "de-DE, en-US",
-    "platform": "alexa",
-    "type": "e2e",
-    "virtualDeviceToken": "<TOKEN>"
-}
-```
-
-Below the end-to-end testing configuration options and what they do are listed:
-
-| Key | Description |
-| --- | --- |
-| description | The description of the set of tests |
-| [deviceLocation](./faq/#how-do-i-change-my-virtual-device-location-to-test-location-specific-features) | An object to set a specific location value from where the requests are sent in Google Virtual Devices. It is composed by the `lat` and `lng` keys.
-| env | The location of the .env file to load environment variables, defaults to ".env" at the project root directory|
-| [filter](#filtering-during-test) | The (optional) path to a class that can be used to override value on the request and response |
-| [findReplace](#find-replace) | Values that will be replaced in the scripts before execution |
-| [homophones](#homophones) | Values that will be replaced in actual responses from the virtual device |
-| html | Generate a pretty HTML report of test results - defaults to `true` |
-| [include and exclude](#including-or-excluding-tests-using-tags) | Runs or Skip the tests having the particular specified tags |
-| lenientMode | Removes the following punctuation signs: `().-"',;:!?)` as well as any extra white spaces present in the transcript while doing assertions | defaults to `false` |
-| [locales](#locales) | The locale or locales to be used - a comma-delimited list. The entire suite will be run once for each locale |
-| platform | The platform that is being tested - can be either `alexa` or `google` - defaults to `alexa` |
-| [runInBand](#test-running-sequence-parallelism) | If set to `true` (default), a test suite will run only when the previous one has finished running. If set to `false` test suites will run in parallel to each other - defaults to `true`|
-| skillId | For tests of type `simulation`, the skillId must be specified |
-| stage | For tests of type `simulation`, the stage must be specified - can be `development` or `live` |
-| stopTestOnFailure | Stops the execution of a test and continues with the next one as soon as there is an assertion error - defaults to `false` |
-| [trace](#viewing-response-payloads) | Causes request and response JSON payloads from the skill to be printed to the console |
-| type | The type of test being run - can be `unit`, `simulation`, or `e2e` - defaults to `unit` |
-| [virtualDeviceToken](/end-to-end/setup/) | For end-to-end tests that use virtual devices, this must be specified. [Get one here](../setup/) |
-
-To override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html), just set them under the "jest" key.
 
 ## BST Test
 ### Description
@@ -149,30 +143,11 @@ Or this:
 bst test MyIntent
 ```
 
-### Options
-
-| Option | Description |
-| --- | --- |
-| --version| current version of Bespoken CLI |
-| --asyncE2EWaitInterval | set how much time e2e waits to check for processed messages in ms, defaults to 5000 |
-| --asyncMode | set async mode for e2e batch process, defaults to false |
-| --config | Set the path of the testing.json file |
-| --env | The location of the .env file to load environment variables, defaults to ".env" at the project root directory|
-| [--exclude](#including-or-excluding-tests-using-tags) | Set the exclude tags to execute |
-| [--include](#including-or-excluding-tests-using-tags) | Set the include tags to execute |
-| --locales | Override the locales set in the configuration file |
-| --maxAsyncE2EResponseWaitTime | set the max time we wait for a single response in a e2e async interaction in ms, defaults to 15000 |
-| --stt | speech to text service to use, supported services are google and witai. Default value: google |
-| --trace | Override the trace set in the configuration file |
-| --virtualDeviceToken | set virtual device token |
-| --voiceId | set voice id |
-
 ### Overwriting configuration parameters
-
-If you want to run the tests with one or more parameters changed you can overwrite parameters directly from the run file. This will even replace existing parameters set on the testing.json file. For example if you want to replace the platform
+If you want to run the tests with one or more parameters changed you can overwrite default parameters directly from the command line. This will even replace existing parameters set on the `testing.json` file. For example, if you want to replace the env file path you can write:
 
 ```bash
-bst test --platform google
+bst test --env myVariables.env
 ```
 
 You can get the complete list of parameters you can use by running:
@@ -183,17 +158,15 @@ bst test --help
 
 ### Using environment variables as settings
 
-You can use environment variables inside the testing.json file by using the `${variable}` format.
-
-For example, this:
+Regarding environment variables, you can reference them inside the `testing.json` file with the `${ENVIRONMENT_VARIABLE}` format. For example, this:
 
 ```json
 {
-    "interactionModel": "${SKILL_LOCALE}.json"
+    "virtualDeviceToken": "${VIRTUAL_DEVICE_TOKEN}"
 }
 ```
 
-...will look for an environment variable called "SKILL_LOCALE" and replace the value in your testing.json file with it.
+...will look for an environment variable called "VIRTUAL_DEVICE_TOKEN" and replace the value in your testing.json file with it. This can be useful if you don't want that information exposed in a project, among other uses.
 
 ### Custom configuration path
 By convention, the testing.json file is kept under the root of the project, but you can also set a custom path for it.
@@ -201,20 +174,6 @@ By convention, the testing.json file is kept under the root of the project, but 
 ```bash
 bst test --config customPath/testing.json
 ```
-
-### SMAPI Configuration
-For tests that are of type `simulation`, they are run using the SMAPI simulation feature. This relies on the [Alexa SMAPI to execute tests](https://developer.amazon.com/docs/smapi/skill-simulation-api.html). A few requirements to use this feature:  
-* The ASK CLI must be installed and configured on the machine where tests are run
-* The skillId and stage of the skill being tested must be specified as part of the configuration
-* Testing must be enabled for the skill in the Alexa dev console
-
-These tests are similar to `e2e` tests in that they interact with the "real" skill. However, they do not actually "speak" to Alexa using text-to-speech but instead use text invocations.
-
-Simulation tests return the full skill payload from Alexa, similar to a unit-test.
-
-**Limitations:**
-* SMAPI doesn't support digits, so all numbers should be sent as words.
-
 
 ## Tests
 
@@ -225,21 +184,18 @@ The tests represent discreet conversations with your voice app. Each test can ha
 ```yml
 ---
 configuration:
-  locales: en-US
+  description: My first test suite
+  locale: en-US
+
+---
+- test: open, no further interaction
+- open get fact: here's your fact
 
 ---
 - test: open, no further interaction
 - open get fact:
   - prompt: here's your fact
-  - cardContent: /.*/
-  - cardTitle: Space Facts
-
----
-- test: open, no further interaction
-- open get fact:
-  - prompt: here's your fact
-  - cardContent: /.*/
-  - cardTitle: Space Facts
+  - caption: Welcome to the facts skill
 - help: just say get fact to get a fact
 - stop: goodbye
 ```
@@ -253,23 +209,27 @@ The tests represent sequence of conversations with the skill.
 They can use specific requests (such as LaunchRequest or SessionEndedRequest), or they can simply be an utterance.
 
 ### Test Suite Configuration
-The test suite file can optionally have a configuration section, which contains setup data about the test. It looks like this:  
+The test suite file can optionally have a configuration section. This is a good place to put things that vary between sets of tests - such as the voice to use for Speech-To-Text or the name of the suite. It looks like this:  
+
 ```yaml
 configuration:
-  voiceId: <The Polly Voice ID to use for TTS>
+  description: A friendly name for your test suite
   locale: <en-US, en-GB, de-DE, etc.>
+  voiceId: <The Voice ID to use for TTS>
 ```
 
-This is a place to put things that vary between sets of tests - such as the voice to use for Speech-To-Text or the locale.
+### Available voices
+We use different voice providers for our tests. To change the voice used for your tests, simply specify the voiceId you want to use in your `testing.json` file. The lisf of available voices can be found below:
 
-The list of available voices from Polly is [found here](https://docs.aws.amazon.com/polly/latest/dg/voicelist.html). We also support Google Text-To-Speech - options for Google TTS are [found here](https://cloud.google.com/text-to-speech/docs/voices).
+* [Amazon Polly](https://docs.aws.amazon.com/polly/latest/dg/voicelist.html)
+* [Google Speech to Text](https://cloud.google.com/text-to-speech/docs/voices)
 
 ### Test Structure
 The start of a test is marked with three dashes on a line - `---`.
 
-It can be followed by an optional test description, which looks like this:
+It can be followed by an optional test description or name, which looks like this:
 ```yml
-- test: Description of my test
+- test: First test
 ```
 
 This description, if provided, must be the first line in the test.
@@ -337,11 +297,6 @@ A typical response from a virtual device call looks like this:
 {
     "message": "utterance",
     "utteranceURL": "url that contains the utterance in audio form",
-    "card": {
-      "content": "Alexa only - Card Content",
-      "title": "Alexa only - Card Title",
-      "imageURL": "Alexa only - Card image URL"
-    },
     "streamURL": "streaming url (for audio skills)",
     "transcript": "speech to text result from the voice platform's audio response",
     "display": {},
@@ -351,11 +306,12 @@ A typical response from a virtual device call looks like this:
     },
     "raw": {}
 }
+```
 
 The `display` property contains any raw JSON response related to display information on the response.
 The `raw` property contains the whole JSON response coming back from the voice platform. In the case of Alexa, this means all the directives are included here.
 
-```
+
 ### Assertions
 An assertion follows a simple syntax:
  `[JSONPath/Shorthand Property] [Operator] [Expected Value]`
@@ -600,9 +556,9 @@ To avoid this, just define a homophone in the configuration file like so:
 ```
 
 ### Test Running Sequence - Parallelism
-Individual tests run in the order in which they appear in their file. Test suites, however, run in random order and, by default, in serial. You can change this behavior by setting the `runInBand` property to `false` in your testing.json file, allowing test suites to run much faster and in parallel.
+Individual tests run in the order in which they appear in their file. Test suites, however, run in random order and, by default, one after another. You can change this behavior by setting the `runInBand` property to `false` in your testing.json file, allowing test suites to run much faster and in parallel.
 
-Be aware that, when enabling parallelism, you will need to define a different virtual device within each of your test suites, and these should be from unique Amazon/Google accounts. Otherwise, you'll run into concurrency issues.
+Be aware that, for Alexa and Google Assistant tests, you will need to define a different virtual device within each of your test suites, and these should be from unique accounts. Otherwise, you'll run into concurrency issues.
 
 Here's how test suites running in parallel looks like:
 
@@ -646,43 +602,6 @@ When utterances, slot values and assertions are being resolved, tokens from the 
 In this scenario, when the test is run for the en-US locale, the utterance will be replaced by "Open Space Facts" and the output speech will be compared to "Here's your fact", the value that heresIsAFact resolves to in our locale file.
 
 To see a complete example, [check out this project](https://github.com/bespoken-samples/space-facts/tree/master/test/e2e).
-
-### Batch or Sequential Tests
-You can run end-to-end tests in batch or sequential mode by changing the `batchEnabled` property. Enabling batch mode means that, for every test, utterances are sent to the virtual device service as a group at the start of the test run. The service will process each message accordingly and return all their responses in a single payload at the end. This is the default behavior for Alexa and Google end-to-end tests.
-
-Changing the `batchEnabled` property to false modifies this by sending utterances one after the other, as soon as a response is received for each interaction. The final result should be the same using any of the two modes, but we strongly recommend the batch mode since it will reduce back and forth messages, providing faster and more reliable results.
-
-If you need to get progressive results while using the batch mode, you can also use the `asyncMode` property. False by default, setting this to true will generate a "conversation id" that's used to query the current process status multiple times, every couple of seconds. Effectively "simulating" a sequential mode.
-
-### Goto And Exit
-One advanced feature is support for `goto` and `exit`. This feature is only available if "batchEnabled" is set to false.
-
-Goto comes at the end of an assertion - if the assertion is true, the test will "jump" to the utterance named.
-Unlike regular assertions, ones that end in "goto" will not be deemed a failure if the comparison part of the assertion is not true.
-
-For example:
-```yml
----
-- test: Goes to successfully
-- open my skill:
-  - prompt == "Here's your fact" goto Get New Fact
-  - cardContent == /.*/
-  - exit
-- Help:
-  - response.outputSpeech.ssml == "Here's your fact:*"
-  - response.card.content =~ /.*/
-- Get New Fact:
-  - response.outputSpeech.ssml == "ABC"
-  - response.card.content =~ /.*/
-```
-
-In this case, if the outputSpeech starts with "Here's your fact",
-the test will jump to the last interaction and say "Get New Fact".
-
-If the outputSpeech does not start with "Get New Fact", the other assertions will be evaluated.
-The test will end when it reaches the `exit` statement at the end (no further interactions will be processed).
-
-Using `goto` and `exit`, more complex tests can be built.
 
 ### Pause
 
@@ -774,7 +693,7 @@ module.exports = {
 
 ```
 
-Notice that this method is meant only for the right side of an assertion (i.e. expected values and not utterances). This replacement will be done after the response is gotten from the test but before the evaluation of the assertion. By default, we send all the interactions in batch in the test. If you need this replacement to be done after each utterance, ensure that [sequential mode](#batch-or-sequential-tests) is enabled.
+Notice that this method is meant only for the right side of an assertion (i.e. expected values and not utterances). This replacement will be done after the response is gotten from the test but before the evaluation of the assertion. 
 
 ### Including or excluding tests using tags
 
@@ -926,17 +845,13 @@ The following are settings than can help you overcome specific testing issues. H
 
 | Key | Description |
 | --- | --- |
-| [asyncMode](#batch-or-sequential-tests) | Only works when batchEnabled is true, if asyncMode is false we wait for all the results, if it is true we retrieve them asynchronously - defaults to false |
-| [asyncE2EWaitInterval](#batch-or-sequential-tests) | Set an interval in milliseconds to wait before querying for new results, when batchEnabled is set to false - defaults to 5000 |
-| [batchEnabled](#batch-or-sequential-tests) | If it is true we sent the complete set of utterances to the virtual device server in a test, if it is false we sent them one by one - defaults to true |
-| ignoreExternalErrors | When a not controlled error happens while executing your tests, marks them as skipped instead of failures - defaults to `false` |
-| [includeRaw](#batch-or-sequential-tests) | If true, the whole raw response from Alexa or Google is included as part of the response. This provides much more response details, but makes the response a lot bigger -  defaults to true |
-| [maxAsyncE2EResponseWaitTime](#batch-or-sequential-tests) | Set an interval in milliseconds to wait before stop looking for new results, when batchEnabled is set to false - defaults to 15000 |
+| ignoreExternalErrors | When a not controlled error happens while executing your tests, mark them as skipped instead of failures - defaults to `false` |
+| includeRaw | If true, the whole raw payload from the tested platform is included as part of the response. This provides much more insight, but makes the response a lot bigger -  defaults to true |
+| maxAsyncE2EWaitTime | Set an interval in milliseconds to wait before stop looking for new results and throwing an error - defaults to 15000 |
 | [retryOn](#retrying-tests) | An array with Virtual Device error codes on which to do a retry if a test fails |
 | [retryNumber](#retrying-tests) | The number of retrys to execute if a test fails must be in the range [0,5] |
-| virtualDeviceBaseURL | Sets a custom base address for the Virtual Device API endpoints |
 
-## Further Reading
+## Further Reading 
 Take a look at:
 * Our [getting started guide](/end-to-end/getting-started/)
 * Our [example project](https://github.com/bespoken-samples/virtual-device-example/)

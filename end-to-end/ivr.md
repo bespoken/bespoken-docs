@@ -97,7 +97,7 @@ configuration:
 
 "Utterance" level parameters are set inside each test with the use of the reserved keyword `set`.
 
-Finally, IVR tests are always executed in [batch](https://read.bespoken.io/end-to-end/guide/#batch-or-sequential-tests) with `asyncMode` enabled by default and a [max response wait time](#increasing-the-response-wait-time) of one minute per interaction. 
+Finally, IVR tests are always executed with a [max response wait time](#increasing-the-response-wait-time) of one minute per interaction. 
 
 ## Special syntax
 ### The $DIAL Command
@@ -139,7 +139,7 @@ Information about supported audio formats can be found [here](https://www.twilio
 The `bst init` command is the fastest way to create all the files and folders needed to start testing your IVR system. It's a great starting point! You can read more about it [here](./../../cli/commands/#init).
 
 ## Test Running Sequence - Parallelism
-Individual tests run in the order in which they appear in their file. Test suites, however, run in random order and, by default, in serial. You can change this behavior by setting the `runInBand` property to `false` in your testing.json file, allowing test suites to run much faster and in parallel.
+Individual tests run in the order in which they appear in their file. Test suites, however, run in random order and, by default, one after another. You can change this behavior by setting the `runInBand` property to `false` in your `testing.json` file, allowing test suites to run much faster and in parallel.
 
 When enabling parallelism for IVR scripts, you don't need to define different virtual devices for your test suites, as multiple calls using the same phone virtual device are allowed.
 
@@ -160,7 +160,7 @@ If `recordCall` is set to true, the response payload will include the `callURL` 
 IVR systems have interactions that vary in their length. When these go over the minute mark, you may find an error saying: `Timeout exceeded while waiting for the interaction response`. To fix this:
 - Make sure that you have set a correct `finishOnPhrase` value so that the test can move to the next interaction correctly
 - If you are using the `listeningTimeout` property instead, check that the value has been set to a value lower than 60 seconds
-- Finally, if the interaction is sure to last more than a minute, set the property `maxAsyncE2EResponseWaitTime` in your testing.json file to a value higher than the default of 60000 ms. This will allow your tests to wait longer for a response before timing out.
+- Finally, if the interaction is sure to last more than a minute, set the property `maxAsyncE2EWaitTime` in your testing.json file to a value higher than the default of 60000 ms. This will allow your tests to wait longer for a response before timing out.
 
 ### Improving transcript accuracy
 Transcripts that are evaluated in our tests come from doing speech to text detection over the call streaming. To improve their accuracy, `transcript`, `finishOnPhrase`, and `repeatOnPhrase` values are sent to Google's speech recognition service as "hints" of what we are expecting to get back. While this is usually enough to get correct transcripts, those three properties are usually short and can also accept regular expressions that won't work as hints. For example, the star here could be used as a placeholder for "calling" and "choosing":
