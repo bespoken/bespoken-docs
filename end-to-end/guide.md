@@ -306,11 +306,12 @@ A typical response from a virtual device call looks like this:
     },
     "raw": {}
 }
+```
 
 The `display` property contains any raw JSON response related to display information on the response.
 The `raw` property contains the whole JSON response coming back from the voice platform. In the case of Alexa, this means all the directives are included here.
 
-```
+
 ### Assertions
 An assertion follows a simple syntax:
  `[JSONPath/Shorthand Property] [Operator] [Expected Value]`
