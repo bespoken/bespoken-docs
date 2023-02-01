@@ -1,6 +1,11 @@
 module.exports = {
-    title: "Bespoken Docs",
+    title: "Bespoken Documents",
     description: "Bespoken Documentation",
+    head: [
+      //['link', { rel: 'icon', href: '/favicon.ico' }]
+      ['script', { src: 'https://cdn.tailwindcss.com'} ],
+      ['link', { href: "/override.css", rel: "stylesheet", type: "text/css" }]
+    ],
     themeConfig: {
         algolia: {
             apiKey: '36d68ce99344a644d0bc7667b5ee4003',
@@ -9,19 +14,18 @@ module.exports = {
         },
         bespokenUri: "https://bespoken.io/",
         logo: "/assets/images/BespokenLogo-small.png",
-        head: [
-            ['link', { rel: 'icon', href: '/favicon.ico' }]
-        ],
+        
         nav: [
             { text: "CLI AND PROXY", link: "/cli/getting-started/" },
             { text: "UNIT TESTING", link: "/unit-testing/getting-started/" },
             { text: "END-TO-END TESTING", link: "/end-to-end/getting-started/" },
-            { text: "CONTINUOUS TESTING", link: "https://bespoken.io/blog/monitor-alexa-skills-or-google-actions/" },
+            { text: "TRAINING", link: "/training/overview" },
         ],
         sidebar: {
             "/cli/": getCliSidebar(),
             "/unit-testing/": getUnitTestingSidebar(),
             "/end-to-end/": getEndToEndSidebar(),
+            "/training/ivr/functional/": getTrainingIVR()
         },
     },
     // https://stackoverflow.com/questions/53874577/vuepress-how-to-get-the-processed-image-filename
@@ -89,4 +93,24 @@ function getEndToEndSidebar() {
             ]
         }
     ];
+}
+
+
+function getTrainingIVR() {
+  return [
+      {
+          title: "IVR Functional Testing",
+          collapsable: true,
+          children: [
+              "overview",
+              "subscribe",
+              "device",
+              "test",
+              "homophones",
+              "voices",
+              "end-of-speech",
+              "going-further"
+          ]
+      }
+  ];
 }

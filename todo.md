@@ -1,3 +1,16 @@
+# Training
+* Show navigation on the left
+* Remove space after Watch
+* Put video into side-panel and allow it to expand?
+* Have images to the right of instructions? Hover to show the image?
+* Add title to sections
+* Advanced topics
+  * Github
+  * Integration with reporting systems
+  * YAML
+  * SDK
+
+# General
 - [X] Add logo
 - [X] Fix arrow behavior on main page
 - [X] Bring in bst docs

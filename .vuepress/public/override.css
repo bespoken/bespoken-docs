@@ -1,0 +1,13 @@
+.page div.theme-default-content h2 {
+  margin-bottom: 1vh;
+  margin-top: 0vh;
+  padding-top: 2vh;
+}
+
+.page li {
+  list-style-type: disc;
+}
+
+.page ul {
+  padding-bottom: 1vh;
+}
