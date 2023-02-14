@@ -1,4 +1,7 @@
 # Training
+* Add upfront value statements
+  * Why testing 
+  * What are the savings
 * Show navigation on the left
 * Remove space after Watch
 * Put video into side-panel and allow it to expand?
