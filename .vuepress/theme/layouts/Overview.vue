@@ -86,7 +86,7 @@
 
 <script>
 import { resolvePage, outboundRE, endingSlashRE } from '../util'
-import Training from '@theme/layouts/Training2.vue'
+import Training from '@theme/layouts/Training.vue'
 
 export default {
   components: { Training },

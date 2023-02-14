@@ -1,6 +1,6 @@
 ---
 title: Training
-layout: Home
+layout: Overview
 permalink: /training/overview
 ---
 # Training Overview
