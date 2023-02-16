@@ -1,5 +1,14 @@
 module.exports = {
     title: "Bespoken Docs",
+    plugins: [
+      [
+        '@vuepress/google-analytics',
+        {
+          'ga': 'G-WVSYLZ119Q',
+          'gm': 'G-WVSYLZ119Q'
+        }
+      ]
+    ],
     description: "Bespoken Documentation",
     head: [
       //['link', { rel: 'icon', href: '/favicon.ico' }]
