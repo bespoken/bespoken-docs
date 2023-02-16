@@ -97,7 +97,7 @@ export interface ICard {
 
 ### Adding homophones
 
-Our end-to-end tests use speech recognition for turning the output speech coming back from the virtual device into text.
+Our functional tests use speech recognition for turning the output speech coming back from the virtual device into text.
 
 This process is imperfect - to compensate for this, homophones can be specified for errors that occur when a reply from the virtual device is misunderstood.
 

@@ -3,9 +3,9 @@ title: In-depth Guide
 permalink: /end-to-end/guide/
 ---
 
-# Complete Guide to End-to-end Testing
+# Complete Guide to Functional Testing
 ## Overview
-Bespoken End-to-end Test Scripts make it easy for anyone to write automated tests for Alexa and Google Assistant.
+Bespoken Functional Test Scripts make it easy for anyone to write automated tests for Alexa and Google Assistant.
 
 The syntax is based on YAML, and is meant to be easy to read and write. [Learn more about YAML syntax here](http://yaml.org/spec/1.2/spec.html#Preview).
 
@@ -17,7 +17,7 @@ Jest has been configured with a custom test runner, which:
 * Works with YAML files, fitting the structure described in this document
 * Runs using our [Virtual Device SDK](https://github.com/bespoken/virtual-device-sdk) to interact directly with Alexa and/or Google assistant
 
-We use the same basic format for unit-testing and end-to-end testing, but there are differences in how the tests should be written. For information on unit-testing, [read here](/unit-testing/guide/).
+We use the same basic format for unit-testing and functional testing, but there are differences in how the tests should be written. For information on unit-testing, [read here](/unit-testing/guide/).
 
 ADDITIONALLY - we now support experimentally the SMAPI Simulation API. This can be enabled using the type of `simulation`.
 
@@ -91,8 +91,8 @@ The following are the different configuration options available:
 | [trace](#viewing-response-payloads) | Causes request and response JSON payloads to be printed to the console |
 | traceOutput | Saves a copy of each request and response in the `test_output` folder for debugging purposes - defaults to false|
 | type | The type of test being run - can be `unit` or `e2e` - defaults to `unit` |
-| [virtualDeviceToken](/end-to-end/setup/) | For end-to-end tests that use virtual devices, this must be specified. [Get one here](../setup/) |
-| voiceId| For end-to-end tests that use spoken utterances, this must be specified. Sets the voice id for text to speech conversion of your utterances.|
+| [virtualDeviceToken](/end-to-end/setup/) | For functional tests that use virtual devices, this must be specified. [Get one here](../setup/) |
+| voiceId| For functional tests that use spoken utterances, this must be specified. Sets the voice id for text to speech conversion of your utterances.|
 
 Additionally, you can override [Jest options](https://facebook.github.io/jest/docs/en/configuration.html) under the "jest" key. Here are the default settings:
 
@@ -131,7 +131,7 @@ When running `bst test`, it automatically searches for files with the following 
 * `**/*.test.yml`
 
 Any tests that match these patterns will be run.
-A recommended convention is to sort test files under a test dir, and to label end-to-end tests as `IntentName.e2e.yml`, where each test file contains tests for a specific intent.
+A recommended convention is to sort test files under a test dir, and to label functional tests as `IntentName.e2e.yml`, where each test file contains tests for a specific intent.
 
 When invoking `bst test`, the name of a specific test or regex can be used, like this:
 ```bash
@@ -272,8 +272,8 @@ URL:
 For more details on how to write SSML, look [here](#ssml).
 
 Prerecorded audios that are sent as utterances should have the following formats: 
-- Any of the [FFMPEG supported audio formats](https://ffmpeg.org/ffmpeg-formats.html) for regular end-to-end tests.
-- Any of the [Twilio Play supported audio formats](https://www.twilio.com/docs/voice/twiml/play#nouns) for IVR end-to-end tests. 
+- Any of the [FFMPEG supported audio formats](https://ffmpeg.org/ffmpeg-formats.html) for regular functional tests.
+- Any of the [Twilio Play supported audio formats](https://www.twilio.com/docs/voice/twiml/play#nouns) for IVR functional tests. 
 
 ### Invocation Names
 The first utterance of your test should contain the invocation name of your voice app. It is important to know that since you'll be interacting with your voice platform directly, you don't need to use the wake words "Alexa" or "Hey Google". 
@@ -383,7 +383,7 @@ To get the namespace of the first directive, the JSONPath property would look li
 
 You can play around more with how JSONPath works [here](http://jsonpath.com/). Just make sure to wrap your assertion in double quotes if you use these, so that they don't conflict with the YAML syntax.
 
-Note that the response output from the Virtual Device is much more limited than what your actual skill returns. This is a limitation of what is provided by Alexa Voice Service/Google Assistant. To test the actual JSON response from your skill, we recommend writing unit-tests - they use the same structure as our end-to-end test but can be run locally and have access to the full skill payload. [More info here](/unit-testing/guide/).
+Note that the response output from the Virtual Device is much more limited than what your actual skill returns. This is a limitation of what is provided by Alexa Voice Service/Google Assistant. To test the actual JSON response from your skill, we recommend writing unit-tests - they use the same structure as our functional test but can be run locally and have access to the full skill payload. [More info here](/unit-testing/guide/).
 
 #### Shorthand Properties
 We offer short-hand properties for certain commonly accessed elements. These are:
@@ -529,7 +529,7 @@ Will be turned into this:
 This is a useful feature for tests that are run against multiple instances of the same skill, where there are slight variations in the input or output.
 
 ### Homophones
-Our end-to-end tests use speech recognition for turning the output speech coming back from Alexa into text.
+Our functional tests use speech recognition for turning the output speech coming back from Alexa into text.
 
 This process is imperfect - to compensate for this, homophones can be specified for errors that occur when a reply from Alexa is misunderstood.
 
@@ -782,7 +782,7 @@ configuration:
 ```
 ### Retrying tests 
 
-As end-to-end tests depend on external services, sometimes things unrelated to your voice applications can fail and spoil a long-running test session. To prevent that from happening, you can set a number of times in which your tests should be retried before marking them as failed. To do this, you need to set the following properties in your testing.json file:
+As functional tests depend on external services, sometimes things unrelated to your voice applications can fail and spoil a long-running test session. To prevent that from happening, you can set a number of times in which your tests should be retried before marking them as failed. To do this, you need to set the following properties in your testing.json file:
 
 ```json
 {

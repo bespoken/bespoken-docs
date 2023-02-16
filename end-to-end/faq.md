@@ -1,24 +1,24 @@
 ---
-title: FAQ (End to End Testing)
+title: FAQ (Functional Testing)
 permalink: /end-to-end/faq/
 ---
 
-# FAQ for End-to-end Testing
-Here you can find common questions on regards End-to-end testing for voice apps.
+# FAQ for Functional Testing
+Here you can find common questions on regards functional testing for Conversational AI.
 
 # **Getting started**
 
-## **What is End-to-end (E2E) testing and why do I need it?**
->_End-to-end testing involves ensuring that the integrated components of an application function as expected. The entire application is tested in a real-world scenario such as communicating with the database, network, hardware and other applications ... Techopedia_
+## **What is Functional testing and why do I need it?**
+>_Functional testing involves ensuring that the integrated components of an application function as expected. The entire application is tested in a real-world scenario such as communicating with the database, network, hardware and other applications ... Techopedia_
 
-Talking specifically about voice apps. End-to-end tests focus on testing:
-* The voice app as a whole (from Alexa/Google through infrastructure to voice app).
+Talking specifically about voice apps. Functional tests focus on testing:
+* The voice app as a whole (from IVR/Alexa/Google through infrastructure to voice app).
 * The utterance resolution aka the speech recognition.
 * The interaction models.
 
-You need to do E2E testing because it's critical to be sure your voice app will behave as expected before it reaches your users. Most apps work with other services and use different pieces of technology and testing only your code (i.e. just doing Unit testing) is no guarantee you are free from errors.
+You need to do functional testing because it's critical to be sure your voice app will behave as expected before it reaches your users. Most apps work with other services and use different pieces of technology and testing only your code (i.e. just doing Unit testing) is no guarantee you are free from errors.
 
-Our approach to E2E testing is based on the creation and execution of __test scripts__. Ideally, the test scripts should cover the entire functionality of your voice app.
+Our approach to functional testing is based on the creation and execution of __test scripts__. Ideally, the test scripts should cover the entire functionality of your voice app.
 
 E2E testing and Regression testing are two types of _functional testing_.
 
@@ -35,7 +35,7 @@ An interaction is a group of utterances and expected responses that are executed
 
 As with Unit testing, the functional test scripts are based on our simple YAML syntax, which is very easy to understand, create and maintain.
 
-## **What permissions are needed for End-to-end Testing?**
+## **What permissions are needed for Functional Testing?**
 When you get a token from Bespoken’s Dashboard, what actually happens behind the scenes is we create a Virtual Device to interact with your skills. Virtual Devices need permissions to access your voice apps.
 
 The specific permissions are to access Alexa Voice Services and Alexa Account Connection. This allows us to interact with your skills programmatically. 
@@ -43,12 +43,12 @@ The specific permissions are to access Alexa Voice Services and Alexa Account Co
 Remember, you can remove access at any time by visiting your Alexa account [online](https://alexa.amazon.com/spa/index.html#settings) or via the Alexa app.
 
 ## **Is it possible to test skills written in languages other than Javascript?**
-Yes, it is possible. Our tools are language agnostic. For example, you can create [unit](https://read.bespoken.io/unit-testing/getting-started/) or [end-to-end](https://read.bespoken.io/end-to-end/getting-started/) test scripts using our syntax based on YAML regardless of the language used to create the voice app. We also provide SDKs for writing tests programmatically - also available for both [unit](https://github.com/bespoken/virtual-alexa) and [end-to-end](https://read.bespoken.io/end-to-end/api/) testing. In either case, our tests work with your skill regardless of the language it is written in. 
+Yes, it is possible. Our tools are language agnostic. For example, you can create [unit](https://read.bespoken.io/unit-testing/getting-started/) or [functional](https://read.bespoken.io/end-to-end/getting-started/) test scripts using our syntax based on YAML regardless of the language used to create the voice app. We also provide SDKs for writing tests programmatically - also available for both [unit](https://github.com/bespoken/virtual-alexa) and [functional](https://read.bespoken.io/end-to-end/api/) testing. In either case, our tests work with your skill regardless of the language it is written in. 
 
 ## **Is it better to use the YAML syntax or the programmatic SDKs for testing?**
-Both are good choices. In the case of unit-testing, our YAML tests actually rely on [Virtual Alexa](https://github.com/bespoken/virtual-alexa/) under the covers. In the case of end-to-end tests, similarly our YAML test scripts rely on our [Virtual Device SDK](https://github.com/bespoken/virtual-device-sdk/). The big advantage of our YAML syntax is that it allows tests to be written in the same way no matter what type of test it is (unit or end-to-end), and what platform it works with (Google or Alexa). It also does not require programming skills. On the other hand, for many programmer using our programmatic APIs is easy and more what they are accustomed to - it also allows for writing tests that are more complex, such as ones that call external APIs to validate results. So the best approach takes into consideration the type of tests being written, as well as the skillset of the testing team.
+Both are good choices. In the case of unit-testing, our YAML tests actually rely on [Virtual Alexa](https://github.com/bespoken/virtual-alexa/) under the covers. In the case of end-to-end tests, similarly our YAML test scripts rely on our [Virtual Device SDK](https://github.com/bespoken/virtual-device-sdk/). The big advantage of our YAML syntax is that it allows tests to be written in the same way no matter what type of test it is (unit or functional), and what platform it works with (Google or Alexa). It also does not require programming skills. On the other hand, for many programmer using our programmatic APIs is easy and more what they are accustomed to - it also allows for writing tests that are more complex, such as ones that call external APIs to validate results. So the best approach takes into consideration the type of tests being written, as well as the skillset of the testing team.
 
-## **How do I run end-to-end tests?**
+## **How do I run functional tests?**
 To get started, you need to install the Bespoken CLI, please follow next steps:
 1. Install the CLI by running `npm install -g bespoken-tools` on your command line.
 2. Open a command-line window and change directory to the root of your `<PROJECT_FOLDER>`
@@ -80,7 +80,7 @@ Snapshots:   0 total
 Time:        150.985s
 ```
 
-## **Can I use my own prerecorded audios with your tests?
+## **Can I use my own prerecorded audios with your tests?**
 Yes, you certainly can. To do this, you need to replace utterances in your tests with a publicly available URL containing your audio files. Like this:
 
 ```yaml
@@ -90,8 +90,8 @@ Yes, you certainly can. To do this, you need to replace utterances in your tests
 ```
 
 Prerecorded audios that are sent as utterances should have the following formats: 
-- Any of the [FFMPEG supported audio formats](https://ffmpeg.org/ffmpeg-formats.html) for regular end-to-end tests.
-- Any of the [Twilio Play supported audio formats](https://www.twilio.com/docs/voice/twiml/play#nouns) for IVR end-to-end tests. 
+- Any of the [FFMPEG supported audio formats](https://ffmpeg.org/ffmpeg-formats.html) for regular functional tests.
+- Any of the [Twilio Play supported audio formats](https://www.twilio.com/docs/voice/twiml/play#nouns) for IVR functional tests. 
 
 ## **Does Bespoken support the Amazon SMAPI Simulation API for testing?**
 Yes, we do in our latest versions, now that the Simulation API supports multi-turn testing.
@@ -105,7 +105,7 @@ To use this feature, set your test type to `simulation`. The feature support is 
 Read more about it in our [full guide](/end-to-end/guide/#smapi-configuration).
 
 ## **How do I learn more?**
-Take a look at this [__sample project__](https://github.com/bespoken-samples/virtual-device-example) and use it as a base to start creating your own functional test scripts. For more info on End-to-end testing please read [__here__](https://read.bespoken.io/end-to-end/getting-started).
+Take a look at this [__sample project__](https://github.com/bespoken-samples/virtual-device-example) and use it as a base to start creating your own functional test scripts. For more info on functional testing please read [__here__](https://read.bespoken.io/end-to-end/getting-started).
 If you need assistance reach us on any of these channels:
 * [Email](mailto:contact@bespoken.io)
 * [Twitter](https://twitter.com/bespokenio)
@@ -191,7 +191,7 @@ And this is how a `testing.json` file would look like if you'd want to use a dif
 }
 ```
 
-## **How do I troubleshoot end-to-end tests for Alexa?**
+## **How do I troubleshoot functional tests for Alexa?**
 We recommend taking into account the following:
 - Set the trace option to __true__ in the `testing.json` file to see the response coming from Alexa/Google.
 
@@ -349,7 +349,7 @@ configuration:
 ```
 
 ## **The response from my skill is not what I expected. What should I do?**
-Our end-to-end tests use speech recognition for turning the output speech coming back from Alexa into text. This process is imperfect - to compensate for this, homophones can be specified for errors that occur when a reply from Alexa is misunderstood. For example, if Alexa says: `address sent to your white car`; the Bespoken Virtual Device may transcribe it as: `address sent to your wife car`
+Our functional tests use speech recognition for turning the output speech coming back from Alexa into text. This process is imperfect - to compensate for this, homophones can be specified for errors that occur when a reply from Alexa is misunderstood. For example, if Alexa says: `address sent to your white car`; the Bespoken Virtual Device may transcribe it as: `address sent to your wife car`
 
 (FYI, for Alexa, the definitive response can be found at the Alexa user console, under settings -> history).
 

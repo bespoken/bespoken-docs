@@ -1,5 +1,5 @@
 module.exports = {
-    title: "Bespoken Documents",
+    title: "Bespoken Docs",
     description: "Bespoken Documentation",
     head: [
       //['link', { rel: 'icon', href: '/favicon.ico' }]
@@ -17,16 +17,17 @@ module.exports = {
         logo: "/assets/images/BespokenLogo-small.png",
         
         nav: [
-            { text: "CLI AND PROXY", link: "/cli/getting-started/" },
-            { text: "UNIT TESTING", link: "/unit-testing/getting-started/" },
-            { text: "END-TO-END TESTING", link: "/end-to-end/getting-started/" },
+            { text: "ACCURACY TESTING", link: "https://bespoken.io/accuracy-testing/" },
+            { text: "FUNCTIONAL TESTING", link: "/end-to-end/getting-started/" },
+            { text: "LOAD TESTING", link: "https://bespoken.io/ivr-load-testing/"},
+            { text: "MONITORING", link: "https://bespoken.io/monitoring/" },
             { text: "TRAINING", link: "/training/overview" },
+            { text: "FAQ", link: "/end-to-end/faq" },
         ],
         sidebar: {
-            "/cli/": getCliSidebar(),
-            "/unit-testing/": getUnitTestingSidebar(),
             "/end-to-end/": getEndToEndSidebar(),
-            "/training/ivr/functional/": getTrainingIVR()
+            "/training/ivr/functional/": getTrainingIVR(),
+            "/training/chatbot/functional/": getTrainingChatbot()
         },
     },
     // https://stackoverflow.com/questions/53874577/vuepress-how-to-get-the-processed-image-filename
@@ -81,7 +82,7 @@ function getUnitTestingSidebar() {
 function getEndToEndSidebar() {
     return [
         {
-            title: "End-to-end Testing",
+            title: "Functional Testing",
             collapsable: true,
             children: [
                 "getting-started",
@@ -111,6 +112,25 @@ function getTrainingIVR() {
               "voices",
               "end-of-speech",
               "going-further"
+          ]
+      }
+  ];
+}
+
+
+function getTrainingChatbot() {
+  return [
+      {
+          title: "Chatbot Functional Testing",
+          collapsable: true,
+          children: [
+              "overview",
+              "subscribe",
+              "device",
+              "configure",
+              "test",
+              "jquery",
+              "sample"
           ]
       }
   ];

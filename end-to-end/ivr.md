@@ -3,12 +3,12 @@ title: IVR Testing Guide
 permalink: /end-to-end/ivr/
 ---
 
-# End-To-End Testing for Interactive Voice Response systems
+# Functional Testing for Interactive Voice Response systems
 We provide support for Interactive Voice Response (IVR) and Intelligent Virtual Agent (IVA) systems by leveraging Twilio to interact with them.
 
-Most of the features from our standard end-to-end testing work as normal for this, but there are some special features that we will cover in this guide.
+Most of the features from our standard functional testing work as normal for this, but there are some special features that we will cover in this guide.
 
-For in-depth information on how our end-to-end testing works, [read here](/end-to-end/guide/).
+For in-depth information on how our functional testing works, [read here](/end-to-end/guide/).
 
 ## Approach
 Take a look at the following excerpt from a call made to the American Airlines IVR system.
