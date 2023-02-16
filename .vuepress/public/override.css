@@ -4,6 +4,9 @@
   padding-top: 2vh;
 }
 
+.page h1 {
+  font-size: 24pt;
+}
 .page li {
   list-style-type: disc;
 }
