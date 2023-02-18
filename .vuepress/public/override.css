@@ -1,5 +1,13 @@
+main.page h2 {
+  font-size: 18pt;
+}
+
 main.page p {
   padding-bottom: 8px;
+}
+
+main.page ul {
+  margin-left: 15px;
 }
 
 .page div.theme-default-content h2 {
@@ -11,6 +19,7 @@ main.page p {
 .page h1 {
   font-size: 24pt;
 }
+
 .page li {
   list-style-type: disc;
 }

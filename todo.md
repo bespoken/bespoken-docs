@@ -1,11 +1,11 @@
 # Training
 * Fix fonts
 * Sections
-  * Monitoring (Chatbot)
-  * Monitoring (IVR)
-  * Accuracy (IVR)
-  * Load Testing (IVR)
-  * Load Testing (Chat)
+  - [ ] Monitoring (Chatbot)
+  - [ ] Monitoring (IVR)
+  - [ ] Accuracy (IVR)
+  - [ ] Load Testing (IVR)
+  - [ ] Load Testing (Chat)
 * Change header links to point to training sections for accuracy, monitoring and load
 * Change new paragraph spacing
 * Advanced topics
