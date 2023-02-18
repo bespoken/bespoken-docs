@@ -120,6 +120,7 @@ function getTrainingIVR() {
               "homophones",
               "voices",
               "end-of-speech",
+              "reporting",
               "going-further"
           ]
       }
@@ -137,6 +138,7 @@ function getTrainingChatbot() {
               "subscribe",
               "device",
               "configure",
+              "recordings",
               "test",
               "jquery",
               "sample"

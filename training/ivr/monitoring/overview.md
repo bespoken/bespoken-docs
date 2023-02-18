@@ -1,11 +1,11 @@
 ---
 title: Overview
-permalink: /training/ivr/functional/overview
+permalink: /training/ivr/monitoring/overview
 ---
 # Training Overview
 <video width="640" height="480" controls >
   <!--<source src='/assets/videos/Dashboard-IVR-IBM.mp4' alt="foo"  type="video/mp4">-->
-  <source src='https://bespoken-random.s3.amazonaws.com/Bespoken_Dashboard_Demo_extended.mp4#t=0' alt="Bespoken IVR Demo Video"  type="video/mp4">
+  <source src='https://bespoken-random.s3.amazonaws.com/Bespoken_Dashboard_Demo_IBM_Marketplace.mp4#t=0' alt="foo"  type="video/mp4">
 </video>
 
 ## What Is This?

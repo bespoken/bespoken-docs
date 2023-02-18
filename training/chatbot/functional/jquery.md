@@ -3,6 +3,11 @@ title: Using JQuery
 permalink: /training/chatbot/functional/jquery/
 ---
 # Using JQuery for Advanced Testing
+<video width="640" height="480" controls>
+  <!--<source src='/assets/videos/Dashboard-IVR-IBM.mp4' alt="foo"  type="video/mp4">-->
+  <source src='https://bespoken-random.s3.amazonaws.com/Bespoken_Dashboard_Watson_Chatbot.mp4#t=590' alt="Bespoken Chatbot Demo Video"  type="video/mp4">
+</video>
+
 ## When JQuery Is Needed
 Below is an example of a chatbot that leverages buttons:
 <br><br>

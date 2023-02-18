@@ -1,12 +1,13 @@
 # Training
-* Add upfront value statements
-  * Why testing 
-  * What are the savings
-* Show navigation on the left
-* Remove space after Watch
-* Put video into side-panel and allow it to expand?
-* Have images to the right of instructions? Hover to show the image?
-* Add title to sections
+* Fix fonts
+* Sections
+  * Monitoring (Chatbot)
+  * Monitoring (IVR)
+  * Accuracy (IVR)
+  * Load Testing (IVR)
+  * Load Testing (Chat)
+* Change header links to point to training sections for accuracy, monitoring and load
+* Change new paragraph spacing
 * Advanced topics
   * Github
   * Integration with reporting systems

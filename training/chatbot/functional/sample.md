@@ -1,6 +1,6 @@
 ---
 title: Sample Bot
-permalink: /training/chatbot/functional/airlines
+permalink: /training/chatbot/functional/sample
 ---
 # Sample Chatbot
 Click on the icon on the lower-right to interact with our Bespoken Airlines bot, built with IBM Watson Assistant.

@@ -3,6 +3,10 @@ title: Improve Recognition
 permalink: /training/ivr/functional/homophones
 ---
 # Use Homophones For Test Accuracy
+<video width="640" height="480" controls >
+  <!--<source src='/assets/videos/Dashboard-IVR-IBM.mp4' alt="foo"  type="video/mp4">-->
+   <source src='https://bespoken-random.s3.amazonaws.com/Bespoken_Dashboard_Demo_extended.mp4#t=441' alt="Bespoken IVR Demo Video"  type="video/mp4">
+</video>
 
 ## Overview
 IVR testing relies upon automatic speech recognition (ASR) to translate the spoken response from the IVR into text.

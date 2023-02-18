@@ -3,9 +3,9 @@ title: Create A Test
 permalink: /training/ivr/functional/test/
 ---
 # Creating A Test
-<video width="640" height="480" controls autoplay muted>
+<video width="640" height="480" controls >
   <!--<source src='/assets/videos/Dashboard-IVR-IBM.mp4' alt="foo"  type="video/mp4">-->
-  <source src='https://bespoken-random.s3.amazonaws.com/Bespoken_Dashboard_Demo_IBM_Marketplace.mp4#t=233' alt="foo"  type="video/mp4">
+  <source src='https://bespoken-random.s3.amazonaws.com/Bespoken_Dashboard_Demo_extended.mp4#t=251' alt="Bespoken IVR Demo Video"  type="video/mp4">
 </video>
 
 ## Creating A Test Suite

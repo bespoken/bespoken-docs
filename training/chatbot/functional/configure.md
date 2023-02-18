@@ -1,12 +1,11 @@
 ---
-title: Configure CSS
+title: Bind Elements
 permalink: /training/chatbot/functional/configure
 ---
-<base target="_blank">
 # Configure the chatbot for testing
-<video width="640" height="480" controls autoplay muted>
+<video width="640" height="480" controls >
   <!--<source src='/assets/videos/Dashboard-IVR-IBM.mp4' alt="foo"  type="video/mp4">-->
-  <source src='https://bespoken-random.s3.amazonaws.com/Bespoken_Dashboard_Demo_IBM_Marketplace.mp4#t=28' alt="foo"  type="video/mp4">
+  <source src='https://bespoken-random.s3.amazonaws.com/Bespoken_Dashboard_Watson_Chatbot.mp4#t=230' alt="Bespoken Chatbot Demo Video"  type="video/mp4">
 </video>
 <br>
 
@@ -65,5 +64,7 @@ document.querySelectorAll('.WACLauncher__Button')
 ```
 
 We can see based on the result if we have chosen the correct selector.
+
+Additionally, the video recordings that are made for each chatbot are very useful. Go to the next section to learn about these.
 
 If you struggle to configure the selectors correctly, don't hesitate to reach out to us <a href='mailto:support@bespoken.io'>support@bespoken.io</a>. This is the trickiest part of chatbot testing - once you can find the HTML elements consistently, the rest of the testing process is typically smooth and straightforward.

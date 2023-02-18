@@ -3,6 +3,11 @@ title: Detect End Of Speech
 permalink: /training/ivr/functional/end-of-speech/
 ---
 # End Of Speech Detection
+<video width="640" height="480" controls >
+  <!--<source src='/assets/videos/Dashboard-IVR-IBM.mp4' alt="foo"  type="video/mp4">-->
+   <source src='https://bespoken-random.s3.amazonaws.com/Bespoken_Dashboard_Demo_extended.mp4#t=387' alt="Bespoken IVR Demo Video"  type="video/mp4">
+</video>
+
 ## Overview
 Understanding end-of-speech detection is critial to testing IVR systems.
 

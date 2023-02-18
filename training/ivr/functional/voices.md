@@ -2,7 +2,12 @@
 title: Change Voices
 permalink: /training/ivr/functional/voices/
 ---
-# Text-To-Speech Voices
+# Use Alternative Voices
+<video width="640" height="480" controls >
+  <!--<source src='/assets/videos/Dashboard-IVR-IBM.mp4' alt="foo"  type="video/mp4">-->
+   <source src='https://bespoken-random.s3.amazonaws.com/Bespoken_Dashboard_Demo_extended.mp4#t=529' alt="Bespoken IVR Demo Video"  type="video/mp4">
+</video>
+
 ## Overview
 Automated testing for IVR relies upon generating audio to talk with the phone system we are testing.
 

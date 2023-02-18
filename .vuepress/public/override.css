@@ -1,3 +1,7 @@
+main.page p {
+  padding-bottom: 8px;
+}
+
 .page div.theme-default-content h2 {
   margin-bottom: 1vh;
   margin-top: 0vh;

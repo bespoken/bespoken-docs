@@ -1,13 +1,8 @@
 ---
 title: View Reports
-permalink: /training/ivr/functional/reporting/
+permalink: /training/chatbot/functional/reporting/
 ---
 # View Reports
-<video width="640" height="480" controls >
-  <!--<source src='/assets/videos/Dashboard-IVR-IBM.mp4' alt="foo"  type="video/mp4">-->
-  <source src='https://bespoken-random.s3.amazonaws.com/Bespoken_Dashboard_Demo_extended.mp4#t=608' alt="Bespoken IVR Demo Video"  type="video/mp4">
-</video>
-
 ## Accessing Reports
 Click on the "History" tab on the left-hand side of the screen to access the reporting history page.
 
