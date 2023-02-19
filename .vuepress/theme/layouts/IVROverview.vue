@@ -4,7 +4,7 @@
     <div class="flex flex-row mt-20 training-menu">
       <div class="mx-auto w-1/2">
         <div class="flex flex-col mx-auto">
-          <div class="text-zinc-900 text-2xl pb-5 question">What type of testing are you performing?</div>
+          <div class="text-zinc-900 text-2xl pb-5 question">What type of tests are you performing?</div>
           <div class="grid grid-cols-4 space-x-2">
             <button id="accuracy-button"
               class="menu-option" 

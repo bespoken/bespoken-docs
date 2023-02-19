@@ -1,8 +1,3 @@
-.highlight {
-  background-color: black;
-  color: white;
-}
-
 main.page h2 {
   font-size: 18pt;
 }
@@ -35,9 +30,9 @@ main.page ul, .training-menu ul {
 }
 
 .training-menu .menu-detail {
-  border: 2px solid #d21ad5;
+  border: 2px solid #3ac2d8;
   border-radius: 10px;
-  color: #d21ad5;
+  color: #3ac2d8;
   padding: 20px;
 }
 
@@ -47,12 +42,18 @@ main.page ul, .training-menu ul {
 }
 
 .training-menu .menu-option {
-  border: 2px solid #000000;
+  border: 2px solid rgb(250,150,0);
   border-radius: 10px;
+  color: rgb(250,150,0);
   font-size: 13pt;
   font-weight: bold;
   padding-bottom: 15px;
   padding-top: 15px;
+}
+
+.training-menu button.highlight {
+  background-color: rgb(250,150,0);
+  color: white;
 }
 
 .training-menu p {
@@ -65,7 +66,9 @@ main.page ul, .training-menu ul {
 }
 
 .training-menu .question {
+  color: #205f89;
   font-family: Khand;
+  font-weight: bold;
   font-size: 24pt;
   margin-top: 3vh;
   margin-bottom: 3vh;
