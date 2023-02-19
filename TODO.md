@@ -3,7 +3,7 @@
 * Sections
   - [X] Monitoring (Chatbot)
   - [X] Monitoring (IVR)
-  - [ ] Accuracy (IVR)
+  - [X] Accuracy (IVR)
   - [X] Load Testing (IVR)
   - [X] Load Testing (Chat)
 - [ ] Change header links to point to training sections for accuracy, monitoring and load

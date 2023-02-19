@@ -27,15 +27,16 @@ module.exports = {
         logo: "/assets/images/BespokenLogo-small.png",
         
         nav: [
-            { text: "ACCURACY TESTING", link: "https://bespoken.io/accuracy-testing/" },
+            { text: "ACCURACY TESTING", link: "/training/ivr/accuracy/overview/" },
             { text: "FUNCTIONAL TESTING", link: "/end-to-end/getting-started/" },
             { text: "LOAD TESTING", link: "/training/ivr/load/overview/"},
-            { text: "MONITORING", link: "https://bespoken.io/monitoring/" },
+            { text: "MONITORING", link: "/training/ivr/monitoring/overview/" },
             { text: "TRAINING", link: "/training/overview" },
             { text: "FAQ", link: "/end-to-end/faq" },
         ],
         sidebar: {
             "/end-to-end/": getEndToEndSidebar(),
+            "/training/ivr/accuracy/": getTrainingIVRAccuracy(),
             "/training/ivr/functional/": getTrainingIVRFunctional(),
             "/training/ivr/monitoring/": getTrainingIVRMonitoring(),
             "/training/chatbot/functional/": getTrainingChatbotFunctional(),
@@ -135,6 +136,18 @@ function getTrainingIVRMonitoring() {
   return [
       {
           title: "IVR Monitoring",
+          collapsable: false,
+          children: [
+              "overview"
+          ]
+      }
+  ];
+}
+
+function getTrainingIVRAccuracy() {
+  return [
+      {
+          title: "IVR Accuracy Testing",
           collapsable: false,
           children: [
               "overview"
