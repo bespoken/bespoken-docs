@@ -1,13 +1,18 @@
 # Training
-* Fix fonts
+- [X] Fix fonts
 * Sections
   - [ ] Monitoring (Chatbot)
   - [ ] Monitoring (IVR)
   - [ ] Accuracy (IVR)
-  - [ ] Load Testing (IVR)
-  - [ ] Load Testing (Chat)
-* Change header links to point to training sections for accuracy, monitoring and load
-* Change new paragraph spacing
+  - [X] Load Testing (IVR)
+  - [X] Load Testing (Chat)
+- [ ] Change header links to point to training sections for accuracy, monitoring and load
+- [X] Change new paragraph spacing
+- [ ] Add more details on how load testing works to the load testing training page
+  - [ ] Architecture
+  - [ ] Results
+  - [ ] Benefits
+* [ ] Add "Starting Training" button to each option detail?
 * Advanced topics
   * Github
   * Integration with reporting systems

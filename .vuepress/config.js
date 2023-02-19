@@ -29,7 +29,7 @@ module.exports = {
         nav: [
             { text: "ACCURACY TESTING", link: "https://bespoken.io/accuracy-testing/" },
             { text: "FUNCTIONAL TESTING", link: "/end-to-end/getting-started/" },
-            { text: "LOAD TESTING", link: "https://bespoken.io/ivr-load-testing/"},
+            { text: "LOAD TESTING", link: "/training/ivr/load/overview/"},
             { text: "MONITORING", link: "https://bespoken.io/monitoring/" },
             { text: "TRAINING", link: "/training/overview" },
             { text: "FAQ", link: "/end-to-end/faq" },

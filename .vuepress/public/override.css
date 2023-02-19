@@ -1,3 +1,8 @@
+.highlight {
+  background-color: black;
+  color: white;
+}
+
 main.page h2 {
   font-size: 18pt;
 }
@@ -30,10 +35,10 @@ main.page ul, .training-menu ul {
 }
 
 .training-menu .menu-detail {
-  border: 2px solid #000000;
+  border: 2px solid #d21ad5;
   border-radius: 10px;
-  
-  padding: 10px;
+  color: #d21ad5;
+  padding: 20px;
 }
 
 .training-menu .menu-detail, .training-menu .menu-detail a {
@@ -44,14 +49,10 @@ main.page ul, .training-menu ul {
 .training-menu .menu-option {
   border: 2px solid #000000;
   border-radius: 10px;
+  font-size: 13pt;
   font-weight: bold;
   padding-bottom: 15px;
   padding-top: 15px;
-}
-
-.training-menu .menu-option:hover {
-  background-color: black;
-  color: white;
 }
 
 .training-menu p {

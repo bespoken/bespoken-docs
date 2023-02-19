@@ -6,31 +6,32 @@
         <div class="flex flex-col mx-auto">
           <div class="text-zinc-900 text-2xl pb-5 question">What type of testing are you performing?</div>
           <div class="grid grid-cols-4 space-x-2">
-            <button id="ivr-button"
-              class="rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm " 
+            <button id="accuracy-button"
+              class="menu-option" 
               onclick="javascript:window.location='/training/ivr/accuracy/overview'"
-              @mouseenter="onHover('accuracy')" @mouseleave="onHoverEnd('accuracy')">Accuracy</button>
-            <button id="chatbot-button"
+              @mouseenter="onHover('accuracy')" >Accuracy</button>
+            <button id="functional-button"
               onclick="javascript:window.location='/training/ivr/functional/overview'"
-              class="rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm"
-              @mouseenter="onHover('functional')" @mouseleave="onHoverEnd('functional')">Functional</button>
-            <button id="assistant-button"
+              class="menu-option" 
+              @mouseenter="onHover('functional')" >Functional</button>
+            <button id="load-button"
               onclick="javascript:window.location='/training/ivr/load/overview'"
-              class="rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm"
-              @mouseenter="onHover('load')" @mouseleave="onHoverEnd('load')">Load</button>
+              class="menu-option" 
+              @mouseenter="onHover('load')">Load</button>
             <button id="monitoring-button"
-              class="rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm"
+              class="menu-option" 
               onclick="return false"
-              @mouseenter="onHover('monitoring')" @mouseleave="onHoverEnd('monitoring')">Monitoring
+              @mouseenter="onHover('monitoring')" >Monitoring
             </button>
           </div>
-          <div class="hidden mt-5" id="accuracy-overview">
+          <div class="hidden mt-5 menu-detail" id="accuracy-overview">
             <div>
               <p>Accuracy testing assesses and optimizes how well your IVR system is understanding users.</p>
 
-              <p>Accuracy testing starts with measuring the current performance of the speech recognition (ASR) and natural language (NLU) models.</p>
-
-              <p>Detailed recommendations are then made on how to improve it.</p>
+              <p>
+                Accuracy testing starts with measuring the current performance of the speech recognition (ASR) and natural language (NLU) models.
+                Detailed recommendations are then provided on how to improve it.
+              </p>
 
               <p>Key outcomes for IVR accuracy testing are:</p>
             </div>
@@ -41,7 +42,7 @@
             </ul>
             Click the button to learn more about accuracy testing for IVR from Bespoken.
           </div>
-          <div class="hidden mt-5" id="functional-overview">
+          <div class="hidden mt-5 menu-detail" id="functional-overview">
             <div>
               Functional testing ensures systems are working according to spec. Benefits of functional testing include:
             </div>
@@ -52,7 +53,7 @@
             </ul>
             Click the button to get started with functional testing chatbots with Bespoken.
           </div>
-          <div class="hidden mt-5" id="load-overview">
+          <div class="hidden mt-5 menu-detail" id="load-overview">
             <div>
               <p>Load testing ensures that your application can handle the highest levels of usage, 
                 identifies bottlenecks that prevent it from scaling, 
@@ -68,16 +69,17 @@
             </ul>
             Click the button to learn more about load testing with Bespoken.
           </div>
-          <div class="hidden mt-5" id="monitoring-overview">
+          <div class="hidden mt-5 menu-detail" id="monitoring-overview">
             <p>Monitoring routinely checks your IVR application to ensure it is always working correctly.</p> 
             <p>Setting up continuous monitoring can be done in as little as ten minutes, 
               and will provide peace of mind and assurance that your system is always available.</p>
             <p>Enable monitoring to:</p>
             <ul>
-              <li>Ensure your IVR is working consistently/li>
+              <li>Ensure your IVR is working consistently</li>
               <li>Be the first to know when there is an issue with your IVR system</li>
               <li>Have a complete history of what has happened with your IVR system over time</li>
             </ul>
+            Click the button to learn more about monitoring IVR systems with Bespoken.
           </div>
         </div>
       </div>
@@ -95,14 +97,12 @@ export default {
   components: { Training },
   methods: {
     onHover(section) {
+      $(`.menu-detail`).hide()
+      $(`.highlight`).removeClass('highlight')
+      $(`#${section}-button`).addClass('highlight')
       $(`#${section}-overview`).show()
       $(`#${section}-button`).removeClass('border')
       $(`#${section}-button`).addClass('border-2')
-    },
-    onHoverEnd(section) {
-      $(`#${section}-overview`).hide()
-      $(`#${section}-button`).removeClass('border-2')
-      $(`#${section}-button`).addClass('border')
     }
   }
 }

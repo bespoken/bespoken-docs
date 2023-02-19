@@ -94,14 +94,11 @@ export default {
     onHover(section) {
       // Hide any existing details that are showing
       $(`.menu-detail`).hide()
+      $(`.highlight`).removeClass('highlight')
+      $(`#${section}-button`).addClass('highlight')
       $(`#${section}-overview`).show()
       $(`#${section}-button`).removeClass('border')
       $(`#${section}-button`).addClass('border-2')
-    },
-    onHoverEnd(section) {
-      $(`#${section}-overview`).hide()
-      $(`#${section}-button`).removeClass('border-2')
-      $(`#${section}-button`).addClass('border')
     }
   }
 }
