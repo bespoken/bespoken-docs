@@ -16,6 +16,3 @@ To setup a functional test, we need a few parameters to configure it:
 * Number of simulated agents [Optional]
 
 Send an email to [support@bespoken.io](mailto:support@bespoken.io) with this information, and we will have it setup for you in no time.
-
-## Learn More
-Read about load testing in our latest case study from our work with TE Connectivity:

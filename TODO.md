@@ -1,8 +1,8 @@
 # Training
 - [X] Fix fonts
 * Sections
-  - [ ] Monitoring (Chatbot)
-  - [ ] Monitoring (IVR)
+  - [X] Monitoring (Chatbot)
+  - [X] Monitoring (IVR)
   - [ ] Accuracy (IVR)
   - [X] Load Testing (IVR)
   - [X] Load Testing (Chat)

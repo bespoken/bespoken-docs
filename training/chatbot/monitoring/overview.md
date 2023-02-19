@@ -1,16 +1,16 @@
 ---
 title: Overview
-permalink: /training/ivr/monitoring/overview
+permalink: /training/chatbot/monitoring/overview
 ---
 # Monitoring
 <video width="640" height="480" controls >
   <!--<source src='/assets/videos/Dashboard-IVR-IBM.mp4' alt="foo"  type="video/mp4">-->
-  <source src='https://bespoken-random.s3.amazonaws.com/Bespoken_Dashboard_Demo_extended.mp4#t=575' alt="Bespoken IVR Demo Video"  type="video/mp4">
+  <source src='https://bespoken-random.s3.amazonaws.com/Bespoken_Dashboard_Demo_extended.mp4#t=575' alt="Bespoken Chatbot Demo Video"  type="video/mp4">
 </video>
 
 ## Create Functional Tests
 Follow our guide to create functional tests first that will be used for monitoring:  
-[Bespoken Training - IVR Functional Testing](/training/ivr/functional/overview.md)
+[Bespoken Training - Chatbot Functional Testing](/training/chatbot/functional/overview.md)
 
 ## Enable Monitoring
 Once your functional test is setup, simply select the "Monitoring" toggle on the top-right to start running tests routinely.

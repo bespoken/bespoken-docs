@@ -36,8 +36,10 @@ module.exports = {
         ],
         sidebar: {
             "/end-to-end/": getEndToEndSidebar(),
-            "/training/ivr/functional/": getTrainingIVR(),
-            "/training/chatbot/functional/": getTrainingChatbot()
+            "/training/ivr/functional/": getTrainingIVRFunctional(),
+            "/training/ivr/monitoring/": getTrainingIVRMonitoring(),
+            "/training/chatbot/functional/": getTrainingChatbotFunctional(),
+            "/training/chatbot/monitoring/": getTrainingChatbotMonitoring()
         },
     },
     // https://stackoverflow.com/questions/53874577/vuepress-how-to-get-the-processed-image-filename
@@ -108,11 +110,11 @@ function getEndToEndSidebar() {
 }
 
 
-function getTrainingIVR() {
+function getTrainingIVRFunctional() {
   return [
       {
           title: "IVR Functional Testing",
-          collapsable: true,
+          collapsable: false,
           children: [
               "overview",
               "subscribe",
@@ -129,11 +131,24 @@ function getTrainingIVR() {
 }
 
 
-function getTrainingChatbot() {
+function getTrainingIVRMonitoring() {
+  return [
+      {
+          title: "IVR Monitoring",
+          collapsable: false,
+          children: [
+              "overview"
+          ]
+      }
+  ];
+}
+
+
+function getTrainingChatbotFunctional() {
   return [
       {
           title: "Chatbot Functional Testing",
-          collapsable: true,
+          collapsable: false,
           children: [
               "overview",
               "subscribe",
@@ -143,6 +158,19 @@ function getTrainingChatbot() {
               "test",
               "jquery",
               "sample"
+          ]
+      }
+  ];
+}
+
+
+function getTrainingChatbotMonitoring() {
+  return [
+      {
+          title: "Chatbot Monitoring",
+          collapsable: false,
+          children: [
+              "overview"
           ]
       }
   ];
