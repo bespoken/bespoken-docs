@@ -11,7 +11,8 @@ module.exports = {
     ],
     description: "Bespoken Documentation",
     head: [
-      //['link', { rel: 'icon', href: '/favicon.ico' }]
+      ['link', { rel: 'icon', href: '/favicon.ico' }],
+      ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans'}],
       ['script', { src: 'https://cdn.tailwindcss.com'} ],
       ['script', { src: 'https://code.jquery.com/jquery-3.6.3.js'}],
       ['link', { href: "/override.css", rel: "stylesheet", type: "text/css" }]

@@ -6,7 +6,8 @@ main.page p {
   padding-bottom: 8px;
 }
 
-main.page ul {
+main.page ul, .training-menu ul {
+  list-style-type: disc;
   margin-left: 15px;
 }
 
@@ -26,4 +27,46 @@ main.page ul {
 
 .page ul {
   padding-bottom: 1vh;
+}
+
+.training-menu .menu-detail {
+  border: 2px solid #000000;
+  border-radius: 10px;
+  
+  padding: 10px;
+}
+
+.training-menu .menu-detail, .training-menu .menu-detail a {
+  font-family: Open Sans;
+  font-weight: 600;
+}
+
+.training-menu .menu-option {
+  border: 2px solid #000000;
+  border-radius: 10px;
+  font-weight: bold;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.training-menu .menu-option:hover {
+  background-color: black;
+  color: white;
+}
+
+.training-menu p {
+  font-family: Open Sans;
+  margin-bottom: 8px;
+}
+
+.training-menu ul {
+  margin-bottom: 8px;
+}
+
+.training-menu .question {
+  font-family: Khand;
+  font-size: 24pt;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  padding-bottom: 0px;
 }
