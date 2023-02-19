@@ -15,7 +15,7 @@
               class="menu-option"
               @mouseenter="onHover('chatbot')">Chatbot</button>
             <button id="assistant-button"
-              onclick="javascript:window.location='/training/assistant/overview'"
+              onclick="javascript:window.location='/end-to-end/getting-started'"
               class="menu-option"
               @mouseenter="onHover('assistant')">Virtual Assistant</button>
             <button id="other-button"
