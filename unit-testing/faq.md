@@ -74,10 +74,10 @@ This might happen if your network admin is blocking ports. The `bst proxy` tool 
 * https://api.bespoken.link and (`*.bespoken.link` if you want to use the proxy command)
 * https://proxy.bespoken.tools
 * https://source-api.bespoken.tools
-* https://virtual-device.bespoken.io (if you are going to execute end-to-end tests)
+* https://virtual-device.bespoken.io (if you are going to execute functional tests)
 
 ## **I get errors when using bespoken unit testing against my Alexa production server**
-In order to certify your Alexa Skill, all requests have to come from Amazon. Since we generate mock requests to do the unit testing, these don't go through the Amazon validation process and will be rejected. If you want to test against a production skill please use our end-to-end tests.
+In order to certify your Alexa Skill, all requests have to come from Amazon. Since we generate mock requests to do the unit testing, these don't go through the Amazon validation process and will be rejected. If you want to test against a production skill please use our functional tests.
 
 ## **I want to do something that is not supported with the tools like adding a delay between responses or stopping after a test has failed**
 Use the filter functionalities to add any kind of behavior during tests (read [here](https://read.bespoken.io/unit-testing/guide/#filtering-during-test) for more information). Please, also refer to [the API documentation](https://bespoken.github.io/skill-testing-ml/api/Test.html) to understand how to use the `test` property. For instance, the `test` property can be used to know if the test has passed/failed, or if the test should be skipped.

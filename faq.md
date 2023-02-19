@@ -2,16 +2,16 @@
 # Working with alexa-app
 https://github.com/bespoken/virtual-alexa/issues/45
 
-# End-to-end Testing
-## How does the end-to-end tests actually work?
+# Functional Testing
+## How do functional tests for Alexa actually work?
 The tests do the following:
 - They take the input text and convert it to audio using AWS Polly (and using the AWS polly voice specified as voiceID in the config)
-- They send the audio to Alexa
+- They send the audio to the voice application being tested
 - Alexa sends its to your skill, which then replies to Alexa
 - Alexa sends audio back to us
 - We convert the audio into text for comparison with the expected output
 
-## Why do the end-to-end tests some times have the wrong response from the skill? For example, it thinks the word "car" is "card".
+## Why do the functional tests some times have the wrong response from the skill? For example, it thinks the word "car" is "card".
 In that last step, the speech-to-text conversion, there are errors as it does not always transcribe the answer correctly. We have tried to optimize this as much as possible, but it does still happen. We generally recommend using a wildcard to deal with this, (replace "and" with *) but if you send me particular cases I can make specific recommendations.
 
 ## Enabling for other regions

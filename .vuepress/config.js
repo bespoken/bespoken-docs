@@ -1,6 +1,22 @@
 module.exports = {
     title: "Bespoken Docs",
+    plugins: [
+      [
+        '@vuepress/google-analytics',
+        {
+          'ga': 'G-WVSYLZ119Q',
+          'gm': 'G-WVSYLZ119Q'
+        }
+      ]
+    ],
     description: "Bespoken Documentation",
+    head: [
+      ['link', { rel: 'icon', href: '/favicon.ico' }],
+      ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans'}],
+      ['script', { src: 'https://cdn.tailwindcss.com'} ],
+      ['script', { src: 'https://code.jquery.com/jquery-3.6.3.js'}],
+      ['link', { href: "/override.css", rel: "stylesheet", type: "text/css" }]
+    ],
     themeConfig: {
         algolia: {
             apiKey: '36d68ce99344a644d0bc7667b5ee4003',
@@ -9,19 +25,22 @@ module.exports = {
         },
         bespokenUri: "https://bespoken.io/",
         logo: "/assets/images/BespokenLogo-small.png",
-        head: [
-            ['link', { rel: 'icon', href: '/favicon.ico' }]
-        ],
+        
         nav: [
-            { text: "CLI AND PROXY", link: "/cli/getting-started/" },
-            { text: "UNIT TESTING", link: "/unit-testing/getting-started/" },
-            { text: "END-TO-END TESTING", link: "/end-to-end/getting-started/" },
-            { text: "CONTINUOUS TESTING", link: "https://bespoken.io/blog/monitor-alexa-skills-or-google-actions/" },
+            { text: "ACCURACY TESTING", link: "/training/ivr/accuracy/overview/" },
+            { text: "FUNCTIONAL TESTING", link: "/end-to-end/getting-started/" },
+            { text: "LOAD TESTING", link: "/training/ivr/load/overview/"},
+            { text: "MONITORING", link: "/training/ivr/monitoring/overview/" },
+            { text: "TRAINING", link: "/training/overview" },
+            { text: "FAQ", link: "/end-to-end/faq" },
         ],
         sidebar: {
-            "/cli/": getCliSidebar(),
-            "/unit-testing/": getUnitTestingSidebar(),
             "/end-to-end/": getEndToEndSidebar(),
+            "/training/ivr/accuracy/": getTrainingIVRAccuracy(),
+            "/training/ivr/functional/": getTrainingIVRFunctional(),
+            "/training/ivr/monitoring/": getTrainingIVRMonitoring(),
+            "/training/chatbot/functional/": getTrainingChatbotFunctional(),
+            "/training/chatbot/monitoring/": getTrainingChatbotMonitoring()
         },
     },
     // https://stackoverflow.com/questions/53874577/vuepress-how-to-get-the-processed-image-filename
@@ -76,7 +95,7 @@ function getUnitTestingSidebar() {
 function getEndToEndSidebar() {
     return [
         {
-            title: "End-to-end Testing",
+            title: "Functional Testing",
             collapsable: true,
             children: [
                 "getting-started",
@@ -89,4 +108,83 @@ function getEndToEndSidebar() {
             ]
         }
     ];
+}
+
+
+function getTrainingIVRFunctional() {
+  return [
+      {
+          title: "IVR Functional Testing",
+          collapsable: false,
+          children: [
+              "overview",
+              "subscribe",
+              "device",
+              "test",
+              "homophones",
+              "voices",
+              "end-of-speech",
+              "reporting",
+              "going-further"
+          ]
+      }
+  ];
+}
+
+
+function getTrainingIVRMonitoring() {
+  return [
+      {
+          title: "IVR Monitoring",
+          collapsable: false,
+          children: [
+              "overview"
+          ]
+      }
+  ];
+}
+
+function getTrainingIVRAccuracy() {
+  return [
+      {
+          title: "IVR Accuracy Testing",
+          collapsable: false,
+          children: [
+              "overview"
+          ]
+      }
+  ];
+}
+
+
+function getTrainingChatbotFunctional() {
+  return [
+      {
+          title: "Chatbot Functional Testing",
+          collapsable: false,
+          children: [
+              "overview",
+              "subscribe",
+              "device",
+              "configure",
+              "recordings",
+              "test",
+              "jquery",
+              "sample"
+          ]
+      }
+  ];
+}
+
+
+function getTrainingChatbotMonitoring() {
+  return [
+      {
+          title: "Chatbot Monitoring",
+          collapsable: false,
+          children: [
+              "overview"
+          ]
+      }
+  ];
 }

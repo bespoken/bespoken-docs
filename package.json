@@ -25,5 +25,8 @@
   "homepage": "https://github.com/bespoken/bespoken-docs#readme",
   "dependencies": {
     "vuepress": "~1.0.0-beta.2"
+  },
+  "devDependencies": {
+    "@vuepress/plugin-google-analytics": "^1.9.8"
   }
 }

@@ -3,12 +3,12 @@ title: Chatbot Testing Guide
 permalink: /end-to-end/chat/
 ---
 
-# End-To-End Testing for Chatbots
+# Functional Testing for Chatbots
 We provide support for testing chatbot systems on the Web.
 
-Most of the features from our standard end-to-end testing work as normal for this, but there are some special features that we will cover in this guide.
+Most of the features from our standard functional testing work as normal for this, but there are some special features that we will cover in this guide.
 
-For in-depth information on how our end-to-end testing works, [read here](/end-to-end/guide/).
+For in-depth information on how our functional testing works, [read here](/end-to-end/guide/).
 
 ## Approach
 Take a look at the following automated test run for the Chipotle web-based chatbot:

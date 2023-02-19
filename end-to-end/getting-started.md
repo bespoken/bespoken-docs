@@ -3,9 +3,9 @@ title: Getting Started
 permalink: /end-to-end/getting-started/
 ---
 
-# Getting Started With End-to-end Testing
+# Getting Started With Functional Testing
 ## Overview
-Bespoken makes it easy to do end-to-end testing for voice apps.
+Bespoken makes it easy to performing functional testing for Conversational applications.
 
 We use Virtual Devices to do it. A virtual device works like a physical device, such as Amazon Echo, but can be interacted with via our [simple test scripting syntax](/end-to-end/guide/) (as well as programmatically [via our API](../api/)).
 
