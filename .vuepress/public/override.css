@@ -42,9 +42,9 @@ main.page ul, .training-menu ul {
 }
 
 .training-menu .menu-option {
-  border: 2px solid rgb(250,150,0);
+  border: 2px solid #3ac2d8;
   border-radius: 10px;
-  color: rgb(250,150,0);
+  color: #3ac2d8;
   font-size: 13pt;
   font-weight: bold;
   padding-bottom: 15px;
@@ -52,7 +52,7 @@ main.page ul, .training-menu ul {
 }
 
 .training-menu button.highlight {
-  background-color: rgb(250,150,0);
+  background-color:#3ac2d8;
   color: white;
 }
 
