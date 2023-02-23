@@ -7,20 +7,19 @@ permalink: /cli/getting-started/
 ## What is the Bespoken CLI
 
 The Bespoken CLI are a set of tools created by us to let you develop faster and better. Do not slow-down for:
-
-    Time-consuming server deployments
-    Over-complicated and highly manual testing routines
-
+* Time-consuming server deployments
+* Over-complicated and highly manual testing routines
 
 ## Installation
 
 To install the Bespoken command line tool (bst) do:
 ```bash
-$ npm install bespoken-tools -g
+$ npm install @bespoken-sdk/cli -g
 ```
+
 __Note:__ If you are on MacOS and the command fails, it is probably because you need to run it with sudo, like this:
 ```bash
-$ sudo npm install bespoken-tools -g
+$ sudo npm install @bespoken-sdk/cli -g
 ```
 Verify the installation by typing:
 ```bash
@@ -32,12 +31,11 @@ Haven't used npm before? We have you covered:
 
 You will then be able to use our commands, described below: 
  
-* [Proxy](/cli/commands/#proxy) Proxies the Alexa service to your laptop - develop and debug with the real Alexa
-* [Utter](/cli/commands/#utter) Emulate utterances coming from Alexa, without Alexa. Magic!
-* [Intend](/cli/commands/#intend) Emulate intents coming from Alexa
-* [Launch](/cli/commands/#launch) Emulate launch requests coming from Alexa
+* [Init](/cli/commands/#init) Sets up a Bespoken test project
+* [Proxy](/cli/commands/#proxy) Proxies the AWS Lambdas, Google Cloud Functions, and HTTPS services locally to your laptop for debugging Webhook-based code
 * [Speak](/cli/commands/#speak) Sends utterances directly to the real Alexa
-
+* [Test](/cli/commands/#test) Runs Bespoken tests on the local machine
+* [Test Suite](/cli/commands/#test-suite) Runs Bespoken tests defined in the Bespoken Dashboard
 
 You can also use:
 
@@ -48,5 +46,5 @@ You can also use:
 
 To update bst:
 ```bash
-$ npm update bespoken-tools -g
+$ pnpm update bespoken-tools -g
 ```

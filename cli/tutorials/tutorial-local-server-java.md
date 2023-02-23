@@ -10,7 +10,7 @@ This tutorial shows you how to get started developing for Alexa with Java and Ma
 ## Prerequisites
 
 * bespoken tools (bst)
-    * `$ npm install bespoken-tools -g`
+    * `$ npm install @bespoken-sdk/cli -g`
     * [Installation Instructions](/cli/getting-started/#Installation)
 * maven
     * OSX with homebrew: `$ brew install maven`

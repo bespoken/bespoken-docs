@@ -11,7 +11,7 @@
       <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || 'Hello' }}</h1>
     </header>
 
-    <div class="features" v-if="data.features && data.features.length">
+    <div class="features space-x-4" v-if="data.features && data.features.length">
       <div class="feature" v-for="(feature, index) in data.features" :key="index">
         <a
           :href="feature.link"
@@ -19,7 +19,7 @@
           :target="isExternal(feature.link)? '_blank' :null "
           :rel="'noopener noreferrer'"
         >
-          <h2>{{ feature.title }}</h2>
+          <h2 class="whitespace-nowrap">{{ feature.title }}</h2>
           <p>
             {{ feature.details }}
             <OutboundLink v-if="isExternal(feature.link)"/>

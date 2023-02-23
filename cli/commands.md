@@ -4,12 +4,57 @@ permalink: /cli/commands/
 ---
 
 # Complete Guide to Bespoken CLI Commands
+## Getting Started
+To get started with the Bespoken CLI, you will need the following:
+* Install Node.js (version >18) - [download here](https://nodejs.org/en/download/)
+* Install Bespoken CLI
+  * `pnpm install @bespoken-sdk/cli -g`
+  * `npm install @bespoken-sdk/cli -g`
+  * `yarn global add @bespoken-sdk/cli`
+
+Once completed, just open a command/terminal window and you can leverage our CLI for testing, training and monitoring.
+
+## Init
+
+### Overview
+
+The init command helps you creating all the files and folders you need to start unit or end to end testing your Conversational AI applications.
+
+### Usage
+
+To run the init command, simply open a terminal and, in the root folder of your project, type:
+```
+$ bst init
+```
+
+The command will ask you for the following data:
+
+- Test type: unit or e2e
+- Name of the Voice Experience you are testing
+- Type of Voice Experience: Alexa, Google or IVR
+- Test locales: en-US is the default. You can add more via a comma-separated list - for example: `en-US, de-DE, es-ES`
+- For unit testing only:
+  - Path of your handler file: default is index.js
+  - Path of your dialogflow directory (only for Google actions)
+- For end to end testing only:
+  - Virtual device token
+- For IVR systems only:
+  - Phone number to call to
+
+ Here's a preview:
+![bst init command](./../end-to-end/assets/bst-init-demo.gif)
+
+After that, the command will create a "test" directory with all the needed files and folders.
+![bst test files](./../end-to-end/assets/bst-init-test-directory.png)
+
+
+You can execute your tests by typing `bst test` on the same command line.
 
 ## Proxy
 
 ### Overview
 
-The proxy command allows you to interact with a local service running on your machine via an Alexa device.  Using it, you can make changes to code running on your machine and immediately make them available via an Echo or the Alexa simulator.
+The `proxy` command allows you to interact with a local service running on your machine via an Alexa device.  Using it, you can make changes to code running on your machine and immediately make them available via an Echo or the Alexa simulator.
 
 The proxy tool works either directly with Node/JavaScript lambda code - **proxy lambda**.  Or it can proxy any http service using **proxy http**.  
 
@@ -77,7 +122,7 @@ $ bst proxy http 9999 --verbose
 
 **Overview**
 
-The proxy function command allows you to run a Google Cloud Function as a local service your machine.
+The `proxy` function command allows you to run a Google Cloud Function as a local service your machine.
 
 **Usage**
 
@@ -93,167 +138,11 @@ Example:
 $ bst proxy function index.js myFunction
 ```
 
-## Utter
-
-### Overview
-
-The utter command takes an utterance ("play next song") and turns into a JSON payload, imitating as if it was coming from Alexa itself.
-
-It works in a manner very similar to the Alexa simulator available via the Alexa developer console.  
-
-To start using it, you will need to have your Interaction model, it could be written as a single file or separated as an Intent Schema and Sample Utterances.
-By default, we have adopted the pattern used by the Alexa Skills Sample projects, we support the [Interaction model pattern](https://github.com/alexa/skill-sample-nodejs-fact/) and also the [Intent Schema and Sample Utterances](https://github.com/alexa/skill-sample-nodejs-hello-world/) one.
-
-That is, we look for the Interaction Model files inside a folder called models or speechAssets (if you're using the older style) located off the source root.
-
-You can specify an alternative location via options to the command-line.
-
-### Uttering
-
-To invoke the utter command, simply type:
-```bash
-$ bst utter <UTTERANCE>
-```
-
-For example:
-```bash
-$ bst utter Hello World
-```
-
-The utter command will return the full request and response of the interaction with your Skill service.
-
-By default, the system will:
-
-* Use the Interaction Model in the models folder under the current working directory
-* If there's no Interaction Model, it will use the Intent Model and Sample Utterances in the speechAssets folder under the current working directory
-* Use the service currently running via the `bst proxy` command
-
-If no service is currently running via bst proxy, and HTTP endpoint can be specified with the `--url` option:
-```bash
-$ bst utter Hello World --url https://my.skill.com/skill/path
-```
-
-### Interaction Model Format and Location
-If your Interaction Model is not stored under ./models, or you have multiple locales, you can use an option to specify another location.
-
-By default, we look for:
-
-* `./models/en-US.json`
-
-"Example With Alternative Locale:"
-```bash
-$ bst utter Hello World -m models/en-UK.json
-```
-
-These files are JSON, and typically defined by the ASK CLI tool from Amazon.
-
-An example of these file can be found [here](https://github.com/alexa/skill-sample-nodejs-fact/blob/en-US/models/en-US.json).
-
-### Working With Slots
-
-Slot handling is automatic - we check for defined slots and samples and extract them. To send an utterance that uses slots, just write it as you would say it.
-
-For example, if the sample utterance was defined as:
-```js
-HelloWorld Hello world, my name is {Name}
-```
-
-Then the utter command would be:
-```js
-$ bst utter Hello World, my name is John
-```
-
-The value `John` will then be automatically placed in the Name slot for the utterance on the request.
-
-## Launch
-
-### Overview
-
-The launch command sends a launch request to your service as if it was coming from alexa itself.
-
-To start using it, you will need to support the "LaunchRequest" event on your handler for the received Intents in your service.
-
-### Usage
-
-To invoke the launch command, simply type:
-```bash
-$ bst launch
-```
-
-The launch command will return the full request and response of the interaction with your Skill service.
-
-By default, the system will use the service currently running via the `bst proxy` command
-
-### Working without using the proxy
-
-If no service is currently running via bst proxy, an HTTP endpoint can be specified with the `--url` option:
-```bash
-$ bst launch --url https://my.skill.com/skill/path
-```
-
-
-## Intend
-
-### Overview
-
-The intend command generates intent requests for your service as if they were coming from Alexa itself.
-
-It works in a manner very similar to the Alexa simulator available via the Alexa developer console.  
-
-To start using it, you will need to have your Interaction model, it could be written as a single file or separated as an Intent Schema and Sample Utterances.
-By default, we have adopted the pattern used by the Alexa Skills Sample projects, we support the [Interaction model pattern](https://github.com/alexa/skill-sample-nodejs-fact) and also the [Intent Schema and Sample Utterances](https://github.com/alexa/skill-sample-nodejs-hello-world/) one.
-
-That is, we look for the Interaction Model files inside a folder called models or speechAssets (if you're using the older style) located off the source root.
-
-You can specify an alternative location via options to the command-line.
-
-### Intending
-
-To invoke the intend command, simply type:
-``` bash
-$ bst intend <INTENT_NAME> [SlotName=SlotValue...]
-```
-
-For example:
-```bash
-$ bst intend HelloIntent SlotA=SlotValue
-```
-
-The intend command will return the full request and response of the interaction with your Skill service.  
-
-By default, the system will:
-
-* Use the Interaction Model in the models folder under the current working directory
-* If there's no Interaction Model, it will use the Intent Model and Sample Utterances in the speechAssets folder under the current working directory
-* Use the service currently running via the `bst proxy` command
-
-If no service is currently running via bst proxy, and HTTP endpoint can be specified with the `--url` option:
-```bash
-$ bst intend HelloIntent --url https://my.skill.com/skill/path
-```
-
-### Interaction Model Format and Location
-If your Interaction Model is not stored under ./models, or you have multiple locales, you can use an option to specify another location.
-
-By default, we look for:
-
-* `./models/en-US.json`
-
-"Example With Alternative Locale:"
-
-```bash
-$ bst intend HelloIntent -m models/en-UK.json
-```
-
-These files are JSON, and typically defined by the ASK CLI tool from Amazon.
-
-An example of these file can be found [here](https://github.com/alexa/skill-sample-nodejs-fact/blob/en-US/models/en-US.json).
-
 ## Speak
 
 ### Overview
 
-The speak command communicates to a virtual device to test your skills with text as if they were voice commands.
+The `speak` command communicates to a virtual device to test your skills with text as if they were voice commands.
 
 It allows you to test your skill without using a physical device and it will return the generated audio response converted to text as well as the card data and possible audio streams that could have been returned.
 
@@ -298,39 +187,68 @@ Now you will get the expected response
 
 From then on you can use the command without the token.
 
-## Init
+## Test
 
 ### Overview
 
-The init command helps you creating all the files and folders you need to start unit or end to end testing your Alexa skills and Google Actions.
+The `test` command runs local YAML tests files.
 
 ### Usage
 
-To run the init command, simply open a terminal and, in the root folder of your project, type:
+To run the test command, simply open a terminal and, in the root folder of your project, type:
 ```
-$ bst init
+$ bst test <TEST_PATTERN>
 ```
 
-The command will ask you for the following data:
+The TEST_PATTERN uses [the MicroMatch package](https://github.com/micromatch/micromatch) under the covers, which supports glob syntax, such as:
+* test/*.js       # Runs all files in subfolders named test with files matching `*.js`
+* test            # Runs all files in subfolders named test
+* **/*.test.js    # Runs all files in any sub-folder that match `*.test.js`
 
-- Test type: unit or e2e
-- Name of the Voice Experience you are testing
-- Type of Voice Experience: Alexa, Google or IVR
-- Test locales: en-US is the default. You can add more via a comma-separated list - for example: `en-US, de-DE, es-ES`
-- For unit testing only:
-  - Path of your handler file: default is index.js
-  - Path of your dialogflow directory (only for Google actions)
-- For end to end testing only:
-  - Virtual device token
-- For IVR systems only:
-  - Phone number to call to
+Test results are automatically output to the console, as well as written as an HTML report in the folder `./test_output/index.inline.html`.
 
- Here's a preview:
-![bst init command](./../end-to-end/assets/bst-init-demo.gif)
+Test parameters and configuration are taken by default from the file `./testing.json` in the current working directory. For more information on the various test parameters, [read here](https://read.bespoken.io/end-to-end/guide/#configuration).
 
-After that, the command will create a "test" directory with all the needed files and folders.
-![bst test files](./../end-to-end/assets/bst-init-test-directory.png)
+## Test Suite
+
+### Overview
+
+The `test-suite` command provides sub-commands to manage and run test suites defined in the Bespoken Dashboard.
+
+The sub-commands are:
+* `bst test-suite create` - creates or updates the named test suite in the Bespoken Dashbaord
+* `bst test-suite run` - runs the named test suite in the Bespoken Dashboard
+
+Each command is described in detail below.
+
+### Test Suite Create
+
+**Usage**
+
+To execute the `test-suite create` create command, simply open a terminal and, in the root folder of your project, type:
+```
+$ bst test-suite create <TEST_SUITE_NAME> <CONFIGURATION_PATH> <TEST_SUITE_YAML_PATH>
+```
+
+If the named test suite already exists, it will be overwritten by running this.
+
+The CONFIGURATION_FILE should be the path from the current directory a valid `testing.json` configuration file. 
+
+The TEST_SUITE_YAML_PATH should be valid testing YAML script.
+
+For more information on the structure of the configuration file and test scripts, [read here](https://read.bespoken.io/end-to-end/guide/#configuration).
 
 
-You can execute your tests by typing `bst test` on the same command line.
+### Test Suite Run
+
+**Usage**
+
+To execute the `test-suite run` command, simply open a terminal and, in the root folder of your project, type:
+```
+$ bst test-suite run <TEST_SUITE_NAME> [KEY1=VALUE1] [KEY2=VALUE2] [KEY3=VALUE3]
+```
+
+This will run the named test suite within the Dashboard, passing the optional variables for test execution.
+
+When the test is completed, a link to the results in the Dashboard will be provided in the console. The test run will be stored with the Dashboard, and will always be available to review there.
 
