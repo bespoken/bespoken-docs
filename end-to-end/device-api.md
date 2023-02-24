@@ -1,6 +1,6 @@
 ---
-title: API
-permalink: /end-to-end/api/
+title: Device API
+permalink: /end-to-end/device-api/
 ---
 # Virtual Device API Documentation
 ## Overview
@@ -13,9 +13,9 @@ virtualDevice.message("ask my skill what is the weather", (result) => {
 });
 ```
 
-It is as easy as that! For more information on how our end-to-end testing work, [read here](/end-to-end/getting-started/).
+It is as easy as that! For more information on how our functional testing works, [read here](/end-to-end/getting-started/).
 
-## Node.js API
+## Node.js SDK
 ### Installation
 1. Add the Virtual Device SDK to your project:
     ```bash

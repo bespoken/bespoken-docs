@@ -11,16 +11,20 @@ description: Find the Bespoken Documentation here - Everything you need to know 
 features:
 - title: Accuracy Testing
   details: Measure and optimize the performance of your speech recognition (ASR) and NLU.
-  link: https://bespoken.io/accuracy-testing/
+  link: training/ivr/accuracy/overview
 - title: Functional Testing
   details: Ensure your system is working perfectly, all the time.
   link: end-to-end/getting-started/
 - title: Load Testing
   details: Ensure your system can scale to the highest levels of usage.
-  link: https://bespoken.io/ivr-load-testing/
+  link: training/ivr/load/overview
 - title: Monitoring
   details: Monitor your Conversational AI applications 24/7.
-  link: https://bespoken.io/monitoring/
+  link: training/ivr/monitoring/overview
+- title: Bespoken CLI
+  details: Learn about the Bespoken CLI
+  link: cli/getting-started
+
 footer: Bespoken Documentation | Copyright © year-Bespoken | All rights reserved.
 permalink: /
 ---

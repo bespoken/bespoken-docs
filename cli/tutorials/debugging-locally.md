@@ -6,13 +6,13 @@ permalink: /cli/tutorials/debugging-locally/
 # Debugging voice apps locally With Webstorm and Bespoken
 This tutorial shows you how to get set up using Webstorm to debug your voice app code locally.
 
-Using this, you can run your Alexa Skill or Google Action directly on your machine, and step through the actual code to debug it with real requests and responses.
+Using this, you can run your HTTP Webhook, Alexa Skill or Google Action directly on your machine, and step through the actual code to debug it with real requests and responses.
 
 # **Getting started**
 
 ## **Prerequisites**
 If you haven't already, follow these steps:
-* Install Bespoken Tools (bst) with `npm install -g bespoken-tools`
+* Install Bespoken Tools (bst) with `npm install -g @bespoken-sdk/cli`
 * Install Webstorm from this [link](https://www.jetbrains.com/webstorm/download/).
 
 This tutorial is based on a simple sample project. If you want to use the same, just clone the repository [here](https://github.com/bespoken-samples/GuessThePrice/) and install the dependencies by running `npm install` from its root folder. Of course, feel free to use your own existing project.

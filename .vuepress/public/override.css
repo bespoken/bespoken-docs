@@ -2,6 +2,18 @@ main.page h2 {
   font-size: 18pt;
 }
 
+main.page div.theme-default-content h2 {
+  margin-bottom: 1vh;
+  margin-top: 0vh;
+  padding-top: 2vh;
+}
+
+main.page div.theme-default-content h3 {
+  padding-top: 0px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
 main.page p {
   padding-bottom: 8px;
 }
@@ -9,12 +21,6 @@ main.page p {
 main.page ul, .training-menu ul {
   list-style-type: disc;
   margin-left: 15px;
-}
-
-.page div.theme-default-content h2 {
-  margin-bottom: 1vh;
-  margin-top: 0vh;
-  padding-top: 2vh;
 }
 
 .page h1 {
