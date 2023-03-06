@@ -2,7 +2,7 @@
   <main class="home" aria-labelledby="main-title">
     <header class="hero">
       <video
-        style="width: 50%;"
+        style="width: 50%;margin:auto;"
         autoplay
         loop
         src="https://bespoken.io/wp-content/uploads/2019/05/unit_web.mp4"
