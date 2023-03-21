@@ -10,13 +10,13 @@ There are multiple ways in which you can start testing with Bespoken. Besides us
 - [IBM Cloud](#ibm-cloud)
 
 Let's go into the details of how to proceed with any of these options next.
-https://bespoken-random.s3.amazonaws.com/VID002+Subscribe-AWS.mp4
+
 ## Bespoken site
 
 <video width="640" height="480" controls >
    <source src='https://bespoken-random.s3.amazonaws.com/VID001+Subscribe-Dashboard.mp4' alt="Subscribe to Bespoken through our Dashboard"  type="video/mp4">
 </video>
-<br />
+  
 * Go to the [Bespoken Dashboard](https://apps.bespoken.io)
 * Click on Register
 * Enter your email and your desired password 
@@ -33,7 +33,7 @@ After these steps, you'll start a trial period. When you are ready to subscribe,
 <video width="640" height="480" controls >
    <source src='https://bespoken-random.s3.amazonaws.com/VID002+Subscribe-AWS.mp4' alt="Subscribe to Bespoken through the AWS Marketplace"  type="video/mp4">
 </video>
-<br />
+  
 * Go to the [AWS Marketplace](https://aws.amazon.com/marketplace)
 * In the search bar at the top of the page, search for Bespoken
 * Click on "Bespoken Automated Testing for IVR"
@@ -47,8 +47,7 @@ After these steps, you'll start a trial period. When you are ready to subscribe,
 * Create your profile 
 * Complete a brief survey and continue to get access to your Dashboard
 
-## Genesys AppFoundry
-<br />
+## Genesys AppFoundry  
 * Go to [Genesys AppFoundry](https://appfoundry.genesys.com/)
 * In the search bar at the top of the page, search for Bespoken
 * Click on "Bespoken Automated Testing for IVR"
@@ -65,7 +64,7 @@ After these steps, you'll start a trial period. When you are ready to subscribe,
 <video width="640" height="480" controls >
    <source src='https://bespoken-random.s3.amazonaws.com/VID005+Subscribe+IBM+Cloud.mp4' alt="Subscribe to Bespoken through IBM Cloud"  type="video/mp4">
 </video>
-<br />
+  
 * Go to the [IBM Cloud](https://cloud.ibm.com/login) and log in  
   * If you do not already have an account, you'll need to sign up.
 * Once you are in the IBM Cloud Console, select Catalog from the top menu
