@@ -3,6 +3,12 @@ title: Watson Assistant Testing Guide
 permalink: /end-to-end/watson/
 ---
 # Functional Testing for Watson Assistant
+<video width="640" height="480" controls >
+  <!--<source src='/assets/videos/Dashboard-IVR-IBM.mp4' alt="foo"  type="video/mp4">-->
+  <source src='https://bespoken-random.s3.amazonaws.com/VID004+Watson+Testing+Overview.mp4' alt="Bespoken Watson Demo Video"  type="video/mp4">
+</video>
+<br>
+
 We provide support for testing Watson Assistant directly via API.
 
 To leverage this, Watson Virtual Devices will need to be enabled for your account. If they are not, just reach out to us at [support@bespoken.io](mailto:support@bespoken.io).
