@@ -96,6 +96,7 @@ function getEndToEndSidebar() {
                 "guide",
                 "ivr",
                 "chat",
+                "watson",
                 "device-api",
                 "test-api",
                 "faq",
