@@ -33,7 +33,15 @@ In each case, we identify the CSS selector on the page that corresponds to the c
 * Examine the Elements section of the source page
 * Choose either an HTML `class` or `id` that uniquely identifies the element
 
-For example, we have a sample chatbot as part of this training guide. Below is what we see when we click "Inspect" on the chatbot button in the lower right:
+For Watson Assistant based chatbots, you can typically skip this process. The initial settings will be:
+
+| Field | Value | 
+|---| --- |
+| Open Selector | .WACLauncher__Button
+| Input Selector | .WAC__TextArea-textarea
+| Reply Selector | .WAC__received 
+
+Alternatively, we can set these values by looking at the HTML where the chatbot is install. Below is what we see when we click "Inspect" on the chatbot button in the lower right of our [sample page](/training/chatbot/functional/sample):
 <br/><br/>
 <a href='../../../assets/images/ChatbotConfiguration.png' target='_blank'><img src='../../../assets/images/ChatbotConfiguration.png'></a>
 <br/>
@@ -44,16 +52,13 @@ Each of these values should then be set in our Advanced settings section:
 <img src='../../../assets/images/Chatbot-AdvancedSettings.png'>
 <br/><br/>
 
+Additionally, we recommend setting the "Max. response wait time" to a higher value, such as 300000. This gives the test a total of 300 seconds (5 minutes) to complete the test.
+
 To try out the chatbot for yourself, [click here](./sample.md).
 
 To verify your HTML element bindings are working right, add a first interaction that just says "hi". Then click "Run".
 
-If everything is working correctly, you should see the response back from our sample bot in the "Actual Response" section. The initial settings should be:
-| Field | Value | 
-|---| --- |
-| Open Selector | .WACLauncher__Button
-| Input Selector | .WAC__TextArea-textarea
-| Reply Selector | .WAC__received 
+If everything is working correctly, you should see the response back from our sample bot in the "Actual Response" section. 
 
 ## Troubleshooting
 We recommend using the `Console` at the bottom of the HTML Inspector if you run into issues.
