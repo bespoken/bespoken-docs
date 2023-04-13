@@ -26,3 +26,6 @@ Alternatively, to use recorded audio for a test, simply insert a URL to an audio
 
 That will be used instead of Text-To-Speech.
 
+Accepted formats are `wav` and `mp3`. Simply insert the URL in the field, such as below:
+<img src="/assets/images/training/ivr/functional/DashboardAudioFileTest.png" style='margin-top: 20px'/>
+
