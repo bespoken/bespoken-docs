@@ -13,9 +13,17 @@ Understanding end-of-speech detection is critial to testing IVR systems.
 
 It is a challenge because with IVR systems, there is no uniform, consistent signal that indicates a system has stopped talking.
 
-There are two basic approaches we use:
-* Listening Timeout - we set our test to wait a preset period of time before responding
+There are three basic approaches we use:
+* End of Speech Timeout - time to wait in seconds for the system to finish talking
+* Listening Timeout - we set our test to wait a preset period of time before responding - useful for barge-in
 * Finish On Phrase - our test looks for certain phrases from the system to determine it has stopped speaking
+
+## End Of Speech Timeout
+The end of speech timeout (found in the advanced settings) indicates how long to wait for the system to finish speaking. It looks for a period of silence as the basis to determine when to progess to the next step in the test.
+
+This is a very reliable, and simple mechanism, for managing end-of-speech detection.
+
+The value is set in seconds.
 
 ## Listening Timeout
 We set our listening timeout to 10 seconds to indicate we should wait for at most 10 seconds before speaking the next utterance.
