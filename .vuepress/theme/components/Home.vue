@@ -70,8 +70,8 @@ export default {
     text-align: center;
 
     img {
-      max-width: 300px;
-      max-height: 300px;
+      max-width: 400px;
+      max-height: 400px;
       display: block;
       margin: 3rem auto 1.5rem;
     }
