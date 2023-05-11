@@ -1,7 +1,7 @@
 <template>
   <main class="home" aria-labelledby="main-title">
     <header class="hero">
-      <img src="../assets/images/LlamaMay2023.png" width="50%">
+      <img src="../../../assets/images/LlamaMay2023.png" width="50%">
       <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || 'Hello' }}</h1>
     </header>
 
