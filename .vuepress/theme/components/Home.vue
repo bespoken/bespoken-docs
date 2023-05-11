@@ -1,13 +1,7 @@
 <template>
   <main class="home" aria-labelledby="main-title">
     <header class="hero">
-      <video
-        style="width: 50%;margin:auto;"
-        autoplay
-        loop
-        src="https://bespoken.io/wp-content/uploads/2019/05/unit_web.mp4"
-        type="video/mp4"
-      ></video>
+      <img src="../../../assets/images/LlamaMay2023.png">
       <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || 'Hello' }}</h1>
     </header>
 
@@ -76,8 +70,8 @@ export default {
     text-align: center;
 
     img {
-      max-width: 100%;
-      max-height: 280px;
+      max-width: 300px;
+      max-height: 300px;
       display: block;
       margin: 3rem auto 1.5rem;
     }
