@@ -1,7 +1,7 @@
 <template>
   <main class="home" aria-labelledby="main-title">
     <header class="hero">
-      <img src="../../../assets/images/LlamaMay2023.png" width="50%">
+      <img src="../../../assets/images/LlamaMay2023.png">
       <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || 'Hello' }}</h1>
     </header>
 
@@ -70,8 +70,8 @@ export default {
     text-align: center;
 
     img {
-      max-width: 100%;
-      max-height: 280px;
+      max-width: 300px;
+      max-height: 300px;
       display: block;
       margin: 3rem auto 1.5rem;
     }
