@@ -25,6 +25,13 @@ module.exports = (options, ctx) => ({
       {
         'ga': 'G-WVSYLZ119Q',
         'gm': 'G-WVSYLZ119Q'
+      },
+    ],
+    [ 
+      'google-analytics-4',
+      {
+      // your gtag tracking ID
+      gtag: 'G-WVSYLZ119Q'
       }
     ],
     '@vuepress/plugin-nprogress',
