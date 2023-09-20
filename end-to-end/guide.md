@@ -420,7 +420,7 @@ only for Alexa will be ignored during the tests if you are using a different pla
 #### Operators
 Operators define the type of comparison we do between the property being evaluated and the expected values. These are:
 
-* `:` Partial equals or regular expression - for example, the expected value "partial sentence" will match "this is a partial sentence", the expected value /.*is.*/ will match "this sentence has is on it"
+* `:` Partial equals or regular expression - for example, the expected value "partial sentence" will match "this is a partial sentence", the expected value /.*is.*/ will match "this sentence has is on it".
 * `!=` Not equal to - Use this when you want to make sure that something *is not* part of the response.
 * `<` , `>` , `<=` , `>=` - Comparison operator for numeric values.
 
