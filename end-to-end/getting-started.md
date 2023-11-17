@@ -46,4 +46,4 @@ To see a complex example in action, [check out this project](https://github.com/
  * [Setup A Virtual Device](/end-to-end/setup/)
  * [Complete Guide To Test Scripts](/end-to-end/guide/)
  * [Example Project](https://github.com/bespoken-samples/virtual-device-example)
- * [API](/end-to-end/api/)
+ * [API](/end-to-end/test-api/)
