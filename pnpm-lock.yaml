@@ -3,9 +3,11 @@ lockfileVersion: 5.4
 specifiers:
   '@vuepress/plugin-google-analytics': ^1.9.8
   vuepress: ~1.0.0-beta.2
+  vuepress-plugin-google-analytics-4: ^0.1.1
 
 dependencies:
   vuepress: 1.0.4
+  vuepress-plugin-google-analytics-4: 0.1.1
 
 devDependencies:
   '@vuepress/plugin-google-analytics': 1.9.8
@@ -1851,6 +1853,16 @@ packages:
       webpack-chain: 6.5.1
     transitivePeerDependencies:
       - debug
+
+  /@vuepress/types/1.9.9:
+    resolution: {integrity: sha512-ukGW49ILzLhIc7CltHMr+BeIjWKloJNN1mrvbDz3beycp9b9kgH+DXNdRIK9QCKr4fJsy7x08vNMwZr9Nq/PTQ==}
+    dependencies:
+      '@types/markdown-it': 10.0.3
+      '@types/webpack-dev-server': 3.11.6
+      webpack-chain: 6.5.1
+    transitivePeerDependencies:
+      - debug
+    dev: false
 
   /@webassemblyjs/ast/1.9.0:
     resolution: {integrity: sha512-C6wW5L+b7ogSDVqymbkkvuW9kruN//YisMED04xzeBBqjHa2FYnmvOlS6Xj68xWQRgWvI9cIglsjFowH/RJyEA==}
@@ -4577,7 +4589,7 @@ packages:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
     os: [darwin]
-    deprecated: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
+    deprecated: The v1 package contains DANGEROUS / INSECURE binaries. Upgrade to safe fsevents v2
     requiresBuild: true
     dependencies:
       bindings: 1.5.0
@@ -8564,6 +8576,14 @@ packages:
       markdown-it-container: 2.0.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /vuepress-plugin-google-analytics-4/0.1.1:
+    resolution: {integrity: sha512-7zcLXFVDiDN3MW9ASf/RrPq67QWGnYmfMl7+vVBhlr6ocBvV6jPWhVvyU0Iu0bzT9rv2HdEkDkwwsj45310skA==}
+    dependencies:
+      '@vuepress/types': 1.9.9
+    transitivePeerDependencies:
+      - debug
     dev: false
 
   /vuepress-plugin-smooth-scroll/0.0.3:

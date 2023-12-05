@@ -1,17 +1,11 @@
 <template>
   <main class="home" aria-labelledby="main-title">
     <header class="hero">
-      <video
-        style="width: 50%;margin:auto;"
-        autoplay
-        loop
-        src="https://bespoken.io/wp-content/uploads/2019/05/unit_web.mp4"
-        type="video/mp4"
-      ></video>
+      <img src="../../../assets/images/LlamaMay2023.png" style="height: 40vh">
       <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || 'Hello' }}</h1>
     </header>
 
-    <div class="features space-x-4" v-if="data.features && data.features.length">
+    <div class="features sm:space-x-10" v-if="data.features && data.features.length">
       <div class="feature" v-for="(feature, index) in data.features" :key="index">
         <a
           :href="feature.link"
@@ -68,16 +62,15 @@ export default {
 <style lang="stylus">
 .home {
   padding: $navbarHeight 2rem 0;
-  max-width: 960px;
-  margin: 0px auto;
+  margin: 0px 20px 0px 20px;
   display: block;
 
   .hero {
     text-align: center;
 
     img {
-      max-width: 100%;
-      max-height: 280px;
+      max-width: 400px;
+      max-height: 400px;
       display: block;
       margin: 3rem auto 1.5rem;
     }
@@ -140,6 +133,8 @@ export default {
     p {
       color: lighten($textColor, 25%);
     }
+
+    width: 20vw;
   }
 
   .footer {
@@ -152,12 +147,15 @@ export default {
 
 @media (max-width: $MQMobile) {
   .home {
+    margin: 0;
+
     .features {
       flex-direction: column;
     }
 
     .feature {
       max-width: 100%;
+      margin-bottom: 20px;
       padding: 0 2.5rem;
     }
   }
@@ -196,6 +194,8 @@ export default {
       h2 {
         font-size: 1.25rem;
       }
+
+      width: 80vw;
     }
   }
 }

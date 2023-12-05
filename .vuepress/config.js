@@ -2,10 +2,15 @@ module.exports = {
     title: "Bespoken Docs",
     plugins: [
       [
-        '@vuepress/google-analytics',
+        // '@vuepress/google-analytics',
+        // {
+        //   'ga': 'G-WVSYLZ119Q',
+        //   'gm': 'G-WVSYLZ119Q'
+        // },
+        'google-analytics-4',
         {
-          'ga': 'G-WVSYLZ119Q',
-          'gm': 'G-WVSYLZ119Q'
+          // your gtag tracking ID
+          gtag: 'G-WVSYLZ119Q'
         }
       ]
     ],
