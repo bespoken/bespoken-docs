@@ -37,7 +37,7 @@ module.exports = {
             { text: "LOAD TESTING", link: "/training/ivr/load/overview/"},
             { text: "MONITORING", link: "/training/ivr/monitoring/overview/" },
             { text: "TRAINING", link: "/training/overview" },
-            { text: "CLI", link: "/cli/getting-started" },
+            { text: "API", link: "/api/overview" },
             { text: "FAQ", link: "/end-to-end/faq" },
         ],
         sidebar: {
@@ -47,7 +47,7 @@ module.exports = {
             "/training/ivr/monitoring/": getTrainingIVRMonitoring(),
             "/training/chatbot/functional/": getTrainingChatbotFunctional(),
             "/training/chatbot/monitoring/": getTrainingChatbotMonitoring(),
-            "/cli/": getCliSidebar()
+            "/api/": getAPISidebar()
         },
     },
     // https://stackoverflow.com/questions/53874577/vuepress-how-to-get-the-processed-image-filename
@@ -62,15 +62,15 @@ module.exports = {
     }
 }
 
-function getCliSidebar() {
+function getAPISidebar() {
     return [
         {
-            title: "CLI",
+            title: "API",
             collapsable: true,
             children: [
-                "getting-started",
-                "commands",
-                "faq"
+                "overview",
+                "cli",
+                "integration"
             ]
         }
     ];

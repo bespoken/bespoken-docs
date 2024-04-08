@@ -9,6 +9,7 @@ main.page div.theme-default-content h2 {
 }
 
 main.page div.theme-default-content h3 {
+  font-size: 16pt;
   padding-top: 0px;
   margin-bottom: 5px;
   margin-top: 10px;

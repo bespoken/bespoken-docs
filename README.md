@@ -21,9 +21,9 @@ features:
 - title: Monitoring
   details: Monitor your Conversational AI applications 24/7.
   link: training/ivr/monitoring/overview
-- title: Bespoken CLI
-  details: Learn about the Bespoken CLI
-  link: cli/getting-started
+- title: Bespoken API
+  details: Learn about the Bespoken API, SDK, CLI and Integrations
+  link: api/overview
 
 footer: Bespoken Documentation | Copyright © year-Bespoken | All rights reserved.
 permalink: /
