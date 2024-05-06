@@ -24,6 +24,9 @@ features:
 - title: Bespoken API
   details: Learn about the Bespoken API, SDK, CLI and Integrations
   link: api/overview
+- title: Docs v2
+  details: Starting from scratch
+  link: dashboard/introduction
 
 footer: Bespoken Documentation | Copyright © year-Bespoken | All rights reserved.
 permalink: /
