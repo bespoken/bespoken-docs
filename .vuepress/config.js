@@ -32,16 +32,16 @@ module.exports = {
         logo: "/assets/images/BespokenLogo-small.png",
         
         nav: [
-            { text: "ACCURACY TESTING", link: "/training/ivr/accuracy/overview/" },
-            { text: "FUNCTIONAL TESTING", link: "/end-to-end/getting-started/" },
-            { text: "LOAD TESTING", link: "/training/ivr/load/overview/"},
-            { text: "MONITORING", link: "/training/ivr/monitoring/overview/" },
+            { text: "Dashboard", link: "/dashboard/introduction" },
+            { text: "Testing Guides per platform", link: "/functional/introduction/" },
+            { text: "CLI", link: "/training/ivr/load/overview/"},
+            { text: "API", link: "/training/ivr/monitoring/overview/" },
             { text: "TRAINING", link: "/training/overview" },
             { text: "API", link: "/api/overview" },
             { text: "FAQ", link: "/end-to-end/faq" },
         ],
         sidebar: {
-            "/end-to-end/": getEndToEndSidebar(),
+            "/dashboard/": getDashboardSidebar(),
             "/training/ivr/accuracy/": getTrainingIVRAccuracy(),
             "/training/ivr/functional/": getTrainingIVRFunctional(),
             "/training/ivr/monitoring/": getTrainingIVRMonitoring(),
@@ -90,6 +90,21 @@ function getUnitTestingSidebar() {
         }
     ];
 }
+
+function getDashboardSidebar() {
+    return [
+        {
+            title: "Dashboard",
+            collapsable: false,
+            children: [
+                "introduction",
+                "test-suites",
+                "virtual-devices"
+            ]
+        }
+    ];
+}
+
 function getEndToEndSidebar() {
     return [
         {
