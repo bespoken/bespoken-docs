@@ -32,10 +32,9 @@ module.exports = {
         logo: "/assets/images/BespokenLogo-small.png",
         
         nav: [
-            { text: "Dashboard", link: "/dashboard/introduction" },
+            { text: "Dashboard", link: "/dashboard/introduction/" },
             //{ text: "Testing Guides per platform", link: "/functional/introduction/" },
             { text: "CLI", link: "/training/ivr/load/overview/"},
-            { text: "API", link: "/training/ivr/monitoring/overview/" },
             { text: "TRAINING", link: "/training/overview" },
             { text: "API", link: "/api/overview" },
             { text: "FAQ", link: "/end-to-end/faq" },
@@ -97,9 +96,9 @@ function getDashboardSidebar() {
             title: "Dashboard",
             collapsable: false,
             children: [
-                "introduction",
-                "test-suites",
-                "virtual-devices"
+                // "introduction",
+                // "test-suites",
+                // "virtual-devices"
             ]
         }
     ];
