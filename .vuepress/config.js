@@ -33,7 +33,7 @@ module.exports = {
         
         nav: [
             { text: "Dashboard", link: "/dashboard/introduction" },
-            { text: "Testing Guides per platform", link: "/functional/introduction/" },
+            //{ text: "Testing Guides per platform", link: "/functional/introduction/" },
             { text: "CLI", link: "/training/ivr/load/overview/"},
             { text: "API", link: "/training/ivr/monitoring/overview/" },
             { text: "TRAINING", link: "/training/overview" },
