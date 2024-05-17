@@ -1,26 +1,26 @@
 module.exports = {
     title: "Bespoken Docs",
     plugins: [
-      [
-        // '@vuepress/google-analytics',
-        // {
-        //   'ga': 'G-WVSYLZ119Q',
-        //   'gm': 'G-WVSYLZ119Q'
-        // },
-        'google-analytics-4',
-        {
-          // your gtag tracking ID
-          gtag: 'G-WVSYLZ119Q'
-        }
-      ]
+        [
+            'google-analytics-4',
+            {
+                // your gtag tracking ID
+                gtag: 'G-WVSYLZ119Q'
+            },
+        ],
+        '@vuepress/back-to-top',
+        '@vuepress/last-updated',
+        'vuepress-plugin-nprogress',
+        'vuepress-plugin-reading-progress',
+        'vuepress-plugin-smooth-scroll',
     ],
     description: "Bespoken Documentation",
     head: [
-      ['link', { rel: 'icon', href: '/favicon.ico' }],
-      ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans'}],
-      ['script', { src: 'https://cdn.tailwindcss.com'} ],
-      ['script', { src: 'https://code.jquery.com/jquery-3.6.3.js'}],
-      ['link', { href: "/override.css", rel: "stylesheet", type: "text/css" }]
+        ['link', { rel: 'icon', href: '/favicon.ico' }],
+        ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans' }],
+        ['script', { src: 'https://cdn.tailwindcss.com' }],
+        ['script', { src: 'https://code.jquery.com/jquery-3.6.3.js' }],
+        ['link', { href: "/override.css", rel: "stylesheet", type: "text/css" }]
     ],
     themeConfig: {
         algolia: {
@@ -29,25 +29,21 @@ module.exports = {
             debug: true
         },
         bespokenUri: "https://bespoken.io/",
+        lastUpdated: true,
         logo: "/assets/images/BespokenLogo-small.png",
-        
+
         nav: [
-            { text: "Dashboard", link: "/dashboard/introduction/" },
+            { text: "Dashboard", link: "/dashboard/" },
             //{ text: "Testing Guides per platform", link: "/functional/introduction/" },
-            { text: "CLI", link: "/training/ivr/load/overview/"},
+            { text: "CLI", link: "/training/ivr/load/overview/" },
             { text: "TRAINING", link: "/training/overview" },
             { text: "API", link: "/api/overview" },
             { text: "FAQ", link: "/end-to-end/faq" },
         ],
-        sidebar: {
-            "/dashboard/": getDashboardSidebar(),
-            "/training/ivr/accuracy/": getTrainingIVRAccuracy(),
-            "/training/ivr/functional/": getTrainingIVRFunctional(),
-            "/training/ivr/monitoring/": getTrainingIVRMonitoring(),
-            "/training/chatbot/functional/": getTrainingChatbotFunctional(),
-            "/training/chatbot/monitoring/": getTrainingChatbotMonitoring(),
-            "/api/": getAPISidebar()
-        },
+        sidebar: [
+            getDashboardSidebar(),
+            getAPISidebar()
+        ],
     },
     // https://stackoverflow.com/questions/53874577/vuepress-how-to-get-the-processed-image-filename
     chainWebpack: (config, isServer) => {
@@ -62,143 +58,26 @@ module.exports = {
 }
 
 function getAPISidebar() {
-    return [
-        {
-            title: "API",
-            collapsable: true,
-            children: [
-                "overview",
-                "cli",
-                "integration"
-            ]
-        }
-    ];
-}
-function getUnitTestingSidebar() {
-    return [
-        {
-            title: "Unit Testing",
-            collapsable: true,
-            children: [
-                "getting-started",
-                "guide",
-                "guide-google",
-                "use-cases",
-                "faq",
-            ]
-        }
-    ];
+    return {
+        path: "/api/overview",
+        title: "API",
+        collapsable: true,
+        children: [
+            "",
+            "cli",
+            "integration"
+        ]
+    };
 }
 
 function getDashboardSidebar() {
-    return [
-        {
-            title: "Dashboard",
-            collapsable: false,
-            children: [
-                // "introduction",
-                // "test-suites",
-                // "virtual-devices"
-            ]
-        }
-    ];
-}
-
-function getEndToEndSidebar() {
-    return [
-        {
-            title: "Functional Testing",
-            collapsable: true,
-            children: [
-                "getting-started",
-                "setup",
-                "guide",
-                "ivr",
-                "chat",
-                "watson",
-                "device-api",
-                "test-api",
-                "faq",
-            ]
-        }
-    ];
-}
-
-
-function getTrainingIVRFunctional() {
-  return [
-      {
-          title: "IVR Functional Testing",
-          collapsable: false,
-          children: [
-              "overview",
-              "subscribe",
-              "device",
-              "test",
-              "homophones",
-              "voices",
-              "end-of-speech",
-              "reporting",
-              "going-further"
-          ]
-      }
-  ];
-}
-
-
-function getTrainingIVRMonitoring() {
-  return [
-      {
-          title: "IVR Monitoring",
-          collapsable: false,
-          children: [
-              "overview"
-          ]
-      }
-  ];
-}
-
-function getTrainingIVRAccuracy() {
-  return [
-      {
-          title: "IVR Accuracy Testing",
-          collapsable: false,
-          children: [
-              "overview"
-          ]
-      }
-  ];
-}
-
-
-function getTrainingChatbotFunctional() {
-  return [
-      {
-          title: "Chatbot Functional Testing",
-          collapsable: false,
-          children: [
-              "overview",
-              "subscribe",
-              "device",
-              "configure",
-              "recordings",
-              "test",
-              "jquery",
-              "sample"
-          ]
-      }
-  ];
-}
-
-
-function getTrainingChatbotMonitoring() {
-  return [
-      {
-          title: "Chatbot Monitoring",
-          collapsable: false,
-          children: [
-              "overview"
-          ]
-      }
-  ];
+    return {
+        path: "/dashboard/",
+        title: "Dashboard",
+        collapsable: true,
+        children: [
+            '/dashboard/', 'dashboard/test-suites', 'dashboard/virtual-devices'
+        ]
+    }
+        ;
 }

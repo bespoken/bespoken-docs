@@ -1,5 +1,5 @@
 ---
-title: Bespoken Dashboard
+title: Virtual Devices
 permalink: /dashboard/virtual-devices
 ---
 

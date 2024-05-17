@@ -26,7 +26,7 @@ features:
   link: api/overview
 - title: Docs v2
   details: Starting from scratch
-  link: dashboard/introduction
+  link: dashboard/
 
 footer: Bespoken Documentation | Copyright © year-Bespoken | All rights reserved.
 permalink: /

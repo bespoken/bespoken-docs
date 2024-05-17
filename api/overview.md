@@ -1,6 +1,6 @@
 ---
 title: Overview
-permalink: /api/overview
+permalink: /api/
 ---
 Bespoken provides a number of APIs, SDKs and builtin integrations to allow for interacting with our testing platform programmatically.
 

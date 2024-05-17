@@ -1,5 +1,5 @@
 ---
-title: Bespoken Dashboard
+title: Test Suites Management
 permalink: /dashboard/test-suites
 ---
 
