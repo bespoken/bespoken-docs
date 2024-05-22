@@ -3,16 +3,11 @@ title: Overview
 permalink: /dashboard/
 ---
 
-
 # The Bespoken Dashboard
 
 ## Introduction
 
-  
-
 Welcome to the Bespoken Dashboard, your central hub for managing and optimizing your conversational platform testing and monitoring efforts. With our intuitive Web UI, you can create and manage test suites, monitor their performance, and access comprehensive reports and insights to ensure the quality and reliability of your conversational experiences. Whether you're testing an IVR or a Webchat, Alexa or Google Assistant, or any other conversational platform, our Dashboard provides the tools and functionality you need to improve your testing workflows and achieve your testing goals.
-
-  
 
 Before starting, you are going to need a Bespoken account, head over to [apps.bespoken.io](apps.bespoken.io) and sign-up for a free trial for your team, then come back to explore our key features together.
 
