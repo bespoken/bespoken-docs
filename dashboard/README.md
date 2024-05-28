@@ -5,11 +5,11 @@ permalink: /dashboard/
 
 # The Bespoken Dashboard
 
-## Introduction
-
 Welcome to the Bespoken Dashboard, your central hub for managing and optimizing your conversational platform testing and monitoring efforts. With our intuitive Web UI, you can create and manage test suites, monitor their performance, and access comprehensive reports and insights to ensure the quality and reliability of your conversational experiences. Whether you're testing an IVR or a Webchat, Alexa or Google Assistant, or any other conversational platform, our Dashboard provides the tools and functionality you need to improve your testing workflows and achieve your testing goals.
 
+::: tip Important
 Before starting, you are going to need a Bespoken account, head over to [apps.bespoken.io](apps.bespoken.io) and sign-up for a free trial for your team, then come back to explore our key features together.
+:::
 
 ## Test Suites Management
 
@@ -36,7 +36,7 @@ Within this page you'll be able to: invite new team members to your organization
 The "History" page allows you to get an overview of your results for the past week and beyond. It contains graphs and relevant stats from your past runs. You can access it, by clicking on the third icon on the left sidebar of the Dashboard. 
   ![History page](https://fakeimg.pl/600x400)
 
-In this page, you'll be able to see your results in graphics, stats and tabular form. You'll also be able to export the results in CSV format, and see the detail of each individual test run in more detail. You can learn more about it [here](/dashboard/history-page).
+In this page, you'll be able to see your results in graphics, stats and tabular form. You'll also be able to export the results in CSV format, and see the detail of each individual test run in more detail. You can learn more about it [here](/dashboard/history).
 
 ## Subscription and Billing page
 The subscription and billing page is accessed by clicking the fourth icon on the left sidebar of the Dashboard. It allows you to see your current plan details, how many virtual devices and monitored tests you have currently, but more importantly what is the current usage of your monthly utterance quota. 

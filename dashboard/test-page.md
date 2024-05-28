@@ -1,10 +1,8 @@
 ---
-title: Test Suites
-permalink: /dashboard/test-suites
+title: Test Page 
+permalink: /dashboard/test-page
 ---
-# Test Suites Management
-
-A test suite is a collection of test cases intended to verify that your conversational application functions as expected. It is an essential component of software testing and quality assurance processes. The test suites page contains all the test suites your organization has created for all its available platforms. In this article, we'll detail the different options you have to manage them.
+Now that you know the basics about 
  
 ## Adding new test suites
 The first thing you'll want to do when you get access to your Dashboard account is to create a new test suite. To do this, simply click on the "Create new test suite" tile.
@@ -13,7 +11,7 @@ The first thing you'll want to do when you get access to your Dashboard account 
 
 When you do so, you'll need to enter the platform you want to test, and set a proper name for your test suite. The test suite name must have at least 4 characters for the "Create" button to enable. Click on "Create" and that's it! Your new test suite will be created.
 
-You'll be inmediately taken to the Test page. This is the most important page in our Dashboard, and where you'll spend time creating your functional testing scripts. To learn more about it, click [here](somewhere.html).
+You'll be inmediately taken to the Test page. This is the most important page in our Dashboard, and where you'll spend time creating your functional testing scripts. To learn more about it, click [here](/dashboard/test-suites).
 
 ## Deleting a test suite
 Once you have test suites created, you can easily delete them by clicking on the "trash" icon. You'll be asked for confirmation, as this is an action that can't be undone.

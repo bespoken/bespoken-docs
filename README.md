@@ -2,30 +2,34 @@
 home: true
 heroText: "Bespoken Documentation"
 heroImage: /assets/images/BespokenAtlas-Reduced.jpg
-tagline: Bespoken is the world’s leader in automated testing tools and monitoring for voice
-         applications. Our tools help voice developers create five star apps through the whole
-         development process and beyond.
+tagline: Bespoken is the world’s leader in automated testing tools and monitoring for voice and chat applications. Our tools help developers create five star apps through the whole development process and beyond.
 actionText: Get Started →
 actionLink: cli/getting-started/
-description: Find the Bespoken Documentation here - Everything you need to know to get started with automated voice app testing and monitoring for Alexa skills and Google Actions.
+description: Everything you need to know to get started with automated testing and monitoring for your conversation AI apps. Alexa, IVR, Chatbots, Whatsapp and more.
 features:
-- title: Accuracy Testing
-  details: Measure and optimize the performance of your speech recognition (ASR) and NLU.
-  link: training/ivr/accuracy/overview
-- title: Functional Testing
-  details: Ensure your system is working perfectly, all the time.
-  link: end-to-end/getting-started/
-- title: Load Testing
-  details: Ensure your system can scale to the highest levels of usage.
-  link: training/ivr/load/overview
+- title: The Bespoken Dashboard
+  details: Your centralized access for end-to-end functional testing and monitoring with Bespoken.
+  link: dashboard/
+- title: Functional Testing in depth
+  details: Your centralized access for end-to-end functional testing and monitoring with Bespoken.
+  link: dashboard/
 - title: Monitoring
-  details: Monitor your Conversational AI applications 24/7.
-  link: training/ivr/monitoring/overview
-- title: Bespoken API
-  details: Learn about the Bespoken API, SDK, CLI and Integrations
-  link: api/overview
-- title: Docs v2
-  details: Starting from scratch
+  details: Your centralized access for end-to-end functional testing and monitoring with Bespoken.
+  link: dashboard/
+- title: Load Testing
+  details: Your centralized access for end-to-end functional testing and monitoring with Bespoken.
+  link: dashboard/
+- title: CLI Documentation
+  details: Your centralized access for end-to-end functional testing and monitoring with Bespoken.
+  link: dashboard/
+- title: API Documentation
+  details: Your centralized access for end-to-end functional testing and monitoring with Bespoken.
+  link: dashboard/
+- title: Best Practices
+  details: Your centralized access for end-to-end functional testing and monitoring with Bespoken.
+  link: dashboard/
+- title: Troubleshooting
+  details: Your centralized access for end-to-end functional testing and monitoring with Bespoken.
   link: dashboard/
 
 footer: Bespoken Documentation | Copyright © year-Bespoken | All rights reserved.

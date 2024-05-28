@@ -22,6 +22,9 @@ module.exports = {
         ['script', { src: 'https://code.jquery.com/jquery-3.6.3.js' }],
         ['link', { href: "/override.css", rel: "stylesheet", type: "text/css" }]
     ],
+    markdown: {
+        extractHeaders: ['h2', 'h3', 'h4']
+    },
     themeConfig: {
         algolia: {
             apiKey: '36d68ce99344a644d0bc7667b5ee4003',
@@ -76,7 +79,12 @@ function getDashboardSidebar() {
         title: "Dashboard",
         collapsable: true,
         children: [
-            '/dashboard/', 'dashboard/test-suites', 'dashboard/virtual-devices'
+            '/dashboard/',
+            'dashboard/test-suites',
+            'dashboard/virtual-devices',
+            'dashboard/test-page',
+            'dashboard/history',
+            'dashboard/manage-organization'
         ]
     }
         ;
