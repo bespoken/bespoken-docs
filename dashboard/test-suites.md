@@ -13,7 +13,7 @@ The first thing you'll want to do when you get access to your Dashboard account 
 
 When you do so, you'll need to enter the platform you want to test, and set a proper name for your test suite. The test suite name must have at least 4 characters for the "Create" button to enable. Click on "Create" and that's it! Your new test suite will be created.
 
-You'll be inmediately taken to the Test page. This is the most important page in our Dashboard, and where you'll spend time creating your functional testing scripts. To learn more about it, click [here](somewhere.html).
+You'll be inmediately taken to the Test page. This is the most important page in our Dashboard, and where you'll spend most time creating your functional testing scripts. To learn more about it, click [here](/dashboard/test-page).
 
 ## Deleting a test suite
 Once you have test suites created, you can easily delete them by clicking on the "trash" icon. You'll be asked for confirmation, as this is an action that can't be undone.
@@ -34,3 +34,7 @@ There are two ways you can filter your test suites. First, you can filter your t
 Finally, you can filter your test suites by name by tipyng in the search box at the top right corner of the page.
 
 ![Filtering by name](https://fakeimg.pl/600x400)
+
+## Importing test suites
+If you want to import multiple test cases from an Excel file, you can do so by clicking on this page Import link. This link will open a modal where you'll be able to select your excel file and upload your test cases to the Dashboard. If you don't know the format to use, don't worry! you'll also be able to download a template to start. 
+ ![Importing test suites](https://fakeimg.pl/600x400)

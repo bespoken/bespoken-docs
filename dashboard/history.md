@@ -1,5 +1,5 @@
 ---
-title: Dashboard history
+title: History
 permalink: /dashboard/history
 ---
 

@@ -4,6 +4,7 @@ permalink: /dashboard/virtual-devices
 sidebarDepth: 3
 ---
 
+# Virtual Devices
 Virtual Devices allow Bespoken to interact with conversational applications (voice or text enabled) as a real user would against physical devices like an amazon echo, a phone, etc, allowing for comprehensive and automated end-to-end testing without the need for said physical hardware.
 
   ![How does a virtual device work](https://fakeimg.pl/600x400)

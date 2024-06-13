@@ -60,19 +60,6 @@ module.exports = {
     }
 }
 
-function getAPISidebar() {
-    return {
-        path: "/api/overview",
-        title: "API",
-        collapsable: true,
-        children: [
-            "",
-            "cli",
-            "integration"
-        ]
-    };
-}
-
 function getDashboardSidebar() {
     return {
         path: "/dashboard/",
@@ -86,6 +73,74 @@ function getDashboardSidebar() {
             'dashboard/history',
             'dashboard/manage-organization'
         ]
-    }
-        ;
+    };
+}
+
+function getAPISidebar() {
+    return {
+        path: "/api/overview",
+        title: "API",
+        collapsable: true,
+        children: [
+            "overview",
+            "cli",
+            "integration"
+        ]
+    };
+}
+
+function getUnitTestingSidebar() {
+    return [
+        {
+            title: "Unit Testing",
+            collapsable: true,
+            children: [
+                "getting-started",
+                "guide",
+                "guide-google",
+                "use-cases",
+                "faq",
+            ]
+        }
+    ];
+}
+function getEndToEndSidebar() {
+    return [
+        {
+            title: "Functional Testing",
+            collapsable: true,
+            children: [
+                "getting-started",
+                "setup",
+                "guide",
+                "ivr",
+                "chat",
+                "watson",
+                "device-api",
+                "test-api",
+                "faq",
+            ]
+        }
+    ];
+}
+
+
+function getTrainingIVRFunctional() {
+    return [
+        {
+            title: "IVR Functional Testing",
+            collapsable: false,
+            children: [
+                "overview",
+                "subscribe",
+                "device",
+                "test",
+                "homophones",
+                "voices",
+                "end-of-speech",
+                "reporting",
+                "going-further"
+            ]
+        }
+    ];
 }
