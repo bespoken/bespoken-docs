@@ -3,28 +3,18 @@ title: Organization Management
 permalink: /dashboard/manage-organization
 ---
 
-Virtual Devices allow Bespoken to interact with conversational applications (voice or text enabled) as a real user would against physical devices like an amazon echo, a phone, etc, allowing for comprehensive and automated end-to-end testing without the need for said physical hardware.
+# Organization Management
+Use this page to invite team members to your organization so that you can share your Bespoken account and work on tests together. To access this page, simply click on the three dots menu in the upper right corner of the page and click on "Manage" under your organization page.
 
-In general, for text systems, Bespoken will send a message from a test script, gather any text response(s) and evaluate them against expected values.
-For voice enabled systems, a Virtual Device will turn written test scripts into spoken audio and then convert the system's audio responses into text for verification. This process helps in identifying and resolving issues related to speech recognition, natural language understanding (NLU), and overall user functionality.
+## Inviting a member
+To invite a new member to your account, enter its email and assign a role to it. Available roles are:
+ * Member: Can manage tests, virtual devices and see the testing run history.
+ * Admin: In addition to member privileges, admins can add and remove members from the team.
 
-By using virtual devices, Bespoken can test across different languages, accents, and sound conditions, ensuring the robustness and reliability of conversational applications. This approach not only speeds up the development and testing processes but also significantly improves the quality of customer experiences by catching errors and usability issues early in the development cycle.
+When a new member is invited, you'll see the invitations sent at the bottom. You'll be able to cancel an invitation or resend it if needed. Your invitee will be emailed a link to create its account and join your organization.
 
-The Virtual Device Manager is where you can find your virtual devices. Below, you'll find all things you can do in this page.
+## Changing a member's role
+If you are an admin, changing a teammate role is as easy as selecting the desired role from the Role dropdown and selecting a new one. Changes are automatically saved.
 
-### Managing virtual devices
-The Virtual Device Manager page is accesible by clicking on the "Devices" icon on the left sidebar. Here, you will be able to:
-- Create new virtual devices
-- Delete existing virtual devices
-- Rename existing virtual devices
-- Filter your virtual devices by platform
-- Update your virtual device credentials (only For Alexa and Google)
-
-### Team member management
-e
-
-### Reporting and history tracking
-f
-
-### Usage statistics
-g
+## Removing a member 
+In the same way, removing a member from the team is done by clicking on the trash icon. You will be asked to provide confirmation before successfully removing a member.

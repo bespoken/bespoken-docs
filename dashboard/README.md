@@ -32,7 +32,7 @@ When you create an account with Bespoken, you are creating an account for your o
 
 Within this page you'll be able to: invite new team members to your organization, manage their permissions, remove people from your organization, resend or cancel invites. You can learn more about this page by clicking [here](/dashboard/manage-organization).
 
-## Reporting
+## History and reporting
 The "History" page allows you to get an overview of your results for the past week and beyond. It contains graphs and relevant stats from your past runs. You can access it, by clicking on the third icon on the left sidebar of the Dashboard. 
   ![History page](https://fakeimg.pl/600x400)
 
