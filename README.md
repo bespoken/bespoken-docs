@@ -11,25 +11,28 @@ features:
   details: Your centralized access for end-to-end functional testing and monitoring with Bespoken.
   link: dashboard/
 - title: Functional Testing in depth
-  details: Your centralized access for end-to-end functional testing and monitoring with Bespoken.
+  details: Not available yet. Come back soon to learn more about this topic.
   link: dashboard/
 - title: Monitoring
-  details: Your centralized access for end-to-end functional testing and monitoring with Bespoken.
+  details: Not available yet. Come back soon to learn more about this topic.
   link: dashboard/
 - title: Load Testing
-  details: Your centralized access for end-to-end functional testing and monitoring with Bespoken.
+  details: Not available yet. Come back soon to learn more about this topic.
   link: dashboard/
 - title: CLI Documentation
-  details: Your centralized access for end-to-end functional testing and monitoring with Bespoken.
+  details: Not available yet. Come back soon to learn more about this topic.
   link: dashboard/
 - title: API Documentation
-  details: Your centralized access for end-to-end functional testing and monitoring with Bespoken.
+  details: Not available yet. Come back soon to learn more about this topic.
   link: dashboard/
 - title: Best Practices
-  details: Your centralized access for end-to-end functional testing and monitoring with Bespoken.
+  details: Not available yet. Come back soon to learn more about this topic.
   link: dashboard/
+- title: Training
+  details: A more pragmatic approach to start with Bespoken. Follow along the steps to get your first test configured.
+  link: training/overview
 - title: Troubleshooting
-  details: Your centralized access for end-to-end functional testing and monitoring with Bespoken.
+  details: Not available yet. Come back soon to learn more about this topic.
   link: dashboard/
 
 footer: Bespoken Documentation | Copyright © year-Bespoken | All rights reserved.

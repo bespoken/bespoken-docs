@@ -10,6 +10,7 @@ module.exports = {
         ],
         '@vuepress/back-to-top',
         '@vuepress/last-updated',
+        '@vuepress/medium-zoom',
         'vuepress-plugin-nprogress',
         'vuepress-plugin-reading-progress',
         'vuepress-plugin-smooth-scroll',
@@ -38,13 +39,14 @@ module.exports = {
         nav: [
             { text: "Dashboard", link: "/dashboard/" },
             //{ text: "Testing Guides per platform", link: "/functional/introduction/" },
-            { text: "CLI", link: "/training/ivr/load/overview/" },
+            //{ text: "CLI", link: "/training/ivr/load/overview/" },
             { text: "TRAINING", link: "/training/overview" },
             { text: "API", link: "/api/overview" },
-            { text: "FAQ", link: "/end-to-end/faq" },
+            //{ text: "FAQ", link: "/end-to-end/faq" },
         ],
         sidebar: [
             getDashboardSidebar(),
+            getTrainingSidebar(),
             getAPISidebar()
         ],
     },
@@ -72,6 +74,19 @@ function getDashboardSidebar() {
             'dashboard/test-page',
             'dashboard/history',
             'dashboard/manage-organization'
+        ]
+    };
+}
+
+function getTrainingSidebar() {
+    return {
+        path: "/training/overview",
+        title: "Training",
+        collapsable: true,
+        children: [
+            '/training/overview',
+            '/training/ivr/overview',
+            '/training/chatbot/overview'
         ]
     };
 }

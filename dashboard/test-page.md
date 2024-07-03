@@ -1,6 +1,7 @@
 ---
 title: Test Page
 permalink: /dashboard/test-page
+sidebarDepth: 3
 ---
 
 # Test Page
@@ -13,8 +14,12 @@ In this article, we'll learn about aspects of this page that are common to all t
 
 The test page is divided into three main areas:
 1. The upper part of the page contains the configuration for your current test suite.
-2. The left side shows all your test cases.
-3. The main area is where you'll write your current test case script.
+1. The left side shows all your test cases.
+1. The main area is where you'll write your current test case script.
+
+<br>
+
+![Test Page sections](../assets/images/dashboard/test-page-sections.png)
 
 ## Configuration
 
@@ -22,13 +27,15 @@ For any platform you are working with, this configuration section will contain t
 
 ## Test Case Management
 
+![Test Options](../assets/images/dashboard/test-options.gif)
+
 In this section of the page, you'll find all the test cases available for your current test suite. You can:
 - Add a new test
 - Rename a test
 - Delete a test
 - Clone a test
-- Flag a test as "only" (more on this [here](#running-all-your-test-cases))
-- Flag a test as "skip" (more on this [here](#running-all-your-test-cases))
+- Flag a test as "only" (more on this [here](#running-your-tests))
+- Flag a test as "skip" (more on this [here](#running-your-tests))
 - Reorder existing tests by dragging and dropping them in the desired order
 
 ## Test Script
@@ -63,19 +70,17 @@ As you might expect, the Actual column contains the response that comes back fro
 
 #### Interactions
 
-You can add more interactions to your test case by clicking the "Add interaction" link below the last interaction on your test, or by clicking the "plus" sign to the left of each interaction. Note that the plus sign will "insert" a new interaction below the current one, while the "Add interaction" link will always add an interaction at the end. Similarly, if you want to remove an interaction, you can click on the "x" icon to its left.
+You can add more interactions to your test case by clicking the "Add interaction" link below the last interaction on your test, or by clicking the "plus" sign to the left of each interaction. 
+
+![Test Options](../assets/images/dashboard/test-page-interactions.gif)
+
+Note that the plus sign will "insert" a new interaction below the current one, while the "Add interaction" link will always add an interaction at the end. Similarly, if you want to remove an interaction, you can click on the "x" icon to its left.
 
 ## Running Your Tests
 
-### Running a Single Test Case
-
 Once you have configured and created all the steps for your test case, simply click on the "Run" button, and Bespoken will start running your tests. Responses will start populating the "Actual" column one by one as the test progresses. Be aware, if you leave the page at this moment, you won't be able to see your test results.
 
-### Interpreting the Results
-
-As each response comes back, Bespoken will evaluate the assessments for the current interaction and will highlight in green the interactions that were successful and in red the interactions that failed. Moreover, Bespoken will highlight and format in bold the parts of the response that made the assertion pass. From our previous example where we looked for `expected value`, the response would look like: "this is the **expected value** I got."
-
-### Running All Your Test Cases
+![Single test run](../assets/images/dashboard/test-page-run.gif)
 
 If you want to run all test cases within your test suite, head to the left side and click on the "Run all" link where all your test cases are.
 - If you only want to run a subset of tests, you can specify which ones to run by adding the "only" flag to them, by opening the three-dot menu on each test.
@@ -84,6 +89,12 @@ If you want to run all test cases within your test suite, head to the left side 
 ::: warning Note
 Running a whole test suite can take a while. Tests are run sequentially, and you won't be able to see the results until all tests have completed running. You should also not leave the page while the test suite is running.
 :::
+
+## Interpreting the Results
+
+As each response comes back, Bespoken will evaluate the assessments for the current interaction and will highlight in green the interactions that were successful and in red the interactions that failed. Moreover, Bespoken will highlight and format in bold the parts of the response that made the assertion pass. From our previous example where we looked for `expected value`, the response would look like: "this is the **expected value** I got."
+
+![Test page results](../assets/images/dashboard/test-page-results.png)
 
 ## Other Options
 
@@ -111,6 +122,8 @@ You can safely toggle between the regular editor and the YAML editor, and change
 
 ### Monitoring
 
+![Advanced settings](../assets/images/dashboard/test-page-monitoring.gif)
+
 You can enable Monitoring for your test suite by clicking on the monitoring toggle. You can read more about how monitoring can help you ensure that your system remains stable by clicking [here]().
 
 ### Downloading a Test Package
@@ -118,5 +131,7 @@ You can enable Monitoring for your test suite by clicking on the monitoring togg
 Your test suite is also exportable as a zip test package by clicking on the Download link. This package will contain your test suite YAML file as well as its configuration in a JSON file. Tests can then be executed locally or from a CI/CD package by using our CLI. More info about the Bespoken CLI can be found [here]().
 
 ### Advanced Settings
+
+![Advanced settings](../assets/images/dashboard/test-page-advanced.gif)
 
 Finally, each platform has its own set of properties that can modify the behavior of a test run. These are all grouped in the "Advanced settings" tab, which you can access by clicking on the gear icon. These will be explained in further detail in the [platform-specific guides]() section.

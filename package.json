@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/bespoken/bespoken-docs#readme",
   "dependencies": {
+    "@vuepress/plugin-medium-zoom": "^1.9.10",
     "vuepress": "~1.9.10",
     "vuepress-plugin-google-analytics-4": "^0.1.1",
     "vuepress-plugin-reading-progress": "^1.0.10"

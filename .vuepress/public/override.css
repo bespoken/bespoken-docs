@@ -28,12 +28,13 @@ main.page ul, .training-menu ul {
   font-size: 24pt;
 }
 
-.page li {
-  list-style-type: disc;
+.page ol {
+  list-style-type: decimal;
 }
 
 .page ul {
   padding-bottom: 1vh;
+  list-style-type: square;
 }
 
 .training-menu .menu-detail {

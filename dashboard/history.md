@@ -6,15 +6,15 @@ permalink: /dashboard/history
 # The History Page
 The History page is where you'll find all the historic results for your test runs. By default, you'll see results for the last two weeks on all your test suites and across the different Bespoken clients (API, CLI, Dashboard, Monitoring). Among the charts and data you can find are: 
 
-1. Number of executed tests
-2. Success and failure rate for the selected dates
-3. Average execution time per test
-4. Test runs evolution over time: Line graphic that shows the number of executed tests, number of successful and failed tests per day.
-5. Test runs by platform: Donut chart that shows the percentage of tests executed across different platforms available.
-6. Test runs by client: Donut chart that shows the percentage of tests executed across different Bespoken clients.
-7. Test run results: Tabular data with information about the number of test suites and tests executed on a run.
+![History page](../assets/images/dashboard/history-numbered.png)
 
-![History page](https://fakeimg.pl/600x400)
+1. Test runs evolution over time: Line graphic that shows the number of executed tests, number of successful and failed tests per day.
+2. Number of executed tests
+3. Success and failure rate for the selected dates
+4. Average execution time per test
+5. Test run results: Tabular data with information about the number of test suites and tests executed on a run.
+6. Test runs by platform: Donut chart that shows the percentage of tests executed across different platforms available.
+7. Test runs by client: Donut chart that shows the percentage of tests executed across different Bespoken clients.
 
 All data can be filtered by Project Name, Platform, Locale, and Dates by changing these values and clicking on the "Refresh" button at the top of the page. Additionally, you can export your results by clicking on the "Download CSV" link at the top.
 
@@ -27,6 +27,8 @@ The test run results table at the bottom of the screen is where you'll find deta
 - Number of test suites executed
 - Number of tests executed
 - Success percentage. This column is color-coded based on the results, where green represents a success level above 80%, yellow represents a success level above 50%, and red represents any value below that.
+
+![History details](../assets/images/dashboard/history-details.gif)
 
 Clicking on any of the rows within the table will open a detailed view of said run with the following sections:
 
