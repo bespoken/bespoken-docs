@@ -5,20 +5,35 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@vuepress/plugin-medium-zoom':
+    specifier: ^1.9.10
+    version: 1.9.10
   vuepress:
     specifier: ~1.9.10
     version: 1.9.10
   vuepress-plugin-google-analytics-4:
     specifier: ^0.1.1
     version: 0.1.1
+  vuepress-plugin-reading-progress:
+    specifier: ^1.0.10
+    version: 1.0.10
 
 devDependencies:
+  '@vuepress/plugin-back-to-top':
+    specifier: ^1.9.10
+    version: 1.9.10
   '@vuepress/plugin-google-analytics':
     specifier: ^1.9.8
     version: 1.9.8
   express:
     specifier: ^4.19.2
     version: 4.19.2(supports-color@6.1.0)
+  vuepress-plugin-nprogress:
+    specifier: ^1.1.8
+    version: 1.1.8
+  vuepress-plugin-smooth-scroll:
+    specifier: 0.0.10
+    version: 0.0.10
 
 packages:
 
@@ -1816,6 +1831,15 @@ packages:
       - debug
     dev: false
 
+  /@vuepress/plugin-back-to-top@1.9.10:
+    resolution: {integrity: sha512-iInIp66wu717CAnT2pyd9Bs/vAgrUBOBIQ7WMnfJo07cW/ZIothpyrSHnpCRSsfJ/jLivMPqW0pviqppt64BzQ==}
+    dependencies:
+      '@vuepress/types': 1.9.10
+      lodash.debounce: 4.0.8
+    transitivePeerDependencies:
+      - debug
+    dev: true
+
   /@vuepress/plugin-google-analytics@1.9.8:
     resolution: {integrity: sha512-bLB7UxmSaSHuD0dEZe4IBGou9pbMUSCPopjkaU41edb4tEQJwejvT32q3lX8Z+29jVLFQZ8XN2RGsu5e21oMiQ==}
     dependencies:
@@ -1829,6 +1853,15 @@ packages:
     dependencies:
       '@vuepress/types': 1.9.10
       cross-spawn: 6.0.5
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
+  /@vuepress/plugin-medium-zoom@1.9.10:
+    resolution: {integrity: sha512-/MsICWZ/mUTs+ZdqqA1AVtWAtNL5ksgnnGR2X24LnXaPJp+M1IB2ETcyNKh264YVODSrmVsS/Y+kbCRK0qKkdg==}
+    dependencies:
+      '@vuepress/types': 1.9.10
+      medium-zoom: 1.1.0
     transitivePeerDependencies:
       - debug
     dev: false
@@ -1902,7 +1935,6 @@ packages:
       webpack-chain: 6.5.1
     transitivePeerDependencies:
       - debug
-    dev: false
 
   /@vuepress/types@1.9.8:
     resolution: {integrity: sha512-ygRFqILi4SQjExxvpVUFXB/h76dN+k8GrDWYhAgmox1zhWEEzsskbqewXGKWE48RW9EJDYGgh8jy+CWvm7ILXg==}
@@ -5841,7 +5873,6 @@ packages:
 
   /lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
-    dev: false
 
   /lodash.kebabcase@4.1.1:
     resolution: {integrity: sha512-N8XRTIMMqqDgSy4VLKPnJ/+hpGZN+PHQiJnSenYqPaVV/NCqEogTnAdZLQiGKhxX+JCs8waWq2t1XHWKOmlY8g==}
@@ -5996,6 +6027,10 @@ packages:
   /media-typer@0.3.0:
     resolution: {integrity: sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==}
     engines: {node: '>= 0.6'}
+
+  /medium-zoom@1.1.0:
+    resolution: {integrity: sha512-ewyDsp7k4InCUp3jRmwHBRFGyjBimKps/AJLjRSox+2q/2H4p/PNpQf+pwONWlJiOudkBXtbdmVbFjqyybfTmQ==}
+    dev: false
 
   /memory-fs@0.4.1:
     resolution: {integrity: sha512-cda4JKCxReDXFXRqOHPQscuIYg1PvxbE2S2GP45rnwfEK+vZaXC8C1OFvdHIbgw0DLzowXGVoxLaAmlgRy14GQ==}
@@ -6340,7 +6375,6 @@ packages:
 
   /nprogress@0.2.0:
     resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
-    dev: false
 
   /nth-check@1.0.2:
     resolution: {integrity: sha512-WeBOdju8SnzPN5vTUJYxYUxLeXpCaVP5i5e0LF8fg7WORF2Wd7wFX/pk0tYZk7s8T+J7VLy0Da6J1+wCT0AtHg==}
@@ -7729,7 +7763,6 @@ packages:
 
   /smoothscroll-polyfill@0.4.4:
     resolution: {integrity: sha512-TK5ZA9U5RqCwMpfoMq/l1mrH0JAR7y7KRvOBx0n2869aLxch+gT9GhN3yUfjiw+d/DiF1mKo14+hd62JyMmoBg==}
-    dev: false
 
   /snapdragon-node@2.1.1:
     resolution: {integrity: sha512-O27l4xaMYt/RSQ5TR3vpWCAB5Kb/czIcqUFOM/C4fYcLnbZUc1PkjTAMjof2pBWaSTwOUd6qUHcFGVGj7aIwnw==}
@@ -8750,6 +8783,22 @@ packages:
     transitivePeerDependencies:
       - debug
     dev: false
+
+  /vuepress-plugin-nprogress@1.1.8:
+    resolution: {integrity: sha512-MCM6/TN/klljh5s5pso1YM3XR89BQ1yOPyYqrI8NG8u6f/w3tAa8wKhmle789yeC02WSXbcLE7t6VTRTOWst+A==}
+    dependencies:
+      nprogress: 0.2.0
+    dev: true
+
+  /vuepress-plugin-reading-progress@1.0.10:
+    resolution: {integrity: sha512-7OxcjNEDf9gqFTns0YnXrqPnTRlX6wvxWFr7D8tlfyMPpsZwJkh/MkJveRrEaKcU0gk8QGmPHnXLAZ3soTThVg==}
+    dev: false
+
+  /vuepress-plugin-smooth-scroll@0.0.10:
+    resolution: {integrity: sha512-1B7cc0OxROX9aPdktTF6lGqASGh3h0mtiUCmbAVZfGDtTOGUYDDA1BhLV96zkz/v1Zh/UvKP2gF6ADrcV83BMg==}
+    dependencies:
+      smoothscroll-polyfill: 0.4.4
+    dev: true
 
   /vuepress-plugin-smooth-scroll@0.0.3:
     resolution: {integrity: sha512-qsQkDftLVFLe8BiviIHaLV0Ea38YLZKKonDGsNQy1IE0wllFpFIEldWD8frWZtDFdx6b/O3KDMgVQ0qp5NjJCg==}
