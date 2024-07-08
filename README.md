@@ -10,9 +10,9 @@ features:
 - title: The Bespoken Dashboard
   details: Your centralized access for end-to-end functional testing and monitoring with Bespoken.
   link: dashboard/
-- title: Functional Testing in depth
-  details: Not available yet. Come back soon to learn more about this topic.
-  link: dashboard/
+- title: Platform Guides
+  details: Read our detailed guides for Alexa, IVR, Webchat and others.
+  link: guides/
 - title: Monitoring
   details: Not available yet. Come back soon to learn more about this topic.
   link: dashboard/
