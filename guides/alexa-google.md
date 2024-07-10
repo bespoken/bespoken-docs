@@ -69,7 +69,7 @@ For both Alexa and Google, we also return any JSON payload received. These typic
 ### Advanced Settings  
 In addition to the [common advanced settings](/dashboard/test-page/#advanced-settings), the following parameters are also accepted for Alexa and Google testing:
 
-| Property | Description | Default Value |  
+| Property | Description | Default |  
 | --- | --- | --- |  
 | Speech-to-Text model | Specifies the machine-learning model used to transcribe the response audio. This can improve transcription accuracy depending on the audio source. Note: not all models support all languages. Learn more about it [here](https://cloud.google.com/speech-to-text/docs/transcription-model). | Phone call |  
 | Homophones | Lists values that will be replaced by their key when found to help with speech recognition. For example, "There" vs. "Their" vs. "They're". Separate values with commas. | N/A |

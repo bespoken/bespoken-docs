@@ -84,7 +84,7 @@ Finally, you can also evaluate the property `connection.endedBy` to determine wh
 ### Advanced Settings
 In addition to the [common advanced settings](/dashboard/test-page/#advanced-settings), the following parameters are exclusive to IVR testing:
 
-| Property | Description | Default Value |
+| Property | Description | Default |
 |---|---|---|
 | Record call | When enabled, records the call, making it available for listening after the test run. | true |
 | "Repeat on" phrases | Repeats the current utterance if one of these phrases is found. Useful when the system does not understand what was said. | N/A |
