@@ -44,7 +44,7 @@ The main configuration for these tests consists of the following:
 | URL | URL where the chatbot is located. | N/A |  
 | Virtual Device | The virtual device to use in your test. | Default device |
 
-Additionally, there are other required parameters placed under the Advanced Settings tab for convenience.
+Additionally, there are other required parameters placed under the Advanced Settings tab for convenience. These allow Bespoken to know where should we type the inputs, and were should we look for responses.
 
 ### Input Configuration  
 In the input field, any text will be typed into the chatbot window and sent as a message.
@@ -84,7 +84,7 @@ In addition to the [common advanced settings](/dashboard/test-page/#advanced-set
 | Viewport Height | Desired height in which to test the page. | N/A |  
 | Additional scripts | URLs pointing to additional JS scripts to be used during testing. Make sure to include JQuery if your page doesn't have it already (https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js) | N/A |
 
-For reference, these are the values used in the Chipotle example above:
+Most of these parameters are optional. We only need to know how to open your chatbot window, where to type our inputs and where to look for responses. For reference, these are the values used in the Chipotle example above:
 - Open selector: `#customer-care-engagement`
 - Text input settings selector: `[data-lp-point="chat_input"]`
 - Reply settings selector: `[data-lp-cust-id="transcript_bubble_agent_text"]`
