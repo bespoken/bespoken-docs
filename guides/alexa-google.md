@@ -64,7 +64,7 @@ Finally, you can also use prerecorded audio simply by entering a WAV or MP3 file
 ### Expected Configuration  
 The main expected property `prompt` will be compared against the transcription of what we hear from your skill, as explained previously [here](/dashboard/test-page.md#interpreting-the-results).
 
-For both Alexa and Google, we also return any JSON payload received. These typically include information about directives, stream IDs, image URLs, etc. You can query these by turning on the YAML editor and directly replacing the `prompt` property with a JSON path to the property you want to test.
+For both Alexa and Google, we also return any JSON payload received. These typically include information about directives, stream IDs, image URLs, etc. You can query these by turning on the YAML editor and directly replacing the `prompt` property of the desired interaction with a JSON path to the property you want to test. The property will remain set when switching back to the UI editor.
 
 ### Advanced Settings  
 In addition to the [common advanced settings](/dashboard/test-page/#advanced-settings), the following parameters are also accepted for Alexa and Google testing:

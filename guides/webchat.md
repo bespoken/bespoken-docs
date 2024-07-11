@@ -60,7 +60,7 @@ This code looks for a button that contains the text "Rewards program" and clicks
 ### Expected Configuration  
 The main expected property `prompt` will be compared against your chatbot responses as explained previously [here](/dashboard/test-page.md#interpreting-the-results).
 
-Additionally, you can use the `display` property. This will return the whole HTML we capture from your chatbot, so use it with caution.
+Additionally, you can use the `display` property. This will return the whole HTML we capture from your chatbot, so use it with caution. You can also use JQuery to run an assertion on an specific element of your chatbot. To do this, simply turn on the YAML editor and replace the `prompt` property of an interaction with the JQuery expression that points to the element you want to test. The property will remain set when switching back to the UI editor.
 
 ### Advanced Settings  
 In addition to the [common advanced settings](/dashboard/test-page/#advanced-settings), the following parameters are also accepted for Webchat testing:
