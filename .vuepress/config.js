@@ -82,11 +82,12 @@ function getDashboardSidebar() {
 function getGuidesSidebar() {
     return {
         path: "/guides/",
-        title: "Detailed Guides",
+        title: "Platform Guides",
         collapsable: true,
         children: [
             '/guides/',
             'guides/alexa-google',
+            'guides/watson',
             'guides/ivr',
             'guides/webchat',
             'guides/whatsapp'
