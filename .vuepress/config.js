@@ -47,6 +47,7 @@ module.exports = {
         sidebar: [
             getDashboardSidebar(),
             getGuidesSidebar(),
+            getMonitoringSidebar(),
             getTrainingSidebar(),
             getAPISidebar()
         ],
@@ -91,6 +92,17 @@ function getGuidesSidebar() {
             'guides/ivr',
             'guides/webchat',
             'guides/whatsapp'
+        ]
+    };
+}
+
+function getMonitoringSidebar() {
+    return {
+        path: "/monitoring/",
+        title: "Monitoring",
+        collapsable: true,
+        children: [
+            '/monitoring/',
         ]
     };
 }

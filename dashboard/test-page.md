@@ -82,13 +82,15 @@ Once you have configured and created all the steps for your test case, simply cl
 
 ![Single test run](../assets/images/dashboard/test-page-run.gif)
 
+::: warning Note
+Running a whole test suite can take a while. Tests are run sequentially, and you won't be able to see the results until all tests have completed running. You should also not leave the page while the test suite is running.
+:::
+
 If you want to run all test cases within your test suite, head to the left side and click on the "Run all" link where all your test cases are.
 - If you only want to run a subset of tests, you can specify which ones to run by adding the "only" flag to them, by opening the three-dot menu on each test.
 - Similarly, you can decide which tests to ignore altogether by selecting the "Skip" flag.
 
-::: warning Note
-Running a whole test suite can take a while. Tests are run sequentially, and you won't be able to see the results until all tests have completed running. You should also not leave the page while the test suite is running.
-:::
+![Setting the "Only" flag](../assets/images/dashboard/test-page-only.gif)
 
 ## Interpreting the Results
 
@@ -128,7 +130,7 @@ You can enable Monitoring for your test suite by clicking on the monitoring togg
 
 ### Downloading a Test Package
 
-Your test suite is also exportable as a zip test package by clicking on the Download link. This package will contain your test suite YAML file as well as its configuration in a JSON file. Tests can then be executed locally or from a CI/CD package by using our CLI. More info about the Bespoken CLI can be found [here]().
+Your test suite is also exportable as a zip test package by clicking on the Download link. This package will contain your test suite YAML file as well as its configuration in a JSON file. Tests can then be executed locally or from a CI/CD package by using our CLI. More info about the Bespoken CLI can be found [here](/monitoring/).
 
 ### Advanced Settings
 

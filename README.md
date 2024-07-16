@@ -14,8 +14,8 @@ features:
   details: Read our detailed guides for Alexa, IVR, Webchat and others.
   link: guides/
 - title: Monitoring
-  details: Not available yet. Come back soon to learn more about this topic.
-  link: dashboard/
+  details: Monitor your conversational AI applications 24/7 with ease.
+  link: monitoring/
 - title: Load Testing
   details: Not available yet. Come back soon to learn more about this topic.
   link: dashboard/
