@@ -8,7 +8,7 @@ sidebarDepth: 3
 We provide support for Interactive Voice Response (IVR) and Intelligent Virtual Agent (IVA) systems by simulating real user interactions. This involves placing a call and interacting with your system using voice and DTMF inputs.
 
 ::: tip Important
-In this guide, we'll cover the specifics of testing IVR systems. For common concepts on how to test with Bespoken, refer to the [Test Page](dashboard/test-page) article in the Dashboard section. We highly recommend reading that first.
+In this guide, we'll cover the specifics of testing IVR systems. For common concepts on how to test with Bespoken, refer to the [Test Page](/dashboard/test-page) article in the Dashboard section. We highly recommend reading that first.
 :::
 
 ## Approach
@@ -32,7 +32,7 @@ Here's the same call represented as a Bespoken test:
 
 In this test:
 - We call the configured number and start transcribing the call in real-time.
-- We expect to hear "Hi! This is the bespoken airlines contact center. In a few words, please tell me what you're calling about."
+- We expect to hear "Hi! This is the Bespoken airlines contact center. In a few words, please tell me what you're calling about."
 - We say "Cancellations" after hearing "tell me what you are calling about."
 - We press `6286` on our keypad after hearing "4 digit booking code."
 - We expect to hear "Your booking with code 6286 has been canceled. Thanks for calling, have a nice day!"

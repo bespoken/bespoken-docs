@@ -82,7 +82,7 @@ In addition to the [common advanced settings](/dashboard/test-page/#advanced-set
 | Initialize Timeout | Milliseconds to wait for the initialize script to finish. | 5000 |  
 | Viewport Width | Desired width in which to test the page. | N/A |  
 | Viewport Height | Desired height in which to test the page. | N/A |  
-| Additional scripts | URLs pointing to additional JS scripts to be used during testing. Make sure to include JQuery if your page doesn't have it already (https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js) | N/A |
+| Additional scripts | URLs pointing to additional JS scripts to be used during testing. Make sure to include [JQuery](https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js) if your page doesn't have it already | N/A |
 
 Most of these parameters are optional. We only need to know how to open your chatbot window, where to type our inputs and where to look for responses. For reference, these are the values used in the Chipotle example above:
 - Open selector: `#customer-care-engagement`

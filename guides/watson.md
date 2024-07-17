@@ -7,7 +7,7 @@ sidebarDepth: 3
 # Functional Testing for IBM Watson Assistant
 
 ::: tip Important
-In this guide, we'll cover the specifics of testing IBM Watson Assistant. For common concepts on how to test with Bespoken, refer to the [Test Page](dashboard/test-page) article in the Dashboard section. We highly recommend reading that first.
+In this guide, we'll cover the specifics of testing IBM Watson Assistant. For common concepts on how to test with Bespoken, refer to the [Test Page](/dashboard/test-page) article in the Dashboard section. We highly recommend reading that first.
 :::
 
 ## Approach

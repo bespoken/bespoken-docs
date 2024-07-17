@@ -1,6 +1,6 @@
 ---
 title: WhatsApp
-permalink: /guides/sms
+permalink: /guides/whatsapp
 sidebarDepth: 3  
 ---
 
