@@ -9,7 +9,7 @@ sidebarDepth: 3
 Now that you have created a test suite and your virtual devices, you are ready to work on the test page.
 
 ::: tip Important
-In this article, we'll learn about aspects of this page that are common to all the platforms Bespoken supports. Platform-specific guides can be found [here]().
+In this article, we'll learn about aspects of this page that are common to all the platforms Bespoken supports. Platform-specific guides can be found [here](/guides/).
 :::
 
 The test page is divided into three main areas:
@@ -60,9 +60,12 @@ A default assertion would look like this:
 
 Where `prompt` is the property that returns the main response content from the platform being tested: a transcription, a text message, a chatbot reply, etc., and `:` represents a partial equality operator or, in other words, a substring search. E.g., `prompt : "expected value"` would be valid if the response we get is "expected value" or "this is the expected value I got."
 
-::: tip Tip
-While the default assertion is what we'll use 99% of the time, you can learn more about available properties and operators [here]().
-:::
+Other available operators are:
+- != Not equal to
+- > Greater than
+- >= Greater than or equal
+- < Less than
+- <= Less than or equal
 
 #### Actual Column
 
@@ -126,7 +129,7 @@ You can safely toggle between the regular editor and the YAML editor, and change
 
 ![Advanced settings](../assets/images/dashboard/test-page-monitoring.gif)
 
-You can enable Monitoring for your test suite by clicking on the monitoring toggle. You can read more about how monitoring can help you ensure that your system remains stable by clicking [here]().
+You can enable Monitoring for your test suite by clicking on the monitoring toggle. You can read more about how monitoring can help you ensure that your system remains stable by clicking [here](/monitoring/).
 
 ### Downloading a Test Package
 

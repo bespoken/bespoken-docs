@@ -19,9 +19,9 @@ features:
 # - title: Load Testing
 #   details: Not available yet. Come back soon to learn more about this topic.
 #   link: dashboard/
-- title: CLI 
-  details: The Bespoken CLI allows you to execute your tests from your own terminal.
-  link: cli/
+# - title: CLI 
+#   details: The Bespoken CLI allows you to execute your tests from your own terminal.
+#   link: cli/
 # - title: API Documentation
 #   details: Not available yet. Come back soon to learn more about this topic.
 #   link: dashboard/
