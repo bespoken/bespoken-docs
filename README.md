@@ -22,9 +22,9 @@ features:
 # - title: CLI 
 #   details: The Bespoken CLI allows you to execute your tests from your own terminal.
 #   link: cli/
-# - title: API Documentation
-#   details: Not available yet. Come back soon to learn more about this topic.
-#   link: dashboard/
+- title: API Documentation
+  details: Interact programatically with Bespoken via our APIs and SDK.
+  link: api/
 # - title: Best Practices
 #   details: Not available yet. Come back soon to learn more about this topic.
 #   link: dashboard/
