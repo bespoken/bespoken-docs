@@ -16,24 +16,24 @@ features:
 - title: Monitoring
   details: Monitor your conversational AI applications 24/7 with ease.
   link: monitoring/
-- title: Load Testing
-  details: Not available yet. Come back soon to learn more about this topic.
-  link: dashboard/
-- title: CLI Documentation
-  details: Not available yet. Come back soon to learn more about this topic.
-  link: dashboard/
-- title: API Documentation
-  details: Not available yet. Come back soon to learn more about this topic.
-  link: dashboard/
-- title: Best Practices
-  details: Not available yet. Come back soon to learn more about this topic.
-  link: dashboard/
+# - title: Load Testing
+#   details: Not available yet. Come back soon to learn more about this topic.
+#   link: dashboard/
+- title: CLI 
+  details: The Bespoken CLI allows you to execute your tests from your own terminal.
+  link: cli/
+# - title: API Documentation
+#   details: Not available yet. Come back soon to learn more about this topic.
+#   link: dashboard/
+# - title: Best Practices
+#   details: Not available yet. Come back soon to learn more about this topic.
+#   link: dashboard/
 - title: Training
   details: A more pragmatic approach to start with Bespoken. Follow along the steps to get your first test configured.
   link: training/overview
-- title: Troubleshooting
-  details: Not available yet. Come back soon to learn more about this topic.
-  link: dashboard/
+# - title: Troubleshooting
+#   details: Not available yet. Come back soon to learn more about this topic.
+#   link: dashboard/
 
 footer: Bespoken Documentation | Copyright © year-Bespoken | All rights reserved.
 permalink: /

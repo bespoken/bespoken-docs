@@ -48,6 +48,7 @@ module.exports = {
             getDashboardSidebar(),
             getGuidesSidebar(),
             getMonitoringSidebar(),
+            getCLISidebar(),
             getTrainingSidebar(),
             getAPISidebar()
         ],
@@ -103,6 +104,17 @@ function getMonitoringSidebar() {
         collapsable: true,
         children: [
             '/monitoring/',
+        ]
+    };
+}
+
+function getCLISidebar() {
+    return {
+        path: "/cli/",
+        title: "CLI",
+        collapsable: true,
+        children: [
+            '/cli/',
         ]
     };
 }
