@@ -141,9 +141,9 @@ Your test suite is also exportable as a zip test package by clicking on the Down
 
 The "Advanced settings" tab, which you can access by clicking on the gear icon, contains parameters that can further modify the behavior or evaluation of a test run. Common parameters are:
 
-| Property | Descrition | Default Value |
+| Property | Description | Default Value |
 |---|---|---|
-| Assertion fuzzy treshold | A decimal number from 0 to 1 that represents the threshold applied when using fuzzy matching to verify a prompt assertion. Setting this property to 1 means the values have to match exactly. | 0.8 |
+| Assertion fuzzy threshold | A decimal number from 0 to 1 that represents the threshold applied when using fuzzy matching to verify a prompt assertion. Setting this property to 1 means the values have to match exactly. | 0.8 |
 | Max. response wait time | Interval in milliseconds to wait for a response. | 120000 |
 | Stop tests on first failure | Stop the current test as soon as the first error is detected, saving time between runs| false |
 | Lenient Mode | Removes common punctuation signs and extra white spaces from the transcript. | false |

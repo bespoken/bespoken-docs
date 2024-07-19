@@ -2,7 +2,7 @@
 title: Overview
 permalink: /api/
 ---
-Bespoken provides a number of APIs, SDKs and builtin integrations to allow for interacting with our testing platform programmatically.
+Bespoken provides a number of APIs, SDKs and built-in integrations to allow for interacting with our testing platform programmatically.
 
 These include:
 * API reference documentation - [review here](https://test-api.bespoken.io/api/docs)
