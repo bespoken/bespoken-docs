@@ -24,7 +24,7 @@ We consider this the best of all worlds - a full-featured general testing framew
 
 * Fast execution time
 * No need for deployment to run
-* Minimal dependencies, and with builtin mocks that are useful
+* Minimal dependencies, and with built-in mocks that are useful
 
 But there are also limitations. Those include:
 

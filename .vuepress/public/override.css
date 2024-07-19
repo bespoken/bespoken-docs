@@ -28,12 +28,24 @@ main.page ul, .training-menu ul {
   font-size: 24pt;
 }
 
-.page li {
-  list-style-type: disc;
+.page img {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.page video {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.page ol {
+  list-style-type: decimal;
+  margin-bottom: 20px;
 }
 
 .page ul {
   padding-bottom: 1vh;
+  list-style-type: square;
 }
 
 .training-menu .menu-detail {

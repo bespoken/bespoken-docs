@@ -1,11 +1,11 @@
 <template>
   <main class="home" aria-labelledby="main-title">
     <header class="hero">
-      <img src="../../../assets/images/LlamaMay2023.png" style="height: 40vh">
+      <img src="../../../assets/images/LlamaMay2023.png" style="height: 30vh">
       <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || 'Hello' }}</h1>
     </header>
 
-    <div class="features sm:space-x-10" v-if="data.features && data.features.length">
+    <div class="features" v-if="data.features && data.features.length">
       <div class="feature" v-for="(feature, index) in data.features" :key="index">
         <a
           :href="feature.link"
@@ -60,9 +60,22 @@ export default {
 </script>
 
 <style lang="stylus">
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .home {
+  flex: 1;
   padding: $navbarHeight 2rem 0;
-  margin: 0px 20px 0px 20px;
+  margin: 0 20px;
   display: block;
 
   .hero {
@@ -111,38 +124,50 @@ export default {
   .features {
     border-top: 1px solid $borderColor;
     padding: 1.2rem 0;
-    display: flex;
-    align-items: flex-start;
-    align-content: stretch;
-    justify-content: space-between;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    justify-content: center; // Center the items horizontally
+    max-width: calc(3 * 280px + 3 * 1.5rem); // Ensure the grid does not exceed 3 columns in width
+    margin: 0 auto; // Center the grid container itself
   }
 
   .feature {
-    flex-grow: 1;
-    flex-basis: 30%;
-    max-width: 30%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background: #fff;
 
     h2 {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       font-weight: 500;
       border-bottom: none;
       padding-bottom: 0;
       color: lighten($textColor, 10%);
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #42b983; // Vue's default green color
+      }
     }
 
     p {
       color: lighten($textColor, 25%);
+      font-size: 14px;
+      font-weight: 400;
     }
-
-    width: 20vw;
   }
+}
 
-  .footer {
-    padding: 2.5rem;
-    border-top: 1px solid $borderColor;
-    text-align: center;
-    color: lighten($textColor, 25%);
-  }
+.footer {
+  height: 60px; // Fixed height for the footer
+  padding: 1rem;
+  border-top: 1px solid $borderColor;
+  text-align: center;
+  color: lighten($textColor, 25%);
+  background: #fff; // Ensure it has a background color
+  flex-shrink: 0; // Prevent it from shrinking
+  margin-top: auto; // Push the footer to the bottom
 }
 
 @media (max-width: $MQMobile) {
@@ -150,11 +175,11 @@ export default {
     margin: 0;
 
     .features {
-      flex-direction: column;
+      padding: 1.2rem;
+      grid-template-columns: 1fr;
     }
 
     .feature {
-      max-width: 100%;
       margin-bottom: 20px;
       padding: 0 2.5rem;
     }
@@ -190,13 +215,16 @@ export default {
       }
     }
 
+    .features {
+      padding: 1rem;
+    }
+
     .feature {
       h2 {
         font-size: 1.25rem;
       }
-
-      width: 80vw;
     }
   }
 }
+
 </style>

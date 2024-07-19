@@ -2,28 +2,38 @@
 home: true
 heroText: "Bespoken Documentation"
 heroImage: /assets/images/BespokenAtlas-Reduced.jpg
-tagline: Bespoken is the world’s leader in automated testing tools and monitoring for voice
-         applications. Our tools help voice developers create five star apps through the whole
-         development process and beyond.
+tagline: Bespoken is the world’s leader in automated testing tools and monitoring for voice and chat applications. Our tools help developers create five star apps through the whole development process and beyond.
 actionText: Get Started →
 actionLink: cli/getting-started/
-description: Find the Bespoken Documentation here - Everything you need to know to get started with automated voice app testing and monitoring for Alexa skills and Google Actions.
+description: Everything you need to know to get started with automated testing and monitoring for your conversation AI apps. Alexa, IVR, Chatbots, Whatsapp and more.
 features:
-- title: Accuracy Testing
-  details: Measure and optimize the performance of your speech recognition (ASR) and NLU.
-  link: training/ivr/accuracy/overview
-- title: Functional Testing
-  details: Ensure your system is working perfectly, all the time.
-  link: end-to-end/getting-started/
-- title: Load Testing
-  details: Ensure your system can scale to the highest levels of usage.
-  link: training/ivr/load/overview
+- title: The Bespoken Dashboard
+  details: Your centralized access for end-to-end functional testing and monitoring with Bespoken.
+  link: dashboard/
+- title: Platform Guides
+  details: Read our detailed guides for Alexa, IVR, Webchat and others.
+  link: guides/
 - title: Monitoring
-  details: Monitor your Conversational AI applications 24/7.
-  link: training/ivr/monitoring/overview
-- title: Bespoken API
-  details: Learn about the Bespoken API, SDK, CLI and Integrations
-  link: api/overview
+  details: Monitor your conversational AI applications 24/7 with ease.
+  link: monitoring/
+# - title: Load Testing
+#   details: Not available yet. Come back soon to learn more about this topic.
+#   link: dashboard/
+# - title: CLI 
+#   details: The Bespoken CLI allows you to execute your tests from your own terminal.
+#   link: cli/
+- title: API Documentation
+  details: Interact programatically with Bespoken via our APIs and SDK.
+  link: api/
+# - title: Best Practices
+#   details: Not available yet. Come back soon to learn more about this topic.
+#   link: dashboard/
+- title: Training
+  details: A more pragmatic approach to start with Bespoken. Follow along the steps to get your first test configured.
+  link: training/overview
+# - title: Troubleshooting
+#   details: Not available yet. Come back soon to learn more about this topic.
+#   link: dashboard/
 
 footer: Bespoken Documentation | Copyright © year-Bespoken | All rights reserved.
 permalink: /

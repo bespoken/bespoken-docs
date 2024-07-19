@@ -1,5 +1,5 @@
 ---
-title: Integration
+title: Integrations
 permalink: /api/integration
 ---
 

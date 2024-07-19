@@ -60,7 +60,7 @@
               <p>Virtual Assistants allow users to interact via voice and touch with complex, general-purpose AIs.</p>
 
               <p>These virtual assistants may be in the car, in a smart speaker, or built into our phones. 
-              They include solutions such Amazon Alexa, Google Assistant, IBM Watson, Hey Mercedes In-Car assistant any many more.</p>
+              They include solutions such Amazon as Alexa, Google Assistant, IBM Watson, Hey Mercedes In-Car assistant any many more.</p>
 
               <p>Key considerations for Virtual Assistant testing are:</p>
             </div>
