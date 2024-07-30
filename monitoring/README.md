@@ -46,10 +46,13 @@ The results of the monitoring tests will be shown on the [history page](../dashb
 
 ![History Page](../assets/images/monitoring/monitoring-client.png)
 
-## Disabling Monitoring
-To disable monitoring, simply click on the toggle again and confirm that you want to disable it. This will stop the automated tests from running.
+## Editing and Disabling Monitoring
+To edit your monitoring schedule, simply click on the toggle again. This will open the monitoring modal with your current configuration already loaded. Apply the changes necessary and click on "Ok" to finish. If you don't want to keep monitoring your tests, simply click on the "Disable monitoring" button instead.
 
-## Important Considerations
-- Be cautious about the frequency of your tests, as each test run will consume utterances from your plan. Make sure to choose a schedule that balances the need for frequent checks with your plan's limitations.
+![History Page](../assets/images/monitoring/monitoring-edit.png)
+
+::: warning Important
+Be cautious about the frequency of your tests, as each test run will consume utterances from your plan. Make sure to choose a schedule that balances the need for frequent checks with your plan's limitations.
+:::
 
 By following these steps, you can effectively set up and manage monitoring for your applications, ensuring they perform optimally at all times.
