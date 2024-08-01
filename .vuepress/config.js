@@ -49,8 +49,9 @@ module.exports = {
             getGuidesSidebar(),
             getMonitoringSidebar(),
             //getCLISidebar(),
-            getTrainingSidebar(),
-            getAPISidebar()
+            getAPISidebar(),
+            getFAQSidebar(),
+            getTrainingSidebar()
         ],
     },
     // https://stackoverflow.com/questions/53874577/vuepress-how-to-get-the-processed-image-filename
@@ -104,6 +105,17 @@ function getMonitoringSidebar() {
         collapsable: true,
         children: [
             '/monitoring/',
+        ]
+    };
+}
+
+function getFAQSidebar() {
+    return {
+        path: "/faq/",
+        title: "FAQ",
+        collapsable: true,
+        children: [
+            '/faq/',
         ]
     };
 }
