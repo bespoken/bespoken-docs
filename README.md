@@ -25,9 +25,9 @@ features:
 - title: API Documentation
   details: Interact programatically with Bespoken via our APIs and SDK.
   link: api/
-# - title: Best Practices
-#   details: Not available yet. Come back soon to learn more about this topic.
-#   link: dashboard/
+- title: FAQ
+  details: Frequently Asked Questions for End to End testing.
+  link: faq/
 - title: Training
   details: A more pragmatic approach to start with Bespoken. Follow along the steps to get your first test configured.
   link: training/overview
