@@ -23,15 +23,6 @@ Functional testing is critical to ensure your voice app behaves as expected befo
 
 Our approach to functional testing is based on the creation and execution of __test scripts__. Ideally, the test scripts should cover the entire functionality of your conversational app.
 
-### Can I use my own prerecorded audios with your tests?
-Yes, you certainly can. To do this, replace utterances in your tests with a publicly available URL containing your audio files. Like this:
-
-![Prerecorded audio](../assets/images/faq/faq-prerecorded-audio.png)
-
-Prerecorded audios that are sent as utterances should have the following formats: 
-- Any of the [FFMPEG supported audio formats](https://ffmpeg.org/ffmpeg-formats.html) for regular functional tests.
-- Any of the [Twilio Play supported audio formats](https://www.twilio.com/docs/voice/twiml/play#nouns) for IVR functional tests. 
-
 ### The transcript response from my test differs from what I'm expecting. What should I do?
 For functional tests that use speech recognition, it is common to get some words, acronyms, and punctuation wrong. To compensate for this, there are two settings that can be adjusted to make tests pass.
 
@@ -55,12 +46,44 @@ Homophones are two or more words that share the same pronunciation but have diff
 
 In this case, any of the comma-delimited values will be replaced by their key before evaluating the results.
 
+### Can I use my own prerecorded audios with your tests?
+Yes, you certainly can. To do this, replace utterances in your tests with a publicly available URL containing your audio files. Like this:
+
+![Prerecorded audio](../assets/images/faq/faq-prerecorded-audio.png)
+
+Prerecorded audios that are sent as utterances should have the following formats: 
+- Any of the [FFMPEG supported audio formats](https://ffmpeg.org/ffmpeg-formats.html) for regular functional tests.
+- Any of the [Twilio Play supported audio formats](https://www.twilio.com/docs/voice/twiml/play#nouns) for IVR functional tests. 
+
 ### How can I execute a subset of my tests within the Dashboard?
 If you have a big test suite that contains multiple tests and only want to run a subset of them, simply mark the tests you want to run using the "only" flag. To do this, click on the three dots next to the names of the tests you want to select and click on the "Only" option. After this, click on "Run All" and Bespoken will only run the tests marked with this option, ignoring the rest.
 
 ![Only](../assets/images/faq/faq-only.gif)
 
 Alternatively, you can use the "Skip" option to mark the tests that should not be run when clicking on "Run All".
+
+### How do I retrieve my API key?
+
+bla bla bla
+
+### Does Bespoken support conditional steps?
+
+bla bla bla
+
+### Where can I see the utterances I have consumed?
+
+bla bla bla
+
+### Can I schedule tests to run at specific times?
+
+bla bla bla
+
+### What do I do if my monitoring alerts are sent on holidays?
+
+bla bla bla
+
+
+
 
 ## Alexa
 
@@ -110,3 +133,41 @@ By default, our virtual devices will always point to the US region. If you want 
 
 ### I have errors when testing in parallel with devices using the same account with Alexa
 Alexa AVS doesn't handle more than one request for the same account at the same time. If you need to do parallel tests, create the necessary virtual devices using different accounts at the setup.
+
+## IVR
+
+### What is the default number used for calling?
+bla bla bla
+### Can I get a different number to call?
+bla bla bla
+### What countries are supported?
+bla bla bla
+## Webchat
+
+### What if my webchat is embedded in an iframe?
+If your webchat is embedded in an iframe, specify the iframe selector in the advanced settings. This ensures the test script can correctly locate and interact with the chatbot within the iframe.
+
+### How can I simulate a user clicking on a button?
+bla bla bla
+
+## Whatsapp
+
+### What is Bespoken default number for Whatsapp tests?
+
+bla bla bla
+
+### Can we test using other numbers?
+
+bla bla bla
+
+### I'm not receiving Menu messages. What can I do?
+
+bla bla bla
+
+### Can I see the images sent by my Whatsapp bot?
+
+bla bla bla
+
+
+
+
