@@ -7,6 +7,8 @@ sidebarDepth: 1
 # FAQ for Functional Testing
 Here you can find common questions regarding functional testing for Conversational AI.
 
+[[toc]]
+
 ## General
 
 ### What is Functional Testing and why do I need it?
