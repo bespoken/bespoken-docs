@@ -23,11 +23,33 @@ Functional testing is critical to ensure your voice app behaves as expected befo
 
 Our approach to functional testing is based on the creation and execution of __test scripts__. Ideally, the test scripts should cover the entire functionality of your conversational app.
 
-### The transcript response from my test differs from what I'm expecting. What should I do?
+### The responses I'm expecting have some dynamic parts. How do I handle this in my scripts?
+To handle dynamic content, Bespoken provides with several alternatives you can make use of.
+
+#### Wildcards
+Use a star `*` as a wildcard for portions of your responses that are highly dynamic (eg. date and times), difficult for speech to text systems (eg. URLs), temporary (eg. holiday greetings) or that you simply can ignore. For example, in the image below we are replacing "Bespoken Airlines Contact Center" for a wildcard with success.
+
+![Wildcard use](../assets/images/faq/faq-wildcard.png)
+
+::: tip Tip
+You can use multiple wildcards for the same prompt, or even replace your full expected response for a single wildcard if the current response is not crucial to your test.
+:::
+
+#### Multiple prompts
+When your system alternates between responses (eg. Hi / Hello / Welcome or longer phrases), you can add multiple prompts for a single interaction. Bespoken will mark the interaction as valid as long as one of the expected values matches the response, effectively working as a logical OR operator. In the image below, notice how the expected responses include Hi and Welcome.
+
+![Multiple prompts](../assets/images/faq/faq-multiple-prompts.png)
+
+#### Regular expressions
+You can also use regular expressions for more complex comparisons. Simply start and end your expected value with a `/` symbol. In the image below, you can see how we are using a regular expressions to expect either "Okay" or "Sure" followed by the rest of the expected response.
+
+![Regular expressions](../assets/images/faq/faq-regular-expressions.png)
+
+### The transcript response from my test differs slightly from what I'm expecting. What should I do?
 For functional tests that use speech recognition, it is common to get some words, acronyms, and punctuation wrong. To compensate for this, there are two settings that can be adjusted to make tests pass.
 
 #### Assertion Fuzzy Threshold
-This property is common to all testing platforms. It represents how forgiving we should be when comparing the expected vs. actual values received, expressed as a decimal number from 0 to 1. Setting this property to 1 means the values have to match exactly; lowering the value makes the assertions more forgiving.
+This property is common to all testing platforms. You can find it under the "Advanced settings" tab and it represents how forgiving we should be when comparing the expected vs. actual values received, expressed as a decimal number from 0 to 1. Setting this property to 1 means the values have to match exactly; lowering the value makes the assertions more forgiving.
 
 Here's an example with this value set to 1. Notice how the assertion failed when the only difference was "you are" vs. "you're" at the end and the test still fails.
 
@@ -64,26 +86,31 @@ Alternatively, you can use the "Skip" option to mark the tests that should not b
 
 ### How do I retrieve my API key?
 
-bla bla bla
+To retrieve your API key, follow these steps:
+
+1. Navigate to the Dashboard.
+2. Click on the three dots menu at the upper right side of your screen.
+2. Click on "My account".
+3. Copy the API key at the bottom of the page.
+
+![API Key Location](../assets/images/cli/api-key.png) 
 
 ### Does Bespoken support conditional steps?
 
-bla bla bla
+At the moment, the scripts generated in the Dashboard do not allow for conditional steps. 
 
 ### Where can I see the utterances I have consumed?
 
-bla bla bla
+You can see the utterances consumed this month by your organization within the "Billing" page in your Dashboard. Utterance count is reset at the start of each month.
+
+![Subscription and Billing page](../assets/images/dashboard/subscription.png)
 
 ### Can I schedule tests to run at specific times?
 
-bla bla bla
+Yes! To do so, you need to enable monitoring. This will allow you to set up specific schedules on which to run your tests, and will provide you with options to be notified if your tests fail. You can learn more about monitoring [here](/monitoring/).
 
 ### What do I do if my monitoring alerts are sent on holidays?
-
-bla bla bla
-
-
-
+Monitoring schedules are set using CRON expressions. Unfortunately, CRON expressions can't know what your holidays are. Our recomendation for these cases is that the tests that you are monitoring constantly are prepared for different, alternative, prompts. You can manage this with wildcards, regular expressions or explicit additional prompts added to your assertions as explained above.
 
 ## Alexa
 
@@ -137,36 +164,40 @@ Alexa AVS doesn't handle more than one request for the same account at the same 
 ## IVR
 
 ### What is the default number used for calling?
-bla bla bla
+The default number Bespoken uses for placing a call during an IVR end-to-end test is: `+1 202 559 1161` from Washington, US.
+
 ### Can I get a different number to call?
-bla bla bla
+Of course, contact us at [support@bespoken.io](mailto:support@bespoken.io) and we'll set up a different number for you, including phones for different countries.
+
 ### What countries are supported?
-bla bla bla
+We have a vast number of supported destinations (nearly 200 locales). If you have doubts about the country you are trying to reach with your tests, simply send us an email at [support@bespoken.io](mailto:support@bespoken.io) to double check for you.
+
 ## Webchat
 
 ### What if my webchat is embedded in an iframe?
 If your webchat is embedded in an iframe, specify the iframe selector in the advanced settings. This ensures the test script can correctly locate and interact with the chatbot within the iframe.
 
 ### How can I simulate a user clicking on a button?
-bla bla bla
+Our end-to-end testing for Webchat supports the usage of JQuery as input. You can use this to your advantage and click, select or interact with your chatbot window as you please. For example, the following input would look for a button with the label "Rewards program" and click it for you.
+
+``
+$('button:contains("Rewards program")').click()
+```
 
 ## Whatsapp
 
 ### What is Bespoken default number for Whatsapp tests?
-
-bla bla bla
+The default number we use to reach your Whatsapp bot is: `+1 (872) 213-7017`.
 
 ### Can we test using other numbers?
-
-bla bla bla
+We can configure additional Whatsapp numbers to test for you. Simply reach out to us at [support@bespoken.io](mailto:support@bespoken.io) and we'll be glad to help.
 
 ### I'm not receiving Menu messages. What can I do?
 
-bla bla bla
+Menu messages are not currently supported by our functional tests, however you can easily mock them by putting `[MENU]` before your regular expected response. This is better explained [here](/guides/whatsapp/#menu-messages-mocking).
 
 ### Can I see the images sent by my Whatsapp bot?
-
-bla bla bla
+Images sent as part of Whatsapp responses will appear as clickable links within the Test Page "Actual" column.
 
 
 
