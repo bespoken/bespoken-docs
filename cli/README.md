@@ -42,6 +42,12 @@ The test suite command lets you invoke the execution of a test suite directly fr
 To use this command provide set your api key as an environment variable called `TEST_API_KEY` and then type
 
 ```sh
+bst test-suite run <TEST_SUITE_ID>
+```
+
+TODO, where to get the test suite id from.
+
+```sh
 bst test-suite run <TEST_SUITE_NAME>
 ```
 
