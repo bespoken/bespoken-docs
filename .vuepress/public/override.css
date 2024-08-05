@@ -1,3 +1,8 @@
+a {
+  /* Default link color from Vuepress*/
+  color: #3eaf7c
+}
+
 main.page h2 {
   font-size: 18pt;
 }
