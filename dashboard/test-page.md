@@ -62,8 +62,8 @@ Where `prompt` is the property that returns the main response content from the p
 
 Other available operators are:
 - != Not equal to
-- > Greater than
-- >= Greater than or equal
+- \> Greater than
+- \>= Greater than or equal
 - < Less than
 - <= Less than or equal
 
