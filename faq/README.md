@@ -112,6 +112,17 @@ Yes! To do so, you need to enable monitoring. This will allow you to set up spec
 ### What do I do if my monitoring alerts are sent on holidays?
 Monitoring schedules are set using CRON expressions. Unfortunately, CRON expressions can't know what your holidays are. Our recomendation for these cases is that the tests that you are monitoring constantly are prepared for different, alternative, prompts. You can manage this with wildcards, regular expressions or explicit additional prompts added to your assertions as explained above.
 
+### How hard is it to set up functional tests? How long will it take?
+Setting up functional tests for your conversational AI application is pretty easy with Bespoken. Our UI guides you though creating your test scripts by indicating what to say and what to expect, and our team is willing to help via email or chat at your convenience. We find creating a first test usually takes a few minutes, then depending in your flows complexity most of our customers have a working set of test suites that covers the most important aspects of their systems in their first week with us.
+
+### Is it possible to import tests from other sources into the Bespoken Dashboard?
+Yes! We provide an easy way to import your tests via an Excel template that you can find here and upload right the Bespoken Dashboard's Test Suites page. 
+
+If Excel is not your preffered way, just send us an email. We've been succesful at importing tests directly from systems like TestRail, Genesys and others, and we'll be glad to work with you on this.
+
+### Do I need to be able to write code to create tests with Bespoken?
+No coding skills are necessary to work with Bespoken.
+
 ## Alexa
 
 ### What permissions are needed for Functional Testing?
@@ -172,6 +183,16 @@ Of course, contact us at [support@bespoken.io](mailto:support@bespoken.io) and w
 ### What countries are supported?
 We have a vast number of supported destinations (nearly 200 locales). If you have doubts about the country you are trying to reach with your tests, simply send us an email at [support@bespoken.io](mailto:support@bespoken.io) to double check for you.
 
+### What different IVR/CCaaS platforms do you support?
+Our IVR end-to-end testing is system agnostic. We only need the phone number you want us to call to and we'll handle the rest. This has allowed us to work with many platforms including: Genesys, AWS Connect, Twilio, and many more.
+
+### Can I use Bespoken to monitor my IVR?
+Yes, monitoring is available for all platforms that Bespoken supports. Take a look at our [monitoring docs](/monitoring/) to see how monitoring can help you.
+
+### Can I simulate load on my IVR with the Bespoken dashboard?
+Bespoken offers Load Testing for IVR. Load testing can help you verify that your system is prepared for big traffic events. During Load Testing, we'll use functional tests created in the Dashboard for putting the desired stress to your system. However, the Load testing itself is not run within the Dashboard, and it requires a Bespoken SME to help setting up. Please, contact us at [contact@bespoken.io](mailto:contact@bespoken.io) if you would want to know more about Load Testing.
+
+
 ## Webchat
 
 ### What if my webchat is embedded in an iframe?
@@ -180,7 +201,7 @@ If your webchat is embedded in an iframe, specify the iframe selector in the adv
 ### How can I simulate a user clicking on a button?
 Our end-to-end testing for Webchat supports the usage of JQuery as input. You can use this to your advantage and click, select or interact with your chatbot window as you please. For example, the following input would look for a button with the label "Rewards program" and click it for you.
 
-``
+```
 $('button:contains("Rewards program")').click()
 ```
 
