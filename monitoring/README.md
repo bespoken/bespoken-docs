@@ -28,9 +28,13 @@ All CRON expressions entered in this modal are in UTC. Please consider that to a
 
 - **Emails to notify:** Enter the email addresses that should receive notifications in case of a test failure. Separate as many emails as you need using commas.
 
+- **SMS numbers (optional):** Enter the phone numbers that should receive an SMS notification in case of a test failure. You can add multiple numbers separated by commas. Numbers should not have dashes, spaces, or parenthesis, plus signs for international numbers are allowed.
+
 ![Configuration Modal](../assets/images/monitoring/monitoring-modal.png)
 
-Once configured, your tests will be run automatically at the specified intervals by our system.
+Once configured, your tests will be run automatically at the specified intervals by our system. You will also see a green monitoring icon next to your test suite name for test suites that are being monitored.
+
+![Monitored test suite](../assets/images/monitoring/monitored-test-suite.png)
 
 ## Test Execution and Notifications
 Monitoring will run all tests within your test suite. This can impact the time it takes to run the tests and the number of utterances used. 
