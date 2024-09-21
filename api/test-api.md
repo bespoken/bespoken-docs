@@ -77,9 +77,33 @@ GET /api/test-suite/12345/run?api-key=your-api-key
 ```
 
 ### Notes
-
 - Ensure you have a valid API key before making the request.
+- The `test-suite-id` can be obtained by opening your test suite in the bespoken Dashboard and copying the UUID at the end of the current URL.
 - If a `phoneNumber` is provided, it will replace the phone number configured in the test suite.
+
+### Try it 
+<VuepressApiPlayground 
+    url="https://test-api.bespoken.io/api/test-suite/{test-suite-id}/run"
+    method="get" 
+    :showMethod="true"
+    :showURL="true"
+    :data="[
+      {
+        name: 'test-suite-id',
+        value: '12345',
+        type: 'string',
+      },
+      {
+        name: 'api-key',
+        value: 'api-12345',
+        type: 'string',
+      },
+      {
+        name: 'phoneNumber',
+        type: 'string',
+      },
+    ]" 
+  />
 
 ## Running a Test Suite with Replacement Variables
 
@@ -143,6 +167,17 @@ Content-Type: application/json
 - To use them, you need to specify variable names in your test script following this nomenclature: `${VARIABLE_NAME}`
 ![Variables example](../assets/images/api/variables_to_replace.png)
 - If a `phoneNumber` is provided in the query, it will replace the phone number configured in the test suite.
+
+### Try it
+
+```
+curl --location 'https://test-api.bespoken.io/api/test-suite/{test-suite-id}/run?api-key={api-key}' \
+--header 'Content-Type: application/json' \
+--data '{
+    "CITY_FROM" : "los angeles" , 
+    "CITY_TO": "las vegas"
+}'
+```
 
 ## Retrieving Test Run Results
 
@@ -228,6 +263,27 @@ GET /api/test-run/run-123456?api-key=your-api-key
 - The response includes detailed results for each test case and interaction, allowing for thorough analysis of the test execution.
 - The `raw` property in each interaction contains more detailed debugging information that can vary for each platform.
 - The `recordingURL` property is only available for IVR tests.
+- Tests within a test suite are executed sequentially, so it might take a while for results to go from `IN_PROGRESS` to `COMPLETE`. 
+
+### Try it 
+<VuepressApiPlayground 
+    url="https://test-api.bespoken.io/api/test-run/{run-id}"
+    method="get" 
+    :showMethod="true"
+    :showURL="true"
+    :data="[
+      {
+        name: 'run-id',
+        value: 'run-12345',
+        type: 'string',
+      },
+      {
+        name: 'api-key',
+        value: 'api-12345',
+        type: 'string',
+      },
+    ]" 
+  />
 
 ## TestRun Schema
 
