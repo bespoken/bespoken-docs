@@ -37,17 +37,14 @@ The Bespoken Test API uses HTTPS; unencrypted HTTP is not supported.
 
 ## Running a Test Suite
 
-### Endpoint
-
+This endpoint runs a test suite with the specific test suite ID. It returns a run id that can be used to then query the results of the test execution.
+ 
 ```
 GET /test-suite/{test-suite-id}/run
 ```
 
-### Description
 
-This endpoint runs a test suite with the specific test suite ID. It returns a run id that can be used to query the results.
-
-### Parameters
+### Path Parameters
 
 | Name | Located in | Description | Required | Schema |
 |------|------------|-------------|----------|--------|
@@ -107,17 +104,13 @@ GET /api/test-suite/12345/run?api-key=your-api-key
 
 ## Running a Test Suite with Replacement Variables
 
-### Endpoint
+This endpoint runs a test suite with the specific test suite ID and allows you to provide replacement variables in the request body. It returns a run id that can be used to query the results.
 
 ```
 POST /test-suite/{test-suite-id}/run
 ```
 
-### Description
-
-This endpoint runs a test suite with the specific test suite ID and allows you to provide replacement variables in the request body. It returns a run id that can be used to query the results.
-
-### Parameters
+### Path Parameters
 
 | Name | Located in | Description | Required | Schema |
 |------|------------|-------------|----------|--------|
@@ -125,14 +118,12 @@ This endpoint runs a test suite with the specific test suite ID and allows you t
 | test-suite-id | path | The id of the test suite to interact with | Yes | string |
 | phoneNumber | query | For `phone` tests, the phone number to call. | No | string |
 
-### Request Body
+### Request Body Parameters
 
-```json
-{
-    "VARIABLE_1": "value1",
-    "VARIABLE_2": "value2"
-}
-```
+| Name |  Description | Required | Schema |
+|------|-------------|----------|--------|
+| VARIABLE_NAME | The variable that you want to replace with a new value. You can add as many variables as you need. These are key-pair properties and not an array. | No | string |
+
 
 ### Responses
 
@@ -168,30 +159,15 @@ Content-Type: application/json
 ![Variables example](../assets/images/api/variables_to_replace.png)
 - If a `phoneNumber` is provided in the query, it will replace the phone number configured in the test suite.
 
-### Try it
-
-```
-curl --location 'https://test-api.bespoken.io/api/test-suite/{test-suite-id}/run?api-key={api-key}' \
---header 'Content-Type: application/json' \
---data '{
-    "CITY_FROM" : "los angeles" , 
-    "CITY_TO": "las vegas"
-}'
-```
-
 ## Retrieving Test Run Results
 
-### Endpoint
+This endpoint checks the status of the specified test run and retrieves the results. 
 
 ```
 GET /test-run/{run-id}
 ```
 
-### Description
-
-This endpoint checks the status of the specified test run and retrieves the results. 
-
-### Parameters
+### Path Parameters
 
 | Name | Located in | Description | Required | Schema |
 |------|------------|-------------|----------|--------|
