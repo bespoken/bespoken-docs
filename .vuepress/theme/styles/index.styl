@@ -33,6 +33,9 @@ body
   box-sizing border-box
   border-bottom 1px solid $borderColor
 
+  img
+    max-width 100%
+
 .sidebar-mask
   position fixed
   z-index 9
@@ -70,13 +73,19 @@ body
     border-radius 4px
 
   img
-    max-width 100%
+    max-width 75%
+    margin-left: auto
+    margin-right: auto
 
 // Increase content width for larger screens
 @media (min-width: 1440px)
   {$contentClass}:not(.custom)
     max-width: 1080px  // Adjust this value as needed
 
+  img
+    max-width 60%
+    margin-left: auto
+    margin-right: auto
 
 {$contentClass}.custom
   padding 0
