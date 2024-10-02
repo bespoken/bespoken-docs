@@ -151,6 +151,7 @@ function getAPISidebar() {
         collapsable: true,
         children: [
             "/api/overview",
+            "/api/test-api",
             "/api/integration"
         ]
     };
