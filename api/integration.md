@@ -92,6 +92,12 @@ The webhook will be called at the end of each test. It will call the registered 
 }
 ```
 
+The follwing events are currently sent:
+* AFTER_DEVICE_RESPONSE - Sent after an interaction completes with the [DeviceRequest](https://test-api.bespoken.io/sdk/DeviceResponseDTO.html) 
+* AFTER_TEST - Sent after a test completes with the [TestResult](https://test-api.bespoken.io/sdk/TestResultDTO.html) payload
+* BEFORE_DEVICE_REQUEST - Sent before an interaction occurs with the [DeviceRequest](https://test-api.bespoken.io/sdk/DeviceRequestDTO.html) payload
+* BEFORE_TEST - Sent before a test starts with the [Test](https://test-api.bespoken.io/sdk/TestDTO.html) payload
+
 In the case of the AFTER_TEST event, the payload will look like this:
 ```
 {
@@ -118,7 +124,7 @@ In the case of the AFTER_TEST event, the payload will look like this:
 The [TestResult class](https://test-api.bespoken.io/sdk/TestResultDTO.html), part of the [Bespoken Node.js SDK](https://test-api.bespoken.io/sdk), can be used to parse the payload.
 
 ### Integration Configuration
-Follow these steps to setup the Amazon CloudWatch integration.
+Follow these steps to setup the Webhook integration.
 
 **Get your API key from the Dashboard**
 * Go to the three dots on the top-right

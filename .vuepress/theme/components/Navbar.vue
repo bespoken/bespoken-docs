@@ -20,6 +20,7 @@
         class="site-name"
         v-if="$siteTitle"
         :class="{ 'can-hide': $site.themeConfig.logo }"
+        style=""
       >DOCS</span>
     </router-link>
 
@@ -123,8 +124,7 @@ $navbar-horizontal-padding = 1.5rem;
     font-weight: 600;
     color: $accentColor;
     position: relative;
-    bottom: -9px;
-    left: -15px;
+    left: -10px;
 
     &:hover {
       opacity: 0.6;

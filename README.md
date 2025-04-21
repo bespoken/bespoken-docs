@@ -1,6 +1,6 @@
 ---
 home: true
-heroText: "Bespoken Documentation"
+heroText: "Bespoken AI Documentation"
 heroImage: /assets/images/BespokenAtlas-Reduced.jpg
 tagline: Bespoken is the world’s leader in automated testing tools and monitoring for voice and chat applications. Our tools help developers create five star apps through the whole development process and beyond.
 actionText: Get Started →
@@ -35,6 +35,6 @@ features:
 #   details: Not available yet. Come back soon to learn more about this topic.
 #   link: dashboard/
 
-footer: Bespoken Documentation | Copyright © year-Bespoken | All rights reserved.
+footer: Bespoken AI Documentation | Copyright © year-Bespoken | All rights reserved.
 permalink: /
 ---

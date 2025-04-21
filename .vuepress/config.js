@@ -15,7 +15,7 @@ module.exports = {
         'vuepress-plugin-reading-progress',
         'vuepress-plugin-smooth-scroll',
     ],
-    description: "Bespoken Documentation",
+    description: "Bespoken AI Documentation",
     head: [
         ['link', { rel: 'icon', href: '/favicon.ico' }],
         ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans' }],
@@ -32,9 +32,9 @@ module.exports = {
             indexName: 'bespoken',
             debug: true
         },
-        bespokenUri: "https://bespoken.io/",
+        bespokenUri: "https://bespoken.ai/",
         lastUpdated: true,
-        logo: "/assets/images/BespokenLogo-small.png",
+        logo: "/assets/images/logo-black.png",
 
         nav: [
             //{ text: "Dashboard", link: "/dashboard/" },
