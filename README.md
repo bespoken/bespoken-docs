@@ -35,6 +35,6 @@ features:
 #   details: Not available yet. Come back soon to learn more about this topic.
 #   link: dashboard/
 
-footer: Bespoken AI Documentation | Copyright © year-Bespoken | All rights reserved.
+footer: Bespoken AI Documentation | Copyright © year-Bespoken AI | All rights reserved.
 permalink: /
 ---
