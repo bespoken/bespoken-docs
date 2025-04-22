@@ -1,5 +1,5 @@
 module.exports = {
-    title: "Bespoken Docs",
+    title: "Bespoken Documentation",
     plugins: [
         [
             'google-analytics-4',
@@ -17,7 +17,7 @@ module.exports = {
     ],
     description: "Bespoken AI Documentation",
     head: [
-        ['link', { rel: 'icon', href: '/favicon.ico' }],
+        ['link', { rel: 'icon', href: '/logo.png' }],
         ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans' }],
         ['script', { src: 'https://cdn.tailwindcss.com' }],
         ['script', { src: 'https://code.jquery.com/jquery-3.6.3.js' }],
