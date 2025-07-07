@@ -99,7 +99,7 @@ The TEST_PATTERN uses [the MicroMatch package](https://github.com/micromatch/mic
 
 Test results are automatically output to the console, as well as written as an HTML report in the folder `./test_output/index.inline.html`.
 
-Test parameters and configuration are taken by default from the file `./testing.json` in the current working directory. For more information on the various test parameters, [read here](https://read.bespoken.io/end-to-end/guide/#configuration).
+Test parameters and configuration are taken by default from the file `./testing.json` in the current working directory. For more information on the various test parameters, [read here](https://read.bespoken.ai/end-to-end/guide/#configuration).
 
 ## Command - Test Suite
 
@@ -128,7 +128,7 @@ The CONFIGURATION_FILE should be the path from the current directory a valid `te
 
 The TEST_SUITE_YAML_PATH should be valid testing YAML script.
 
-For more information on the structure of the configuration file and test scripts, [read here](https://read.bespoken.io/end-to-end/guide/#configuration).
+For more information on the structure of the configuration file and test scripts, [read here](https://read.bespoken.ai/end-to-end/guide/#configuration).
 
 
 ### Test Suite Run

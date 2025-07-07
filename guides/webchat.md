@@ -91,7 +91,7 @@ Most of these parameters are optional. We only need to know how to open your cha
 - Additional scripts: `https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js`
 
 ## Video Evidence  
-After each test run, you'll have video playback available on the left side of the testing page. This can be helpful as evidence of your test and can also be used during the test setup to better understand what your test is doing and correct any steps that are not working as expected.
+After each test run, you'll have video playback available on the history page. This can be helpful as evidence of your test and can also be used during the test setup to better understand what your test is doing and correct any steps that are not working as expected.
 
 ![Webchat video evidence](../assets/images/guides/webchat-video.png)
 

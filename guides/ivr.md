@@ -34,7 +34,7 @@ In this test:
 - We call the configured number and start transcribing the call in real-time.
 - We expect to hear "Hi! This is the Bespoken airlines contact center. In a few words, please tell me what you're calling about."
 - We say "Cancellations" after hearing "tell me what you are calling about."
-- We press `6286` on our keypad after hearing "4 digit booking code."
+- We press `1234` on our keypad after hearing "4 digit booking code."
 - We expect to hear "Your booking with code 6286 has been canceled. Thanks for calling, have a nice day!"
 
 The keywords corresponding to these key moments in a conversation are: `$DIAL`, `finishOnPhrase`, and `$<NUMBER>`. These are the most common keywords you'll need to get familiar with, and we'll explain these and other options below.

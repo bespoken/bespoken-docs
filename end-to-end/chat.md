@@ -43,13 +43,13 @@ We have some parameters that are particular to Chatbot testing. In addition to t
 | replySelector | The CSS selector for the reply HTML | Yes |
 | widgetSelector | For chatbots that require clicking a button to open and begin the chat, the css selector for the button | No |
 
-These fields allow us to correct enter messages from the user and capture the response from the bot. The virtual device token for chatbots is manually configured - please [contact us](mailto:contact@bespoken.io) to get yours setup.
+These fields allow us to correct enter messages from the user and capture the response from the bot. The virtual device token for chatbots is manually configured - please [contact us](mailto:contact@bespoken.ai) to get yours setup.
 
-For webchat-based testing, the virtual device base URL should be set to `https://virtual-device-web.bespoken.io`, like so:
+For webchat-based testing, the virtual device base URL should be set to `https://virtual-device-web.bespoken.ai`, like so:
 
 ```json
 {
-    "virtualDeviceBaseURL": "https://virtual-device-web.bespoken.io" 
+    "virtualDeviceBaseURL": "https://virtual-device-web.bespoken.ai" 
   }
 }
 ```

@@ -29,7 +29,7 @@ For publishing test results, we support the following reporting/issue-tracking t
 * Splunk
 * [Webhook](#webhook-integration)
 
-To enable any of these integrations, simply drop us a line at [support@bespoken.io](mailto:support@bespoken.io).
+To enable any of these integrations, simply drop us a line at [support@bespoken.ai](mailto:support@bespoken.ai).
 
 ## Amazon CloudWatch
 ### Integration Behavior
@@ -54,7 +54,7 @@ Follow these steps to setup the Amazon CloudWatch integration.
 * Copy the API key from the field on the lower-left of the page
 
 **Add the integration**  
-Call our integration API, as described [here](https://test-api.bespoken.io/api/docs/#/Integration%20Management/post_integration).
+Call our integration API, as described [here](https://test-api.bespoken.ai/api/docs/#/Integration%20Management/post_integration).
 
 The payload should look like this:
 ```

@@ -13,9 +13,10 @@ In this article, we'll learn about aspects of this page that are common to all t
 :::
 
 The test page is divided into three main areas:
-1. The upper part of the page contains the configuration for your current test suite.
-1. The left side shows all your test cases.
-1. The main area is where you'll write your current test case script.
+1. Test Suite Configuration: Main Settings for your current suite.
+1. Test Cases: Related Test Cases to quickly access associated tests.
+1. Monitoring: Dedicated Monitoring to configure periodic alert settings.
+1. Main Area: where you can add scripts and custom expressions.
 
 <br>
 

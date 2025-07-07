@@ -13,7 +13,7 @@ There are a couple of steps for the setup - but don't worry - you will only have
 
 ## Creating A Virtual Device
 
-- Login to our [Bespoken Dashboard](https://apps.bespoken.io/dashboard) (if you don't have an account yet, apply for a free trial), you will see the following screen:
+- Login to our [Bespoken Dashboard](https://apps.bespoken.ai/dashboard) (if you don't have an account yet, apply for a free trial), you will see the following screen:
 
 ![Bespoken Dashboard](./assets/dashboard.png "Bespoken Dashboard")
 
