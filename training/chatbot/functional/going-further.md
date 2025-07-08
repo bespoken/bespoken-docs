@@ -12,4 +12,4 @@ Take a look at our core documentation for all the capabilities and options offer
 [Bespoken Chatbot Documentation](/end-to-end/chat/)
 
 ## Get Help
-If you have questions or need additional help, just reach out to as at [support@bespoken.io](mailto:support@bespoken.io).
+If you have questions or need additional help, just reach out to as at [support@bespoken.ai](mailto:support@bespoken.ai).

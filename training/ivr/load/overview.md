@@ -15,4 +15,4 @@ To setup a functional test, we need a few parameters to configure it:
 * Duration of the test
 * Number of simulated agents [Optional]
 
-Send an email to [support@bespoken.io](mailto:support@bespoken.io) with this information, and we will have it setup for you in no time.
+Send an email to [support@bespoken.ai](mailto:support@bespoken.ai) with this information, and we will have it setup for you in no time.

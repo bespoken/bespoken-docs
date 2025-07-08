@@ -15,7 +15,7 @@ permalink: /training/chatbot/functional/configure
 * Enter a test suite name - such as "First Chatbot Test"
 * Click "Create"
 * Enter the URL where the chatbot can be found in the `Url` field
-  * For this first test, enter "https://read.bespoken.io/training/chatbot/functional/sample"
+  * For this first test, enter "https://read.bespoken.ai/training/chatbot/functional/sample"
 
 ## Binding to HTML Elements
 We need to identify a few key pieces of data to setup our webchat tests. They are:
@@ -72,4 +72,4 @@ We can see based on the result if we have chosen the correct selector.
 
 Additionally, the video recordings that are made for each chatbot are very useful. Go to the next section to learn about these.
 
-If you struggle to configure the selectors correctly, don't hesitate to reach out to us <a href='mailto:support@bespoken.io'>support@bespoken.io</a>. This is the trickiest part of chatbot testing - once you can find the HTML elements consistently, the rest of the testing process is typically smooth and straightforward.
+If you struggle to configure the selectors correctly, don't hesitate to reach out to us <a href='mailto:support@bespoken.ai'>support@bespoken.ai</a>. This is the trickiest part of chatbot testing - once you can find the HTML elements consistently, the rest of the testing process is typically smooth and straightforward.

@@ -43,7 +43,7 @@ The specific permissions are to access Alexa Voice Services and Alexa Account Co
 Remember, you can remove access at any time by visiting your Alexa account [online](https://alexa.amazon.com/spa/index.html#settings) or via the Alexa app.
 
 ## **Is it possible to test skills written in languages other than Javascript?**
-Yes, it is possible. Our tools are language agnostic. For example, you can create [unit](https://read.bespoken.io/unit-testing/getting-started/) or [functional](https://read.bespoken.io/end-to-end/getting-started/) test scripts using our syntax based on YAML regardless of the language used to create the voice app. We also provide SDKs for writing tests programmatically - also available for both [unit](https://github.com/bespoken/virtual-alexa) and [functional](https://read.bespoken.io/end-to-end/api/) testing. In either case, our tests work with your skill regardless of the language it is written in. 
+Yes, it is possible. Our tools are language agnostic. For example, you can create [unit](https://read.bespoken.ai/unit-testing/getting-started/) or [functional](https://read.bespoken.ai/end-to-end/getting-started/) test scripts using our syntax based on YAML regardless of the language used to create the voice app. We also provide SDKs for writing tests programmatically - also available for both [unit](https://github.com/bespoken/virtual-alexa) and [functional](https://read.bespoken.ai/end-to-end/api/) testing. In either case, our tests work with your skill regardless of the language it is written in. 
 
 ## **Is it better to use the YAML syntax or the programmatic SDKs for testing?**
 Both are good choices. In the case of unit-testing, our YAML tests actually rely on [Virtual Alexa](https://github.com/bespoken/virtual-alexa/) under the covers. In the case of end-to-end tests, similarly our YAML test scripts rely on our [Virtual Device SDK](https://github.com/bespoken/virtual-device-sdk/). The big advantage of our YAML syntax is that it allows tests to be written in the same way no matter what type of test it is (unit or functional), and what platform it works with (Google or Alexa). It also does not require programming skills. On the other hand, for many programmer using our programmatic APIs is easy and more what they are accustomed to - it also allows for writing tests that are more complex, such as ones that call external APIs to validate results. So the best approach takes into consideration the type of tests being written, as well as the skillset of the testing team.
@@ -105,9 +105,9 @@ To use this feature, set your test type to `simulation`. The feature support is 
 Read more about it in our [full guide](/end-to-end/guide/#smapi-configuration).
 
 ## **How do I learn more?**
-Take a look at this [__sample project__](https://github.com/bespoken-samples/virtual-device-example) and use it as a base to start creating your own functional test scripts. For more info on functional testing please read [__here__](https://read.bespoken.io/end-to-end/getting-started).
+Take a look at this [__sample project__](https://github.com/bespoken-samples/virtual-device-example) and use it as a base to start creating your own functional test scripts. For more info on functional testing please read [__here__](https://read.bespoken.ai/end-to-end/getting-started).
 If you need assistance reach us on any of these channels:
-* [Email](mailto:contact@bespoken.io)
+* [Email](mailto:contact@bespoken.ai)
 * [Twitter](https://twitter.com/bespokenio)
 * [Gitter](https://gitter.im/bespoken/bst)
 
@@ -127,7 +127,7 @@ Yes, you can. Our Virtual Device Test Scripts can also be used to do E2E or Regr
 Then create and execute your scripts as usual.
 
 ## **I want to do something that is not supported with the tools like adding a delay between responses or stopping after a test has failed**
-Use the filter functionalities to add any kind of behavior during tests (read [here](https://read.bespoken.io/end-to-end/guide/#filtering-during-test) for more information). Please, also refer to [the API documentation](https://bespoken.github.io/skill-testing-ml/api/Test.html) to understand how to use the `test` property. For instance, the `test` property can be used to know if the test has passed/failed, or if the test should be skipped.
+Use the filter functionalities to add any kind of behavior during tests (read [here](https://read.bespoken.ai/end-to-end/guide/#filtering-during-test) for more information). Please, also refer to [the API documentation](https://bespoken.github.io/skill-testing-ml/api/Test.html) to understand how to use the `test` property. For instance, the `test` property can be used to know if the test has passed/failed, or if the test should be skipped.
 
 # **Working with test scripts**
 
@@ -212,7 +212,7 @@ We recommend taking into account the following:
 ![Showing Alexa's utterances history][AlexaHistory]
 - Use the `.only` command in the scripts to isolate a specific sequence.
 
-If you need assistance, please talk to us through the chat widget at the lower right-hand corner of our [Dashboard](https://apps.bespoken.io/dashboard/) or [Website](https://bespoken.io/).
+If you need assistance, please talk to us through the chat widget at the lower right-hand corner of our [Dashboard](https://apps.bespoken.ai/dashboard/) or [Website](https://bespoken.ai/).
 
 ## **My test interaction is not working, how can I troubleshoot the problem?**
 Perhaps you are trying to run a monitoring script (or just executing an end-to-end test) and you are getting an odd response like this one:
@@ -244,7 +244,7 @@ Adding an extra "s" with the phoneme tag makes it more clear, and Alexa can prop
 
 8. **Check your voice app code**: In case the voice service is correctly recognizing the invocation name, and the appropriate intent is being hit, but still you are getting an unexpected response it is probably a problem with your voice app's backend. Please check your app's code. For this, we suggest using unit test scripts with a debugger to easily and quickly spot the issue. Read [here](https://read.bespoken.io/unit-testing/faq/#how-do-i-use-the-debugger-with-bespoken-unit-tests-and-visual-studio) to know how.
 
-If you need assistance, please talk to us through the chat widget at the lower right-hand corner of our [Dashboard](https://apps.bespoken.io/dashboard/) or [Website](https://bespoken.io/).
+If you need assistance, please talk to us through the chat widget at the lower right-hand corner of our [Dashboard](https://apps.bespoken.ai/dashboard/) or [Website](https://bespoken.ai/).
 
 ## **How do I test a voice app that requires account linking?**
 To test a voice app that requires account linking, simply link the account as you normally would within the Alexa and/or Google management screens. Once the account linking process is completed, you can talk to the skill and access account-specific information via your virtual device. It's that easy!
@@ -256,7 +256,7 @@ If you are unsure what Amazon account your virtual device is associated with, tr
 `bst speak --token <VIRTUAL-DEVICE-TOKEN> what is my name`
 
 ## **Can I test the account linking process itself with Bespoken?**
-As the account linking process involves __visual__ user interaction between a voice platform and your backend, you need to use an external web automation tool like Selenium to accomplish it. This visual interaction test script can be later linked to the audio interaction test scripts created with Bespoken. Please [contact us](mailto:sales@bespoken.io) in case you want to discuss further as we can assist you in creating the visual test scripts with Selenium.
+As the account linking process involves __visual__ user interaction between a voice platform and your backend, you need to use an external web automation tool like Selenium to accomplish it. This visual interaction test script can be later linked to the audio interaction test scripts created with Bespoken. Please [contact us](mailto:sales@bespoken.ai) in case you want to discuss further as we can assist you in creating the visual test scripts with Selenium.
 
 Of course, if you are just trying to test specific account scenarios (and not the account linking process itself), we recommend setting up virtual devices linked to specific accounts. You only need to do this once, and then you can test these scenarios as needed essentially forever. Read more at this [FAQ entry](#how-do-i-test-a-voice-app-that-requires-account-linking)
 

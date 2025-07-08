@@ -14,7 +14,7 @@ This guide provides a walkthrough to get started with automated functional testi
 We take you through the Bespoken toolset, explaining in detail on how to leverage our platform to ensure your chatbots are working correctly and according to design.
 
 ## Get Help
-If you have questions or need additional help, just reach out to as at [support@bespoken.io](mailto:support@bespoken.io)
+If you have questions or need additional help, just reach out to as at [support@bespoken.ai](mailto:support@bespoken.ai)
 
 ## Dive In
 Just click the link below to get started!

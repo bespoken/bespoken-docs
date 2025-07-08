@@ -51,7 +51,7 @@ If the expected response matches the actual response we receive from the system,
 There is much more that can be done with our response assertions - [you can read all about them here](/end-to-end/guide/#assertions).
 
 ## Configuration
-The following parameters are exclusive to IVR testing. They work in addition to the [regular e2e configuration](https://read.bespoken.io/end-to-end/guide/#configuration).  
+The following parameters are exclusive to IVR testing. They work in addition to the [regular e2e configuration](https://read.bespoken.ai/end-to-end/guide/#configuration).  
 
 |Name|Description|Unit / Type|Scope|Default|
 |--- |--- |--- |--- |--- |
