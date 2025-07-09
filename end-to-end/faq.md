@@ -212,7 +212,7 @@ We recommend taking into account the following:
 ![Showing Alexa's utterances history][AlexaHistory]
 - Use the `.only` command in the scripts to isolate a specific sequence.
 
-If you need assistance, please talk to us through the chat widget at the lower right-hand corner of our [Dashboard](https://apps.bespoken.ai/dashboard/) or [Website](https://bespoken.ai/).
+If you need assistance, please talk to us through the chat widget at the lower right-hand corner of our [Dashboard](https://dashboard.bespoken.ai) or [Website](https://bespoken.ai/).
 
 ## **My test interaction is not working, how can I troubleshoot the problem?**
 Perhaps you are trying to run a monitoring script (or just executing an end-to-end test) and you are getting an odd response like this one:
@@ -244,7 +244,7 @@ Adding an extra "s" with the phoneme tag makes it more clear, and Alexa can prop
 
 8. **Check your voice app code**: In case the voice service is correctly recognizing the invocation name, and the appropriate intent is being hit, but still you are getting an unexpected response it is probably a problem with your voice app's backend. Please check your app's code. For this, we suggest using unit test scripts with a debugger to easily and quickly spot the issue. Read [here](https://read.bespoken.io/unit-testing/faq/#how-do-i-use-the-debugger-with-bespoken-unit-tests-and-visual-studio) to know how.
 
-If you need assistance, please talk to us through the chat widget at the lower right-hand corner of our [Dashboard](https://apps.bespoken.ai/dashboard/) or [Website](https://bespoken.ai/).
+If you need assistance, please talk to us through the chat widget at the lower right-hand corner of our [Dashboard](https://dashboard.bespoken.ai) or [Website](https://bespoken.ai/).
 
 ## **How do I test a voice app that requires account linking?**
 To test a voice app that requires account linking, simply link the account as you normally would within the Alexa and/or Google management screens. Once the account linking process is completed, you can talk to the skill and access account-specific information via your virtual device. It's that easy!
