@@ -13,7 +13,7 @@ Key features of the Bespoken Test API include:
 - Flexibility to test different platforms and scenarios
 
 ::: tip Important
-The full Swagger documentation for our APIs can be found [here](https://test-api.bespoken.ai/api/docs/).
+The full Swagger documentation for our APIs can be found [here](https://api.bespoken.ai/api/docs/).
 :::
 
 This documentation covers three primary operations: running a test suite, running a test suite with replacement variables, and retrieving test run results. But first, you should know where to get your API key.
@@ -31,7 +31,7 @@ Your API key allows us to authenticate you against our APIs and execute diverse 
 ## Base URL
 All URLs referenced in the documentation have the following base:
 ```
-https://test-api.bespoken.io/api
+https://api.bespoken.ai/api
 ```
 The Bespoken Test API uses HTTPS; unencrypted HTTP is not supported.
 
@@ -80,7 +80,7 @@ GET /api/test-suite/12345/run?api-key=your-api-key
 
 ### Try it 
 <VuepressApiPlayground 
-    url="https://test-api.bespoken.ai/api/test-suite/{test-suite-id}/run"
+    url="https://api.bespoken.ai/api/test-suite/{test-suite-id}/run"
     method="get" 
     :showMethod="true"
     :showURL="true"
@@ -243,7 +243,7 @@ GET /api/test-run/run-123456?api-key=your-api-key
 
 ### Try it 
 <VuepressApiPlayground 
-    url="https://test-api.bespoken.ai/api/test-run/{run-id}"
+    url="https://api.bespoken.ai/api/test-run/{run-id}"
     method="get" 
     :showMethod="true"
     :showURL="true"
