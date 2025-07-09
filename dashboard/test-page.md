@@ -12,11 +12,17 @@ Now that you have created a test suite and your virtual devices, you are ready t
 In this article, we'll learn about aspects of this page that are common to all the platforms Bespoken supports. Platform-specific guides can be found [here](/guides/).
 :::
 
-The test page is divided into three main areas:
-1. Test Suite Configuration: Main Settings for your current suite.
-1. Test Cases: Related Test Cases to quickly access associated tests.
-1. Monitoring: Dedicated Monitoring to configure periodic alert settings.
-1. Main Area: where you can add scripts and custom expressions.
+The test page is divided into two main areas that work together to help you build comprehensive tests:
+
+1. **Configuration Panel** (left sidebar):
+    - Test Suite Settings: Basic configuration for running your test suite
+    - Test Cases: Management of different test scenarios  
+    - Monitoring: Automated test scheduling and failure notifications
+
+2. **Test Editor** (main area): 
+    - Visual or YAML editing of test steps and assertions
+    - Test execution and results viewing
+    - Real-time validation of your conversational flows
 
 <br>
 
