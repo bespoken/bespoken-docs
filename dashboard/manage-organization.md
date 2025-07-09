@@ -4,7 +4,7 @@ permalink: /dashboard/manage-organization
 ---
 
 # Organization Management
-Use this page to invite team members to your organization so that you can share your Bespoken account and work on tests together. To access this page, simply click on the three dots menu in the upper right corner of the page and click on "Manage" under your organization name.
+Use this page to invite team members to your organization so that you can share your Bespoken account and work on tests together. To access this page, simply click on the "Manage" button next to your organization name in the lower left corner of the page.
 
 ![Organization page](../assets/images/dashboard/org-management.png)
 

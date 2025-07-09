@@ -36,4 +36,4 @@ These include:
 * GitLab
 * Splunk
 
-Reach out to [support@bespoken.io](mailto:support@bespoken.io) to learn how to enable these integrations for your account.
+Reach out to [support@bespoken.ai](mailto:support@bespoken.ai) to learn how to enable these integrations for your account.

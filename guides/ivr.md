@@ -66,20 +66,33 @@ would put a strong emphasis on "you." You can learn more about SSML [here](https
 
 Finally, you can also use prerecorded audio simply by entering a WAV or MP3 file URL in the input field.
 
-### Expected Configuration
-The main expected property `prompt` will be compared against the transcription of what we hear from your IVR system, as explained previously [here](/dashboard/test-page.md#interpreting-the-results).
+::: tip Combined inputs
+If you need to press a star `*` or pound `#` symbol after a utterance, simply put it at the end of the input. For example: `John Doe *` will say John Doe with the current voice and then press star at the end.
+:::
 
-There are other properties that will modify the behavior of the interaction and allow it to move the test further. These properties start with the word `set` and are all optional:
+### Expected Configuration
+The main expected property `Prompt` will be compared against the transcription of what we hear from your IVR system, as explained previously [here](/dashboard/test-page.md#interpreting-the-results).
+
+For IVR calls, we also support evaluating the following values for the last interaction of the call:
 
 | Property | Description | Default |
 |---|---|---|
-| `set finishOnPhrase` | Ends the current interaction and moves to the next when this phrase is heard.| Last portion of the current `prompt` |
-| `set listeningTimeout` | Ends the current interaction and moves to the next after this many seconds.  | 60 seconds |
-| `set endSpeechTimeout` | Ends the current interaction and moves to the next after this many seconds of silence. | N/A |
-| `set pauseBeforeUtterance` | Adds this many seconds of silence before the utterance. | N/A |
-| `set repeatOnPhrase` | Repeats the current utterance if this phrase is heard. Example: "sorry I didn't get that." | N/A |
+| `Connection End Time` | Specifies the date and time in which the call ended.  | N/A |
+| `Connection Ended By` | Determines who ended the call possible values are `caller` and `callee` | N/A |
 
-Finally, you can also evaluate the property `connection.endedBy` to determine who ended the call. It contains two possible values: `caller` or `callee`, and it can only be present on the last utterance.
+### Expressions
+
+<!-- TODO: Add gif -->
+
+Expressions will modify the behavior of the current interaction. These properties can be added on the "Expressions" tab at the test step level and are all optional:
+
+| Property | Description | Default |
+|---|---|---|
+| `Finish on Phrase` | Ends the current interaction and moves to the next when this phrase is heard.| Last portion of the current `Prompt` |
+| `Listening Timeout` | Ends the current interaction and moves to the next after this many seconds.  | 45 seconds |
+| `End Speech Timeout` | Ends the current interaction and moves to the next after this many seconds of silence are heard. | N/A |
+| `Pause Before Utterance` | Adds this many seconds of silence before the utterance. | N/A |
+| `Repeat on Phrase` | Repeats the current utterance if this phrase is heard. Example: "sorry I didn't get that." | N/A |
 
 ### Advanced Settings
 In addition to the [common advanced settings](/dashboard/test-page/#advanced-settings), the following parameters are exclusive to IVR testing:

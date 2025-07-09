@@ -22,7 +22,7 @@ The Virtual Device Manager is where you can find your virtual devices. Below, yo
 
 A virtual device's unique identifier is called a virtual device token. When you first create your Dashboard account, any virtual device that does not require authentication from your part will be created by default. These include phone, SMS, Watson, Webchat, and WhatsApp virtual devices.
 
-You can add more of these virtual devices by clicking the "Add Virtual Device" button at the bottom of the page and then selecting the platform you need a new virtual device for.
+You can add more of these virtual devices by clicking the "New Device" button at the top of the page and then selecting the platform you need a new virtual device for.
 
 ![Creating a virtual device](../assets/images/dashboard/new-virtual-device.png)
 

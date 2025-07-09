@@ -42,9 +42,15 @@ The main configuration for these tests consists of the following:
 | Property | Description | Default |  
 | --- | --- | --- |  
 | URL | URL where the chatbot is located. | N/A |  
+| Open Selector | The CSS selector to open the chatbox widget. | N/A |  
+| Input Selector | The CSS selector for the text input where messages should be entered. | N/A |  
+| Reply Selector | The CSS selector used to look for the reply within the webchat HTML. | N/A |  
 | Virtual Device | The virtual device to use in your test. | Default device |
 
-Additionally, there are other required parameters placed under the Advanced Settings tab for convenience. These allow Bespoken to know where should we type the inputs, and were should we look for responses.
+These parameters help us know how to open your chatbot window, where to type our inputs and where to look for responses. For reference, these are the values used in the Chipotle example above:
+- Open selector: `#customer-care-engagement`
+- Input selector: `[data-lp-point="chat_input"]`
+- Reply selector: `[data-lp-cust-id="transcript_bubble_agent_text"]`
 
 ### Input Configuration  
 In the input field, any text will be typed into the chatbot window and sent as a message.
@@ -71,11 +77,8 @@ In addition to the [common advanced settings](/dashboard/test-page/#advanced-set
 | Bypass CSP | Bypass the page Content Security Policy. For sites that won't allow automated testing on their pages. | False |  
 | Navigation Timeout | Numeric value that will change the default navigation timeout. | N/A |  
 | Initialize Script | Script that runs after opening the chatbot window before starting any test commands. | N/A |  
-| Open Selector | The CSS selector to open the chatbox widget. | N/A |  
-| **Text Input Settings: Selector** | Required. The CSS selector for the text input where messages should be entered. | N/A |  
 | Text Input Settings: Script After Each Command | Script to run after each input has been entered. | N/A |  
 | Text Input Settings: IFrame Selector | IFrame CSS selector, if the chatbot lives within one. | N/A |  
-| **Reply Settings: Selector** | Required. The CSS selector used to look for the reply within the webchat HTML. | N/A |  
 | Reply Settings: Script After Each Command | Milliseconds to wait for a reply. | 15000 |  
 | Reply Settings: IFrame Selector | IFrame CSS selector, if the chatbot lives within one. | N/A |  
 | Load Timeout | Milliseconds to wait for the webpage to finish loading. | 10000 |  
@@ -84,14 +87,8 @@ In addition to the [common advanced settings](/dashboard/test-page/#advanced-set
 | Viewport Height | Desired height in which to test the page. | N/A |  
 | Additional scripts | URLs pointing to additional JS scripts to be used during testing. Make sure to include [JQuery](https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js) if your page doesn't have it already | N/A |
 
-Most of these parameters are optional. We only need to know how to open your chatbot window, where to type our inputs and where to look for responses. For reference, these are the values used in the Chipotle example above:
-- Open selector: `#customer-care-engagement`
-- Text input settings selector: `[data-lp-point="chat_input"]`
-- Reply settings selector: `[data-lp-cust-id="transcript_bubble_agent_text"]`
-- Additional scripts: `https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js`
-
 ## Video Evidence  
-After each test run, you'll have video playback available on the left side of the testing page. This can be helpful as evidence of your test and can also be used during the test setup to better understand what your test is doing and correct any steps that are not working as expected.
+After each test run, you'll have video playback available on the history page. This can be helpful as evidence of your test and can also be used during the test setup to better understand what your test is doing and correct any steps that are not working as expected.
 
 ![Webchat video evidence](../assets/images/guides/webchat-video.png)
 

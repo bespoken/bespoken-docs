@@ -12,14 +12,14 @@ Monitoring is a crucial feature that allows you to keep track of your conversati
 Monitoring works across all your supported platforms, providing a unified way to keep an eye on your systems, whether it's an IVR, web chatbot, or any other integrated platform.
 
 ## Enabling Monitoring
-To enable monitoring, navigate open the test page for the test suite that you want to monitor and click on the monitoring toggle.
+To enable monitoring, open the test page for the test suite that you want to monitor and click on the "Enable Monitoring" toggle on the Test Suite Configuration panel.
 
 ![Enable Monitoring](../assets/images/monitoring/enable-monitoring.gif)
 
-This action will open a modal where you can configure your monitoring preferences.
+This action will allow you to configure your monitoring preferences.
 
-### Configuration Modal
-In the configuration modal, you will be prompted to provide:
+### Monitoring Configuration
+In the configuration panel, you will be prompted to provide:
 - **CRON expression:** This determines the frequency of the monitoring checks. You can use one of the predefined CRON expressions available, or enter a custom one in the textfield below.
 
 ::: warning Important
@@ -32,7 +32,7 @@ All CRON expressions entered in this modal are in UTC. Please consider that to a
 
 ![Configuration Modal](../assets/images/monitoring/monitoring-modal.png)
 
-Once configured, your tests will be run automatically at the specified intervals by our system. You will also see a green monitoring icon next to your test suite name for test suites that are being monitored.
+Once configured, your tests will be run automatically at the specified intervals by our system. You will also see a green monitoring pill next to your test suite name for test suites that are being monitored.
 
 ![Monitored test suite](../assets/images/monitoring/monitored-test-suite.png)
 

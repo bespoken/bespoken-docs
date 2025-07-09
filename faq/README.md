@@ -102,9 +102,9 @@ Alternatively, use the "Skip" option to exclude specific tests when clicking "Ru
 To get your API key:
 
 1. Navigate to the Dashboard.
-2. Click the three dots menu in the upper right corner.
-3. Select "My account."
-4. Copy the API key at the bottom of the page.
+2. Click the user menu in the upper right corner.
+3. Select "Account."
+4. Copy the API key within the "API access" tab.
 
 ![API Key Location](../assets/images/cli/api-key.png)
 
@@ -208,11 +208,11 @@ The default number Bespoken uses for IVR end-to-end tests is: `+1 202 559 1161` 
 
 ### Can I get a different number to call?
 
-Yes, contact us at [support@bespoken.io](mailto:support@bespoken.io), and we'll set up a different number for you, including phones for various countries.
+Yes, contact us at [support@bespoken.ai](mailto:support@bespoken.ai), and we'll set up a different number for you, including phones for various countries.
 
 ### What countries are supported for IVR testing?
 
-We support nearly 200 locales. If you're unsure about a specific country, email us at [support@bespoken.io](mailto:support@bespoken.io) to confirm availability.
+We support nearly 200 locales. If you're unsure about a specific country, email us at [support@bespoken.ai](mailto:support@bespoken.ai) to confirm availability.
 
 ### What IVR/CCaaS platforms do you support?
 
@@ -224,7 +224,7 @@ Yes, monitoring is available for all platforms Bespoken supports. Learn more abo
 
 ### Can I simulate load on my IVR with the Bespoken dashboard?
 
-Bespoken offers Load Testing for IVR, which can help verify that your system is prepared for high-traffic events. While we use functional tests created in the Dashboard for load testing, the actual load testing process is not run within the Dashboard and requires assistance from a Bespoken SME. Contact us at [contact@bespoken.io](mailto:contact@bespoken.io) for more information about Load Testing.
+Bespoken offers Load Testing for IVR, which can help verify that your system is prepared for high-traffic events. While we use functional tests created in the Dashboard for load testing, the actual load testing process is not run within the Dashboard and requires assistance from a Bespoken SME. Contact us at [contact@bespoken.ai](mailto:contact@bespoken.ai) for more information about Load Testing.
 
 ## Webchat
 
@@ -248,7 +248,7 @@ The default number we use to reach your WhatsApp bot is: `+1 (872) 213-7017`.
 
 ### Can we test using other numbers?
 
-Yes, we can configure additional WhatsApp numbers for testing. Contact us at [support@bespoken.io](mailto:support@bespoken.io) for assistance.
+Yes, we can configure additional WhatsApp numbers for testing. Contact us at [support@bespoken.ai](mailto:support@bespoken.ai) for assistance.
 
 ### I'm not receiving Menu messages. What can I do?
 

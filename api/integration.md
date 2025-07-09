@@ -29,7 +29,7 @@ For publishing test results, we support the following reporting/issue-tracking t
 * Splunk
 * [Webhook](#webhook-integration)
 
-To enable any of these integrations, simply drop us a line at [support@bespoken.io](mailto:support@bespoken.io).
+To enable any of these integrations, simply drop us a line at [support@bespoken.ai](mailto:support@bespoken.ai).
 
 ## Amazon CloudWatch
 ### Integration Behavior
@@ -54,7 +54,7 @@ Follow these steps to setup the Amazon CloudWatch integration.
 * Copy the API key from the field on the lower-left of the page
 
 **Add the integration**  
-Call our integration API, as described [here](https://test-api.bespoken.io/api/docs/#/Integration%20Management/post_integration).
+Call our integration API, as described [here](https://api.bespoken.ai/api/docs/#/Integration%20Management/post_integration).
 
 The payload should look like this:
 ```
@@ -93,10 +93,10 @@ The webhook will be called at the end of each test. It will call the registered 
 ```
 
 The follwing events are currently sent:
-* AFTER_DEVICE_RESPONSE - Sent after an interaction completes with the [DeviceRequest](https://test-api.bespoken.io/sdk/DeviceResponseDTO.html) 
-* AFTER_TEST - Sent after a test completes with the [TestResult](https://test-api.bespoken.io/sdk/TestResultDTO.html) payload
-* BEFORE_DEVICE_REQUEST - Sent before an interaction occurs with the [DeviceRequest](https://test-api.bespoken.io/sdk/DeviceRequestDTO.html) payload
-* BEFORE_TEST - Sent before a test starts with the [Test](https://test-api.bespoken.io/sdk/TestDTO.html) payload
+* AFTER_DEVICE_RESPONSE - Sent after an interaction completes with the [DeviceRequest](https://api.bespoken.ai/sdk/DeviceResponseDTO.html) 
+* AFTER_TEST - Sent after a test completes with the [TestResult](https://api.bespoken.ai/sdk/TestResultDTO.html) payload
+* BEFORE_DEVICE_REQUEST - Sent before an interaction occurs with the [DeviceRequest](https://api.bespoken.ai/sdk/DeviceRequestDTO.html) payload
+* BEFORE_TEST - Sent before a test starts with the [Test](https://api.bespoken.ai/sdk/TestDTO.html) payload
 
 In the case of the AFTER_TEST event, the payload will look like this:
 ```
@@ -121,7 +121,7 @@ In the case of the AFTER_TEST event, the payload will look like this:
 }
 ```
 
-The [TestResult class](https://test-api.bespoken.io/sdk/TestResultDTO.html), part of the [Bespoken Node.js SDK](https://test-api.bespoken.io/sdk), can be used to parse the payload.
+The [TestResult class](https://api.bespoken.ai/sdk/TestResultDTO.html), part of the [Bespoken Node.js SDK](https://api.bespoken.ai/sdk), can be used to parse the payload.
 
 ### Integration Configuration
 Follow these steps to setup the Webhook integration.
@@ -132,7 +132,7 @@ Follow these steps to setup the Webhook integration.
 * Copy the API key from the field on the lower-left of the page
 
 **Add the integration**  
-Call our integration API, as described [here](https://test-api.bespoken.io/api/docs/#/Integration%20Management/post_integration).
+Call our integration API, as described [here](https://api.bespoken.ai/api/docs/#/Integration%20Management/post_integration).
 
 The payload should look like this:
 ```

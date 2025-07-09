@@ -187,7 +187,7 @@ https://virtual-device.bespoken.io
 
    `message=string`: the message that we want to send to Alexa
 
-   `user_id=string`: "validation token" obtained from Bespoken Dashboard (http://apps.bespoken.io/dashboard/)
+   `user_id=string`: "validation token" obtained from Bespoken Dashboard (https://dashboard.bespoken.ai)
 
 
    **Optional:**
@@ -289,7 +289,7 @@ Receives multiple messages and expected phrases in an object array. The goal of 
 
    **Required:**
 
-      `user_id=string`: "validation token" obtained from Bespoken Dashboard (http://apps.bespoken.io/dashboard/)
+      `user_id=string`: "validation token" obtained from Bespoken Dashboard (https://dashboard.bespoken.ai)
 
    **Optional:**
 

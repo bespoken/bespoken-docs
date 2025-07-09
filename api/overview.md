@@ -7,5 +7,5 @@ Bespoken provides a number of APIs, SDKs and built-in integrations to allow for 
 These include:
 * Test API documentation - [review here](/api/test-api)
 * Node.js SDK documentation - [review here](https://test-api.bespoken.io/sdk)
-<!-- * CLI documentation - [review here](https://read.bespoken.io/sdk/cli) -->
+<!-- * CLI documentation - [review here](https://read.bespoken.ai/sdk/cli) -->
 * Integrations - [review here](/api/integration)

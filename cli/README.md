@@ -69,7 +69,7 @@ TBD
 To use the `bst test-suite` command, you need to retrieve your API key from the Dashboard. Follow these steps:
 
 1. Navigate to the Dashboard.
-2. Click on the three dots menu at the upper right side of your screen.
+2. Click on the user menu at the upper right side of your screen.
 2. Click on "My account".
 3. Copy the API key at the bottom of the page.
 

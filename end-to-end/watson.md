@@ -11,7 +11,7 @@ permalink: /end-to-end/watson/
 
 We provide support for testing Watson Assistant directly via API.
 
-To leverage this, Watson Virtual Devices will need to be enabled for your account. If they are not, just reach out to us at [support@bespoken.io](mailto:support@bespoken.io).
+To leverage this, Watson Virtual Devices will need to be enabled for your account. If they are not, just reach out to us at [support@bespoken.io](mailto:support@bespoken.ai).
 
 Most of the features from our standard functional testing work as normal for this, but there are some special features that we will cover in this guide.
 
@@ -47,4 +47,4 @@ The Watson Assistant ID can be found by launching the Watson Assistant Console. 
 ## Creating Tests
 Tests can now be created via our Dashboard in the typical manner.
 
-To learn how to do this with our step-by-step training guide, just [read here](https://read.bespoken.io/training/chatbot/functional/test/).
+To learn how to do this with our step-by-step training guide, just [read here](https://read.bespoken.ai/training/chatbot/functional/test/).
