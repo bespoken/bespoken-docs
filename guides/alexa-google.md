@@ -34,7 +34,8 @@ Notice how:
 - We did not need to say "Alexa" (or "Ok Google" for Google actions). This is because wake words are needed when interacting with hardware devices, but we can omit them because we interact directly with Alexa and Google APIs.  
 - We used a wildcard for the time question, as this can be highly variable.  
 - We only put "Lima" as the expected response and not the whole phrase to account for variability in the responses.  
-- We opened the Bespoken Overview skill and were able to continue the conversation with it.
+
+<!-- TODO: Add custom skill example -->
 
 ## Configuration  
 The main configuration for these tests consists of the following:

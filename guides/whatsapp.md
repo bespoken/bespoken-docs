@@ -34,21 +34,15 @@ The main configuration for WhatsApp tests consists of the following:
 
 | Property       | Description                                              | Default        |  
 | ---            | ---                                                      | ---            |  
-| Phone Number   | Phone number of the WhatsApp for Business bot to reach.   | N/A            |  
+| Phone Number   | Phone number of the WhatsApp for Business bot to reach.   | N/A            | 
+| Response Wait Time   | Numeric value in seconds that the system waits for response messages before moving to the next interaction. Response messages are grouped together before being returned. Changing this value affects all interactions unless another value is set at the interaction level. Lower the value for faster responses. | 30      |  
 | Virtual Device | The virtual device to use in your test.                   | Default device |
 
 ### Input Configuration  
 In the input field, any entered text will be sent as a message to WhatsApp.
 
 ### Expected Configuration  
-The main expected property `prompt` will be compared against the WhatsApp responses as explained previously [here](/dashboard/test-page.md#interpreting-the-results). Responses will be gathered for a brief time before being returned and moving to the next interaction. This period can be customized per interaction with the `responseWaitTime` property.
-
-### Advanced Settings  
-In addition to the [common advanced settings](/dashboard/test-page/#advanced-settings), the following parameters are also accepted for WhatsApp testing:
-
-| Property             | Description                                                                                           | Default |  
-| ---                  | ---                                                                                                   | ---     |  
-| Response Wait Time   | Numeric value in seconds that the system waits for response messages before moving to the next interaction. Response messages are grouped together before being returned. Changing this value affects all interactions unless another value is set at the interaction level. Lower the value for faster responses. | 30      |  
+The main expected property `Prompt` will be compared against the WhatsApp responses as explained previously [here](/dashboard/test-page.md#interpreting-the-results). Responses will be gathered for a brief time before being returned and moving to the next interaction. This period can be customized per interaction with the `Response Wait Time` property under the "Expressions" tab.
 
 ## Special Considerations  
 Bespoken uses its own WhatsApp for Business account to test others. This comes with some considerations that you should be aware of and plan around.

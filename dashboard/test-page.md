@@ -63,28 +63,28 @@ In this column, we'll define the expected value for the current test interaction
 
 A default assertion would look like this:
 
-`prompt : [value]`
+`[prompt] [contains] [value]`
 
-Where `prompt` is the property that returns the main response content from the platform being tested: a transcription, a text message, a chatbot reply, etc., and `:` represents a partial equality operator or, in other words, a substring search. E.g., `prompt : "expected value"` would be valid if the response we get is "expected value" or "this is the expected value I got."
+Where `prompt` is the property that returns the main response content from the platform being tested: a transcription, a text message, a chatbot reply, etc., and `contains` represents a partial equality operator or, in other words, a substring search. In YAML format, the contains operator is represented by `:`. E.g., `prompt : "expected value"` would be valid if the response we get is "expected value" or "this is the expected value I got."
 
-Other available operators are:
+<!-- Other available operators are:
 - != Not equal to
 - \> Greater than
 - \>= Greater than or equal
 - < Less than
-- <= Less than or equal
+- <= Less than or equal -->
 
 #### Actual Column
 
-As you might expect, the Actual column contains the response that comes back from the platform being tested. This column will be populated sequentially as the responses come back.
+As you might expect, the Actual column contains the response that comes back from the platform being tested. This column will only appear when a test is running and will be populated sequentially as the responses come back.
 
-#### Interactions
+#### Test Steps
 
-You can add more interactions to your test case by clicking the "Add interaction" link below the last interaction on your test, or by clicking the "plus" sign to the left of each interaction. 
+You can add more test steps (also known as interactions) to your test case by clicking the "Add step" button below the last step on your test, or by clicking the "plus" sign to the right of each step. 
 
 ![Test Options](../assets/images/dashboard/test-page-interactions.gif)
 
-Note that the plus sign will "insert" a new interaction below the current one, while the "Add interaction" link will always add an interaction at the end. Similarly, if you want to remove an interaction, you can click on the "x" icon to its left.
+Note that the plus sign will "insert" a new step below the current one, while the "Add step" button will always add an interaction at the end. Similarly, if you want to remove a step, you can click on the "x" icon to its right.
 
 ## Running Your Tests
 
@@ -92,15 +92,15 @@ Once you have configured and created all the steps for your test case, simply cl
 
 ![Single test run](../assets/images/dashboard/test-page-run.gif)
 
-::: warning Note
-Running a whole test suite can take a while. Tests are run sequentially, and you won't be able to see the results until all tests have completed running. You should also not leave the page while the test suite is running.
-:::
-
-If you want to run all test cases within your test suite, head to the left side and click on the "Run all" link where all your test cases are.
+If you want to run all test cases within your test suite, click on the "Run all tests" option button on the dropdown menu next to the "Run" button.
 - If you only want to run a subset of tests, you can specify which ones to run by adding the "only" flag to them, by opening the three-dot menu on each test.
 - Similarly, you can decide which tests to ignore altogether by selecting the "Skip" flag.
 
 ![Setting the "Only" flag](../assets/images/dashboard/test-page-only.gif)
+
+::: warning Note
+Running a whole test suite can take a while. Tests are run sequentially, and you won't be able to see all the results until all tests have completed running. You should also not leave the page while the test suite is running.
+:::
 
 ## Interpreting the Results
 
@@ -136,17 +136,13 @@ You can safely toggle between the regular editor and the YAML editor, and change
 
 ![Advanced settings](../assets/images/dashboard/test-page-monitoring.gif)
 
-You can enable Monitoring for your test suite by clicking on the monitoring toggle. You can read more about how monitoring can help you ensure that your system remains stable by clicking [here](/monitoring/).
-
-### Downloading a Test Package
-
-Your test suite is also exportable as a zip test package by clicking on the Download link. This package will contain your test suite YAML file as well as its configuration in a JSON file. Tests can then be executed locally or from a CI/CD package by using our CLI. More info about the Bespoken CLI can be found [here](/monitoring/).
+You can enable Monitoring for your test suite by clicking on the Enable Monitoring toggle on the configuration panel. You can read more about how monitoring can help you ensure that your system remains stable by clicking [here](/monitoring/).
 
 ### Advanced Settings
 
 ![Advanced settings](../assets/images/dashboard/test-page-advanced.gif)
 
-The "Advanced settings" tab, which you can access by clicking on the gear icon, contains parameters that can further modify the behavior or evaluation of a test run. Common parameters are:
+The "Advanced settings" window, which you can access by clicking on "Show advanced settings" link on the Test Suite Settings panel, contains parameters that can further modify the behavior or evaluation of a test run. Common parameters are:
 
 | Property | Description | Default Value |
 |---|---|---|

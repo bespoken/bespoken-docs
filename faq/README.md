@@ -102,9 +102,9 @@ Alternatively, use the "Skip" option to exclude specific tests when clicking "Ru
 To get your API key:
 
 1. Navigate to the Dashboard.
-2. Click the three dots menu in the upper right corner.
-3. Select "My account."
-4. Copy the API key at the bottom of the page.
+2. Click the user menu in the upper right corner.
+3. Select "Account."
+4. Copy the API key within the "API access" tab.
 
 ![API Key Location](../assets/images/cli/api-key.png)
 

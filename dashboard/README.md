@@ -13,7 +13,7 @@ Before starting, you'll need a Bespoken account. Head over to [dashboard.bespoke
 
 ## Test Suites Management
 
-The Test Suites screen is the first screen you'll see when you access the Dashboard. It contains all the test suites your team has access to. You can reach this page by clicking on the microphone icon on the sidebar to the left of your screen.
+The Test Suites screen is the first screen you'll see when you access the Dashboard. It contains all the test suites your team has access to. You can reach this page by clicking on the first icon on the sidebar to the left of your screen.
 
 ![Test suites screen](../assets/images/dashboard/dashboard.png)
 
@@ -21,7 +21,7 @@ On this page, you can create, delete, clone, filter, and sort your test suites. 
 
 ## Managing Virtual Devices
 
-Virtual devices are at the core of what Bespoken does. They represent real devices for the platform you are testing, be it a phone, Alexa device, web browser, or more. The Virtual Device Manager page is where you'll find your virtual devices. It's accessible by clicking on the "Devices" icon on the left sidebar.
+Virtual devices are at the core of what Bespoken does. They represent real devices for the platform you are testing, be it a phone, Alexa device, web browser, or more. The Virtual Device Manager page is where you'll find your virtual devices. It's accessible by clicking on the "Virtual Devices" icon on the left sidebar.
 
 ![Virtual Device Manager](../assets/images/dashboard/virtual-devices.png)
 
@@ -29,7 +29,7 @@ Here, you can create, delete, rename, filter, or update the credentials associat
 
 ## Team Member Management
 
-When you create a Bespoken account, you create an account for your organization. This allows you to add more people to your team and collaborate on creating and running functional tests. You'll manage this on the "Manage Organization" page, accessible by clicking on the menu dots at the top right of your screen and then on the "Manage" link.
+When you create a Bespoken account, you create an account for your organization. This allows you to add more people to your team and collaborate on creating and running functional tests. You'll manage this on the "Manage Organization" page, accessible by clicking on the on the "Manage" button that appears for admin users on the lower left corner of the screen.
 
 ![Manage organization page](../assets/images/dashboard/org-management.png)
 

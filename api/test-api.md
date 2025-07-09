@@ -22,9 +22,10 @@ This documentation covers three primary operations: running a test suite, runnin
 Your API key allows us to authenticate you against our APIs and execute diverse operations against your test suites. Your API key is personal and should not be shared. To get your API key:
 
 1. Navigate to the Dashboard.
-2. Click the three dots menu in the upper right corner.
-3. Select "My account."
-4. Copy the API key at the bottom of the page.
+2. Click the user menu in the upper right corner.
+3. Select "Account."
+4. Select the "Api Access" tab.
+5. Copy your API key.
 
 ![API Key Location](../assets/images/cli/api-key.png)
 
