@@ -73,6 +73,7 @@ function getDashboardSidebar() {
         collapsable: true,
         children: [
             '/dashboard/',
+            'dashboard/projects',
             'dashboard/test-suites',
             'dashboard/virtual-devices',
             'dashboard/test-page',
