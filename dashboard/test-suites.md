@@ -3,17 +3,50 @@ title: Test Suites
 permalink: /dashboard/test-suites
 ---
 
+
 # Test Suites Management
 
-A test suite is a collection of test cases designed to verify that your conversational application functions as expected. It is an essential component of software testing and quality assurance processes. The test suites page contains all the test suites your organization has created for all its available platforms. In this article, we'll detail the different options you have to manage them.
+A test suite is a collection of test cases designed to verify that your conversational application functions as expected. It is an essential component of software testing and quality assurance processes.
+Test suites are the core building blocks of your testing workflow in Bespoken Dashboard. They contain collections of tests that validate the behavior of your conversational applications across different platforms like Alexa, Google Assistant, phone systems, webchat, and more.
+
+**Note**: All test suites are organized within [Projects](projects.md). You must select or create a project before working with test suites.
+ 
+In this article, we'll detail the different options you have to manage them.
+
+## Accessing Test Suites
+
+### Navigation to Test Suites
+
+Test suites are accessed within the context of a specific project:
+
+1. **From the Projects Dashboard**: Click on any project card to view its test suites
+1. **From Sidebar Navigation**: Click on a project in the sidebar to navigate to its test suites
+1. **Direct URL**: Navigate to `/projects/{projectId}` to access a specific project's test suites
+
+![Test Suite Navigation](../assets/images/dashboard/TSproject-navigation.gif)
+
+### Project Context
+
+When viewing test suites, you'll always see:
+- **Project name** in the page header
+- **Project description** (if provided) below the project name
+- Only test suites belonging to the current project
+- Project-specific URL structure
 
 ## Adding New Test Suites
 
-The first thing you'll want to do when you get access to your Dashboard account is to create a new test suite. To do this, simply click on the "Add test suite" button on the top right corner of the page.
+To create a new test suite within a project:
+
+1. Navigate to the project where you want to create the test suite
+2. Click **"New Test Suite"** in the top-right corner
+3. Choose your platform (Alexa, Google Assistant, Phone, Webchat, etc.)
+4. Enter a **name** for your test suite
+5. Add an optional **description**
+6. Click **"Create Test Suite"**
+
+The new test suite will be created in the current project context.
 
 ![New test suite tile](../assets/images/dashboard/create-test-suite.gif)
-
-When you do so, you'll need to enter the platform you want to test and set a proper name for your test suite. The test suite name must have at least 4 characters for the "Save" button to enable. Click on "Save," and that's it! Your new test suite will be created.
 
 You'll be immediately taken to the Test page. This is the most important page in our Dashboard and where you'll spend most of your time creating your functional testing scripts. To learn more about it, click [here](/dashboard/test-page).
 
@@ -25,11 +58,30 @@ Once you have test suites created, you can easily delete them by clicking on the
 
 Simply click "OK" to remove the selected test suite.
 
-## Cloning a Test Suite
+#### Cloning Test Suites
+
+**Clone within Project**
 
 Also on the test suite menu, you'll see a "Clone" option that is used to clone your test suite. This is useful when you have a test suite that you can use as a base for a new one. It will copy all the tests within it, as well as its configurations. The new test suite will have the same name plus a number for each copy you create.
 
+1. Click the **three-dot menu** on any test suite
+2. Select **"Clone"**
+3. A copy is created immediately in the same project
+4. The clone has the same name with "(Copy)" appended
+
 ![Cloning a test suite](../assets/images/dashboard/clone-test-suite.gif)
+
+**Clone to Different Project**
+
+Also on the test suite menu, you'll see a "Clone to project" option that is used to clone your test suite in other project. This is useful when you have a test suite that you can use as a base for a new one. It will copy all the tests within it, as well as its configurations. The new test suite will have the same name plus a number for each copy you create.
+
+1. Click the **three-dot menu** on any test suite
+2. Select **"Clone to Project"**
+3. Choose the target project from the dropdown
+4. Optionally rename the cloned test suite
+5. Click **"Clone to Project"**
+
+![Cloning a test suite to other project](../assets/images/dashboard/TSproject-clone.gif)
 
 ### Downloading a Test Package
 
