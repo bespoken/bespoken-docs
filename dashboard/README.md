@@ -5,7 +5,7 @@ permalink: /dashboard/
 
 # The Bespoken Dashboard
 
-Welcome to the Bespoken Dashboard, your central hub for managing and optimizing your conversational platform testing and monitoring efforts. With our intuitive web UI, you can create and manage projects, monitor their performance, and access comprehensive reports and insights to ensure the quality and reliability of your conversational experiences. Whether you're testing an IVR, Webchat, Alexa, Google Assistant, or any other conversational platform, our Dashboard provides the tools and functionality you need to enhance your testing workflows and achieve your testing goals.
+Welcome to the Bespoken Dashboard, your central hub for managing and optimizing your conversational platform testing and monitoring efforts. With our intuitive web UI, you can create and manage test suites and projects, monitor their performance, and access comprehensive reports and insights to ensure the quality and reliability of your conversational experiences. Whether you're testing an IVR, Webchat, Alexa, Google Assistant, or any other conversational platform, our Dashboard provides the tools and functionality you need to enhance your testing workflows and achieve your testing goals.
 
 ::: tip Important
 Before starting, you'll need a Bespoken account. Head over to [dashboard.bespoken.ai](dashboard.bespoken.ai) and sign up for a free trial for your team. Then come back to explore our key features together.
@@ -13,15 +13,21 @@ Before starting, you'll need a Bespoken account. Head over to [dashboard.bespoke
 
 ## Projects Management
 
-The Projects section allows you to organize your test suites into structured groups for easier navigation and collaboration. It helps teams keep test cases well-organized and improves efficiency when working across multiple clients or environments.
+The Projects screen is the first screen you'll see when you access the Dashboard. It contains all the projects, and test suites within them, that your team has access to. You can reach this page by clicking on the first icon on the sidebar to the left of your screen.
 
-When you access the Dashboard, the Projects will appears on screen and the left sidebar. By selecting a project, you'll see all the test suites it contains.
+The Projects section allows you to organize your test suites into structured groups for easier navigation and collaboration. It helps teams keep test cases well-organized and improves efficiency when working across multiple clients or environments. 
 
 ![Projects screen](../assets/images/dashboard/dashboard.png)
 
-Projects are shared across your team, ensuring everyone works within the same structure and sees the same context. This helps align workflows and ensures consistency across test planning, execution, and monitoring.
+On this page, you can create, delete, filter, and sort your projects. For detailed instructions on how to do this, click [here](/dashboard/projects). 
 
-On this page, you can create, delete, clone, filter, and sort your projects. For detailed instructions on how to do this, click [here](/dashboard/projects).
+## Test Suites Management
+
+By selecting a project, you'll see all the test suites it contains. Each test suite is a collection of test cases, which are fundamental for your quality assurance processes.
+
+![Projects screen](../assets/images/dashboard/project-selection.gif)
+
+On this page, you can create, delete, clone, filter, and sort your test suites. For detailed instructions on how to do this, click [here](/dashboard/test-suites).
 
 ## Managing Virtual Devices
 
