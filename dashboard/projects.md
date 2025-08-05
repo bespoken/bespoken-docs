@@ -84,7 +84,7 @@ To delete a project:
 2. Select **"Delete"**
 3. Confirm the deletion in the dialog
 
-![Deleting projects](../assets/images/dashboard/delete-projects.gif)
+![Deleting projects](../assets/images/dashboard/delete-project.gif)
 
 ::: tip Note
 Projects with test suites cannot be deleted. Please move or delete the test suites first.
