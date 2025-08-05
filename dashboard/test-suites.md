@@ -9,7 +9,9 @@ permalink: /dashboard/test-suites
 A test suite is a collection of test cases designed to verify that your conversational application functions as expected. It is an essential component of software testing and quality assurance processes.
 Test suites are the core building blocks of your testing workflow in Bespoken Dashboard. They contain collections of tests that validate the behavior of your conversational applications across different platforms like Alexa, Google Assistant, phone systems, webchat, and more.
 
-**Note**: All test suites are organized within [Projects](projects.md). You must select or create a project before working with test suites.
+::: tip Note
+All test suites are organized within [Projects](projects.md). You must select or create a project before working with test suites.
+:::
  
 In this article, we'll detail the different options you have to manage them.
 
@@ -58,7 +60,7 @@ Once you have test suites created, you can easily delete them by clicking on the
 
 Simply click "OK" to remove the selected test suite.
 
-#### Cloning Test Suites
+## Cloning Test Suites
 
 **Clone within Project**
 
@@ -73,7 +75,7 @@ Also on the test suite menu, you'll see a "Clone" option that is used to clone y
 
 **Clone to Different Project**
 
-Also on the test suite menu, you'll see a "Clone to project" option that is used to clone your test suite in other project. This is useful when you have a test suite that you can use as a base for a new one. It will copy all the tests within it, as well as its configurations. The new test suite will have the same name plus a number for each copy you create.
+Similarly, the "Clone to project" option is used to clone your test suite in a different project than the current one. 
 
 1. Click the **three-dot menu** on any test suite
 2. Select **"Clone to Project"**
@@ -82,6 +84,21 @@ Also on the test suite menu, you'll see a "Clone to project" option that is used
 5. Click **"Clone to Project"**
 
 ![Cloning a test suite to other project](../assets/images/dashboard/TSproject-clone.gif)
+
+## Moving Test Suites
+
+If you want to move a test suite to a different project (rather than copying it), you can use the move functionality:
+
+1. Click the **three-dot menu** on any test suite
+2. Select **"Move to Project"**
+3. Choose the target project from the dropdown
+4. Click **"Move to Project"**
+
+![Moving a test suite to other project](../assets/images/dashboard/move-testsuite.gif)
+
+::: tip Note
+Moving a test suite removes it from the current project and places it in the target project. If you want to keep a copy in the original project, use the [Clone to Project](#cloning-test-suites) option instead.
+:::
 
 ### Downloading a Test Package
 
