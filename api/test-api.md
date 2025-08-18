@@ -14,8 +14,7 @@ Key features of the Bespoken Test API include:
 - Flexibility to test different platforms and scenarios
 
 ::: tip Important
-- You can download our <a href="/assets/postman/test-api.postman_collection.json" download="test-api.postman_collection.json">Postman Collection
-</a> with the endpoints described in this article.
+- To start using our APIs quickly, refer to our [Postman Collection](#using-the-postman-collection).
 - The full Swagger documentation for our APIs can be found [here](https://api.bespoken.ai/api/docs/).
 :::
 
@@ -245,9 +244,10 @@ Content-Type: application/json
 }
 ```
 
-#### Notes
-- Platform-specific configuration options vary by platform type
+:::tip Notes
 - Test suite IDs are automatically generated upon creation
+- Platform-specific configuration options vary by platform type (they correspond to the `testingJson` field when doing a GET request)
+:::
 
 <!-- #### Try it 
 <VuepressApiPlayground 
@@ -337,9 +337,10 @@ Content-Type: application/json
 }
 ```
 
-#### Notes
+::: tip Notes
 - Only provided fields will be updated; omitted fields remain unchanged
 - It's not possible to change the platform of a test suite (eg. from `phone` to `webchat`)
+::: 
 
 <!-- #### Try it 
 <VuepressApiPlayground 
@@ -678,6 +679,84 @@ echo '{"yaml": ""}' | jq --rawfile yaml test-suite.yaml '.yaml = $yaml'
 # Using yq and jq together
 yq eval '.' test-suite.yaml | jq -Rs '{"yaml": .}'
 ```
+
+## Using the Postman Collection
+
+To help you get started quickly with the Bespoken Test API, we provide a comprehensive Postman collection that includes all the endpoints described in this documentation.
+
+### Download and Import
+
+1. **Download the Collection**
+   - Download our <a href="/assets/postman/test-api.postman_collection.json" download="test-api.postman_collection.json">Postman Collection</a> 
+   - The collection contains pre-configured requests for all Test API endpoints
+
+2. **Import into Postman**
+   - Open Postman
+   - Click "Import" in the top left corner
+   - Drag and drop the downloaded JSON file or browse to select it
+   - Click "Import" to add the collection to your workspace
+
+### Configure Collection Variables
+
+Before using the collection, you need to set up the required variables:
+
+1. **Open Collection Variables**
+   - Click on "Bespoken AI - Test API" collection
+   - Go to the "Variables" tab
+
+2. **Set Required Variables**
+   - `api-key`: Your Bespoken API key (required for all requests)
+   - `test-suite-id`: The ID of a test suite for testing individual suite operations
+   - `test-run-id`: A test run ID for checking execution status
+   - `project-id`: The project id where to create or move a test suite to (optional, uses default if empty)
+   - `org-id`: Your organization ID (optional, uses default if empty)
+
+3. **Save Changes**
+   - Click "Save" to store your variable configurations
+
+### Collection Structure
+
+The collection is organized into two main folders:
+
+#### Test Suite Management
+Contains requests for:
+- **Get All Test Suites**: Retrieve all test suites in your organization
+- **Get Test Suite**: Retrieve a specific test suite by ID
+- **Create Test Suite**: Create a new test suite with configuration and YAML
+- **Update Test Suite**: Update an existing test suite
+
+#### Test Suite Execution
+Contains requests for:
+- **Run a Test Suite**: Execute a test suite (GET method)
+- **Run a Test Suite with Params**: Execute with replacement variables (POST method)
+- **Get Status of Test Run**: Check execution status and retrieve results
+
+### Tips for Using the Collection
+
+1. **Start with Get All Test Suites**
+   - Use this to see your existing test suites and get valid test suite IDs
+   - Copy a test suite ID to the `test-suite-id` variable
+
+2. **Test Execution Flow**
+   - First run a test suite using either execution endpoint
+   - Copy the returned run ID to the `test-run-id` variable
+   - Use "Get Status of Test Run" to check progress and results
+
+3. **Example Requests**
+   - The collection includes example request bodies for creating and updating test suites
+   - Modify the examples to match your specific use case
+
+4. **Authentication**
+   - All requests automatically use the `api-key` variable
+   - Make sure to set your actual API key before making requests
+
+### Next Steps
+
+Once you have the collection configured:
+1. Test the "Get All Test Suites" endpoint to verify your API key works
+2. Try running an existing test suite to see the execution flow
+3. Create a new test suite using the provided examples as a template
+4. Explore the different execution options with and without replacement variables
 
 ## Schemas
 
