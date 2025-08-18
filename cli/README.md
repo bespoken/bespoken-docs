@@ -73,7 +73,7 @@ To use the `bst test-suite` command, you need to retrieve your API key from the 
 2. Click on "My account".
 3. Copy the API key at the bottom of the page.
 
-![API Key Location](../assets/images/cli/api-key.png) 
+![API Key Location](../assets/images/api/api-key.png) 
 
 ## Summary
 The Bespoken CLI provides a versatile and efficient way to run your tests both locally and through the dashboard. By integrating it into your development process, you can ensure your conversational applications perform as expected in a streamlined manner.
