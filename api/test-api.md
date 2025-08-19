@@ -372,6 +372,71 @@ Content-Type: application/json
     ]" 
   /> -->
 
+### Add Test to Test Suite
+
+Adds a new test to an existing test suite.
+
+```
+POST /test-suite/{test-suite-id}/test
+```
+
+#### Query Parameters
+
+| Name | Located in | Description | Required | Schema |
+|------|------------|-------------|----------|--------|
+| api-key | query | The api-key to authenticate the user and authorize this call | Yes | string |
+| org-id | query | The org-id to identify which organization to use, if empty, the default organization will be used | No | string |
+
+#### Path Parameters
+
+| Name | Located in | Description | Required | Schema |
+|------|------------|-------------|----------|--------|
+| test-suite-id | path | The id of the test suite to add the test to | Yes | string |
+
+#### Request Body
+
+| Property | Type | Description | Required |
+|----------|------|-------------|----------|
+| yaml | string | YAML definition of the individual test to add. Properly formatted as a JSON string (see [YAML Format Requirements](#yaml-format-requirements)). | Yes |
+
+#### Responses
+
+| Code | Description | Schema |
+|------|-------------|--------|
+| 200 | Test added successfully | [TestSuite](#testsuite-schema) |
+| 404 | Test suite not found | Error message |
+| 400 | Invalid request body | Error message |
+
+#### Example Request
+
+```
+POST /api/test-suite/1234abcd-fg18-12dg-313s-9831/test?api-key=your-api-key
+Content-Type: application/json
+
+{
+  "yaml": "---\n- test : \"Book a flight\"\n- $DIAL :\n  - prompt : \"Bespoken Airlines\"\n  - set listeningTimeout : 10\n- New flight reservation :\n  - prompt : \"What city are you traveling from?\""
+}
+```
+
+#### Example Response
+
+```json
+{
+  "id": "1234abcd-fg18-12dg-313s-9831",
+  "name": "Bespoken Airlines",
+  "configuration": {
+    "platform": "phone",
+    "phoneNumber": "+12132242445"
+  },
+  "yaml": "---\n- test : Initial Greeting\n- $DIAL :\n  - prompt : \"Welcome to the Bespoken Airlines contact center\"\n  - set listeningTimeout : 10\n---\n- test : \"Ask for Help\"\n- $DIAL :\n  - prompt : \"Bespoken Airlines\"\n  - set listeningTimeout : 10\n- I need help :\n  - prompt : \"I'll connect you to an agent\"\n---\n- test : \"Book a flight\"\n- $DIAL :\n  - prompt : \"Bespoken Airlines\"\n  - set listeningTimeout : 10\n- New flight reservation :\n  - prompt : \"What city are you traveling from?\""
+}
+```
+
+::: tip Notes
+- The new test will be appended to the existing test suite YAML
+- The response includes the complete updated test suite with all tests
+- Each test must be a valid YAML block starting with `---`
+:::
 ## Test Suite Execution
 
 These endpoints allow you to execute test suites and retrieve execution results.
@@ -724,6 +789,7 @@ Contains requests for:
 - **Get Test Suite**: Retrieve a specific test suite by ID
 - **Create Test Suite**: Create a new test suite with configuration and YAML
 - **Update Test Suite**: Update an existing test suite
+- **Add Test to Test Suite**: Add a new test to an existing test suite
 
 #### Test Suite Execution
 Contains requests for:

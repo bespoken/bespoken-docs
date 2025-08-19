@@ -186,6 +186,55 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "append test to a test suite",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"yaml\":  \"---\\n- test : \\\"Book a flight\\\"\\n- $DIAL :\\n  - prompt : \\\"Bespoken Airlines\\\"\\\\n  - set listeningTimeout : 10'\\n- New flight reservation :\\n  - prompt : \\\"What city are you traveling from?\\\"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bespoken.ai/api/test-suite/{{test-suite-id}}?api-key={{api-key}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bespoken",
+								"ai"
+							],
+							"path": [
+								"api",
+								"test-suite",
+								"{{test-suite-id}}"
+							],
+							"query": [
+								{
+									"key": "api-key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"description": "These endpoints allow you to create, retrieve, and update test suites programmatically."
