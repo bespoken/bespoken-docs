@@ -1,0 +1,424 @@
+{
+	"info": {
+		"_postman_id": "4f5bee1e-eab6-4572-9028-e1bcf0fef459",
+		"name": "Bespoken AI - Test API",
+		"description": "The Bespoken Test API provides powerful capabilities for managing and running automated tests on conversational platforms such as IVR systems, chatbots, and messaging applications like WhatsApp. This API allows you to programmatically create, update, execute test suites and retrieve detailed results, enabling efficient end-to-end testing of your conversational interfaces.\n\nKey features of the Bespoken Test API include:\n\n- Creating and managing test suites\n    \n- Running comprehensive test suites\n    \n- Retrieving detailed test results\n    \n- Flexibility to test different platforms and scenarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5535774"
+	},
+	"item": [
+		{
+			"name": "Test Suite Management",
+			"item": [
+				{
+					"name": "get all test suites",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.bespoken.ai/api/test-suite/?api-key={{api-key}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bespoken",
+								"ai"
+							],
+							"path": [
+								"api",
+								"test-suite",
+								""
+							],
+							"query": [
+								{
+									"key": "api-key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get test suite",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.bespoken.ai/api/test-suite/{{test-suite-id}}?api-key={{api-key}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bespoken",
+								"ai"
+							],
+							"path": [
+								"api",
+								"test-suite",
+								"{{test-suite-id}}"
+							],
+							"query": [
+								{
+									"key": "api-key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create test suite",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Bespoken Airlines\",\n    \"configuration\": {\n        \"platform\": \"phone\",\n        \"phoneNumber\": \"+12132242445\"\n    },\n    \"yaml\": \"---\\n- test : Initial Greeting\\n- $DIAL :\\n  - prompt : \\\"Bespoken Airlines\\\"\\n  - set listeningTimeout : 10\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bespoken.ai/api/test-suite?api-key={{api-key}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bespoken",
+								"ai"
+							],
+							"path": [
+								"api",
+								"test-suite"
+							],
+							"query": [
+								{
+									"key": "api-key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "udpate test suite",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Bespoken Airlines - update\",\n    \"configuration\": {\n        \"platform\": \"phone\",\n        \"phoneNumber\": \"+12132242445\"\n    },\n    \"yaml\": \"---\\n- test : Initial Greeting\\n- $DIAL :\\n  - prompt : \\\"Welcome to the Bespoken Airlines contact center\\\"\\n  - set listeningTimeout : 10\\n---\\n- test : \\\"Ask for Help\\\"\\n- $DIAL :\\n  - prompt : \\\"Bespoken Airlines\\\"\\n  - set listeningTimeout : 10\\n- I need help :\\n  - prompt : \\\"I'll connect you to an agent\\\"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bespoken.ai/api/test-suite/{{test-suite-id}}?api-key={{api-key}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bespoken",
+								"ai"
+							],
+							"path": [
+								"api",
+								"test-suite",
+								"{{test-suite-id}}"
+							],
+							"query": [
+								{
+									"key": "api-key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "append test to a test suite",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"yaml\":  \"---\\n- test : \\\"Book a flight\\\"\\n- $DIAL :\\n  - prompt : \\\"Bespoken Airlines\\\"\\\\n  - set listeningTimeout : 10'\\n- New flight reservation :\\n  - prompt : \\\"What city are you traveling from?\\\"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bespoken.ai/api/test-suite/{{test-suite-id}}?api-key={{api-key}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bespoken",
+								"ai"
+							],
+							"path": [
+								"api",
+								"test-suite",
+								"{{test-suite-id}}"
+							],
+							"query": [
+								{
+									"key": "api-key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "These endpoints allow you to create, retrieve, and update test suites programmatically."
+		},
+		{
+			"name": "Test Suite Execution",
+			"item": [
+				{
+					"name": "run a test suite",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.bespoken.ai/api/test-suite/{{test-suite-id}}/run?api-key={{api-key}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bespoken",
+								"ai"
+							],
+							"path": [
+								"api",
+								"test-suite",
+								"{{test-suite-id}}",
+								"run"
+							],
+							"query": [
+								{
+									"key": "api-key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get status of test run",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.bespoken.ai/api/test-run/{{test-run-id}}?api-key={{api-key}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bespoken",
+								"ai"
+							],
+							"path": [
+								"api",
+								"test-run",
+								"{{test-run-id}}"
+							],
+							"query": [
+								{
+									"key": "api-key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "run a test suite with params",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"CITY_FROM\": \"NEW YORK\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bespoken.ai/api/test-suite/{{test-suite-id}}/run?api-key={{api-key}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bespoken",
+								"ai"
+							],
+							"path": [
+								"api",
+								"test-suite",
+								"{{test-suite-id}}",
+								"run"
+							],
+							"query": [
+								{
+									"key": "api-key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "These endpoints allow you to execute test suites and retrieve execution results."
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api-key",
+			"value": ""
+		},
+		{
+			"key": "test-suite-id",
+			"value": ""
+		},
+		{
+			"key": "org-id",
+			"value": ""
+		},
+		{
+			"key": "test-run-id",
+			"value": ""
+		},
+		{
+			"key": "project-id",
+			"value": ""
+		}
+	]
+}
