@@ -557,11 +557,11 @@ Content-Type: application/json
 ```
 
 #### Notes
-- Ensure you have a valid API key before making the request.
 - The `variables` in the request body allows you to provide replacement variables for your test suite.
 - To use them, you need to specify variable names in your test script following this nomenclature: `${VARIABLE_NAME}`
 ![Variables example](../assets/images/api/variables_to_replace.png)
 - If a `phoneNumber` is provided in the query, it will replace the phone number configured in the test suite.
+- Other than the phone number, you can override more configuration settings as long as you add them to the request query.
 
 ### Retrieving Test Run Results
 
