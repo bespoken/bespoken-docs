@@ -132,6 +132,29 @@ Where:
 
 You can safely toggle between the regular editor and the YAML editor, and changes will be reflected on both sides.
 
+### Skipping Input (Mute Mode)
+For certain platforms (phone, webchat, and Watson), you may want to test scenarios where no input is sent to the system. This is useful for testing reprompts, timeout handling, or any situation where the bot should respond without receiving user input. To do this:
+
+- Hover over any input field to reveal the mute icon.
+- Click the icon to enable mute mode
+- The input field will display "No input will be sent." in italic text
+- Click the icon again to disable and return to normal input mode
+
+When mute mode is enabled:
+
+- The input field becomes read-only 
+- The mute icon remains visible with a blue highlight to indicate the active state
+- For phone tests: Silent audio is sent to the system (simulating a user not speaking)
+- For webchat/Watson tests: No message is sent (simulating a user not typing)
+
+![Mute input](../assets/images/dashboard/test-page-skipinput.gif)
+
+In YAML format, muted steps are represented with the $MUTE keyword:
+
+``` yaml
+- $MUTE: I didn't hear that, could you repeat?
+```
+
 ### Monitoring
 
 ![Advanced settings](../assets/images/dashboard/test-page-monitoring.gif)
