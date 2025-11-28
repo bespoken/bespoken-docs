@@ -16,7 +16,8 @@ The test page is divided into two main areas that work together to help you buil
 
 1. **Configuration Panel** (left sidebar):
     - Test Suite Settings: Basic configuration for running your test suite
-    - Test Cases: Management of different test scenarios  
+    - Test Cases: Management of different test scenarios
+    - Test Data: Connect data tables for dynamic test variables
     - Monitoring: Automated test scheduling and failure notifications
 
 2. **Test Editor** (main area): 
@@ -45,6 +46,17 @@ In this section of the page, you'll find all the test cases available for your c
 - Flag a test as "skip" (more on this [here](#running-your-tests))
 - Reorder existing tests by dragging and dropping them in the desired order
 
+## Test Data Configuration
+
+The Test Data section allows you to connect data tables to your test suite, enabling dynamic test scenarios with variable data.
+
+1. In your test suite configuration, go to the **Test Data** section.
+2. Select a **Data Table** and a specific **Row**.
+
+![Selecting data table and row](../assets/images/dashboard/test-page-test-data.png)
+
+For more detailed information about creating and managing data tables, see the [Data Tables documentation](data-tables.md).
+
 ## Test Script
 
 The main area for your test scripts is composed of three columns: Input, Expected, and Actual. You'll use this section to add steps or interactions to your currently selected test case, configure them, and finally run your current test case.
@@ -54,6 +66,8 @@ The main area for your test scripts is composed of three columns: Input, Expecte
 #### Input Column
 
 The Input column contains what we will say to the platform we are testing. This could represent text that we will send to a messaging system, text that will be converted to audio (using a specified locale and voice), a URL containing pre-recorded audio to send, or even jQuery instructions to execute against a webpage.
+
+When using test data, you can include data variables (e.g., `${data.account_number}`) directly in your inputs. The variables will be automatically replaced with actual values from your selected data row during test execution.
 
 #### Expected Column
 
@@ -67,6 +81,8 @@ A default assertion would look like this:
 
 Where `prompt` is the property that returns the main response content from the platform being tested: a transcription, a text message, a chatbot reply, etc., and `contains` represents a partial equality operator or, in other words, a substring search. In YAML format, the contains operator is represented by `:`. E.g., `prompt : "expected value"` would be valid if the response we get is "expected value" or "this is the expected value I got."
 
+You can also use data variables in expected values to verify that responses include the correct personalized information (e.g., `prompt : "Hello ${data.customer_name}"`).
+
 <!-- Other available operators are:
 - != Not equal to
 - \> Greater than
@@ -77,6 +93,8 @@ Where `prompt` is the property that returns the main response content from the p
 #### Actual Column
 
 As you might expect, the Actual column contains the response that comes back from the platform being tested. This column will only appear when a test is running and will be populated sequentially as the responses come back.
+
+When data variables are used, you'll see the actual replaced values in the results, making it easy to verify that the correct data was used in the test.
 
 #### Test Steps
 
@@ -102,13 +120,76 @@ If you want to run all test cases within your test suite, click on the "Run all 
 Running a whole test suite can take a while. Tests are run sequentially, and you won't be able to see all the results until all tests have completed running. You should also not leave the page while the test suite is running.
 :::
 
+When using test data, the selected data row's values are automatically substituted into all data variables before the test runs, ensuring your tests execute with the correct data.
+
 ## Interpreting the Results
 
 As each response comes back, Bespoken will evaluate the assessments for the current interaction and will highlight in green the interactions that were successful and in red the interactions that failed. Moreover, Bespoken will highlight and format in bold the parts of the response that made the assertion pass. From our previous example where we looked for `expected value`, the response would look like: "this is the **expected value** I got."
 
 ![Test page results](../assets/images/dashboard/test-page-results.png)
 
+When data variables are used in your tests, the actual column will show the resolved values, making it easy to verify that the correct data was injected and that responses matched expectations.
+
 ## Other Options
+
+### Using Data Variables
+
+Once you have configured a data table, you can insert data fields into your tests.
+
+1. Use the **Insert Data Field** button that appears when hovering over the `Input` or `Expected` fields to add data fields values to your tests.
+
+![Inserting data fields](../assets/images/dashboard/test-page-data-button.gif)
+
+2. Alternatively, type `${` to trigger the data fields autocomplete.
+
+![Data field autocomplete](../assets/images/dashboard/test-page-data-autocomplete.gif)
+
+3. Run your test and verify how values are replace during execution.
+
+![Data field replacement results](../assets/images/dashboard/test-page-data-tables.png)
+
+#### Data Field Syntax
+
+Use the syntax `${data.fieldKey}` to reference values.
+
+**Examples:**
+- `${data.account_number}`
+- `${data.customer_name}`
+
+Hovering over the field will reveal it's value. If no match for the field is found, the UI will show an alert.
+
+![Data field highlighting](../assets/images/dashboard/test-page-data-tables-nomatch.png)
+
+#### Example: Testing with Customer Data
+
+Here's a complete example using data tables for IVR customer account testing:
+
+**Data Table: "Customer Accounts"**
+
+| Friendly Name | phone | account_number | customer_name | balance |
+|---------------|-------|----------------|---------------|---------|
+| Premium Customer | +15551234567 | ACC12345678 | John Doe | 1250.50 |
+| Basic Customer | +15559876543 | ACC87654321 | Jane Smith | 500.00 |
+
+**Test Steps:**
+```yaml
+---
+- test: Check Account Balance
+- $DIAL: Welcome to our service
+- ${data.account_number}: Hello ${data.customer_name}
+- check balance: Your balance is ${data.balance} dollars
+```
+
+When the test runs with "Premium Customer" selected:
+- `${data.account_number}` → "ACC12345678"
+- `${data.customer_name}` → "John Doe"  
+- `${data.balance}` → "1250.50"
+
+You can easily switch to test with "Basic Customer" by selecting a different row, without changing any test code.
+
+::: tip Best Practice
+Use descriptive friendly names for your data rows (e.g., "Premium Customer - Valid Card" instead of "Row 1"). This makes it much easier to select the right test data when configuring your test suite.
+:::
 
 ### YAML Editor
 
@@ -131,6 +212,14 @@ Where:
 - `open my skill: welcome to my skill` represents a first interaction in the form of `[input] [operator] [expected value]`
 
 You can safely toggle between the regular editor and the YAML editor, and changes will be reflected on both sides.
+
+When using data tables, you'll also see the data table configuration in the YAML:
+
+```yaml
+configuration:
+  dataTableId: "table-id-here"
+  dataTableRowId: "row-id-here"
+```
 
 ### Silent Input
 For certain platforms (phone, webchat, and Watson), you may want to test scenarios where no input is sent to the system. This is useful for testing reprompts, timeout handling, or any situation where the bot should respond without receiving user input. To do this:
@@ -175,4 +264,3 @@ The "Advanced settings" window, which you can access by clicking on "Show advanc
 | Lenient Mode | Removes common punctuation signs and extra white spaces from the transcript. | false |
 
 Additionally, each platform has its own set of unique properties that will be explained in the [platform-specific guides](/guides/) section of these docs.
-
