@@ -98,4 +98,4 @@ Unlike rows, any structural changes to the datatable (adding or removing columns
 
 ## Using Data Tables in Test Suites
 
-Once you have created your data tables, you can use them in your test suites to create dynamic, data-driven tests. For detailed instructions on how to select data tables and use data variables in your tests, please refer to the [Test Page documentation](test-page.md#test-data).
+Once you have created your data tables, you can use them in your test suites to create dynamic, data-driven tests. For detailed instructions on how to select data tables and use data variables in your tests, please refer to the [Test Page documentation](test-page.md#using-data-variables).
