@@ -76,6 +76,7 @@ function getDashboardSidebar() {
             'dashboard/projects',
             'dashboard/test-suites',
             'dashboard/virtual-devices',
+            'dashboard/data-tables',
             'dashboard/test-page',
             'dashboard/history',
             'dashboard/manage-organization'

@@ -29,6 +29,16 @@ By selecting a project, you'll see all the test suites it contains. Each test su
 
 On this page, you can create, delete, clone, filter, and sort your test suites. For detailed instructions on how to do this, click [here](/dashboard/test-suites).
 
+## Data Tables
+
+Data Tables provide a centralized way to manage test data and variables for your conversational testing workflows. Accessible from the sidebar, this feature allows you to create and maintain reusable datasets that can be referenced across multiple test suites.
+
+![Data Tables page](../assets/images/dashboard/data-tables-page.png)
+
+With Data Tables, you can organize customer account information, test phone numbers, locale-specific data, and any other variables you need for comprehensive testing. Each table is structured with customizable columns and rows, making it easy to manage different test scenarios. You can then reference this data in your test suites using simple variable syntax like `${data.fieldKey}`, enabling dynamic testing without duplicating test scripts.
+
+On this page, you can create, edit, and delete data tables, manage columns and rows. The Excel-like editing experience makes it familiar and efficient to work with your test data. Learn more about Data Tables [here](/dashboard/data-tables).
+
 ## Managing Virtual Devices
 
 Virtual devices are at the core of what Bespoken does. They represent real devices for the platform you are testing, be it a phone, Alexa device, web browser, or more. The Virtual Device Manager page is where you'll find your virtual devices. It's accessible by clicking on the "Virtual Devices" icon on the left sidebar.
