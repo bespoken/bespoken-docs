@@ -78,7 +78,7 @@ Copy the token
 
 ## Use the Service
 
-[Update your testing.json](https://read.bespoken.io/end-to-end/ivr/#configuration) with the created token and your URL.
+[Update your testing.json](/end-to-end/ivr/#configuration) with the created token and your URL.
 
 ```json
 {

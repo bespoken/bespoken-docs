@@ -14,6 +14,31 @@ module.exports = {
         'vuepress-plugin-nprogress',
         'vuepress-plugin-reading-progress',
         'vuepress-plugin-smooth-scroll',
+        {
+            name: 'dynamic-meta',
+            extendPageData($page) {
+                console.info('page: ' + JSON.stringify($page.frontmatter, null, 2))
+                // Ensure $page.path is correct, and manually add base if needed for absolute URLs
+                const baseUrl = 'https://read.bespoken.ai'; // Get site base URL
+                // $page.frontmatter.head = $page.frontmatter.head || [];
+                
+                // Add Canonical URL
+                // $page.frontmatter.head.push([
+                // 'link',
+                // { rel: 'canonical', href: `${baseUrl}${$page.path}` }
+                // ]);
+                let canonicalUrl = baseUrl + $page.frontmatter.permalink
+                if (!canonicalUrl.endsWith('/')) {
+                    canonicalUrl = canonicalUrl + '/'
+                }
+                $page.frontmatter.canonicalUrl = canonicalUrl
+                
+                // Add Open Graph URL (example)
+                $page.frontmatter.head.push([
+                    'meta', { property: 'og:url', content: canonicalUrl }
+                ]);
+            }
+        }
     ],
     description: "Bespoken AI Documentation",
     head: [

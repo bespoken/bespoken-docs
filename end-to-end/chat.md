@@ -35,7 +35,7 @@ Here's the same chat sequence translated into one of our YAML tests:
 ```
 
 ## Configuration
-We have some parameters that are particular to Chatbot testing. In addition to the [regular e2e configuration](https://read.bespoken.io/end-to-end/guide/#configuration). 
+We have some parameters that are particular to Chatbot testing. In addition to the [regular e2e configuration](/end-to-end/guide/#configuration). 
 
 | Field | Description | Required? |
 |---|---|---|
