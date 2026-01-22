@@ -34,9 +34,9 @@ module.exports = {
                 $page.frontmatter.canonicalUrl = canonicalUrl
                 
                 // Add Open Graph URL (example)
-                $page.frontmatter.head.push([
-                    'meta', { property: 'og:url', content: canonicalUrl }
-                ]);
+                // $page.frontmatter.head.push([
+                //     'meta', { property: 'og:url', content: canonicalUrl }
+                // ]);
             }
         }
     ],
