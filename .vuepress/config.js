@@ -10,7 +10,7 @@ module.exports = {
         ],
         [    
             'sitemap', {
-                exclude: ['/TODO.html'],
+                exclude: ['/404.html', '/blogs/202004_multitest.html', '/TODO.html'],
                 hostname: 'https://read.bespoken.ai'
             }
         ],
