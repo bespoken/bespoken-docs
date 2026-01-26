@@ -1,6 +1,6 @@
 ---
 title: Review Recordings
-permalink: /training/chatbot/functional/recordings
+permalink: /training/chatbot/functional/recordings/
 ---
 # Rewatching Tests
 For chatbot tests, we provide a video recording of every test that is run.

@@ -1,6 +1,6 @@
 ---
 title: Overview
-permalink: /training/ivr/functional/overview
+permalink: /training/ivr/functional/overview/
 ---
 # Training Overview
 <video width="640" height="480" controls >

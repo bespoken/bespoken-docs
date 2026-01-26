@@ -1,6 +1,6 @@
 ---
 title: Organization Management
-permalink: /dashboard/manage-organization
+permalink: /dashboard/manage-organization/
 ---
 
 # Organization Management

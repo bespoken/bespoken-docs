@@ -1,6 +1,6 @@
 ---
 title: Overview
-permalink: /training/chatbot/monitoring/overview
+permalink: /training/chatbot/monitoring/overview/
 ---
 # Monitoring
 <video width="640" height="480" controls >

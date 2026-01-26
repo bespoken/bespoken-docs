@@ -1,6 +1,6 @@
 ---
 title: Subscribe
-permalink: /training/chatbot/functional/subscribe
+permalink: /training/chatbot/functional/subscribe/
 ---
 # Creating A Bespoken Subscription
 There are multiple ways in which you can start testing with Bespoken. Besides using [our main site](#bespoken-site), we have partnerships with many vendors to make it easier for you to create an account and subscribe to our platform when ready, including:

@@ -1,5 +1,5 @@
 ---
 title: IVR Training
-permalink: /training/ivr/overview
+permalink: /training/ivr/overview/
 layout: IVROverview
 ---

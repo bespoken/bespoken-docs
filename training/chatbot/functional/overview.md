@@ -1,6 +1,6 @@
 ---
 title: Overview
-permalink: /training/chatbot/functional/overview
+permalink: /training/chatbot/functional/overview/
 ---
 # Training Overview
 <video width="640" height="480" controls >

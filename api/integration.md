@@ -1,6 +1,6 @@
 ---
 title: Integrations
-permalink: /api/integration
+permalink: /api/integration/
 ---
 
 # Bespoken Integrations

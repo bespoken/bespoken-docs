@@ -1,6 +1,6 @@
 ---
 title: Data Tables
-permalink: /dashboard/data-tables
+permalink: /dashboard/data-tables/
 sidebarDepth: 3
 ---
 

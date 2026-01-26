@@ -1,6 +1,6 @@
 ---
 title: Webchat  
-permalink: /guides/webchat  
+permalink: /guides/webchat/
 sidebarDepth: 3  
 ---
 

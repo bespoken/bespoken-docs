@@ -1,7 +1,7 @@
 ---
 
 title: Alexa and Google Assistant  
-permalink: /guides/alexa-google  
+permalink: /guides/alexa-google/
 sidebarDepth: 3
 
 ---

@@ -1,6 +1,6 @@
 ---
 title: Load Testing
-permalink: /training/ivr/load/overview
+permalink: /training/ivr/load/overview/
 ---
 # Load Testing
 ## Create Functional Tests

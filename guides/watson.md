@@ -1,6 +1,6 @@
 ---
 title: IBM Watson Assistant
-permalink: /guides/watson
+permalink: /guides/watson/
 sidebarDepth: 3
 ---
 

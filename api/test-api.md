@@ -1,6 +1,6 @@
 ---
 title: Test API
-permalink: /api/test-api
+permalink: /api/test-api/
 ---
 
 # Bespoken Test API

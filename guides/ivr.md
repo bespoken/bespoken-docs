@@ -1,6 +1,6 @@
 ---
 title: IVR and IVA
-permalink: /guides/ivr
+permalink: /guides/ivr/
 sidebarDepth: 3
 ---
 

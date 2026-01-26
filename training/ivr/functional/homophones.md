@@ -1,6 +1,6 @@
 ---
 title: Improve Recognition
-permalink: /training/ivr/functional/homophones
+permalink: /training/ivr/functional/homophones/
 ---
 # Use Homophones For Test Accuracy
 <video width="640" height="480" controls >

@@ -1,6 +1,6 @@
 ---
 title: Virtual Devices
-permalink: /dashboard/virtual-devices
+permalink: /dashboard/virtual-devices/
 #sidebarDepth: 3
 ---
 

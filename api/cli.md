@@ -1,6 +1,6 @@
 ---
 title: CLI
-permalink: /api/cli
+permalink: /api/cli/
 ---
 # Getting Started With The Bespoken CLI
 

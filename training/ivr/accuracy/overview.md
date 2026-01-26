@@ -1,6 +1,6 @@
 ---
 title: Overview
-permalink: /training/ivr/accuracy/overview
+permalink: /training/ivr/accuracy/overview/
 ---
 # Accuracy Testing Overview
 ## Getting Started

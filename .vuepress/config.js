@@ -98,13 +98,13 @@ function getDashboardSidebar() {
         collapsable: true,
         children: [
             '/dashboard/',
-            'dashboard/projects',
-            'dashboard/test-suites',
-            'dashboard/virtual-devices',
-            'dashboard/data-tables',
-            'dashboard/test-page',
-            'dashboard/history',
-            'dashboard/manage-organization'
+            '/dashboard/projects/',
+            '/dashboard/test-suites/',
+            '/dashboard/virtual-devices/',
+            '/dashboard/data-tables/',
+            '/dashboard/test-page/',
+            '/dashboard/history/',
+            '/dashboard/manage-organization/'
         ]
     };
 }
@@ -116,11 +116,11 @@ function getGuidesSidebar() {
         collapsable: true,
         children: [
             '/guides/',
-            'guides/alexa-google',
-            'guides/watson',
-            'guides/ivr',
-            'guides/webchat',
-            'guides/whatsapp'
+            'guides/alexa-google/',
+            'guides/watson/',
+            'guides/ivr/',
+            'guides/webchat/',
+            'guides/whatsapp/'
         ]
     };
 }
@@ -164,9 +164,9 @@ function getTrainingSidebar() {
         title: "Training",
         collapsable: true,
         children: [
-            '/training/overview',
-            '/training/ivr/overview',
-            '/training/chatbot/overview'
+            '/training/overview/',
+            '/training/ivr/overview/',
+            '/training/chatbot/overview/'
         ]
     };
 }
@@ -177,9 +177,9 @@ function getAPISidebar() {
         title: "API",
         collapsable: true,
         children: [
-            "/api/overview",
-            "/api/test-api",
-            "/api/integration"
+            "/api/overview/",
+            "/api/test-api/",
+            "/api/integration/"
         ]
     };
 }
@@ -190,11 +190,11 @@ function getUnitTestingSidebar() {
             title: "Unit Testing",
             collapsable: true,
             children: [
-                "getting-started",
-                "guide",
-                "guide-google",
-                "use-cases",
-                "faq",
+                "getting-started/",
+                "guide/",
+                "guide-google/",
+                "use-cases/",
+                "faq/",
             ]
         }
     ];
@@ -205,15 +205,15 @@ function getEndToEndSidebar() {
             title: "Functional Testing",
             collapsable: true,
             children: [
-                "getting-started",
-                "setup",
-                "guide",
-                "ivr",
-                "chat",
-                "watson",
-                "device-api",
-                "test-api",
-                "faq",
+                "getting-started/",
+                "setup/",
+                "guide/",
+                "ivr/",
+                "chat/",
+                "watson/",
+                "device-api/",
+                "test-api/",
+                "faq/",
             ]
         }
     ];

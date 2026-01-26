@@ -1,6 +1,6 @@
 ---
 title: Monitoring Guide
-permalink: /monitoring
+permalink: /monitoring/
 sidebarDepth: 3
 ---
 

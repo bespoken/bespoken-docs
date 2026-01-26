@@ -1,6 +1,6 @@
 ---
 title: Bind Elements
-permalink: /training/chatbot/functional/configure
+permalink: /training/chatbot/functional/configure/
 ---
 # Configure the chatbot for testing
 <video width="640" height="480" controls >

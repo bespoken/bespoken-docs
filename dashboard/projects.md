@@ -1,6 +1,6 @@
 ---
 title: Projects
-permalink: /dashboard/projects
+permalink: /dashboard/projects/
 ---
 
 # Projects

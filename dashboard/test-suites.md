@@ -1,6 +1,6 @@
 ---
 title: Test Suites
-permalink: /dashboard/test-suites
+permalink: /dashboard/test-suites/
 ---
 
 

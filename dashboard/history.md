@@ -1,6 +1,6 @@
 ---
 title: History
-permalink: /dashboard/history
+permalink: /dashboard/history/
 ---
 
 # The History Page

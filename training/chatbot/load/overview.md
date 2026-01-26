@@ -1,6 +1,6 @@
 ---
 title: Load Testing
-permalink: /training/chatbot/load/overview
+permalink: /training/chatbot/load/overview/
 ---
 # Load Testing
 ## Create Functional Tests

@@ -1,6 +1,6 @@
 ---
 title: The Bespoken CLI
-permalink: /guides/cli
+permalink: /guides/cli/
 sidebarDepth: 2
 ---
 

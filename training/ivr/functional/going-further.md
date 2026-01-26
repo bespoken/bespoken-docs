@@ -1,6 +1,6 @@
 ---
 title: Go Further
-permalink: /training/ivr/functional/going-further
+permalink: /training/ivr/functional/going-further/
 ---
 # Going Further
 ## Advanced Topics

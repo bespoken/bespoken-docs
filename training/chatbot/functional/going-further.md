@@ -1,6 +1,6 @@
 ---
 title: Go Further
-permalink: /training/chatbot/functional/going-further
+permalink: /training/chatbot/functional/going-further/
 ---
 # Going Further
 ## Monitoring

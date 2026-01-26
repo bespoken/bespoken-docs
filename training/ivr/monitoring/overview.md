@@ -1,6 +1,6 @@
 ---
 title: Overview
-permalink: /training/ivr/monitoring/overview
+permalink: /training/ivr/monitoring/overview/
 ---
 # Monitoring
 <video width="640" height="480" controls >

@@ -1,6 +1,6 @@
 ---
 title: Test Page
-permalink: /dashboard/test-page
+permalink: /dashboard/test-page/
 sidebarDepth: 3
 ---
 

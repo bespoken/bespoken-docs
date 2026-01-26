@@ -1,5 +1,5 @@
 ---
 title: Chatbot Training
 layout: ChatbotOverview
-permalink: /training/chatbot/overview
+permalink: /training/chatbot/overview/
 ---
