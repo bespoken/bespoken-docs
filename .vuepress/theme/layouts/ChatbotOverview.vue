@@ -7,16 +7,16 @@
           <div class="text-zinc-900 text-2xl pb-5 question">What type of tests are you performing?</div>
           <div class="grid grid-cols-4 space-x-2">
             <button id="functional-button"
-              onclick="javascript:window.location='/training/chatbot/functional/overview'"
+              onclick="javascript:window.location='/training/chatbot/functional/overview/'"
               class="menu-option" 
               @mouseenter="onHover('functional')" >Functional</button>
             <button id="load-button"
-              onclick="javascript:window.location='/training/chatbot/load/overview'"
+              onclick="javascript:window.location='/training/chatbot/load/overview/'"
               class="menu-option" 
               @mouseenter="onHover('load')">Load</button>
             <button id="monitoring-button"
               class="menu-option" 
-              onclick="javascript:window.location='/training/chatbot/monitoring/overview'"
+              onclick="javascript:window.location='/training/chatbot/monitoring/overview/'"
               @mouseenter="onHover('monitoring')" >Monitoring
             </button>
           </div>

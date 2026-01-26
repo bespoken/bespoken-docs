@@ -8,19 +8,19 @@
           <div class="grid grid-cols-4 space-x-2">
             <button id="accuracy-button"
               class="menu-option" 
-              onclick="javascript:window.location='/training/ivr/accuracy/overview'"
+              onclick="javascript:window.location='/training/ivr/accuracy/overview/'"
               @mouseenter="onHover('accuracy')" >Accuracy</button>
             <button id="functional-button"
-              onclick="javascript:window.location='/training/ivr/functional/overview'"
+              onclick="javascript:window.location='/training/ivr/functional/overview/'"
               class="menu-option" 
               @mouseenter="onHover('functional')" >Functional</button>
             <button id="load-button"
-              onclick="javascript:window.location='/training/ivr/load/overview'"
+              onclick="javascript:window.location='/training/ivr/load/overview/'"
               class="menu-option" 
               @mouseenter="onHover('load')">Load</button>
             <button id="monitoring-button"
               class="menu-option" 
-              onclick="javascript:window.location='/training/ivr/monitoring/overview'"
+              onclick="javascript:window.location='/training/ivr/monitoring/overview/'"
               @mouseenter="onHover('monitoring')" >Monitoring
             </button>
           </div>

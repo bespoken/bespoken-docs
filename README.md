@@ -30,7 +30,7 @@ features:
   link: faq/
 - title: Training
   details: A more pragmatic approach to start with Bespoken. Follow along the steps to get your first test configured.
-  link: training/overview
+  link: training/overview/
 # - title: Troubleshooting
 #   details: Not available yet. Come back soon to learn more about this topic.
 #   link: dashboard/

@@ -65,9 +65,9 @@ export function resolvePage (pages, rawPath, base) {
     rawPath = resolvePath(rawPath, base)
   }
   const path = normalize(rawPath)
-  console.info('normalisted path: ' + path)
+  // console.info('normalisted path: ' + path)
   for (let i = 0; i < pages.length; i++) {
-    console.info('regular path: ' + JSON.stringify(pages[i], null, 2))
+    // console.info('regular path: ' + JSON.stringify(pages[i], null, 2))
     if (normalize(pages[i].regularPath) === path || normalize(pages[i].frontmatter.permalink) === path) {
       return Object.assign({}, pages[i], {
         type: 'page',

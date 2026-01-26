@@ -8,14 +8,14 @@
           <div class="grid grid-cols-4 space-x-2">
             <button id="ivr-button"
               class="menu-option" 
-              onclick="javascript:window.location='/training/ivr/overview'"
+              onclick="javascript:window.location='/training/ivr/overview/'"
               @mouseenter="onHover('ivr')" >IVR</button>
             <button id="chatbot-button"
-              onclick="javascript:window.location='/training/chatbot/overview'"
+              onclick="javascript:window.location='/training/chatbot/overview/'"
               class="menu-option"
               @mouseenter="onHover('chatbot')">Chatbot</button>
             <button id="assistant-button"
-              onclick="javascript:window.location='/end-to-end/getting-started'"
+              onclick="javascript:window.location='/end-to-end/getting-started/'"
               class="menu-option"
               @mouseenter="onHover('assistant')">Virtual Assistant</button>
             <button id="other-button"

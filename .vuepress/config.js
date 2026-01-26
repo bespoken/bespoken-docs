@@ -8,6 +8,12 @@ module.exports = {
                 gtag: 'G-WVSYLZ119Q'
             },
         ],
+        [    
+            'sitemap', {
+                exclude: ['/TODO.html'],
+                hostname: 'https://read.bespkoken.ai'
+            }
+        ],
         '@vuepress/back-to-top',
         '@vuepress/last-updated',
         '@vuepress/medium-zoom',
@@ -160,7 +166,7 @@ function getCLISidebar() {
 
 function getTrainingSidebar() {
     return {
-        path: "/training/overview",
+        path: "/training/overview/",
         title: "Training",
         collapsable: true,
         children: [
@@ -177,7 +183,6 @@ function getAPISidebar() {
         title: "API",
         collapsable: true,
         children: [
-            "/api/overview/",
             "/api/test-api/",
             "/api/integration/"
         ]
