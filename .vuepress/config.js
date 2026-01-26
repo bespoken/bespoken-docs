@@ -11,7 +11,7 @@ module.exports = {
         [    
             'sitemap', {
                 exclude: ['/TODO.html'],
-                hostname: 'https://read.bespkoken.ai'
+                hostname: 'https://read.bespoken.ai'
             }
         ],
         '@vuepress/back-to-top',
