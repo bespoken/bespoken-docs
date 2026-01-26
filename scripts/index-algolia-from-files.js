@@ -39,8 +39,7 @@ function getCategoryFromPath(filePath) {
     if (relativePath.includes('ivr')) return 'Training - IVR';
     return 'Training';
   }
-  if (relativePath.startsWith('end-to-end/')) return 'End-to-end Testing';
-  // CLI & Proxy is no longer public, excluded from indexing
+  // CLI & Proxy and End-to-end Testing are no longer public, excluded from indexing
   
   return 'Documentation';
 }
@@ -166,8 +165,8 @@ function getAllMarkdownFiles(dir, fileList = []) {
     const stat = fs.statSync(filePath);
     const relativePath = path.relative(process.cwd(), filePath);
     
-    // Exclude CLI & Proxy (no longer public)
-    if (relativePath.startsWith('cli/')) {
+    // Exclude CLI & Proxy and End-to-end Testing (no longer public)
+    if (relativePath.startsWith('cli/') || relativePath.startsWith('end-to-end/')) {
       return; // Skip this file/directory
     }
     
@@ -217,9 +216,9 @@ async function main() {
     
     for (const filePath of mdFiles) {
       try {
-        // Skip CLI & Proxy files (no longer public)
+        // Skip CLI & Proxy and End-to-end Testing files (no longer public)
         const relativePath = path.relative(process.cwd(), filePath);
-        if (relativePath.startsWith('cli/')) {
+        if (relativePath.startsWith('cli/') || relativePath.startsWith('end-to-end/')) {
           console.log(`⏭️  Skipping (not public): ${relativePath}`);
           continue;
         }
