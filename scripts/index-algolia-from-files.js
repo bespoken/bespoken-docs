@@ -17,12 +17,27 @@ const API_KEY = process.env.ALGOLIA_API_KEY;
 const INDEX_NAME = process.env.ALGOLIA_INDEX_NAME || 'bespoken';
 const BASE_URL = 'https://read.bespoken.ai';
 
+// Paths to exclude from indexing (not publicly available)
+const EXCLUDED_PATHS = [
+  'cli/',
+  'end-to-end/',
+  'releases/',
+  'api/cli/',
+  'blogs/',
+  'google-marketplace/'
+];
+
 if (!APP_ID || !API_KEY) {
   console.error('❌ Error: Missing required environment variables');
   console.error('   Create a .env file with:');
   console.error('   ALGOLIA_APP_ID=your_application_id');
   console.error('   ALGOLIA_API_KEY=your_write_api_key');
   process.exit(1);
+}
+
+// Check if a path should be excluded from indexing
+function shouldExcludePath(relativePath) {
+  return EXCLUDED_PATHS.some(excludedPath => relativePath.startsWith(excludedPath));
 }
 
 // Map folder structure to categories
@@ -39,7 +54,6 @@ function getCategoryFromPath(filePath) {
     if (relativePath.includes('ivr')) return 'Training - IVR';
     return 'Training';
   }
-  // CLI & Proxy and End-to-end Testing are no longer public, excluded from indexing
   
   return 'Documentation';
 }
@@ -165,8 +179,8 @@ function getAllMarkdownFiles(dir, fileList = []) {
     const stat = fs.statSync(filePath);
     const relativePath = path.relative(process.cwd(), filePath);
     
-    // Exclude CLI & Proxy and End-to-end Testing (no longer public)
-    if (relativePath.startsWith('cli/') || relativePath.startsWith('end-to-end/')) {
+    // Skip excluded paths (not publicly available)
+    if (shouldExcludePath(relativePath)) {
       return; // Skip this file/directory
     }
     
@@ -216,9 +230,9 @@ async function main() {
     
     for (const filePath of mdFiles) {
       try {
-        // Skip CLI & Proxy and End-to-end Testing files (no longer public)
+        // Skip excluded paths (not publicly available)
         const relativePath = path.relative(process.cwd(), filePath);
-        if (relativePath.startsWith('cli/') || relativePath.startsWith('end-to-end/')) {
+        if (shouldExcludePath(relativePath)) {
           console.log(`⏭️  Skipping (not public): ${relativePath}`);
           continue;
         }
