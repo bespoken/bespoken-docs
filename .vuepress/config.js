@@ -26,7 +26,10 @@ module.exports = {
                 console.info('page: ' + JSON.stringify($page.frontmatter, null, 2))
                 // Ensure $page.path is correct, and manually add base if needed for absolute URLs
                 const baseUrl = 'https://read.bespoken.ai'; // Get site base URL
-                // $page.frontmatter.head = $page.frontmatter.head || [];
+                // Ensure head array exists
+                if (!$page.frontmatter.head) {
+                    $page.frontmatter.head = [];
+                }
                 
                 // Add Canonical URL
                 // $page.frontmatter.head.push([
@@ -59,9 +62,15 @@ module.exports = {
     },
     themeConfig: {
         algolia: {
-            apiKey: '36d68ce99344a644d0bc7667b5ee4003',
+            appId: '5XB6O51ZDV',
+            apiKey: '8c872ca9452bffd49991dfad5bd486c8',
             indexName: 'bespoken',
-            debug: true
+            debug: true,
+            algoliaOptions: {
+                hitsPerPage: 10,
+                facetFilters: []
+            },
+            searchPlaceholder: 'Search documentation...'
         },
         bespokenUri: "https://bespoken.ai/",
         lastUpdated: true,

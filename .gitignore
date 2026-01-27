@@ -12,3 +12,6 @@ releases/.DS_Store
 
 # Local Netlify folder
 .netlify
+
+# Environment variables
+.env
