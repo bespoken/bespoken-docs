@@ -665,6 +665,72 @@ GET /api/test-run/run-123456?api-key=your-api-key
     ]" 
   />
 
+### Cancelling a Test Run
+
+This endpoint cancels an in-progress test run. If the run is already being cancelled, the response is the same as a newly initiated cancellation.
+
+```
+POST /test-run/{run-id}/cancel
+```
+
+#### Path Parameters
+
+| Name | Located in | Description | Required | Schema |
+|------|------------|-------------|----------|--------|
+| api-key | query | The api-key to authenticate the user and authorize this call | Yes | string |
+| run-id | path | The run ID to cancel | Yes | string |
+
+#### Responses
+
+| Code | Description | Schema |
+|------|-------------|--------|
+| 200 | Cancellation initiated (or already in progress) | `{ success: true, status: "CANCELLING", message: string }` |
+| 400 | Missing run ID in path | Plain text error message |
+| 401 | Unauthenticated | — |
+| 404 | Test run not found | `{ success: false, status: "NOT_FOUND", message: string }` |
+| 409 | Test run is no longer active | `{ success: false, status: string, message: string }` |
+
+#### Example Request
+
+```
+POST /api/test-run/run-123456/cancel?api-key=your-api-key
+```
+
+#### Example Response
+
+```json
+{
+  "success": true,
+  "status": "CANCELLING",
+  "message": "Test run run-123456 is being cancelled"
+}
+```
+
+#### Notes
+- Both a newly initiated cancellation and an already-in-progress cancellation return `200` with `success: true` — they are intentionally indistinguishable to the caller.
+- If the run has already finished (`COMPLETE`, `CANCELLED`, or `ERROR`), a `409` is returned with the current status.
+- Poll the [Retrieving Test Run Results](#retrieving-test-run-results) endpoint to confirm when the run reaches `CANCELLED` status.
+
+#### Try it
+<VuepressApiPlayground 
+    url="https://api.bespoken.ai/api/test-run/{run-id}/cancel"
+    method="post" 
+    :showMethod="true"
+    :showURL="true"
+    :data="[
+      {
+        name: 'run-id',
+        value: 'run-12345',
+        type: 'string',
+      },
+      {
+        name: 'api-key',
+        value: 'api-aBcDeFgHiJKlMnOpQrS',
+        type: 'string',
+      },
+    ]" 
+  />
+
 ## YAML Format Requirements
 
 Bespoken test suites are defined using a specific YAML format. However, when sending YAML content through the API, it must be properly formatted as a JSON string with escaped characters.

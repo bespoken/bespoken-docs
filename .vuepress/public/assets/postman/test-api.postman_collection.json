@@ -372,6 +372,47 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "cancel test run",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.bespoken.ai/api/test-run/{{test-run-id}}/cancel?api-key={{api-key}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bespoken",
+								"ai"
+							],
+							"path": [
+								"api",
+								"test-run",
+								"{{test-run-id}}",
+								"cancel"
+							],
+							"query": [
+								{
+									"key": "api-key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"description": "These endpoints allow you to execute test suites and retrieve execution results."
