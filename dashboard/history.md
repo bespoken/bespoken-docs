@@ -17,9 +17,16 @@ The History page is where you'll find all the historic results for your test run
 1. Test runs by platform: Chart that shows the percentage of tests executed across different platforms available.
 1. Test runs by client: Chart that shows the percentage of tests executed across different Bespoken clients.
 
-All data can be filtered by Test Suite Name, Platform, Client, Result, and Dates by changing these values on the "Filters" button at the top of the page. Additionally, you can export your results by clicking on the "Export" button in the top right corner of the page.
+All data can be filtered by Project, Test Suite Name, Platform, Client, Result, and Dates by changing these values on the "Filters" button at the top of the page. Filters are reflected in the URL, so you can bookmark or share a pre-filtered view directly.
 
-<!-- TODO: Add export format sections -->
+## Exporting Results
+
+Click the **Export** button in the top-right corner to download your data. There are two export types:
+
+- **Test Runs** — exports the paginated table data. Available in CSV, Excel, and PDF formats.
+- **Latest Test Status** — exports a snapshot of the most recent result for each test. Available in CSV and Excel formats.
+
+![Export types and formats](../assets/images/dashboard/history-exports.png)
 
 ## Test Run Results and Details
 The test run results table at the bottom of the screen is where you'll find detailed information about each run with Bespoken. It comprises the following columns:
@@ -34,12 +41,36 @@ The test run results table at the bottom of the screen is where you'll find deta
 
 Clicking on any of the rows within the table will open a detailed view of said run with the following sections:
 
-- Test suite execution data (date and time of execution, result, success rate)
-- Test suite configuration data
-- Detailed results for all test cases executed
+- **Header** — test suite name, status badge, date/time, duration, and a link to the parent project (if assigned).
+- **Environment** — a collapsible card showing the full execution environment: platform, phone number or URL, locale, voice ID, virtual device, and fuzzy threshold. Extra fields are hidden behind a "Show more" toggle when there are many.
 
-The detailed results will show you all the steps executed per test including utterances, expected results, and actual results. Steps that were failed steps will be highlighted in red.
+![Test run environment](../assets/images/dashboard/history-environment.png)
+
+- **Test result filtering** — results can be filtered by outcome (all, active, passed, failed, etc.) to focus on specific tests in large suites.
+- **Detailed results** — all steps executed per test including utterances, expected results, and actual results. Failed steps are highlighted in red.
+- **Export** — an export button on the detail page lets you download results for that individual run.
 
 Finally, for each executed IVR and Webchat tests, recorded evidence is available to view, listen, and download.
 
-<!-- TODO: Add export section -->
+
+## Admin Actions
+
+Users with the **admin** or **owner** role have access to additional actions from the shield icon button in the top-right corner of the test run detail page.
+
+![Admin actions](../assets/images/dashboard/history-override.png)
+
+### Deleting a Test Run
+
+Select **Delete Test Run** from the admin menu. A confirmation dialog will appear before the deletion is carried out. After deletion you are redirected back to the History page.
+
+### Overriding Test Run Status
+
+Select **Override Status** (or **Edit Override** if one already exists) to manually force the test run status to PASSED or FAILED. A reason is required. Overridden runs are marked with a small asterisk (`*`) next to the status badge, and a banner below the header shows who set the override, when, and the stated reason.
+
+![Override banner](../assets/images/dashboard/history-override-banner.png)
+
+To revert to the status determined by actual results, select **Clear Override** from the same admin menu.
+
+### Overriding Individual Test Results
+
+Within the test results list, each test row also supports per-result status overrides. Admins can set any test result to PASSED or FAILED with a reason. Overridden results are marked with an asterisk and can be cleared individually.
