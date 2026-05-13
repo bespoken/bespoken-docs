@@ -118,6 +118,7 @@ function getDashboardSidebar() {
             '/dashboard/virtual-devices/',
             '/dashboard/data-tables/',
             '/dashboard/test-page/',
+            '/dashboard/monitoring/',
             '/dashboard/history/',
             '/dashboard/manage-organization/'
         ]
@@ -147,6 +148,7 @@ function getMonitoringSidebar() {
         collapsable: true,
         children: [
             '/monitoring/',
+            '/monitoring/exclusion-windows/',
         ]
     };
 }

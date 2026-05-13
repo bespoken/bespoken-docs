@@ -293,9 +293,9 @@ Compact mode reduces spacing, font sizes, and padding throughout the editor. On 
 
 ### Monitoring
 
-![Advanced settings](../assets/images/dashboard/test-page-monitoring.gif)
+You can enable Monitoring for your test suite by toggling **Enable Monitoring** in the configuration panel. Monitoring automatically runs your tests on a defined schedule and sends notifications when failures are detected.
 
-You can enable Monitoring for your test suite by clicking on the Enable Monitoring toggle on the configuration panel. You can read more about how monitoring can help you ensure that your system remains stable by clicking [here](/monitoring/).
+For full details on configuring schedules, retries, notifications, and exclusion windows, see the [Monitoring documentation](/dashboard/monitoring/).
 
 ### Advanced Settings
 
