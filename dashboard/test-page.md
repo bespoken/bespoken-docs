@@ -107,6 +107,8 @@ Where `prompt` is the property that returns the main response content from the p
 
 You can also use data variables in expected values — see [Working with Test Data](#working-with-test-data) for details.
 
+If the wording of a response changes from run to run, you can have an AI model judge the response against a criterion you describe instead of matching exact text — see [LLM Evaluations](#llm-evaluations).
+
 <!-- Other available operators are:
 - != Not equal to
 - \> Greater than
@@ -260,6 +262,115 @@ When using data tables, you'll see the data table and row configuration in the s
 ```
 
 When no `settings` block is present, the test uses the globally selected row defined in the suite's configuration.
+
+## LLM Evaluations
+
+LLM Evaluations let an AI model judge whether a response *means* what you expect, instead of checking for exact words. Rather than writing a property, an operator, and a value, you describe the expected behavior in plain English — for example, "The bot offers to update the doctor directly" — and the model decides whether it passed or failed, along with a one-sentence reason.
+
+This is especially useful when:
+- Your bot's wording varies between runs, as with generative or LLM-based bots, where exact-text matching is brittle.
+- You want to check that something did **not** happen, e.g., "The bot does not ask for the full SSN."
+- You want to judge qualities of the whole conversation, e.g., "The caller was never asked to repeat the same information twice."
+
+LLM Evaluations come in two forms:
+
+1. **LLM Evaluation** (step level): a criterion checked against the response of a single test step.
+2. **LLM Call Evaluation** (test level): a list of criteria checked against the full transcript once the test ends.
+
+::: tip Important
+LLM Evaluations are turned off by default and must be enabled for your organization by an owner or admin. See [AI Features](/dashboard/manage-organization/#ai-features) for details on how to enable them and what data is sent to the AI provider.
+:::
+
+### Step-Level LLM Evaluation
+
+To add an LLM Evaluation to a test step:
+
+1. Select a test and go to the step you want to evaluate.
+2. In the **Expected** column, open the property dropdown and choose **LLM Evaluation** (marked with a ✨ icon).
+3. The operator dropdown disappears, since LLM Evaluations don't use one. Type your criterion in the value field.
+4. Run your test as usual.
+
+![LLM Evaluation](../assets/images/dashboard/test-page-llm-assertion.png)
+
+
+LLM Evaluations are available for all platforms, and can also be used inside Shared Steps.
+
+If a step has more than one LLM Evaluation, **all** of them must pass for the step to pass. Note that this is the opposite of `prompt` assertions, where matching any one of the values is enough.
+
+When the step runs, the model receives your criterion along with the conversation so far — the utterances your test sent and the bot's transcribed responses, up to the last 20 turns and 12,000 characters. In the results, the **Actual** column shows the model's reason, highlighted in green or red depending on the outcome.
+
+![LLM Evaluation result](../assets/images/dashboard/test-page-llm-results.png)
+
+::: warning Note
+When a step only has LLM Evaluations — no expected prompt text, finish phrase, or listening timeout — Bespoken can't use the expected text to tell when the bot has finished responding. In that case, it stops listening after 2 seconds of silence. If your bot pauses mid-response, add a finish phrase or a listening timeout to that step.
+:::
+
+### LLM Call Evaluation
+
+An LLM Call Evaluation reviews the whole conversation after the test ends. Each criterion is judged separately against the full transcript.
+
+To set it up:
+
+1. Select a test and scroll to the **Post Processing** section at the bottom of the Test Editor. Switch it **On**.
+2. Expand the **LLM Call Evaluation** subsection.
+3. Click **+ Add criterion** and write one criterion per row. To remove a criterion, hover over its row and click the trash icon.
+4. Run your test as usual.
+
+Once the test finishes, each criterion shows a **PASS** or **FAIL** badge with the model's reason below it. A test only passes when all of its steps **and** all of its post-processing checks pass, including the LLM Call Evaluation.
+
+![LLM Call Evaluation result](../assets/images/dashboard/test-page-llm-call-results.png)
+
+
+::: tip
+The model only sees the transcript, so it can't judge audio quality, tone of voice, or anything that wasn't actually said. On phone tests, transcription errors can also affect the judgment.
+:::
+
+### Writing Good Criteria
+
+Because the result is an AI judgment, borderline criteria can produce different results across runs. To keep your tests reliable:
+
+- Make each criterion specific and checkable: "The bot confirms the appointment date and asks if there's anything else" works better than "The bot is helpful."
+- Check one thing per criterion. For call evaluations, add separate rows instead of combining several conditions into one sentence.
+- Only describe what can be seen in the conversation text.
+
+Some examples:
+- "The bot confirms the appointment date and asks if there's anything else."
+- "The bot does not ask for the full SSN."
+- "The menu was only played once."
+- "The agent offered a callback before transferring."
+
+### In YAML
+
+A step-level LLM Evaluation uses the `llm` property. Only the `:` operator is supported:
+
+```yaml
+---
+- test: Reschedule Appointment
+- I need to reschedule my appointment:
+  - llm: The bot offers to update the doctor directly
+```
+
+You can combine it with other assertions on the same step:
+
+```yaml
+- I need to reschedule my appointment:
+  - prompt: reschedule
+  - llm: The bot offers to update the doctor directly
+```
+
+An LLM Call Evaluation is defined in a `hook` block at the end of the test, under `after_test`:
+
+```yaml
+---
+- test: Reschedule Appointment
+- $DIAL: Welcome to our service
+- I need to reschedule my appointment: reschedule
+- hook:
+    after_test:
+      llm:
+        - The menu was only played once
+        - The caller was never asked to repeat the same information twice
+```
 
 ## Other Options
 
