@@ -88,6 +88,7 @@ module.exports = {
             getDashboardSidebar(),
             getGuidesSidebar(),
             getMonitoringSidebar(),
+            getExploratoryTestingSidebar(),
             //getCLISidebar(),
             getAPISidebar(),
             getFAQSidebar(),
@@ -119,6 +120,7 @@ function getDashboardSidebar() {
             '/dashboard/data-tables/',
             '/dashboard/test-page/',
             '/dashboard/monitoring/',
+            '/dashboard/exploratory-testing/',
             '/dashboard/history/',
             '/dashboard/manage-organization/'
         ]
@@ -149,6 +151,17 @@ function getMonitoringSidebar() {
         children: [
             '/monitoring/',
             '/monitoring/exclusion-windows/',
+        ]
+    };
+}
+
+function getExploratoryTestingSidebar() {
+    return {
+        path: "/exploratory-testing/",
+        title: "Exploratory Testing",
+        collapsable: true,
+        children: [
+            '/exploratory-testing/',
         ]
     };
 }
