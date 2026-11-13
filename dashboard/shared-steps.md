@@ -17,7 +17,7 @@ Shared Steps belong to your organization. All members of your organization can u
 :::
 
 ::: tip Not seeing Shared Steps?
-If **Shared Steps** doesn't appear in your sidebar, it isn't enabled for your account yet. Contact us at [support@bespoken.ai](mailto:support@bespoken.ai) to turn it on.
+If you don't see **Shared Steps** in your sidebar, the feature isn't enabled for your account yet. Contact us at [support@bespoken.ai](mailto:support@bespoken.ai) to turn it on.
 :::
 
 ## Accessing Shared Steps
@@ -38,7 +38,7 @@ To create a new Shared Step:
 
 ![Creating a Shared Step](../assets/images/dashboard/shared-steps-create.png)
 
-Once created, the Shared Step editor opens so you can add its steps and variables.
+Once the Shared Step is created, the editor opens so you can add its steps and variables.
 
 ::: tip Note
 Shared Step names must be unique within your organization.
@@ -84,9 +84,9 @@ Steps are added and edited the same way as in a test. Each step has an input and
 - Add a step with **Add Step**, or insert one between existing steps.
 - Remove a step. You can undo it right away from the notification.
 - Reorder steps by dragging them.
-- Use **Skip input** on phone, webchat, and Watson Shared Steps, to send no input on that step (see [Silent Input](/dashboard/test-page/#silent-input)).
+- Use **Skip input** on phone, webchat, and Watson Shared Steps to send no input on that step (see [Silent Input](/dashboard/test-page/#silent-input)).
 
-Before saving, the editor checks your steps with the same rules as the Test Editor and marks any step with errors.
+Before you save, the editor checks your steps with the same rules as the Test Editor and marks any step with errors.
 
 #### Starting a Call ($DIAL)
 
@@ -118,6 +118,9 @@ Inside a Shared Step, you can only use the Shared Step's own variables. To use a
 
 1. Open a test in the Test Editor.
 2. Click the arrow next to the **Add Step** button and select **Add Shared Step**.
+
+   ![Add Shared Step option](../assets/images/dashboard/shared-steps-add-menu.png)
+
 3. Search for the Shared Step by name and select it.
 4. If the Shared Step has required variables, enter their values and click **Add Shared Step**.
 
@@ -193,14 +196,15 @@ In a test suite's YAML, a Shared Step is a `shared_step` entry with its ID, name
 
 ```yaml
 ---
-- test: Check weather
-- shared_step:
-    id: "<shared step id>"
-    name: "Log In"
-    variables:
-      pin: "1234"
-      city: "${data.city}"
-- what is the forecast for tomorrow: tomorrow
+- test : Check weather
+- shared_step :
+    id : "<shared step id>"
+    name : "Log In"
+    variables :
+      pin : "1234"
+      city : "${data.city}"
+- what is the forecast for tomorrow :
+  - prompt : "tomorrow"
 ```
 
 You can copy the ID from the Shared Step editor. Variables that are left out use their default value. The `name` is updated automatically when you save the test suite.
