@@ -130,6 +130,10 @@ You can add more test steps (also known as interactions) to your test case by cl
 
 Note that the plus sign will "insert" a new step below the current one, while the "Add step" button will always add an interaction at the end. Similarly, if you want to remove a step, you can click on the "x" icon to its right.
 
+#### Shared Steps
+
+If the same steps repeat across many tests, such as dialing in and logging in, you can save them once as a Shared Step and add them to any test. Click the arrow next to the "Add step" button and select **Add Shared Step**. Learn more about it [here](/dashboard/shared-steps).
+
 ## Running Your Tests
 
 Once you have configured and created all the steps for your test case, simply click on the "Run" button, and Bespoken will start running your tests. Responses will start populating the "Actual" column one by one as the test progresses. Be aware, if you leave the page at this moment, you won't be able to see your test results.
