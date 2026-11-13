@@ -16,6 +16,9 @@ features:
 - title: Monitoring
   details: Monitor your conversational AI applications 24/7 with ease.
   link: monitoring/
+- title: Exploratory Testing
+  details: Call your IVR from the browser and map its menus into a graph you can turn into tests.
+  link: exploratory-testing/
 # - title: Load Testing
 #   details: Not available yet. Come back soon to learn more about this topic.
 #   link: dashboard/
