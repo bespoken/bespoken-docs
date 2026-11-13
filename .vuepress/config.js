@@ -117,6 +117,7 @@ function getDashboardSidebar() {
             '/dashboard/test-suites/',
             '/dashboard/virtual-devices/',
             '/dashboard/data-tables/',
+            '/dashboard/shared-steps/',
             '/dashboard/test-page/',
             '/dashboard/monitoring/',
             '/dashboard/history/',
