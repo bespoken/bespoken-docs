@@ -39,6 +39,14 @@ With Data Tables, you can organize customer account information, test phone numb
 
 On this page, you can create, edit, and delete data tables, manage columns and rows. The Excel-like editing experience makes it familiar and efficient to work with your test data. Learn more about Data Tables [here](/dashboard/data-tables).
 
+## Shared Steps
+
+Shared Steps let you save a group of steps once and reuse it in any test, such as dialing in and logging in, or going through a main menu. You can find them in the sidebar. Each Shared Step can have its own variables, so every test can pass its own values. When you edit a Shared Step, every test that uses it picks up the change.
+
+![Shared Steps page](../assets/images/dashboard/shared-steps-page.png)
+
+On this page, you can create, edit, and delete Shared Steps, and see which test suites use them. Learn more about Shared Steps [here](/dashboard/shared-steps).
+
 ## Managing Virtual Devices
 
 Virtual devices are at the core of what Bespoken does. They represent real devices for the platform you are testing, be it a phone, Alexa device, web browser, or more. The Virtual Device Manager page is where you'll find your virtual devices. It's accessible by clicking on the "Virtual Devices" icon on the left sidebar.
