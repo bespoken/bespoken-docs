@@ -16,15 +16,9 @@ When you edit a Shared Step, every test that uses it picks up the change on its 
 Shared Steps belong to your organization. All members of your organization can use the same Shared Steps in any project and test suite.
 :::
 
-::: tip Not seeing Shared Steps?
-If you don't see **Shared Steps** in your sidebar, the feature isn't enabled for your account yet. Contact us at [support@bespoken.ai](mailto:support@bespoken.ai) to turn it on.
-:::
-
 ## Accessing Shared Steps
 
 Shared Steps can be accessed from the **Resources** group in the sidebar, next to Virtual Devices and Data Tables.
-
-![Shared Steps navigation](../assets/images/dashboard/shared-steps-navigation.png)
 
 ## Creating a Shared Step
 
@@ -36,7 +30,7 @@ To create a new Shared Step:
 4. Optionally, select a **platform**. Choose "Any platform" if the steps work for any kind of test.
 5. Click **"Save"**.
 
-![Creating a Shared Step](../assets/images/dashboard/shared-steps-create.png)
+<img :src="require('../assets/images/dashboard/shared-steps-create.png')" alt="Creating a Shared Step" width="400"/>
 
 Once the Shared Step is created, the editor opens so you can add its steps and variables.
 
@@ -58,7 +52,7 @@ The Shared Steps page lists all the Shared Steps in your organization. For each 
 A Shared Step that is used by a test suite can't be deleted. The delete window lists the test suites that still use it. Remove the Shared Step from those suites first, then delete it. Deleting a Shared Step is permanent.
 :::
 
-![Delete blocked](../assets/images/dashboard/shared-steps-delete-blocked.png)
+<img :src="require('../assets/images/dashboard/shared-steps-delete-blocked.png')" alt="Delete blocked" width="475"/>
 
 ## Editing a Shared Step
 
@@ -74,7 +68,7 @@ At the top of the page you can:
 - **Save** your changes.
 
 ::: warning Note
-Changes are not saved automatically. Click **Save** when you are done. If you try to leave the page with unsaved changes, the dashboard asks you to confirm.
+Changes are not saved automatically. Click **Save** when you are done to avoid losing your changes.
 :::
 
 ### Steps
@@ -102,7 +96,7 @@ To add a variable, click **Add Variable** in the Variables panel and fill in:
 - **Default value** (optional): The value used when a test doesn't set one. A variable without a default value is **required**, so every test that uses the Shared Step must set it.
 - **Description** (optional): What the variable is for.
 
-![Variables panel](../assets/images/dashboard/shared-steps-variables.png)
+<img :src="require('../assets/images/dashboard/shared-steps-variables.png')" alt="Variables panel" width="320"/>
 
 To use a variable in a step, type `${var.<key>}` in the input or in an expected value, or use the **Insert Variable** button. For example:
 
@@ -119,14 +113,14 @@ Inside a Shared Step, you can only use the Shared Step's own variables. To use a
 1. Open a test in the Test Editor.
 2. Click the arrow next to the **Add Step** button and select **Add Shared Step**.
 
-   ![Add Shared Step option](../assets/images/dashboard/shared-steps-add-menu.png)
+   <img :src="require('../assets/images/dashboard/shared-steps-add-menu.png')" alt="Add Shared Step option" width="305"/>
 
 3. Search for the Shared Step by name and select it.
 4. If the Shared Step has required variables, enter their values and click **Add Shared Step**.
 
-![Selecting a Shared Step](../assets/images/dashboard/shared-steps-picker.png)
+<img :src="require('../assets/images/dashboard/shared-steps-picker.png')" alt="Selecting a Shared Step" width="512"/>
 
-![Setting required variables](../assets/images/dashboard/shared-steps-set-variables.png)
+<img :src="require('../assets/images/dashboard/shared-steps-set-variables.png')" alt="Setting required variables" width="448"/>
 
 The Shared Step is added at the end of the test. You can drag it to any position, like any other step.
 
