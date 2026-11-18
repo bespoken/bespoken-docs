@@ -48,7 +48,7 @@ Each row has these actions:
 5. Choose the **Project** the test belongs to
 6. Click **Create**
 
-All fields are required. Once created, you'll be taken straight to the test's workspace.
+All fields are required. Once the test is created, you’ll be taken straight to its workspace. 
 
 <img src="../assets/images/exploratory-testing/new-test.png" alt="New exploratory test dialog" style="width:50%;" />
 
@@ -86,7 +86,7 @@ Click **Save changes** to apply.
 
 ### Reading the Graph
 
-Every prompt the IVR plays becomes a node. The graph starts at **Call start** and grows to the right (or downwards, if you switch to the vertical layout with the button next to the zoom controls).
+Every prompt the IVR plays becomes a node. The graph starts at **Call start** and grows to the right (or downward, if you switch to the vertical layout with the button next to the zoom controls).
 
 Each node shows:
 
@@ -95,7 +95,7 @@ Each node shows:
 - **Intents** detected in the prompt, if any
 - **Options** found in the prompt: the keys or phrases that lead somewhere else
 
-Options you've already followed are grey. Options never followed have a dashed outline and are marked **unexplored**. A transfer icon marks nodes where the call was transferred out of the IVR.
+Options you've already followed are gray. Options never followed have a dashed outline and are marked **unexplored**. A transfer icon marks nodes where the call was transferred out of the IVR.
 
 Use the zoom controls and the minimap to move around large graphs.
 
@@ -117,14 +117,14 @@ The call panel opens on the right with:
 
 - **Transcript**: what the IVR said, and what you pressed or said
 - **Press**: a dialpad (0–9, `*` and `#`)
-- **Speak**: hold **Hold to talk** to speak through your microphone, or type a phrase in **Or type what to say** and send it.
+- **Speak**: you can talk directly through your microphone by pressing and holding the **Hold to talk**, you can also type a phrase in the **Or type what to say** field and send it.
 
 The dialpad and speech stay disabled until the IVR plays its first prompt, so nothing you send is lost.
 
 Click **Hang up** to end the call. When it ends, the graph refreshes with everything the call reached.
 
 ::: warning Call limits
-A call hangs up after 10 seconds of silence and lasts 10 minutes at most. You can change the silence timeout per node (see [Behaviour](#behaviour)).
+A call hangs up after 10 seconds of silence and lasts 10 minutes at most. You can change the silence timeout per node (see [Behavior](#behavior)).
 :::
 
 ::: warning Utterance Usage
@@ -157,7 +157,7 @@ Lists the ways out of this node. Click **Add** to tell the crawl about an option
 
 You can add an optional description. Click an option to edit it, or use the trash icon to delete it. Deleting an option that was already followed also removes what was found behind it.
 
-### Behaviour
+### Behavior
 
 - **Hang up automatically**: turn it off to keep the call on the line at this node.
 - **End-of-silence timeout**: how many seconds of silence to wait before moving on. Leave it empty to use the default.
